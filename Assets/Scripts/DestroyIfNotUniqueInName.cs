@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class DestroyIfNotUniqueInName : MonoBehaviour
 {
-    [SerializeField] Item[] items;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        var otherUniquesArr = GameObject.FindObjectsOfType<DestroyIfNotUniqueInName>();
     }
 
     // Update is called once per frame
