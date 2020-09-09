@@ -39,9 +39,10 @@ public class Item
             Price = design.Price,
             ItemDesign = design
         };
-
+        
         return newItem;
     }
 
     public static readonly Item Null = new Item();
 }
+

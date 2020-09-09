@@ -9,7 +9,7 @@ this refreshes the display.")]
 [AddComponentMenu("")]
 public class DisplayInventory : Command
 {
-    [SerializeField] ShopInventory inventory = null;
+    [SerializeField] ShopInventoryData inventory;
     [SerializeField] ItemDisplayHub displayPrefab = null;
     [Tooltip("The part of the UI that will hold instances of the display prefab.")]
     [SerializeField] RectTransform displayHolder = null;
@@ -36,7 +36,7 @@ public class DisplayInventory : Command
 
     protected virtual void PopulateContents()
     {
-        foreach (var item in inventory.Items)
+        foreach (var item in inventory.Value.Items)
         {
             var newDisplay = Instantiate(displayPrefab, displayHolder);
             newDisplay.DisplayBase = item;

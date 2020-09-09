@@ -7,15 +7,16 @@ using Fungus;
 [AddComponentMenu("")]
 public class SetInventoryToStageMats : Command
 {
-    [SerializeField] ShopInventory inventory = null;
+    [VariableProperty(typeof(ShopInventoryVariable))]
+    [SerializeField] ShopInventoryVariable inventory = null;
     [VariableProperty("<Value>", typeof(StageVariable))]
-    [SerializeField] StageVariable stageVar = null;
+    [SerializeField] StageVariable stageWithMats = null;
 
     public override void OnEnter()
     {
         base.OnEnter();
 
-        inventory.Items.Clear();
+        inventory.Value.Items.Clear();
         PopulateInventory();
 
         Continue();
@@ -23,12 +24,12 @@ public class SetInventoryToStageMats : Command
 
     protected virtual void PopulateInventory()
     {
-        Stage stage = stageVar.Value;
+        Stage stage = stageWithMats.Value;
 
         foreach (var itemDesign in stage.MatsGatherable)
         {
             var newItem = Item.From(itemDesign);
-            inventory.Items.Add(newItem);
+            inventory.Value.Items.Add(newItem);
         }
     }
 }
