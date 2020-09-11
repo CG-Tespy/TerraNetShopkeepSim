@@ -107,8 +107,6 @@ namespace Fungus
                     break;
             }
 
-            quaternionData.Value = target;
-
             Continue();
         }
 
