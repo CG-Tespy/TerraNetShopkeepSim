@@ -1,29 +1,32 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Fungus;
 
-[CommandInfo("Shopkeep",
+[CommandInfo("Shopkeep/Inventory",
                  "Add Stage Mats to Inventory",
-                 @"Adds a copy of the specified stage's mats to the specified inventory.")]
+                 @"Adds a copy of the specified stages' mats to the specified inventory.")]
 [AddComponentMenu("")]
 public class AddStageMatsToInventory : Command
 {
-    [SerializeField] StageData stage;
+    [SerializeField] StageData[] stages;
 
     [SerializeField] ShopInventoryData inventory;
 
     public override void OnEnter()
     {
         base.OnEnter();
-        var stageMats = stage.Value.MatsGatherable;
-        var inventoryItems = inventory.Value.Items;
 
-        foreach (var mat in stageMats)
-        {
-            inventoryItems.Add(Item.From(mat));
-        }
+        AddTheMats();
 
         Continue();
+    }
+
+    protected virtual void AddTheMats()
+    {
+        var actualInventory = inventory.Value;
+        var items = actualInventory.Items;
+
+        foreach (Stage currentStage in stages)
+            foreach (var mat in currentStage.MatsGatherable)
+                items.Add(mat);
     }
 }

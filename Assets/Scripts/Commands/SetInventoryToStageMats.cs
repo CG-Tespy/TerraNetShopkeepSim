@@ -25,11 +25,11 @@ public class SetInventoryToStageMats : Command
     protected virtual void PopulateInventory()
     {
         Stage stage = stageWithMats.Value;
+        var items = inventory.Value.Items;
 
-        foreach (var itemDesign in stage.MatsGatherable)
+        foreach (var item in stage.MatsGatherable)
         {
-            var newItem = Item.From(itemDesign);
-            inventory.Value.Items.Add(newItem);
+            items.Add(item);
         }
     }
 }

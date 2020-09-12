@@ -4,17 +4,17 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewShopInventory", menuName ="Shopkeep/Inventory")]
 public class ShopInventory : ScriptableObject
 {
-    [SerializeField] private ItemDesign[] startingItems = { };
+    [SerializeField] private Item[] startingItems = { };
 
     public IList<Item> Items { get; } = new List<Item>();
 
     protected virtual void OnEnable()
     {
         Items.Clear();
-        foreach (ItemDesign design in startingItems)
+        foreach (Item item in startingItems)
         {
-            if (design != null)
-                Items.Add(Item.From(design));
+            if (item != null)
+                Items.Add(item);
         }
     }
 }
