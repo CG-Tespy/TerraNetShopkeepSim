@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "NewStage", menuName = "Shopkeep/Stage")]
 public class Stage : ScriptableObject
@@ -7,7 +8,7 @@ public class Stage : ScriptableObject
     [Tooltip("The icon for this stage.")]
     [SerializeField] Sprite sprite = null;
 
-    public Item[] MatsGatherable { get { return matsGatherable; } }
+    public IList<Item> MatsGatherable { get { return matsGatherable; } }
     public Sprite Sprite { get { return sprite; } }
     public string Name { get { return name; } }
 }
