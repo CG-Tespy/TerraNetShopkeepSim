@@ -12,6 +12,7 @@ public class ShopInventory : ScriptableObject
     {
         get { return items; }
     }
+    public string Name { get { return name; } }
 
     protected virtual void OnEnable()
     {
