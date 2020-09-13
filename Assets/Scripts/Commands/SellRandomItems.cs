@@ -1,8 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using Fungus;
 
+/// <summary>
+/// Probably going to deprecate this as we get the real selling
+/// implemented.
+/// </summary>
 
 [CommandInfo("Shopkeep",
                  "Sell Random Items",
