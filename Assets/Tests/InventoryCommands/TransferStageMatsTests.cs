@@ -11,7 +11,7 @@ namespace Tests
         string blockName = "TransferStageMats";
         string stageVarName = "testStage";
         Stage testStage = null;
-        Item[] stageMats = null;
+        IList<Item> stageMats = null;
 
         public override void TestSetup()
         {
@@ -34,13 +34,13 @@ namespace Tests
 
             var countAfter = items.Count;
 
-            var gainedRightAmount = countAfter == countBefore + stageMats.Length;
+            var gainedRightAmount = countAfter == countBefore + stageMats.Count;
             bool gainedRightItems = true;
 
-            for (int i = 0; i < stageMats.Length; i++)
+            for (int i = 0; i < stageMats.Count; i++)
             {
                 var mat = stageMats[i];
-                var itemAdded = items[items.Count + i - stageMats.Length];
+                var itemAdded = items[items.Count + i - stageMats.Count];
                 if (itemAdded != mat)
                 {
                     gainedRightItems = false;
