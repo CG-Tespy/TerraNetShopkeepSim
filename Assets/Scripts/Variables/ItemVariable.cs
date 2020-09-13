@@ -10,44 +10,44 @@ public class ItemVariable : VariableBase<Item>
 }
 
 /// <summary>
-/// Container for an Animator variable reference or constant value.
+/// Container for an ItemDesign variable reference or constant value.
 /// </summary>
 [System.Serializable]
 public struct ItemData
 {
     [SerializeField]
     [VariableProperty("<Value>", typeof(ItemVariable))]
-    public ItemVariable ItemRef;
+    public ItemVariable itemRef;
 
     [SerializeField]
-    public Item ItemVal;
+    public Item itemVal;
 
-    public static implicit operator Item(ItemData ItemData)
+    public static implicit operator Item(ItemData ItemDesignData)
     {
-        return ItemData.Value;
+        return ItemDesignData.Value;
     }
 
     public ItemData(Item v)
     {
-        ItemVal = v;
-        ItemRef = null;
+        itemVal = v;
+        itemRef = null;
     }
 
     public Item Value
     {
-        get { return (ItemRef == null) ? ItemVal : ItemRef.Value; }
-        set { if (ItemRef == null) { ItemVal = value; } else { ItemRef.Value = value; } }
+        get { return (itemRef == null) ? itemVal : itemRef.Value; }
+        set { if (itemRef == null) { itemVal = value; } else { itemRef.Value = value; } }
     }
 
     public string GetDescription()
     {
-        if (ItemRef == null)
+        if (itemRef == null)
         {
-            return ItemVal != null ? ItemVal.ToString() : "Null";
+            return itemVal != null ? itemVal.ToString() : "Null";
         }
         else
         {
-            return ItemRef.Key;
+            return itemRef.Key;
         }
     }
 }

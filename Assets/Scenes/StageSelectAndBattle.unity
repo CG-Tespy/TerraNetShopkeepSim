@@ -748,8 +748,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 258.2647
-    y: 82
+    x: 124.26471
+    y: 182
     width: 234
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -759,7 +759,7 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 449881378}
   commandList:
-  - {fileID: 449881387}
+  - {fileID: 449881391}
   - {fileID: 449881376}
   suppressAllAutoSelections: 0
 --- !u!114 &449881378
@@ -810,10 +810,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e1b3fc21c226dd4bac281022ac14e26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 27
-  indentLevel: 0
-  inventory: {fileID: 735799378}
-  stageWithMats: {fileID: 669604939}
 --- !u!114 &449881381
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -828,8 +824,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 781
-    y: 174
+    x: 729
+    y: 182
     width: 103
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -839,7 +835,8 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 0}
   commandList:
-  - {fileID: 449881380}
+  - {fileID: 449881389}
+  - {fileID: 449881388}
   suppressAllAutoSelections: 0
 --- !u!114 &449881382
 MonoBehaviour:
@@ -853,14 +850,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f7b3fac6488e0a42ae12147c1a951e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 25
-  indentLevel: 0
-  inventory:
-    ShopInventoryRef: {fileID: 735799378}
-    ShopInventoryVal: {fileID: 0}
-  displayPrefab: {fileID: 6814838705812615251, guid: f407b2fb81e5b6c4aa0c9964cfb20d0e,
-    type: 3}
-  displayHolder: {fileID: 122857609}
 --- !u!114 &449881383
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -922,8 +911,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 549
-    y: 174
+    x: 432
+    y: 182
     width: 188
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -933,9 +922,9 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 449881384}
   commandList:
-  - {fileID: 449881383}
   - {fileID: 449881379}
-  - {fileID: 449881382}
+  - {fileID: 449881383}
+  - {fileID: 449881390}
   suppressAllAutoSelections: 0
 --- !u!114 &449881387
 MonoBehaviour:
@@ -949,12 +938,81 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fc3b565b6491db419d20c001f9f4408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &449881388
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449881375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea41a90274a566449afae0ef3dcae48c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 30
+  indentLevel: 0
+  stages:
+  - stageRef: {fileID: 669604939}
+    stageVal: {fileID: 0}
+  inventoryData:
+    ShopInventoryRef: {fileID: 735799378}
+    ShopInventoryVal: {fileID: 0}
+--- !u!114 &449881389
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449881375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90992baa637b7f54fb8512311980c0b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   itemId: 29
   indentLevel: 0
-  stage:
-    stageRef: {fileID: 669604939}
-    stageVal: {fileID: 0}
+  inventories:
+  - ShopInventoryRef: {fileID: 735799378}
+    ShopInventoryVal: {fileID: 0}
+--- !u!114 &449881390
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449881375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 896d032708a39fd4d835bd6e9e20a783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 31
+  indentLevel: 0
   inventory:
+    ShopInventoryRef: {fileID: 735799378}
+    ShopInventoryVal: {fileID: 0}
+  displayPrefab: {fileID: 6814838705812615251, guid: f407b2fb81e5b6c4aa0c9964cfb20d0e,
+    type: 3}
+  displayHolder: {fileID: 122857609}
+--- !u!114 &449881391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449881375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea41a90274a566449afae0ef3dcae48c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 32
+  indentLevel: 0
+  stages:
+  - stageRef: {fileID: 669604939}
+    stageVal: {fileID: 0}
+  inventoryData:
     ShopInventoryRef: {fileID: 0}
     ShopInventoryVal: {fileID: 11400000, guid: 1f1867c70eabd59408570bad03453a5e, type: 2}
 --- !u!1 &488047134
@@ -1295,6 +1353,7 @@ GameObject:
   - component: {fileID: 669604961}
   - component: {fileID: 669604960}
   - component: {fileID: 669604949}
+  - component: {fileID: 669604956}
   m_Layer: 0
   m_Name: BattleManager
   m_TagString: Untagged
@@ -1330,11 +1389,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 108.82349, y: 80.41171}
+  scrollPos: {x: -20.300316, y: 60.912373}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
-  zoom: 0.85000014
+  zoom: 0.94000006
   scrollViewRect:
     serializedVersion: 2
     x: 0
@@ -1342,7 +1401,7 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 669604943}
+  - {fileID: 669604945}
   selectedCommands: []
   variables:
   - {fileID: 669604939}
@@ -1401,9 +1460,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 169.04639
-    y: 100.5
-    width: 160.58823
+    x: 154.1528
+    y: 117.52128
+    width: 165.95744
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1444,7 +1503,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 394
     y: 115
-    width: 125.294106
+    width: 129.78723
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1457,7 +1516,7 @@ MonoBehaviour:
   - {fileID: 669604946}
   - {fileID: 669604961}
   - {fileID: 669604960}
-  - {fileID: 669604949}
+  - {fileID: 669604956}
   suppressAllAutoSelections: 0
 --- !u!114 &669604946
 MonoBehaviour:
@@ -1503,10 +1562,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e1b3fc21c226dd4bac281022ac14e26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 13
-  indentLevel: 0
-  inventory: {fileID: 669604944}
-  stageWithMats: {fileID: 669604939}
 --- !u!114 &669604949
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1519,8 +1574,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30a56280854a0db4da1e431656c45494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 18
-  indentLevel: 0
 --- !u!114 &669604950
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1588,9 +1641,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 605.4116
+    x: 613.6468
     y: -4.411767
-    width: 127.64705
+    width: 132.97873
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1643,6 +1696,20 @@ MonoBehaviour:
     floatRef: {fileID: 669604950}
     floatVal: 1
   durationOLD: 0
+--- !u!114 &669604956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669604938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 705ccd77dc53ffd4eba8af8756a8d0dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 19
+  indentLevel: 0
 --- !u!114 &669604957
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1659,7 +1726,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 605
     y: 258
-    width: 149.99998
+    width: 154.25531
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1667,8 +1734,7 @@ MonoBehaviour:
   blockName: SetSpoilsOfBattle
   description: 
   eventHandler: {fileID: 0}
-  commandList:
-  - {fileID: 669604948}
+  commandList: []
   suppressAllAutoSelections: 0
 --- !u!114 &669604960
 MonoBehaviour:
@@ -3501,6 +3567,7 @@ GameObject:
   - component: {fileID: 1140428299}
   - component: {fileID: 1140428298}
   - component: {fileID: 1140428297}
+  - component: {fileID: 1140428302}
   m_Layer: 5
   m_Name: StageView
   m_TagString: Untagged
@@ -3640,14 +3707,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf3bc6cc04df9414eb3f05589162ea3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 1
-  indentLevel: 0
-  stages:
-    collectionRef: {fileID: 1140428297}
-    collectionVal: {fileID: 0}
-  displayPrefab: {fileID: 5084778877970454350, guid: b112a19bb04196e4a9ea2a24da668204,
-    type: 3}
-  displayHolder: {fileID: 2104085101}
 --- !u!114 &1140428299
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -3688,7 +3747,7 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 1140428299}
   commandList:
-  - {fileID: 1140428298}
+  - {fileID: 1140428302}
   suppressAllAutoSelections: 0
 --- !u!114 &1140428301
 MonoBehaviour:
@@ -3717,7 +3776,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 1140428300}
   selectedCommands:
-  - {fileID: 1140428298}
+  - {fileID: 1140428302}
   variables:
   - {fileID: 1140428297}
   description: 
@@ -3730,6 +3789,26 @@ MonoBehaviour:
   hideCommands: []
   luaEnvironment: {fileID: 0}
   luaBindingName: flowchart
+--- !u!114 &1140428302
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140428291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c41796922d86f46870aefdff0b97a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 1
+  indentLevel: 0
+  stages:
+    collectionRef: {fileID: 0}
+    collectionVal: {fileID: 1549316188}
+  displayPrefab: {fileID: 5084778877970454350, guid: b112a19bb04196e4a9ea2a24da668204,
+    type: 3}
+  displayHolder: {fileID: 2104085101}
 --- !u!1 &1150767688
 GameObject:
   m_ObjectHideFlags: 0
@@ -3983,6 +4062,9 @@ GameObject:
   - component: {fileID: 1219532678}
   - component: {fileID: 1219532679}
   - component: {fileID: 1219532675}
+  - component: {fileID: 1219532680}
+  - component: {fileID: 1219532681}
+  - component: {fileID: 1219532682}
   m_Layer: 5
   m_Name: MaterialView
   m_TagString: Untagged
@@ -4087,14 +4169,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f7b3fac6488e0a42ae12147c1a951e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 1
-  indentLevel: 0
-  inventory:
-    ShopInventoryRef: {fileID: 1219532675}
-    ShopInventoryVal: {fileID: 0}
-  displayPrefab: {fileID: 6814838705812615251, guid: f407b2fb81e5b6c4aa0c9964cfb20d0e,
-    type: 3}
-  displayHolder: {fileID: 1718450472}
 --- !u!114 &1219532672
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -4122,8 +4196,9 @@ MonoBehaviour:
   commandList:
   - {fileID: 1219532674}
   - {fileID: 1219532677}
-  - {fileID: 1219532679}
-  - {fileID: 1219532671}
+  - {fileID: 1219532681}
+  - {fileID: 1219532682}
+  - {fileID: 1219532680}
   suppressAllAutoSelections: 0
 --- !u!114 &1219532673
 MonoBehaviour:
@@ -4152,7 +4227,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 1219532672}
   selectedCommands:
-  - {fileID: 1219532671}
+  - {fileID: 1219532680}
   variables:
   - {fileID: 1219532678}
   - {fileID: 1219532675}
@@ -4257,10 +4332,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e1b3fc21c226dd4bac281022ac14e26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1219532680
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219532666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 896d032708a39fd4d835bd6e9e20a783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   itemId: 5
   indentLevel: 0
-  inventory: {fileID: 1219532675}
-  stageWithMats: {fileID: 1219532678}
+  inventory:
+    ShopInventoryRef: {fileID: 1219532675}
+    ShopInventoryVal: {fileID: 0}
+  displayPrefab: {fileID: 6814838705812615251, guid: f407b2fb81e5b6c4aa0c9964cfb20d0e,
+    type: 3}
+  displayHolder: {fileID: 1718450472}
+--- !u!114 &1219532681
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219532666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90992baa637b7f54fb8512311980c0b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 6
+  indentLevel: 0
+  inventories:
+  - ShopInventoryRef: {fileID: 1219532675}
+    ShopInventoryVal: {fileID: 0}
+--- !u!114 &1219532682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219532666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea41a90274a566449afae0ef3dcae48c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 7
+  indentLevel: 0
+  stages:
+  - stageRef: {fileID: 669604939}
+    stageVal: {fileID: 0}
+  inventoryData:
+    ShopInventoryRef: {fileID: 1219532675}
+    ShopInventoryVal: {fileID: 0}
 --- !u!1 &1253825473
 GameObject:
   m_ObjectHideFlags: 0
