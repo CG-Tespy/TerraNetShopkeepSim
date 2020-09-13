@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Fungus;
 
-[CommandInfo("Shopkeep",
+[CommandInfo("Shopkeep/Battle",
                  "Invoke Battle End",
                  @"Triggers all BattleEnded event handlers.")]
 [AddComponentMenu("")]

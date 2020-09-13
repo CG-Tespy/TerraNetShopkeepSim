@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Fungus;
 
-[CommandInfo("Shopkeep",
+[CommandInfo("Shopkeep/Inventory",
                  "Set Inventory to Stage Mats",
                  @"Sets the inventory contents to that of the stage's mats.")]
 [AddComponentMenu("")]

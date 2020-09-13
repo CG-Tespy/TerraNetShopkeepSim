@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Fungus;
 
-[CommandInfo("Shopkeep",
+[CommandInfo("Shopkeep/UI",
                  "Display Stages",
                  @"Displays the specified stage collection with the specified UI elements. 
 If the inventory is already being displayed,

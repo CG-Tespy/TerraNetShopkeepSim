@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Fungus;
 
-[CommandInfo("Shopkeep/Inventory",
+[CommandInfo("Shopkeep/UI",
                  "Display Inventory",
                  @"Displays the specified inventory with the specified UI elements. 
 If the inventory is already being displayed,

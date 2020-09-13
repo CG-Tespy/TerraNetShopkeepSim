@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Fungus;
 
-[VariableInfo("Shopkeep", "ItemDesign")]
+[VariableInfo("Shopkeep", "Item")]
 [AddComponentMenu("")]
 [System.Serializable]
 public class ItemVariable : VariableBase<Item>
