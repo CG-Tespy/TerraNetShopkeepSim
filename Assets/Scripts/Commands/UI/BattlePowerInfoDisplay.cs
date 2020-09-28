@@ -24,6 +24,14 @@ public class BattlePowerInfoDisplay : MonoBehaviour
     protected virtual void Awake()
     {
         DisplayHub.AnyClicked.AddListener(OnAnyDisplayHubClicked);
+        ClearDisplays();
+    }
+
+    void ClearDisplays()
+    {
+        elementText.text = "";
+        damageText.text = "";
+        healingText.text = "";
     }
 
     protected virtual void OnDestroy()
