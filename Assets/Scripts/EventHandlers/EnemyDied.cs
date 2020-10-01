@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using Fungus;
 using System.Collections.Generic;
-using EnemyVariable = EnemyControllerVariable;
 
 public enum DeathResponse
 {
@@ -14,8 +13,8 @@ public enum DeathResponse
     @"An event for when an enemy dies. The enemyVar property will be holding the enemy that died.")]
 public class EnemyDied : EventHandler
 {
-    [VariableProperty("<Value>", typeof(EnemyVariable))]
-    [SerializeField] EnemyVariable enemyVar = null;
+    [VariableProperty("<Value>", typeof(ObjectVariable))]
+    [SerializeField] ObjectVariable enemyVar = null;
 
     [SerializeField] EnemyType type = null;
     [SerializeField] EnemyController individual = null;

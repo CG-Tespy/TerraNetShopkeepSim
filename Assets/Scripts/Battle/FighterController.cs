@@ -1,26 +1,13 @@
 ﻿using UnityEngine;
 using Action = System.Action;
 
-/// <summary>
-/// Base class for things that can fight, as represented in MonoBehaviours.
-/// </summary>
-public abstract class FighterController<TFighterType> : MonoBehaviour, IFighterController
-    where TFighterType : FighterType
+public abstract class FighterController : MonoBehaviour, IFighterController
 {
-    [SerializeField] protected TFighterType fighter = null;
     [SerializeField] protected float hp = 10;
     [SerializeField] protected float maxHP = 10;
 
-    public TFighterType Fighter => fighter;
-
-    public string Name
-    {
-        get { return Fighter.name; }
-    }
-    public string Description
-    {
-        get { return Fighter.Description; }
-    }
+    public abstract string Name { get; }
+    public abstract string Description { get; }
 
     public float HP
     {
@@ -34,6 +21,7 @@ public abstract class FighterController<TFighterType> : MonoBehaviour, IFighterC
 
             if (hp <= 0)
             {
+                Debug.Log(this.name + " died!");
                 Death.Invoke();
             }
 
@@ -51,13 +39,14 @@ public abstract class FighterController<TFighterType> : MonoBehaviour, IFighterC
 
     public float Atk { get; protected set; }
     public float Spd { get; protected set; }
+    public abstract Sprite Mugshot { get; }
 
     public event Action Death = delegate { };
 
     protected virtual void Awake()
     {
         SetUpComponents();
-        TurnIntoFighter();
+        Death += WhenThisDies;
     }
 
     protected virtual void SetUpComponents()
@@ -66,6 +55,46 @@ public abstract class FighterController<TFighterType> : MonoBehaviour, IFighterC
     }
 
     public SpriteRenderer SpriteRenderer { get; protected set; } = null;
+
+    protected virtual void WhenThisDies() { }
+
+    protected virtual void OnDestroy()
+    {
+        Death -= WhenThisDies;
+    }
+}
+
+/// <summary>
+/// Base class for things that can fight, as represented in MonoBehaviours.
+/// </summary>
+public abstract class FighterController<TFighterType> : FighterController, IFighterController
+    where TFighterType : FighterType
+{
+    [SerializeField] protected TFighterType fighter = null;
+    
+
+    public TFighterType Fighter => fighter;
+
+    public override string Name
+    {
+        get { return Fighter.name; }
+    }
+
+    public override string Description
+    {
+        get { return Fighter.Description; }
+    }
+
+    public override Sprite Mugshot
+    {
+        get { return fighter.Mugshot; }
+    }
+
+    protected override void Awake()
+    {
+        base.Awake();
+        TurnIntoFighter();
+    }
 
     protected virtual void TurnIntoFighter()
     {

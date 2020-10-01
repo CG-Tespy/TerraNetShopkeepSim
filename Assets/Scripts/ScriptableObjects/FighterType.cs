@@ -5,6 +5,7 @@ using Fungus;
 public abstract class FighterType : ScriptableObject
 {
     [SerializeField] Sprite battleSprite = null;
+    [SerializeField] Sprite mugshot = null;
     [Tooltip("For things like dialogue.")]
     [SerializeField] Character characterPrefab = null;
     [SerializeField] Element[] elements = null;
@@ -19,6 +20,7 @@ public abstract class FighterType : ScriptableObject
 
     public string Name { get { return name; } }
     public Sprite BattleSprite { get { return battleSprite; } }
+    public Sprite Mugshot { get { return mugshot; } }
     public Character Character { get { return characterPrefab; } }
     public IList<Element> Elements {  get { return elements; } }
     public IList<Element> Weaknesses { get { return weaknesses; } }

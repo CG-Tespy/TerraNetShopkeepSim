@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿/// <summary>
+/// Displays a Battle Power in the UI.
+/// </summary>
 public class BattlePowerDisplayHub : DisplayHub<BattlePower>
 {
     /// <summary>

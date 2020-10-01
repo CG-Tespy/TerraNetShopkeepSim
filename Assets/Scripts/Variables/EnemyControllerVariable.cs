@@ -4,9 +4,13 @@ using Fungus;
 [VariableInfo("Shopkeep/Battle", "EnemyController")]
 [AddComponentMenu("")]
 [System.Serializable]
-public class EnemyControllerVariable : VariableBase<EnemyController>
+public class EnemyControllerVariable : FighterControllerVariable
 {
-
+    public virtual new EnemyController Value
+    {
+        get { return base.value as EnemyController; }
+        set { base.Value = value; }
+    }
 }
 
 /// <summary>

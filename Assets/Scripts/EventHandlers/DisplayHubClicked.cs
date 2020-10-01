@@ -22,13 +22,12 @@ public abstract class DisplayHubClicked<THub, TDisplayBase> : EventHandler where
 
     protected virtual void OnAnyDisplayHubClicked(IDisplayHub hub)
     {
-        THub powerHub = hub as THub;
+        THub correctHub = hub as THub;
 
-        if (powerHub == null || !ShouldRespondToHub(powerHub))
+        if (correctHub == null || !ShouldRespondToHub(correctHub))
             return;
 
-        if (objVar != null)
-            objVar.Value = (dynamic)powerHub.DisplayBase;
+        AssignValuesToVarsFrom(correctHub);
 
         ExecuteBlock();
     }
@@ -38,6 +37,14 @@ public abstract class DisplayHubClicked<THub, TDisplayBase> : EventHandler where
         if (RespondToAllHubs)
             return true;
 
+        return HubIsInHolder(hub);
+        
+    }
+
+    bool RespondToAllHubs { get { return this.hubHolders.Length == 0; } }
+
+    bool HubIsInHolder(THub hub)
+    {
         foreach (var holder in hubHolders)
         {
             var holderChildren = holder.GetChildren();
@@ -49,5 +56,9 @@ public abstract class DisplayHubClicked<THub, TDisplayBase> : EventHandler where
         return false;
     }
 
-    bool RespondToAllHubs { get { return this.hubHolders.Length == 0; } }
+    protected virtual void AssignValuesToVarsFrom(THub hub)
+    {
+        if (objVar != null)
+            objVar.Value = (dynamic)hub.DisplayBase;
+    }
 }

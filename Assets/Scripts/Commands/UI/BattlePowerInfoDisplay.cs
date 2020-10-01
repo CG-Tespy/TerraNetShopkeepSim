@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Fungus;
+using UnityEngine.UI;
 using TMPro;
 
 /// <summary>
@@ -10,6 +10,7 @@ using TMPro;
 public class BattlePowerInfoDisplay : MonoBehaviour
 {
     BattlePower power = null;
+    [SerializeField] Image art = null;
     [SerializeField] TextMeshProUGUI elementText = null, damageText = null, healingText = null;
 
     BattlePower Power
@@ -52,9 +53,15 @@ public class BattlePowerInfoDisplay : MonoBehaviour
 
     protected virtual void UpdateDisplays()
     {
+        DisplayPic();
         DisplayElements();
         DisplayDamage();
         DisplayHealing();
+    }
+
+    void DisplayPic()
+    {
+        art.sprite = power.FullArt;
     }
 
     void DisplayElements()
