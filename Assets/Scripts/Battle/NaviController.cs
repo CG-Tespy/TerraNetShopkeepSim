@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Fungus;
 
 public class NaviController : FighterController<Navi>
@@ -8,7 +6,7 @@ public class NaviController : FighterController<Navi>
     /// <summary>
     /// Alias for the fighter type getter.
     /// </summary>
-    public Navi Navi {  get { return fighter; } }
+    public Navi Navi { get { return fighter; } }
 
     public static new System.Action<NaviController> AnyDeath = delegate { };
 
@@ -52,9 +50,8 @@ public class NaviController : FighterController<Navi>
         }
     }
 
-    Sprite mugshot;
+    Sprite mugshot = null;
 
-    // Start is called before the first frame update
     protected override void Awake()
     {
         base.Awake();
@@ -80,6 +77,5 @@ public class NaviController : FighterController<Navi>
     {
         Death += () => AnyDeath.Invoke(this);
     }
-
 
 }

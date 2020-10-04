@@ -91,7 +91,8 @@ public class EnemyController : FighterController<EnemyType>, IEnemy
     /// </summary>
     public virtual void TakeAction()
     {
-        flowchart.ExecuteBlock(takeActionBlockName);
+        if (!this.IsDead)
+            flowchart.ExecuteBlock(takeActionBlockName);
     }
 
 }

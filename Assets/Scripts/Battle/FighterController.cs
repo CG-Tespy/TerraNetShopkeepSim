@@ -19,9 +19,9 @@ public abstract class FighterController : MonoBehaviour, IFighterController
 
             hp = Mathf.Clamp(value, 0, MaxHP);
 
-            if (hp <= 0)
+            if (this.IsDead)
             {
-                Debug.Log(this.name + " died!");
+                Debug.Log(this.name + " deleted!");
                 Death.Invoke();
             }
 
@@ -45,6 +45,11 @@ public abstract class FighterController : MonoBehaviour, IFighterController
     public static event FighterHandler AnyDeath = delegate { };
     public event DamageHandler TookDamage = delegate { };
     public static event FighterDamageHandler AnyTookDamage = delegate { };
+
+    public virtual bool IsDead
+    {
+        get { return hp <= 0; }
+    }
 
 
     protected virtual void Awake()

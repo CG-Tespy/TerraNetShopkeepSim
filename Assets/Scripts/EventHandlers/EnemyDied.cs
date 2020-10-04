@@ -48,7 +48,9 @@ public class EnemyDied : EventHandler
 
     protected virtual void ExecuteBlockWith(EnemyController enemy)
     {
-        enemyVar.Value = enemy;
+        if (enemyVar != null)
+            enemyVar.Value = enemy;
+
         this.ExecuteBlock();
     }
 
