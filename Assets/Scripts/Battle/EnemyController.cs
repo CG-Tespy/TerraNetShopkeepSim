@@ -13,11 +13,27 @@ public class EnemyController : FighterController<EnemyType>, IEnemy
     /// </summary>
     public EnemyType Type { get { return Fighter; } }
 
-    public static System.Action<EnemyController> AnyDeath = delegate { };
+    public static new event EnemyHandler AnyDeath = delegate { };
 
     [Header("For working with the Flowchart")]
     [SerializeField] protected Flowchart flowchart = null;
     [SerializeField] string enemyTypeVarName = "enemyType";
+    [SerializeField] string atkVarName = "atk";
+    [SerializeField] string takeActionBlockName = "TakeAction";
+    [SerializeField] string mugshotVarName = "mugshot";
+
+    public override Sprite Mugshot
+    {
+        get { return mugshot; }
+        protected set
+        {
+            mugshot = value;
+            mugshotVar.Value = value;
+        }
+    }
+
+    Sprite mugshot;
+    protected SpriteVariable mugshotVar = null;
 
     Clickable2D clickable = null;
 
@@ -27,6 +43,13 @@ public class EnemyController : FighterController<EnemyType>, IEnemy
         SetUpAnyDeathListener();
         GetDefaultFlowchartAsNeeded();
         GiveFlowchartVariableData();
+
+    }
+
+    protected override void SetUpComponents()
+    {
+        base.SetUpComponents();
+        mugshotVar = flowchart.GetVariable<SpriteVariable>(mugshotVarName);
     }
 
     void SetUpAnyDeathListener()
@@ -45,7 +68,11 @@ public class EnemyController : FighterController<EnemyType>, IEnemy
         ObjectVariable enemyTypeVar = flowchart.GetVariable<ObjectVariable>(enemyTypeVarName);
         if (enemyTypeVar != null)
             enemyTypeVar.Value = this.Type;
+
+        FloatVariable atkVar = flowchart.GetVariable<FloatVariable>(atkVarName);
+        atkVar.Value = this.Atk;
     }
+
 
     protected virtual void Update()
     {
@@ -59,6 +86,13 @@ public class EnemyController : FighterController<EnemyType>, IEnemy
         this.gameObject.SetActive(false);
     }
 
+    /// <summary>
+    /// Executes the Take Action block
+    /// </summary>
+    public virtual void TakeAction()
+    {
+        flowchart.ExecuteBlock(takeActionBlockName);
+    }
 
 }
 

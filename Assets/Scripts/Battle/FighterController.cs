@@ -9,7 +9,7 @@ public abstract class FighterController : MonoBehaviour, IFighterController
     public abstract string Name { get; }
     public abstract string Description { get; }
 
-    public float HP
+    public virtual float HP
     {
         get { return hp; }
         set
@@ -28,7 +28,7 @@ public abstract class FighterController : MonoBehaviour, IFighterController
         }
     }
 
-    public float MaxHP
+    public virtual float MaxHP
     {
         get { return maxHP; }
         set
@@ -37,16 +37,21 @@ public abstract class FighterController : MonoBehaviour, IFighterController
         }
     }
 
-    public float Atk { get; protected set; }
-    public float Spd { get; protected set; }
-    public abstract Sprite Mugshot { get; }
+    public virtual float Atk { get; protected set; }
+    public virtual float Spd { get; protected set; }
+    public abstract Sprite Mugshot { get; protected set; }
 
     public event Action Death = delegate { };
+    public static event FighterHandler AnyDeath = delegate { };
+    public event DamageHandler TookDamage = delegate { };
+    public static event FighterDamageHandler AnyTookDamage = delegate { };
+
 
     protected virtual void Awake()
     {
         SetUpComponents();
-        Death += WhenThisDies;
+        SetUpDeathListeners();
+        
     }
 
     protected virtual void SetUpComponents()
@@ -56,11 +61,37 @@ public abstract class FighterController : MonoBehaviour, IFighterController
 
     public SpriteRenderer SpriteRenderer { get; protected set; } = null;
 
-    protected virtual void WhenThisDies() { }
+    void SetUpDeathListeners()
+    {
+        Death += () => AnyDeath.Invoke(this);
+        Death += WhenThisDies;
+    }
+    
+
+    protected virtual void WhenThisDies() 
+    {
+
+    }
 
     protected virtual void OnDestroy()
     {
         Death -= WhenThisDies;
+    }
+
+    public virtual void TakeDamage(float amount)
+    {
+        if (HP <= 0)
+            return;
+
+        HP -= amount;
+        AnyTookDamage.Invoke(this, amount);
+        TookDamage.Invoke(amount);
+            
+    }
+
+    public virtual void TakeHealing(float amount)
+    {
+        hp += amount;
     }
 }
 
@@ -103,10 +134,11 @@ public abstract class FighterController<TFighterType> : FighterController, IFigh
 
         SpriteRenderer.sprite = fighter.BattleSprite;
         // For debug
-        maxHP = fighter.HP;
-        hp = fighter.HP;
+        MaxHP = fighter.HP;
+        HP = fighter.HP;
         Atk = fighter.Atk;
         Spd = fighter.Spd;
+        Mugshot = fighter.Mugshot;
     }
 }
 
@@ -117,3 +149,7 @@ public interface IFighterController
     float Atk { get; }
     float Spd { get; }
 }
+
+public delegate void DamageHandler(float amount);
+public delegate void FighterHandler(FighterController fighter);
+public delegate void FighterDamageHandler(FighterController fighter, float damage);

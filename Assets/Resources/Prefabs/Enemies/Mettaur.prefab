@@ -10,16 +10,21 @@ GameObject:
   m_Component:
   - component: {fileID: 4580800848774905846}
   - component: {fileID: 4580800848774905841}
+  - component: {fileID: 4873199091974601607}
   - component: {fileID: 4580800848774905840}
-  - component: {fileID: 3307127488803940801}
   - component: {fileID: 129336439747979467}
-  - component: {fileID: 6291045034790191269}
+  - component: {fileID: 3307127488803940801}
   - component: {fileID: 5780794900256762292}
   - component: {fileID: 8117566132889482157}
   - component: {fileID: 793598635874053575}
   - component: {fileID: 4437677069806000237}
-  - component: {fileID: 4873199091974601607}
+  - component: {fileID: 6291045034790191269}
   - component: {fileID: 2152684160281268056}
+  - component: {fileID: 2646553899026003269}
+  - component: {fileID: 742189733981587967}
+  - component: {fileID: 2771967357340031583}
+  - component: {fileID: 2017655595091752938}
+  - component: {fileID: 2093757350119522874}
   m_Layer: 0
   m_Name: Mettaur
   m_TagString: Untagged
@@ -92,6 +97,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &4873199091974601607
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4580800848774905847}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.24, y: 0.67}
+    newSize: {x: 1.24, y: 0.67}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.24, y: 0.67}
+  m_EdgeRadius: 0
 --- !u!114 &4580800848774905840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,45 +140,9 @@ MonoBehaviour:
   fighter: {fileID: 11400000, guid: 3df7fb92b566531499bb8faa6b81dc70, type: 2}
   flowchart: {fileID: 3307127488803940801}
   enemyTypeVarName: enemyType
---- !u!114 &3307127488803940801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4580800848774905847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
-  scrollPos: {x: 0, y: 0}
-  variablesScrollPos: {x: 0, y: 0}
-  variablesExpanded: 1
-  blockViewHeight: 400
-  zoom: 1
-  scrollViewRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 0
-    height: 0
-  selectedBlocks:
-  - {fileID: 129336439747979467}
-  selectedCommands: []
-  variables:
-  - {fileID: 8117566132889482157}
-  description: 
-  stepPause: 0
-  colorCommands: 1
-  hideComponents: 1
-  saveSelection: 1
-  localizationId: 
-  showLineNumbers: 0
-  hideCommands: []
-  luaEnvironment: {fileID: 0}
-  luaBindingName: flowchart
+  atkVarName: atk
+  takeActionBlockName: TakeAction
+  mugshotVarName: mugshot
 --- !u!114 &129336439747979467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,8 +157,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 388
-    y: 158
+    x: 112
+    y: 83
     width: 137
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -177,7 +172,7 @@ MonoBehaviour:
   - {fileID: 4437677069806000237}
   - {fileID: 2152684160281268056}
   suppressAllAutoSelections: 0
---- !u!114 &6291045034790191269
+--- !u!114 &3307127488803940801
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -186,12 +181,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 4580800848774905847}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc03961113fa349c09cb06ef2911013d, type: 3}
+  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickEnabled: 1
-  hoverCursor: {fileID: 2800000, guid: 226248ac6f184e448af731df91b91958, type: 3}
-  useEventSystem: 0
+  version: 1
+  scrollPos: {x: 74, y: 94}
+  variablesScrollPos: {x: 0, y: 0}
+  variablesExpanded: 1
+  blockViewHeight: 400
+  zoom: 1
+  scrollViewRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  selectedBlocks:
+  - {fileID: 742189733981587967}
+  selectedCommands:
+  - {fileID: 2771967357340031583}
+  variables:
+  - {fileID: 8117566132889482157}
+  - {fileID: 2646553899026003269}
+  - {fileID: 2017655595091752938}
+  - {fileID: 2093757350119522874}
+  description: 
+  stepPause: 0
+  colorCommands: 1
+  hideComponents: 1
+  saveSelection: 1
+  localizationId: 
+  showLineNumbers: 0
+  hideCommands: []
+  luaEnvironment: {fileID: 0}
+  luaBindingName: flowchart
 --- !u!114 &5780794900256762292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,32 +280,21 @@ MonoBehaviour:
   enemy:
     EnemyControllerRef: {fileID: 0}
     EnemyControllerVal: {fileID: 4580800848774905840}
---- !u!61 &4873199091974601607
-BoxCollider2D:
+--- !u!114 &6291045034790191269
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4580800848774905847}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.24, y: 0.67}
-    newSize: {x: 1.24, y: 0.67}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.24, y: 0.67}
-  m_EdgeRadius: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc03961113fa349c09cb06ef2911013d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickEnabled: 1
+  hoverCursor: {fileID: 2800000, guid: 226248ac6f184e448af731df91b91958, type: 3}
+  useEventSystem: 0
 --- !u!114 &2152684160281268056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,3 +313,93 @@ MonoBehaviour:
   logMessage:
     stringRef: {fileID: 0}
     stringVal: Mettaur got clicked!
+--- !u!114 &2646553899026003269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4580800848774905847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecbb345616367420f90d15042808304e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scope: 0
+  key: navi
+  value: {fileID: 0}
+--- !u!114 &742189733981587967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4580800848774905847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 398
+    y: 83
+    width: 115
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 4
+  blockName: TakeAction
+  description: 
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 2771967357340031583}
+  suppressAllAutoSelections: 0
+--- !u!114 &2771967357340031583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4580800848774905847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97c20bfac589b9f4bb33ce894900a0b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 5
+  indentLevel: 0
+  target: {fileID: 2646553899026003269}
+  damage:
+    floatRef: {fileID: 2017655595091752938}
+    floatVal: 0
+--- !u!114 &2017655595091752938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4580800848774905847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 705fa1ac97df74e3a84ff952ffd923f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scope: 0
+  key: atk
+  value: 0
+--- !u!114 &2093757350119522874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4580800848774905847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf67d97824e8c45c5b26fe72bfef82ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scope: 0
+  key: mugshot
+  value: {fileID: 0}

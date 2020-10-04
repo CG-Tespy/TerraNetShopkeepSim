@@ -39,7 +39,8 @@ public class BattlePowerController : MonoBehaviour
         if (target == null)
             return;
 
-        Target.HP -= Power.Damage;
-        Target.HP += Power.Healing;
+
+        target.TakeDamage(Power.Damage);
+        target.TakeHealing(Power.Healing);
     }
 }

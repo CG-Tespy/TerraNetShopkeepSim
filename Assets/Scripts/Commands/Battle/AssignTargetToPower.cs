@@ -19,7 +19,7 @@ public class AssignTargetToPower : Command
         base.OnEnter();
 
         SetPower();
-        power.Target = target.Value as FighterController;
+        AssignTarget();
 
         Continue();
     }
@@ -27,8 +27,16 @@ public class AssignTargetToPower : Command
     void SetPower()
     {
         power = controller.Value as BattlePowerController;
+    }
 
+    void AssignTarget()
+    {
         if (power == null)
-            throw new System.NotImplementedException("Variable assigned to controller must refer to a BattlePowerController!");
+        {
+            Debug.Log("Variable assigned to controller must refer to a BattlePowerController!");
+            return;
+        }
+
+        power.Target = target.Value as FighterController;
     }
 }
