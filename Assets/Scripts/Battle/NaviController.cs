@@ -15,10 +15,12 @@ public class NaviController : FighterController<Navi>
     [SerializeField] string hpVarName = "hp";
     [SerializeField] string maxHPVarName = "maxHP";
     [SerializeField] string mugshotVarName = "mugshot";
+    [SerializeField] string nameVarName = "name";
 
     // Flowchart vars
     FloatVariable hpVar, maxHPVar = null;
     SpriteVariable mugshotVar = null;
+    StringVariable nameVar = null;
 
     public override float HP 
     { 
@@ -52,10 +54,21 @@ public class NaviController : FighterController<Navi>
 
     Sprite mugshot = null;
 
+    public virtual string Name
+    {
+        get { return this.name; }
+        set
+        {
+            this.name = value;
+            nameVar.Value = value;
+        }
+    }
+
     protected override void Awake()
     {
         base.Awake();
         SetUpAnyDeathListener();
+        this.Name = Navi.name;
     }
 
     protected override void SetUpComponents()
@@ -65,6 +78,7 @@ public class NaviController : FighterController<Navi>
         hpVar = flowchart.GetVariable<FloatVariable>(hpVarName);
         maxHPVar = flowchart.GetVariable<FloatVariable>(maxHPVarName);
         mugshotVar = flowchart.GetVariable<SpriteVariable>(mugshotVarName);
+        nameVar = flowchart.GetVariable<StringVariable>(nameVarName);
     }
 
     void GetDefaultFlowchartAsNeeded()
