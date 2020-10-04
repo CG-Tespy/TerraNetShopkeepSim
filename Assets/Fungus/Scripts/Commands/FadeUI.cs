@@ -1,6 +1,7 @@
 // This code is part of the Fungus library (https://github.com/snozbot/fungus)
 // It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
 
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -30,6 +31,7 @@ namespace Fungus
         [SerializeField] protected ColorData targetColor = new ColorData(Color.white);
 
         [SerializeField] protected FloatData targetAlpha = new FloatData(1f);
+
 
         protected override void ApplyTween(GameObject go)
         {

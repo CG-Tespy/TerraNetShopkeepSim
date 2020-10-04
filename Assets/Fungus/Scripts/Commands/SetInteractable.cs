@@ -4,6 +4,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using UnityEditor.UI;
+using System.Linq;
 
 namespace Fungus
 {
@@ -21,6 +23,9 @@ namespace Fungus
         [Tooltip("Controls if the selectable UI object be interactable or not")]
         [SerializeField] protected BooleanData interactableState = new BooleanData(true);
 
+        [Tooltip("Whether or not this will apply to each child of each target object. The children are found recursively.")]
+        [SerializeField] protected BooleanData applyToChildren = new BooleanData(false);
+
         #region Public members
 
         public override void OnEnter()
@@ -34,8 +39,9 @@ namespace Fungus
             for (int i = 0; i < targetObjects.Count; i++)
             {
                 var targetObject = targetObjects[i];
-                var selectables = targetObject.GetComponents<Selectable>();
-                for (int j = 0; j < selectables.Length; j++)
+                List<Selectable> selectables = GetSelectablesFrom(targetObject);
+
+                for (int j = 0; j < selectables.Count; j++)
                 {
                     var selectable = selectables[j];
                     selectable.interactable = interactableState.Value;
@@ -43,6 +49,19 @@ namespace Fungus
             }
                 
             Continue();
+        }
+
+        List<Selectable> GetSelectablesFrom(GameObject target)
+        {
+            List<Selectable> selectables = target.GetComponents<Selectable>().ToList();
+
+            if (applyToChildren)
+            {
+                Selectable[] children = target.GetComponentsInChildren<Selectable>();
+                selectables.AddRange(children);
+            }
+
+            return selectables;
         }
 
         public override string GetSummary()

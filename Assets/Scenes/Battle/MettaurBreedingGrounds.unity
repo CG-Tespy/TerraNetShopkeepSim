@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1724236433}
+  selectedFlowchart: {fileID: 1256985169}
 --- !u!4 &14398974
 Transform:
   m_ObjectHideFlags: 1
@@ -2145,9 +2145,7 @@ GameObject:
   - component: {fileID: 669604979}
   - component: {fileID: 669604978}
   - component: {fileID: 669604983}
-  - component: {fileID: 669604982}
   - component: {fileID: 669604981}
-  - component: {fileID: 669604980}
   - component: {fileID: 669604984}
   - component: {fileID: 669604985}
   - component: {fileID: 669604987}
@@ -2168,6 +2166,11 @@ GameObject:
   - component: {fileID: 669604996}
   - component: {fileID: 669605003}
   - component: {fileID: 669604999}
+  - component: {fileID: 669605006}
+  - component: {fileID: 669605005}
+  - component: {fileID: 669604982}
+  - component: {fileID: 669604980}
+  - component: {fileID: 669605004}
   m_Layer: 0
   m_Name: BattleManager
   m_TagString: Untagged
@@ -2215,7 +2218,7 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 669604977}
+  - {fileID: 669604982}
   selectedCommands: []
   variables:
   - {fileID: 669604939}
@@ -2254,6 +2257,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1256985168}
+  - {fileID: 1315561497}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2271,7 +2275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentBlock: {fileID: 669604945}
   suppressBlockAutoSelect: 0
-  waitForFrames: 1
+  waitForFrames: 50
 --- !u!114 &669604943
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2340,6 +2344,7 @@ MonoBehaviour:
   eventHandler: {fileID: 669604942}
   commandList:
   - {fileID: 669604975}
+  - {fileID: 669605004}
   suppressAllAutoSelections: 0
 --- !u!114 &669604946
 MonoBehaviour:
@@ -3548,8 +3553,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 312.79526
-    y: 122.16098
+    x: 315.9868
+    y: 210.4587
     width: 180.85106
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -3559,13 +3564,13 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 669604983}
   commandList:
+  - {fileID: 669605006}
   - {fileID: 669604976}
-  - {fileID: 669604982}
   - {fileID: 669604979}
   - {fileID: 669604981}
   - {fileID: 669604998}
   - {fileID: 669605003}
-  - {fileID: 669604980}
+  - {fileID: 669605005}
   - {fileID: 669604999}
   suppressAllAutoSelections: 0
 --- !u!114 &669604978
@@ -3602,23 +3607,22 @@ MonoBehaviour:
     floatVal: 0
 --- !u!114 &669604980
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 669604938}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab0d0ed4a2ca94c81a230a0ecce6e6e4, type: 3}
+  m_Script: {fileID: 11500000, guid: 1902400ccc99b45d69ad01cb86b57d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 35
-  indentLevel: 1
-  targetObjects:
-  - {fileID: 889736513}
-  interactableState:
-    booleanRef: {fileID: 0}
-    booleanVal: 1
+  itemId: 60
+  indentLevel: 0
+  musicClip: {fileID: 8300000, guid: b905a1a4ec241cc428aa19df945d01b3, type: 3}
+  atTime: 0
+  loop: 1
+  fadeDuration: 0.5
 --- !u!114 &669604981
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -3635,23 +3639,31 @@ MonoBehaviour:
   indentLevel: 0
 --- !u!114 &669604982
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 669604938}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab0d0ed4a2ca94c81a230a0ecce6e6e4, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 33
-  indentLevel: 0
-  targetObjects:
-  - {fileID: 889736513}
-  interactableState:
-    booleanRef: {fileID: 0}
-    booleanVal: 0
+  nodeRect:
+    serializedVersion: 2
+    x: 144.68013
+    y: 128.21959
+    width: 152.12766
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 59
+  blockName: PlayBattleTheme
+  description: 
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 669604980}
+  suppressAllAutoSelections: 0
 --- !u!114 &669604983
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -3695,8 +3707,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 520.24164
-    y: 187.05458
+    x: 525.56085
+    y: 206.20348
     width: 179.78723
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -4813,7 +4825,7 @@ MonoBehaviour:
   callMode: 2
 --- !u!114 &669604999
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -4927,7 +4939,7 @@ MonoBehaviour:
   value: {fileID: 0}
 --- !u!114 &669605003
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -5168,6 +5180,69 @@ MonoBehaviour:
   vector3Data:
     vector3Ref: {fileID: 0}
     vector3Val: {x: 0, y: 0, z: 0}
+--- !u!114 &669605004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669604938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 61
+  indentLevel: 0
+  targetFlowchart: {fileID: 0}
+  targetBlock: {fileID: 669604982}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 1
+--- !u!114 &669605005
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669604938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 58
+  indentLevel: 1
+  targetFlowchart: {fileID: 1315561506}
+  targetBlock: {fileID: 1315561507}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 2
+--- !u!114 &669605006
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669604938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 57
+  indentLevel: 0
+  targetFlowchart: {fileID: 1315561506}
+  targetBlock: {fileID: 1315561518}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 2
 --- !u!1 &677760884
 GameObject:
   m_ObjectHideFlags: 0
@@ -7392,6 +7467,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 419858347bc6d954387d95a8185f762a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 0}
   componentHolder: {fileID: 860674271}
 --- !u!1 &889736513
 GameObject:
@@ -7533,6 +7636,9 @@ MonoBehaviour:
   targetObjects:
   - {fileID: 889736513}
   interactableState:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  applyToChildren:
     booleanRef: {fileID: 0}
     booleanVal: 0
 --- !u!114 &889736519
@@ -8543,6 +8649,9 @@ GameObject:
   - component: {fileID: 1256985194}
   - component: {fileID: 1256985193}
   - component: {fileID: 1256985196}
+  - component: {fileID: 1256985197}
+  - component: {fileID: 1256985199}
+  - component: {fileID: 1256985198}
   m_Layer: 0
   m_Name: EndOfBattleHandler
   m_TagString: Untagged
@@ -8589,9 +8698,9 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 1256985187}
+  - {fileID: 1256985179}
   selectedCommands:
-  - {fileID: 1256985196}
+  - {fileID: 1256985178}
   variables:
   - {fileID: 1256985173}
   - {fileID: 1256985188}
@@ -9113,7 +9222,7 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 370
-    y: 81
+    y: 80
     width: 162
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -9145,7 +9254,7 @@ MonoBehaviour:
   musicClip: {fileID: 8300000, guid: ef50cb8ba8cc8f34b839bfb2313458a5, type: 3}
   atTime: 0
   loop: 1
-  fadeDuration: 1
+  fadeDuration: 0.5
 --- !u!114 &1256985179
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -9173,6 +9282,7 @@ MonoBehaviour:
   commandList:
   - {fileID: 1256985178}
   - {fileID: 1256985182}
+  - {fileID: 1256985198}
   - {fileID: 1256985183}
   suppressAllAutoSelections: 0
 --- !u!114 &1256985180
@@ -9350,6 +9460,7 @@ MonoBehaviour:
   commandList:
   - {fileID: 1256985192}
   - {fileID: 1256985196}
+  - {fileID: 1256985199}
   suppressAllAutoSelections: 0
 --- !u!114 &1256985188
 MonoBehaviour:
@@ -9642,8 +9753,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 715.5
-    y: 280
+    x: 617.5
+    y: 193
     width: 167
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -9655,10 +9766,11 @@ MonoBehaviour:
   commandList:
   - {fileID: 1256985194}
   - {fileID: 1256985193}
+  - {fileID: 1256985197}
   suppressAllAutoSelections: 0
 --- !u!114 &1256985196
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -9672,6 +9784,70 @@ MonoBehaviour:
   indentLevel: 0
   targetFlowchart: {fileID: 0}
   targetBlock: {fileID: 1256985195}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 1
+--- !u!114 &1256985197
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256985167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab0d0ed4a2ca94c81a230a0ecce6e6e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 25
+  indentLevel: 0
+  targetObjects:
+  - {fileID: 0}
+  interactableState:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  applyToChildren:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+--- !u!114 &1256985198
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256985167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 27
+  indentLevel: 0
+  targetFlowchart: {fileID: 1315561506}
+  targetBlock: {fileID: 1315561518}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 1
+--- !u!114 &1256985199
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256985167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 26
+  indentLevel: 0
+  targetFlowchart: {fileID: 1315561506}
+  targetBlock: {fileID: 1315561518}
   startLabel:
     stringRef: {fileID: 0}
     stringVal: 
@@ -9812,6 +9988,573 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1283501210}
   m_CullTransparentMesh: 0
+--- !u!1 &1315561496
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1315561497}
+  - component: {fileID: 1315561506}
+  - component: {fileID: 1315561505}
+  - component: {fileID: 1315561504}
+  - component: {fileID: 1315561503}
+  - component: {fileID: 1315561502}
+  - component: {fileID: 1315561501}
+  - component: {fileID: 1315561500}
+  - component: {fileID: 1315561499}
+  - component: {fileID: 1315561498}
+  - component: {fileID: 1315561518}
+  - component: {fileID: 1315561517}
+  - component: {fileID: 1315561516}
+  - component: {fileID: 1315561507}
+  - component: {fileID: 1315561512}
+  - component: {fileID: 1315561511}
+  - component: {fileID: 1315561515}
+  - component: {fileID: 1315561514}
+  - component: {fileID: 1315561509}
+  - component: {fileID: 1315561510}
+  - component: {fileID: 1315561513}
+  - component: {fileID: 1315561508}
+  m_Layer: 0
+  m_Name: BattleUIActions
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1315561497
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315561496}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 669604941}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1315561498
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315561496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab0d0ed4a2ca94c81a230a0ecce6e6e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 65
+  indentLevel: 0
+  targetObjects:
+  - {fileID: 211385409391746964}
+  interactableState:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  applyToChildren:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+--- !u!114 &1315561499
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315561496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 264
+    y: 309
+    width: 176
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 79
+  blockName: EnableClickingPowers
+  description: 
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 1315561498}
+  suppressAllAutoSelections: 0
+--- !u!114 &1315561500
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315561496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab0d0ed4a2ca94c81a230a0ecce6e6e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 63
+  indentLevel: 0
+  targetObjects:
+  - {fileID: 723421904}
+  interactableState:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  applyToChildren:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+--- !u!114 &1315561501
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315561496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 267.85114
+    y: 237
+    width: 160
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 78
+  blockName: EnableClickingNavi
+  description: 
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 1315561500}
+  suppressAllAutoSelections: 0
+--- !u!114 &1315561502
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315561496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab0d0ed4a2ca94c81a230a0ecce6e6e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 61
+  indentLevel: 0
+  targetObjects:
+  - {fileID: 211385409391746964}
+  interactableState:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  applyToChildren:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+--- !u!114 &1315561503
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315561496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 287.44672
+    y: 131.48935
+    width: 180
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 60
+  blockName: DisableClickingPowers
+  description: 
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 1315561502}
+  suppressAllAutoSelections: 0
+--- !u!114 &1315561504
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315561496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab0d0ed4a2ca94c81a230a0ecce6e6e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 1
+  indentLevel: 0
+  targetObjects:
+  - {fileID: 723421904}
+  interactableState:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  applyToChildren:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+--- !u!114 &1315561505
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315561496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 280.85114
+    y: 53
+    width: 164
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 58
+  blockName: DisableClickingNavi
+  description: 
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 1315561504}
+  suppressAllAutoSelections: 0
+--- !u!114 &1315561506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315561496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  scrollPos: {x: 0, y: 0}
+  variablesScrollPos: {x: 0, y: 0}
+  variablesExpanded: 1
+  blockViewHeight: 400
+  zoom: 1
+  scrollViewRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  selectedBlocks:
+  - {fileID: 1315561507}
+  selectedCommands: []
+  variables: []
+  description: 
+  stepPause: 0
+  colorCommands: 1
+  hideComponents: 1
+  saveSelection: 1
+  localizationId: 
+  showLineNumbers: 0
+  hideCommands: []
+  luaEnvironment: {fileID: 0}
+  luaBindingName: flowchart
+--- !u!114 &1315561507
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315561496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 58
+    y: 277
+    width: 179
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 69
+  blockName: EnableClickingBattleUI
+  description: 
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 1315561512}
+  - {fileID: 1315561511}
+  - {fileID: 1315561508}
+  suppressAllAutoSelections: 0
+--- !u!114 &1315561508
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315561496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 77
+  indentLevel: 0
+  targetFlowchart: {fileID: 0}
+  targetBlock: {fileID: 1315561509}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 2
+--- !u!114 &1315561509
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315561496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 522.5
+    y: 273
+    width: 234
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 80
+  blockName: EnableClickingRoundStartButton
+  description: 
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 1315561510}
+  suppressAllAutoSelections: 0
+--- !u!114 &1315561510
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315561496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab0d0ed4a2ca94c81a230a0ecce6e6e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 75
+  indentLevel: 0
+  targetObjects:
+  - {fileID: 889736513}
+  interactableState:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  applyToChildren:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+--- !u!114 &1315561511
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315561496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 71
+  indentLevel: 0
+  targetFlowchart: {fileID: 0}
+  targetBlock: {fileID: 1315561499}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 2
+--- !u!114 &1315561512
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315561496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 70
+  indentLevel: 0
+  targetFlowchart: {fileID: 0}
+  targetBlock: {fileID: 1315561501}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 2
+--- !u!114 &1315561513
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315561496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 76
+  indentLevel: 0
+  targetFlowchart: {fileID: 0}
+  targetBlock: {fileID: 1315561515}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 2
+--- !u!114 &1315561514
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315561496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab0d0ed4a2ca94c81a230a0ecce6e6e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 73
+  indentLevel: 0
+  targetObjects:
+  - {fileID: 889736513}
+  interactableState:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  applyToChildren:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+--- !u!114 &1315561515
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315561496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 512
+    y: 89
+    width: 238
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 72
+  blockName: DisableClickingRoundStartButton
+  description: 
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 1315561514}
+  suppressAllAutoSelections: 0
+--- !u!114 &1315561516
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315561496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 68
+  indentLevel: 0
+  targetFlowchart: {fileID: 0}
+  targetBlock: {fileID: 1315561503}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 2
+--- !u!114 &1315561517
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315561496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 67
+  indentLevel: 0
+  targetFlowchart: {fileID: 0}
+  targetBlock: {fileID: 1315561505}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 2
+--- !u!114 &1315561518
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315561496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 62
+    y: 86
+    width: 183
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 66
+  blockName: DisableClickingBattleUI
+  description: 
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 1315561517}
+  - {fileID: 1315561516}
+  - {fileID: 1315561513}
+  suppressAllAutoSelections: 0
 --- !u!1 &1410559348
 GameObject:
   m_ObjectHideFlags: 0
