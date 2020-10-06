@@ -14,10 +14,6 @@ namespace Fungus
     [System.Serializable]
     public class SpriteVariable : VariableBase<Sprite>
     {
-        public static implicit operator Sprite(SpriteVariable sprVar)
-        {
-            return sprVar.value;
-        }
     }
 
     /// <summary>

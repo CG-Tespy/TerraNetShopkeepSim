@@ -83,7 +83,6 @@ public class EnemyController : FighterController<EnemyType>, IEnemy
     protected override void WhenThisDies()
     {
         base.WhenThisDies();
-        this.gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -91,7 +90,7 @@ public class EnemyController : FighterController<EnemyType>, IEnemy
     /// </summary>
     public virtual void TakeAction()
     {
-        if (!this.IsDead)
+        if (!this.IsDead && this.isActiveAndEnabled)
             flowchart.ExecuteBlock(takeActionBlockName);
     }
 

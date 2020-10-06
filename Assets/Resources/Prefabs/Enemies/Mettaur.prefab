@@ -25,6 +25,12 @@ GameObject:
   - component: {fileID: 2771967357340031583}
   - component: {fileID: 2017655595091752938}
   - component: {fileID: 2093757350119522874}
+  - component: {fileID: 965783035379528962}
+  - component: {fileID: 3400627739537884345}
+  - component: {fileID: 4861693280867761967}
+  - component: {fileID: 7764482876180549481}
+  - component: {fileID: 4247935236605839151}
+  - component: {fileID: 1205365782195755011}
   m_Layer: 0
   m_Name: Mettaur
   m_TagString: Untagged
@@ -157,8 +163,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 112
-    y: 83
+    x: 93
+    y: -6
     width: 137
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -196,8 +202,10 @@ MonoBehaviour:
     y: 0
     width: 0
     height: 0
-  selectedBlocks: []
-  selectedCommands: []
+  selectedBlocks:
+  - {fileID: 965783035379528962}
+  selectedCommands:
+  - {fileID: 4861693280867761967}
   variables:
   - {fileID: 8117566132889482157}
   - {fileID: 2646553899026003269}
@@ -340,8 +348,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 377
-    y: 87
+    x: 303
+    y: -8
     width: 115
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -401,3 +409,134 @@ MonoBehaviour:
   scope: 0
   key: mugshot
   value: {fileID: 21300000, guid: 338d6b4e48398fb4d8da171b2f03ca80, type: 3}
+--- !u!114 &965783035379528962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4580800848774905847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 473
+    y: 22
+    width: 100
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 6
+  blockName: OnDeath
+  description: 
+  eventHandler: {fileID: 3400627739537884345}
+  commandList:
+  - {fileID: 7764482876180549481}
+  - {fileID: 4861693280867761967}
+  - {fileID: 1205365782195755011}
+  - {fileID: 4247935236605839151}
+  suppressAllAutoSelections: 0
+--- !u!114 &3400627739537884345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4580800848774905847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e909f9752d46ce459cc0c62cfe76750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 965783035379528962}
+  suppressBlockAutoSelect: 0
+  enemyVar: {fileID: 0}
+  type: {fileID: 0}
+  individual: {fileID: 4580800848774905840}
+  respondTo: 2
+--- !u!114 &4861693280867761967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4580800848774905847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d16ca8d5970f9db4483fd0f9cc637312, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 7
+  indentLevel: 0
+  items:
+  - itemRef: {fileID: 0}
+    itemVal: {fileID: 11400000, guid: a91b358f65451b7488f2c80fca6f9cd4, type: 2}
+  sourceInventories: []
+  targetInventory:
+    ShopInventoryRef: {fileID: 0}
+    ShopInventoryVal: {fileID: 11400000, guid: 09a09fb1f022aee47a3b1d4a057c0e85, type: 2}
+--- !u!114 &7764482876180549481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4580800848774905847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea6e8f632db87477eb750446b28d73a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 8
+  indentLevel: 0
+  commenterName: 
+  commentText: Perhaps later, we can have the spoils added based on the MatsDropped
+    field of the EnemyType instance
+--- !u!114 &4247935236605839151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4580800848774905847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbd8c931f22994b9d90e2037fffaa770, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 9
+  indentLevel: 0
+  _targetGameObject:
+    gameObjectRef: {fileID: 0}
+    gameObjectVal: {fileID: 4580800848774905847}
+  activeState:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  targetGameObjectOLD: {fileID: 0}
+--- !u!114 &1205365782195755011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4580800848774905847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: accc065c3e9a6457496f075b1bd49adc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 10
+  indentLevel: 0
+  spriteRenderer: {fileID: 4580800848774905841}
+  _duration:
+    floatRef: {fileID: 0}
+    floatVal: 2
+  _targetColor:
+    colorRef: {fileID: 0}
+    colorVal: {r: 1, g: 1, b: 1, a: 0}
+  waitUntilFinished: 1
+  durationOLD: 0
+  targetColorOLD: {r: 0, g: 0, b: 0, a: 0}
