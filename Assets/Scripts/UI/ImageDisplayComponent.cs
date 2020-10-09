@@ -11,7 +11,7 @@ public class ImageDisplayComponent<TDisplayFor> : DisplayComponent<TDisplayFor>
         UpdateDisplay();
     }
 
-    [SerializeField] Image displaySpriteOn = null;
+    [SerializeField] protected Image displaySpriteOn = null;
     protected override void UpdateDisplay()
     {
         if (DisplayBase != null)

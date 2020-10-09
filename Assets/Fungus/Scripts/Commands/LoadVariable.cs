@@ -15,7 +15,7 @@ namespace Fungus
     public class LoadVariable : Command
     {
         [Tooltip("Name of the saved value. Supports variable substition e.g. \"player_{$PlayerNumber}\"")]
-        [SerializeField] protected StringData key;
+        [SerializeField] protected string key = "";
 
         [Tooltip("Variable to store the value in.")]
         [VariableProperty(typeof(BooleanVariable),
@@ -29,10 +29,13 @@ namespace Fungus
         public override void OnEnter()
         {
             var flowchart = GetFlowchart();
-            // Prepend the current save profile (if any)
-            string prefsKey = SetSaveProfile.SaveProfile + "_" + flowchart.SubstituteVariables(key);
 
-            if (key == "" || variable == null || !PlayerPrefs.HasKey(prefsKey))
+            // Prepend the current save profile (if any) and make sure all inputs are valid
+            string prefsKey = SetSaveProfile.SaveProfile + "_" + flowchart.SubstituteVariables(key);
+            bool validKey = key != "" && PlayerPrefs.HasKey(prefsKey);
+            bool validVariable = variable != null;
+
+            if (!validKey || !validVariable)
             {
                 Continue();
                 return;
@@ -79,7 +82,7 @@ namespace Fungus
         
         public override string GetSummary()
         {
-            if (key.Value.Length == 0)
+            if (key.Length == 0)
             {
                 return "Error: No stored value key selected";
             }

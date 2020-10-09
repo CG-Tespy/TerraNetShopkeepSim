@@ -14,13 +14,16 @@ public interface IDisplayHub
 /// Provides functionality all display hubs have, regardless of what they're
 /// set to display things for.
 /// </summary>
-public abstract class DisplayHub : MonoBehaviour, IDisplayHub, IPointerClickHandler
+public abstract class DisplayHub : Selectable, IDisplayHub, IPointerClickHandler
 {
     public UnityEvent Clicked { get; } = new UnityEvent();
     public static DisplayHubEvent AnyClicked { get; } = new DisplayHubEvent();
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if (!this.interactable)
+            return;
+
         AnyClicked.Invoke(this);
         this.Clicked.Invoke();
     }
