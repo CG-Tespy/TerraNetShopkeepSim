@@ -91,7 +91,6 @@ public abstract class FighterController : MonoBehaviour, IFighterController
         HP -= amount;
         AnyTookDamage.Invoke(this, amount);
         TookDamage.Invoke(amount);
-            
     }
 
     public virtual void TakeHealing(float amount)

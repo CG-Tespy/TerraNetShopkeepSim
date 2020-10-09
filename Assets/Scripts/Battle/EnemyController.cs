@@ -1,4 +1,5 @@
 ﻿using Fungus;
+using System.Security.Policy;
 using UnityEngine;
 
 /**
@@ -21,6 +22,9 @@ public class EnemyController : FighterController<EnemyType>, IEnemy
     [SerializeField] string atkVarName = "atk";
     [SerializeField] string takeActionBlockName = "TakeAction";
     [SerializeField] string mugshotVarName = "mugshot";
+    [SerializeField] string hpVarName = "HP";
+    [SerializeField] string maxHPVarName = "maxHP";
+    [SerializeField] string naviTargetVarName = "naviTarget";
 
     public override Sprite Mugshot
     {
@@ -32,10 +36,36 @@ public class EnemyController : FighterController<EnemyType>, IEnemy
         }
     }
 
+
     Sprite mugshot;
     protected SpriteVariable mugshotVar = null;
 
-    Clickable2D clickable = null;
+    public override float HP 
+    { 
+        get => base.HP; 
+        set
+        {
+            base.HP = value;
+            hpVar.Value = base.HP;
+        }
+    }
+
+    FloatVariable hpVar = null;
+
+    public override float MaxHP 
+    { 
+        get => base.MaxHP; 
+        set
+        {
+            base.MaxHP = value;
+            maxHPVar.Value = base.MaxHP;
+        }
+    }
+
+    FloatVariable maxHPVar = null;
+
+
+    ObjectVariable naviTargetVar = null;
 
     protected override void Awake()
     {
@@ -50,6 +80,11 @@ public class EnemyController : FighterController<EnemyType>, IEnemy
     {
         base.SetUpComponents();
         mugshotVar = flowchart.GetVariable<SpriteVariable>(mugshotVarName);
+        hpVar = flowchart.GetVariable<FloatVariable>(hpVarName);
+        maxHPVar = flowchart.GetVariable<FloatVariable>(maxHPVarName);
+        naviTargetVar = flowchart.GetVariable<ObjectVariable>(naviTargetVarName);
+
+        naviTargetVar.Value = FindObjectOfType<NaviController>();
     }
 
     void SetUpAnyDeathListener()
@@ -90,7 +125,7 @@ public class EnemyController : FighterController<EnemyType>, IEnemy
     /// </summary>
     public virtual void TakeAction()
     {
-        if (!this.IsDead && this.isActiveAndEnabled)
+        if (!this.IsDead && this.enabled)
             flowchart.ExecuteBlock(takeActionBlockName);
     }
 
