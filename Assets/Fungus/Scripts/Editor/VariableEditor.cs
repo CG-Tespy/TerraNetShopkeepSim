@@ -330,6 +330,4 @@ namespace Fungus.EditorUtils
     [CustomPropertyDrawer (typeof(StringDataMulti))]
     public class StringDataMultiDrawer : VariableDataDrawer<StringVariable>
     {}
-    
-    
 }

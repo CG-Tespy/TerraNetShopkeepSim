@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Fungus;
+using System.Collections.Generic;
 
 [CommandInfo("Shopkeep/Inventory",
                  "Add Items to Inventory",
@@ -8,7 +9,9 @@ using Fungus;
 public class AddItemsToInventory : Command
 {
     [SerializeField] ItemData[] items = null;
-    [SerializeField] ShopInventoryData inventory;
+    [Tooltip("Items in inventories here will get added to the target inventory.")]
+    [SerializeField] ShopInventory[] sourceInventories = { };
+    [SerializeField] ShopInventoryData targetInventory;
 
     public override void OnEnter()
     {
@@ -21,9 +24,36 @@ public class AddItemsToInventory : Command
 
     protected virtual void AddTheItems()
     {
-        var invItems = inventory.Value.Items;
+        IList<Item> itemsToAdd = GetItemsToAdd();
+
+        targetInventory.Value.Items.AddRange(itemsToAdd);
+    }
+
+    protected virtual IList<Item> GetItemsToAdd()
+    {
+        List<Item> itemsToAdd = new List<Item>();
 
         for (int i = 0; i < items.Length; i++)
-            invItems.Add(items[i]);
+            itemsToAdd.Add(items[i]);
+
+        itemsToAdd.AddRange(GetSourceInventoryItems());
+
+        return itemsToAdd;
     }
+
+    protected virtual IList<Item> GetSourceInventoryItems()
+    {
+        List<Item> sourceItems = new List<Item>();
+
+        for (int i = 0; i < sourceInventories.Length; i++)
+        {
+            var source = sourceInventories[i];
+
+            sourceItems.AddRange(source.Items);
+        }
+
+        return sourceItems;
+    }
+
+    
 }

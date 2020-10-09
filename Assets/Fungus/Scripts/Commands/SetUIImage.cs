@@ -20,7 +20,7 @@ namespace Fungus
         [SerializeField] protected List<Image> images = new List<Image>();
 
         [Tooltip("The sprite set on the source image property")]
-        [SerializeField] protected Sprite sprite;
+        [SerializeField] protected SpriteData sprite;
 
         #region Public members
 
