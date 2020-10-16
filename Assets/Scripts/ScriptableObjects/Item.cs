@@ -21,5 +21,4 @@ public class Item : ScriptableObject
     public IList<EnumScriptableObject> Classes { get { return classes; } }
     public string Description { get { return description; } }
 
-
 }

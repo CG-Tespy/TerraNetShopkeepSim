@@ -63,6 +63,11 @@ GameObject:
   - component: {fileID: 7382535277576555841}
   - component: {fileID: 6649867999235756067}
   - component: {fileID: 1854709262537277262}
+  - component: {fileID: 4166929008616011526}
+  - component: {fileID: 4836443714311420143}
+  - component: {fileID: 6552918840678426013}
+  - component: {fileID: 5367735344498949063}
+  - component: {fileID: 4903534850395121154}
   m_Layer: 0
   m_Name: _CustomerBase
   m_TagString: Untagged
@@ -122,6 +127,7 @@ MonoBehaviour:
   - {fileID: 8756705614818488219}
   - {fileID: 6649867999235756067}
   - {fileID: 1854709262537277262}
+  - {fileID: 4836443714311420143}
   description: 
   stepPause: 0
   colorCommands: 1
@@ -161,7 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 0
   key: mugshot
-  value: {fileID: 0}
+  value: {fileID: 21300000, guid: ef9f103cc5c916945acda0ca9b916c2b, type: 3}
 --- !u!114 &8756705614818488217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,8 +232,9 @@ MonoBehaviour:
   weaknessesVarName: weaknesses
   resistancesVarName: resistances
   baseBudgetVarName: baseBudget
+  budgetVarName: budget
+  wantedItemVarName: wantedItem
   description: Insert customer desc here.
-  baseBudget: 100
 --- !u!114 &7382535277576555841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,7 +264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 0
   key: baseBudget
-  value: 0
+  value: 100
 --- !u!114 &1854709262537277262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,6 +280,105 @@ MonoBehaviour:
   scope: 0
   key: budget
   value: 0
+--- !u!114 &4166929008616011526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8756705614818488288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 417
+    y: 82
+    width: 156
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 0
+  blockName: DecideWhatToBuy
+  description: 
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 6552918840678426013}
+  - {fileID: 5367735344498949063}
+  - {fileID: 4903534850395121154}
+  suppressAllAutoSelections: 0
+--- !u!114 &4836443714311420143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8756705614818488288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecbb345616367420f90d15042808304e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scope: 0
+  key: wantedItem
+  value: {fileID: 0}
+--- !u!114 &6552918840678426013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8756705614818488288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea6e8f632db87477eb750446b28d73a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 1
+  indentLevel: 0
+  commenterName: 
+  commentText: This means looking at what's on sale, and setting their sights
+--- !u!114 &5367735344498949063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8756705614818488288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea6e8f632db87477eb750446b28d73a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 2
+  indentLevel: 0
+  commenterName: 
+  commentText: on an item they can afford that fits at least one of their itemPrefs.
+--- !u!114 &4903534850395121154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8756705614818488288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a8c6c4c32cb6a74cbabba56500c5f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 3
+  indentLevel: 0
+  inventory:
+    ShopInventoryRef: {fileID: 0}
+    ShopInventoryVal: {fileID: 11400000, guid: 7af838c7715adf04f8f46199180be40d, type: 2}
+  outValue:
+    objectRef: {fileID: 4836443714311420143}
+    objectVal: {fileID: 0}
+  prefs:
+    collectionRef: {fileID: 0}
+    collectionVal: {fileID: 8756705615907472290}
 --- !u!1 &8756705614964499924
 GameObject:
   m_ObjectHideFlags: 0

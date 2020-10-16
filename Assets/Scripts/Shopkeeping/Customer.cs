@@ -1,8 +1,9 @@
 ﻿using Fungus;
 using UnityEngine;
+using System.Text.RegularExpressions;
 
 [RequireComponent(typeof(Flowchart))]
-public class CustomerController : MonoBehaviour
+public class Customer : MonoBehaviour
 {
     protected Flowchart flowchart = null;
 
@@ -13,10 +14,12 @@ public class CustomerController : MonoBehaviour
     [SerializeField] string itemPrefsVarName = "itemPrefs";
     [SerializeField] string weaknessesVarName = "weaknesses", resistancesVarName = "resistances";
     [SerializeField] string baseBudgetVarName = "baseBudget";
+    [SerializeField] string budgetVarName = "budget";
+    [SerializeField] string wantedItemVarName = "wantedItem";
 
     [TextArea(5, 10)]
+    [Tooltip("Better to set the desc here than in the Flowchart.")]
     [SerializeField] string description = "";
-    [SerializeField] int baseBudget = 100;
     
     protected virtual void Awake()
     {
@@ -30,10 +33,7 @@ public class CustomerController : MonoBehaviour
         ApplyValuesToVars();
     }
 
-    public virtual string SomeMethod()
-    {
-        return "";
-    }
+    
 
     protected virtual void FetchVariables()
     {
@@ -44,6 +44,8 @@ public class CustomerController : MonoBehaviour
         weaknesses = flowchart.GetVariable<CollectionVariable>(weaknessesVarName);
         resistances = flowchart.GetVariable<CollectionVariable>(resistancesVarName);
         baseBudgetVar = flowchart.GetVariable<IntegerVariable>(baseBudgetVarName);
+        budgetVar = flowchart.GetVariable<IntegerVariable>(budgetVarName);
+        wantedItem = flowchart.GetVariable<ObjectVariable>(wantedItemVarName);
     }
 
     StringVariable nameVar = null;
@@ -51,14 +53,21 @@ public class CustomerController : MonoBehaviour
     SpriteVariable mugshot = null;
     // These should hold instances of ItemClass objects
     CollectionVariable itemPrefs = null, weaknesses = null, resistances = null;
-    IntegerVariable baseBudgetVar = null;
+    IntegerVariable baseBudgetVar = null, budgetVar = null;
+    ObjectVariable wantedItem = null;
 
     protected virtual void ApplyValuesToVars()
     {
         // The ones that are supposed to be set through script, rather than Flowchart
         nameVar.Value = base.name;
+        RemoveDescCarriageReturns();
         descVar.Value = description;
-        baseBudgetVar.Value = baseBudget;
+    }
+
+    protected virtual void RemoveDescCarriageReturns()
+    {
+        // Unity just adds them in for some reason...
+        description = Regex.Replace(description, @"\r+", "");
     }
 
     public virtual new string name
@@ -100,5 +109,28 @@ public class CustomerController : MonoBehaviour
     {
         get { return resistances.Value; }
     }
+
+    public virtual int BaseBudget
+    {
+        get { return baseBudgetVar.Value; }
+    }
+
+    public virtual int Budget
+    {
+        get { return budgetVar.Value; }
+        set { budgetVar.Value = value; }
+    }
+
+    public virtual Item WantedItem
+    {
+        get { return wantedItem.Value as Item; }
+        set { wantedItem.Value = value; }
+    }
+
+    public virtual bool WantsAnything
+    {
+        get { return wantedItem.Value != null; }
+    }
+
 
 }
