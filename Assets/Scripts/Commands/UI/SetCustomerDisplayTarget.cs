@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Fungus;
 
-[CommandInfo("Shopkeep", "Set CustomerDisplay Target", 
+[CommandInfo("Shopkeep/UI", "Set CustomerDisplay Target", 
     "Sets the customer a CustomerDisplay handles through an Object value.")]
 public class SetCustomerDisplayTarget : Command
 {

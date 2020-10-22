@@ -5,6 +5,13 @@ using System.Text.RegularExpressions;
 [RequireComponent(typeof(Flowchart))]
 public class Customer : MonoBehaviour
 {
+    public enum TacticResponse
+    {
+        neutral,
+        positive,
+        negative
+    }
+
     protected Flowchart flowchart = null;
 
     [Header("For working with the Flowchart")]
@@ -130,6 +137,17 @@ public class Customer : MonoBehaviour
     public virtual bool WantsAnything
     {
         get { return wantedItem.Value != null; }
+    }
+
+    public virtual TacticResponse ResponseTo(SellTactic tactic)
+    {
+        if (this.resistances.Value.Contains(tactic))
+            return TacticResponse.negative;
+
+        if (this.weaknesses.Value.Contains(tactic))
+            return TacticResponse.positive;
+
+        return TacticResponse.neutral;
     }
 
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Fungus;
 
-[CommandInfo("Shopkeep", 
+[CommandInfo("Shopkeep/Customer", 
     "Set Customer Target Items", 
     "Makes Customers in the passed transform decide what to buy from the passed catalog.")]
 public class SetCustomerTargetItems : Command

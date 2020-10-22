@@ -25,7 +25,6 @@ public class ShopkeepMinigame : MonoBehaviour
             var display = tacticDisplays[0];
             Destroy(display.gameObject);
         }
-
     }
 
     protected virtual void CreateTacticDisplaysFrom(SellTacticLoadout loadout)

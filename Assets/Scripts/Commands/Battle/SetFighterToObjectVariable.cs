@@ -1,12 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Fungus;
 
-/// <summary>
-/// 
-/// </summary>
-[CommandInfo("Shopkeep", "Set Fighter To Object Variable", "Getting around a limitation in the Set Variable command")]
+[CommandInfo("Shopkeep/Battle", 
+    "Set Fighter To Object Variable", 
+    "Getting around a limitation in the Set Variable command")]
 public class SetFighterToObjectVariable : Command
 {
     [VariableProperty(typeof(ObjectVariable))]

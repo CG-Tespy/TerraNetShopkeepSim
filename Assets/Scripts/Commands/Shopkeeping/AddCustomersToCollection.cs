@@ -2,7 +2,7 @@
 using UnityEngine;
 using Fungus;
 
-[CommandInfo("Shopkeep", "Add Customers To Collection",
+[CommandInfo("Shopkeep/Customer", "Add Customers To Collection",
     "Adds the Customers under the target holder to the target ObjectCollection.")]
 public class AddCustomersToCollection : Command
 {

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Fungus;
 
-[CommandInfo("Shopkeep/Battle",
+[CommandInfo("Shopkeep",
                  "GetName",
                  @"Assigns the name of the specified value to the specified variable. This assumes the value has a Name property.")]
 [AddComponentMenu("")]

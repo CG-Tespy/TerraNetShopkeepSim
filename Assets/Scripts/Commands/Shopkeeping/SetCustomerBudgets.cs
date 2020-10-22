@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Fungus;
 
-[CommandInfo("Shopkeep", "Set Customer Budgets", "Sets the budgets of all customers parented to the passed transform.")]
+[CommandInfo("Shopkeep/Customer", "Set Customer Budgets", "Sets the budgets of all customers parented to the passed transform.")]
 public class SetCustomerBudgets : Command
 {
     [SerializeField] Collection customers = null;

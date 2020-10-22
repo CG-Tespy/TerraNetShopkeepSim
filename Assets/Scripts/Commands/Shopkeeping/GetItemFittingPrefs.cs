@@ -3,7 +3,7 @@ using UnityEngine;
 using Fungus;
 using System.Linq;
 
-[CommandInfo("Shopkeep", 
+[CommandInfo("Shopkeep/Customer", 
     "Get Item Fitting Prefs", 
     "Randomly picks an item fitting the specified item prefs from the specified inventory, and assigns it to the specified object.")]
 public class GetItemFittingPrefs : Command
