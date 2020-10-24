@@ -16,4 +16,9 @@ public static class GenericCollectionExtensions
 
         return contents;
     }
+
+    public static void RemoveNulls<T>(this GenericCollection<T> coll)
+    {
+        coll.RemoveAll(null);
+    }
 }

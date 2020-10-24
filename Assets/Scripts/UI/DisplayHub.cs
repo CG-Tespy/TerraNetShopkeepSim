@@ -58,8 +58,9 @@ public abstract class DisplayHub<TToDisplay> : DisplayHub, IDisplayHub, IPointer
 
     private List<DisplayComponent<TToDisplay>> displayComponents = new List<DisplayComponent<TToDisplay>>();
 
-    protected virtual void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         FetchComponentHolder();
     }
 
@@ -71,8 +72,9 @@ public abstract class DisplayHub<TToDisplay> : DisplayHub, IDisplayHub, IPointer
 
     [SerializeField] Transform componentHolder = null;
 
-    protected virtual void Start()
+    protected override void Start()
     {
+        base.Start();
         // By the time this func is called, all the display components should be there
         FetchDisplayComponents();
         UpdateDisplayComponents();

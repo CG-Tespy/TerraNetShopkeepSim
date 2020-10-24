@@ -1,5 +1,13 @@
 ﻿using UnityEngine;
 using Fungus;
+using System.Linq;
+
+public enum HubClickResponse
+{
+    hubHolder,
+    individual,
+    hybrid
+}
 
 public abstract class DisplayHubClicked<THub, TDisplayBase> : EventHandler where THub: DisplayHub<TDisplayBase>
 {
@@ -7,8 +15,14 @@ public abstract class DisplayHubClicked<THub, TDisplayBase> : EventHandler where
     [VariableProperty("<Value>", typeof(ObjectVariable))]
     [SerializeField] protected ObjectVariable objVar = null;
 
-    [Tooltip("This event only fires if the hub clicked is directly parented to any of these holders. If this array is empty, this responds to any and all hubs.")]
+    [Tooltip("Decide what decides whether this event fires.")]
+    [SerializeField] protected HubClickResponse responseType = HubClickResponse.hubHolder;
+
+    [Tooltip("Which holders' hubs this can respond to the clicks of. If this array is empty, this responds to any and all hubs.")]
     [SerializeField] protected Transform[] hubHolders = null;
+
+    [Tooltip("Which individual hubs this can respond to.")]
+    [SerializeField] protected DisplayHub[] individuals;
 
     protected virtual void Awake()
     {
@@ -37,11 +51,25 @@ public abstract class DisplayHubClicked<THub, TDisplayBase> : EventHandler where
         if (RespondToAllHubs)
             return true;
 
-        return HubIsInHolder(hub);
-        
+        bool respondToHubsOnly = responseType == HubClickResponse.hubHolder;
+        bool respondToIndivsOnly = responseType == HubClickResponse.individual;
+
+        if (respondToHubsOnly)
+            return HubIsInHolder(hub);
+        else if (respondToIndivsOnly)
+            return HubIsAmongIndividuals(hub);
+        else
+            return HubIsInHolder(hub) || HubIsAmongIndividuals(hub);
     }
 
-    bool RespondToAllHubs { get { return this.hubHolders.Length == 0; } }
+    bool RespondToAllHubs 
+    { 
+        get 
+        { 
+            return (responseType == HubClickResponse.hubHolder || responseType == HubClickResponse.hybrid)
+                && this.hubHolders.Length == 0;
+        } 
+    }
 
     bool HubIsInHolder(THub hub)
     {
@@ -54,6 +82,11 @@ public abstract class DisplayHubClicked<THub, TDisplayBase> : EventHandler where
         }
 
         return false;
+    }
+
+    bool HubIsAmongIndividuals(THub hub)
+    {
+        return individuals.Contains(hub);
     }
 
     protected virtual void AssignValuesToVarsFrom(THub hub)
