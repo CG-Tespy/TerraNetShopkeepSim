@@ -150,5 +150,13 @@ public class Customer : MonoBehaviour
         return TacticResponse.neutral;
     }
 
+    /// <summary>
+    /// The multiplier is to account for sell tactic effectiveness.
+    /// </summary>
+    public virtual bool CanAfford(Item item, float maxMultiplier = 3f)
+    {
+        return (item.Price * maxMultiplier) <= Budget;
+    }
+
 
 }

@@ -22,7 +22,6 @@ public class SetCustomerTargetItems : Command
         Continue();
     }
 
-
     protected virtual void FetchAvailableItems()
     {
         availableToBuy.AddRange(catalog.Items);
@@ -33,36 +32,52 @@ public class SetCustomerTargetItems : Command
         for (int i = 0; i < customers.Count; i++)
         {
             Customer customerEl = (Customer) customers[i];
-            Item itemDesired = GetItemFittingPrefsOf(customerEl);
-            customerEl.WantedItem = itemDesired;
-            availableToBuy.Remove(itemDesired); // So no two Customers go after the same item
+            IList<Item> potentialBuys = ItemsAppealingTo(customerEl);
+            Item toBuy = FirstAffordableItemIn(potentialBuys, customerEl);
+            customerEl.WantedItem = toBuy;
+            availableToBuy.Remove(toBuy); // So no two Customers go after the same item
         }
     }
 
-    protected virtual Item GetItemFittingPrefsOf(Customer customer)
+    protected virtual IList<Item> ItemsAppealingTo(Customer customer)
     {
-        ObjectCollection customerPrefs = customer.ItemPrefs as ObjectCollection;
-        
+        List<Item> appealingToCust = new List<Item>();
+
+        ObjectCollection customerTastes = customer.ItemPrefs as ObjectCollection;
+
         for (int i = 0; i < availableToBuy.Count; i++)
         {
             Item onSale = availableToBuy[i];
 
-            if (ItemFitsPrefs(onSale, customerPrefs))
-                return onSale;
+            if (ItemFitsCustomerTastes(onSale, customerTastes))
+                appealingToCust.Add(onSale);
         }
 
-        return null;
+        return appealingToCust;
     }
 
-    protected virtual bool ItemFitsPrefs(Item item, ObjectCollection customerPrefs)
+    protected virtual bool ItemFitsCustomerTastes(Item item, ObjectCollection customerTastes)
     {
-        for (int i = 0; i < customerPrefs.Count; i++)
+        for (int i = 0; i < customerTastes.Count; i++)
         {
-            var pref = (EnumScriptableObject) customerPrefs[i];
-            if (item.Classes.Contains(pref))
+            var taste = (EnumScriptableObject) customerTastes[i];
+            if (item.Classes.Contains(taste))
                 return true;
         }
 
         return false;
     }
+    
+    protected virtual Item FirstAffordableItemIn(IList<Item> options, Customer customer)
+    {
+        for (int i = 0; i < options.Count; i++)
+        {
+            Item item = options[i];
+            if (customer.CanAfford(item))
+                return item;
+        }
+
+        return null;
+    }
+    
 }
