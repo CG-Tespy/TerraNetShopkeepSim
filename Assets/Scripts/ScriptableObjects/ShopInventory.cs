@@ -2,25 +2,14 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewShopInventory", menuName ="Shopkeep/Inventory")]
-public class ShopInventory : ScriptableObject
+public class ShopInventory : CollectionSO<Item>
 {
-    [SerializeField] private Item[] startingItems = { };
-    [Tooltip("What items are in the inventory at any given time.")]
-    [SerializeField] private List<Item> items = new List<Item>();
-
+    /// <summary>
+    /// Alias for the contents.
+    /// </summary>
     public IList<Item> Items
     {
-        get { return items; }
+        get { return Contents; }
     }
-    public string Name { get { return name; } }
 
-    protected virtual void OnEnable()
-    {
-        Items.Clear();
-        foreach (Item item in startingItems)
-        {
-            if (item != null)
-                Items.Add(item);
-        }
-    }
 }
