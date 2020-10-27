@@ -7,8 +7,7 @@ using Fungus;
 [AddComponentMenu("")]
 public class GetName : Command
 {
-    [VariableProperty(typeof(ObjectVariable))]
-    [SerializeField] ObjectVariable withName = null;
+    [SerializeField] ObjectData withName;
     [VariableProperty(typeof(StringVariable))]
     [SerializeField] StringVariable stringVar = null;
 
@@ -16,10 +15,12 @@ public class GetName : Command
     {
         base.OnEnter();
 
-        if (!HasName(withName.Value))
+        var withName = this.withName.Value;
+
+        if (!HasName(withName))
             throw new System.ArgumentException("The value of what the variable " + withName.name + " has, has no Name property!");
 
-        stringVar.Value = ((dynamic)withName.Value).Name;
+        stringVar.Value = ((dynamic)withName).Name;
 
         Continue();
     }
