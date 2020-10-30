@@ -3250,7 +3250,6 @@ GameObject:
   - component: {fileID: 4205201294591668149}
   - component: {fileID: 532649804754543975}
   - component: {fileID: 5996075778283929753}
-  - component: {fileID: -442063981976864564}
   - component: {fileID: 6198598312316397788}
   - component: {fileID: 4013283058415871082}
   - component: {fileID: 649765283339172272}
@@ -3259,8 +3258,9 @@ GameObject:
   - component: {fileID: 4228921770101011863}
   - component: {fileID: 560746332740082241}
   - component: {fileID: 4377245604383564955}
-  - component: {fileID: 2916880600538603507}
   - component: {fileID: 6222536893198836392}
+  - component: {fileID: 1821895971690332483}
+  - component: {fileID: -6805993008670790927}
   m_Layer: 5
   m_Name: BattleSpoilsWindow
   m_TagString: Untagged
@@ -3287,7 +3287,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 815, y: 42}
+  m_AnchoredPosition: {x: 815, y: 0}
   m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4849615824142277517
@@ -3379,9 +3379,9 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 7657661377908241880}
+  - {fileID: 649765283339172272}
   selectedCommands:
-  - {fileID: 6222536893198836392}
+  - {fileID: -6805993008670790927}
   variables:
   - {fileID: 7356788542267074813}
   - {fileID: 8240303445466704038}
@@ -3478,7 +3478,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 5199866056596754037}
   componentHolder: {fileID: 1159580197871760603}
 --- !u!114 &1564204141814268332
 MonoBehaviour:
@@ -3652,6 +3652,9 @@ MonoBehaviour:
       vector4Data:
         vector4Ref: {fileID: 0}
         vector4Val: {x: 0, y: 0, z: 0, w: 0}
+      stageData:
+        stageRef: {fileID: 0}
+        stageVal: {fileID: 0}
   setOperator: 0
   variable: {fileID: 0}
   booleanData:
@@ -3915,28 +3918,6 @@ MonoBehaviour:
     stringVal: 
   startIndex: 0
   callMode: 2
---- !u!114 &-442063981976864564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4430021659096296581}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f492eaa0cef64fe98fb2b58845bbbd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 
-  type: 
-  method: 
-  easeType: 0
-  time: 0
-  delay: 0
-  loopType: 0
-  isRunning: 0
-  isPaused: 0
-  _name: 
 --- !u!114 &6198598312316397788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3994,7 +3975,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 820
+    x: 811
     y: 319
     width: 146
     height: 40
@@ -4004,7 +3985,8 @@ MonoBehaviour:
   blockName: GivePlayerSpoils
   description: 
   eventHandler: {fileID: 0}
-  commandList: []
+  commandList:
+  - {fileID: -6805993008670790927}
   suppressAllAutoSelections: 0
 --- !u!114 &7657661377908241880
 MonoBehaviour:
@@ -4120,9 +4102,29 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 0}
   commandList:
-  - {fileID: 2916880600538603507}
+  - {fileID: 1821895971690332483}
   suppressAllAutoSelections: 0
---- !u!114 &2916880600538603507
+--- !u!114 &6222536893198836392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4430021659096296581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207aecf668a0345388087ccf522f9957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 27
+  indentLevel: 0
+  duration: 1
+  targetAlpha: 1
+  waitUntilFinished: 1
+  fadeColor: {r: 0, g: 0, b: 0, a: 1}
+  fadeTexture: {fileID: 0}
+  fadeTweenType: 4
+--- !u!114 &1821895971690332483
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4134,7 +4136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ca31fffe1be42a49b96bbb8b7ff5a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 26
+  itemId: 28
   indentLevel: 0
   _targetObject:
     gameObjectRef: {fileID: 0}
@@ -4156,7 +4158,7 @@ MonoBehaviour:
     vector3Ref: {fileID: 0}
     vector3Val: {x: 0, y: 0, z: 0}
   isLocal: 0
---- !u!114 &6222536893198836392
+--- !u!114 &-6805993008670790927
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4165,17 +4167,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 4430021659096296581}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 207aecf668a0345388087ccf522f9957, type: 3}
+  m_Script: {fileID: 11500000, guid: d16ca8d5970f9db4483fd0f9cc637312, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 27
+  itemId: 30
   indentLevel: 0
-  duration: 1
-  targetAlpha: 1
-  waitUntilFinished: 1
-  fadeColor: {r: 0, g: 0, b: 0, a: 1}
-  fadeTexture: {fileID: 0}
-  fadeTweenType: 4
+  items: []
+  sourceInventories:
+  - ShopInventoryRef: {fileID: 7356788542267074813}
+    ShopInventoryVal: {fileID: 0}
+  targetInventory:
+    ShopInventoryRef: {fileID: 0}
+    ShopInventoryVal: {fileID: 11400000, guid: 1f1867c70eabd59408570bad03453a5e, type: 2}
 --- !u!1 &4558857472447742123
 GameObject:
   m_ObjectHideFlags: 0
