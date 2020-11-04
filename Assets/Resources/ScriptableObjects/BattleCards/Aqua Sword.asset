@@ -12,13 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 583b7efdf9236c74fa87b4bc394c19d3, type: 3}
   m_Name: Aqua Sword
   m_EditorClassIdentifier: 
-  thumbnail: {fileID: 0}
-  fullArt: {fileID: 21300000, guid: ef9f103cc5c916945acda0ca9b916c2b, type: 3}
+  sprite: {fileID: 0}
+  price: 300
   rarity: {fileID: 11400000, guid: f2ad26c0a1b08ca40bea53b74cc588b7, type: 2}
-  _class: {fileID: 11400000, guid: bf0f3d131c5099d4bb9bc958218daab2, type: 2}
+  classes:
+  - {fileID: 11400000, guid: 94bcb1ca815232f48a09674d8f477bbf, type: 2}
+  - {fileID: 11400000, guid: 261fccadb266de5449deb2bdf03399c7, type: 2}
+  description: 
+  fullArt: {fileID: 21300000, guid: ef9f103cc5c916945acda0ca9b916c2b, type: 3}
   elements:
   - {fileID: 11400000, guid: 261fccadb266de5449deb2bdf03399c7, type: 2}
   - {fileID: 11400000, guid: 94bcb1ca815232f48a09674d8f477bbf, type: 2}
   damage: 140
   healing: 0
-  materialsToCraft: []

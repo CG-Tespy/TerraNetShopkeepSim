@@ -44,7 +44,7 @@ public class AddItemsToInventory : Command
     protected virtual IList<Item> GetSourceInventoryItems()
     {
         List<Item> sourceItems = new List<Item>();
-
+        
         for (int i = 0; i < sourceInventories.Length; i++)
         {
             var source = sourceInventories[i];

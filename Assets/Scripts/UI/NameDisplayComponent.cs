@@ -11,7 +11,7 @@ public abstract class NameDisplayComponent<TDisplayFor> : DisplayComponent<TDisp
         UpdateDisplay();
     }
 
-    [SerializeField] TextMeshProUGUI nameText = null;
+    [SerializeField] protected TextMeshProUGUI nameText = null;
 
     protected override void UpdateDisplay()
     {

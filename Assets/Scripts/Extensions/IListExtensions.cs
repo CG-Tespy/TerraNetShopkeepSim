@@ -9,4 +9,12 @@ public static class IListExtensions
             list.Add(toAdd[i]);
         }
     }
+
+    public static void RemoveRange<T>(this IList<T> list, IList<T> toRemove)
+    {
+        for (int i = 0; i < toRemove.Count; i++)
+        {
+            list.Remove(toRemove[i]);
+        }
+    }
 }
