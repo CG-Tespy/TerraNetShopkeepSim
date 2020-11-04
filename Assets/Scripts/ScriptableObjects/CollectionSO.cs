@@ -27,5 +27,19 @@ public abstract class CollectionSO<T> : ScriptableObject
         contents.RemoveAll((item) => item == null);
     }
 
+    public virtual void Add(T item)
+    {
+        Contents.Add(item);
+    }
+
+    public virtual void AddRange(IList<T> contents)
+    {
+        for (int i = 0; i < contents.Count; i++)
+        {
+            T item = contents[i];
+            Add(item);
+        }
+    }
+
 
 }

@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class RecipeDisplayHub : ItemDisplayHub
+﻿public class RecipeDisplayHub : ItemDisplayHub
 {
     /// <summary>
     /// Alias for the display base.
