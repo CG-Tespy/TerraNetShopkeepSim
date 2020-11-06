@@ -20,6 +20,9 @@ public class CraftingSystem : MonoBehaviour
     /// </summary>
     public virtual bool CanCraft(Recipe recipe)
     {
+        if (recipe == null)
+            return false;
+
         // As the recipe can demand more than one of the same material, we need a separate
         // list so we can see if the mat pool has enough of said material.
         IList<Item> usableMats = new List<Item>(this.PlayerMats);

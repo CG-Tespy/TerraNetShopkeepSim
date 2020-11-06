@@ -10,7 +10,7 @@ public class AddItemsToInventory : Command
 {
     [SerializeField] ItemData[] items = null;
     [Tooltip("Items in inventories here will get added to the target inventory.")]
-    [SerializeField] ShopInventory[] sourceInventories = { };
+    [SerializeField] ShopInventoryData[] sourceInventories = { };
     [SerializeField] ShopInventoryData targetInventory;
 
     public override void OnEnter()
@@ -26,7 +26,7 @@ public class AddItemsToInventory : Command
     {
         IList<Item> itemsToAdd = GetItemsToAdd();
 
-        targetInventory.Value.Items.AddRange(itemsToAdd);
+        targetInventory.Value.AddRange(itemsToAdd);
     }
 
     protected virtual IList<Item> GetItemsToAdd()
@@ -47,8 +47,7 @@ public class AddItemsToInventory : Command
         
         for (int i = 0; i < sourceInventories.Length; i++)
         {
-            var source = sourceInventories[i];
-
+            ShopInventory source = sourceInventories[i];
             sourceItems.AddRange(source.Items);
         }
 
