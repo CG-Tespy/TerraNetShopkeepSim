@@ -23,7 +23,7 @@ public class RemoveItemsFromInventory : Command
 
         foreach (Item itemEl in items)
         {
-            invItems.Remove(itemEl);
+            inventory.Value.Remove(itemEl);
         }
     }
 }
