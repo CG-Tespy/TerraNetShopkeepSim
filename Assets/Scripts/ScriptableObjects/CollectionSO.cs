@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+
 using UnityEngine;
 
 
@@ -10,6 +11,7 @@ public abstract class CollectionSO<T> : ScriptableObject
 
     [SerializeField] private T[] startingContents = { };
     [SerializeField] private List<T> contents = new List<T>();
+    public string Name { get { return name; } }
 
     public virtual IList<T> Contents
     {
@@ -20,14 +22,27 @@ public abstract class CollectionSO<T> : ScriptableObject
 
     protected virtual void OnEnable()
     {
+#if UNITY_EDITOR
+        
         Contents.Clear();
-        AddNonNullStartingContents();
+        Contents.AddRange(ValidStartingContents());
+        
+        
+#endif
     }
 
-    protected virtual void AddNonNullStartingContents()
+    protected virtual IList<T> ValidStartingContents()
     {
-        Contents.AddRange(startingContents);
-        contents.RemoveAll((item) => item == null);
+        IList<T> valids = new List<T>();
+
+        for (int i = 0; i < startingContents.Length; i++)
+        {
+            T item = startingContents[i];
+            if (item != null)
+                valids.Add(item);
+        }
+
+        return valids;
     }
 
     public virtual void Add(T item)
