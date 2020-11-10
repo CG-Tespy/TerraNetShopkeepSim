@@ -1,5 +1,4 @@
 ﻿using Fungus;
-using System.Collections.Generic;
 
 public static class GenericCollectionExtensions 
 {
@@ -9,7 +8,7 @@ public static class GenericCollectionExtensions
     public static T[] GetAll<T>(this GenericCollection<T> coll)
     {
         T[] contents = new T[coll.Count];
-        
+
         for (int i = 0; i < coll.Count; i++)
         {
             contents[i] = coll.GetSafe(i);
@@ -21,14 +20,5 @@ public static class GenericCollectionExtensions
     public static void RemoveNulls<T>(this GenericCollection<T> coll)
     {
         coll.RemoveAll(null);
-    }
-
-    public static void AddRange<T>(this GenericCollection<T> coll, IList<T> contents)
-    {
-        for (int i = 0; i < contents.Count; i++)
-        {
-            T item = contents[i];
-            coll.Add(item);
-        }
     }
 }

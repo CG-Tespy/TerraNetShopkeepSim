@@ -45,6 +45,7 @@ public abstract class CollectionSO<T> : ScriptableObject
         return valids;
     }
 
+<<<<<<< HEAD
     public virtual void Add(T item)
     {
         Contents.Add(item);
@@ -78,5 +79,7 @@ public abstract class CollectionSO<T> : ScriptableObject
             Remove(0);
     }
 
+=======
+>>>>>>> parent of ae529f8... More progress on crafting system.
 
 }
