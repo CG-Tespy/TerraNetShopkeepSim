@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
@@ -9,35 +7,14 @@ using TMPro;
 /// </summary>
 public class BattlePowerInfoDisplay : MonoBehaviour
 {
-    BattlePower power = null;
     [SerializeField] Image art = null;
     [SerializeField] TextMeshProUGUI elementText = null, damageText = null, healingText = null;
-
-    BattlePower Power
-    {
-        set
-        {
-            power = value;
-            UpdateDisplays();
-        }
-    }
+    [SerializeField] string separator = ", ";
 
     protected virtual void Awake()
     {
         DisplayHub.AnyClicked.AddListener(OnAnyDisplayHubClicked);
         ClearDisplays();
-    }
-
-    void ClearDisplays()
-    {
-        elementText.text = "";
-        damageText.text = "";
-        healingText.text = "";
-    }
-
-    protected virtual void OnDestroy()
-    {
-        DisplayHub.AnyClicked.RemoveListener(OnAnyDisplayHubClicked);
     }
 
     void OnAnyDisplayHubClicked(IDisplayHub hub)
@@ -50,6 +27,17 @@ public class BattlePowerInfoDisplay : MonoBehaviour
 
         Power = powerHub.DisplayBase;
     }
+
+    BattlePower Power
+    {
+        set
+        {
+            power = value;
+            UpdateDisplays();
+        }
+    }
+
+    BattlePower power = null;
 
     protected virtual void UpdateDisplays()
     {
@@ -67,12 +55,13 @@ public class BattlePowerInfoDisplay : MonoBehaviour
     void DisplayElements()
     {
         string elementNames = "";
+
         foreach (Element element in power.Elements)
         {
-            elementNames = string.Concat(elementNames, element.Name, ", ");
+            elementNames = string.Concat(elementNames, element.Name, separator);
         }
 
-        elementNames = elementNames.Substring(0, elementNames.Length - 2);
+        elementNames = elementNames.Substring(0, elementNames.Length - separator.Length);
         // ^ To remove the extra comma at the end
         elementText.text = elementNames;
     }
@@ -86,5 +75,17 @@ public class BattlePowerInfoDisplay : MonoBehaviour
     {
         healingText.text = power.Healing + "";
     }
-    
+
+    void ClearDisplays()
+    {
+        elementText.text = "";
+        damageText.text = "";
+        healingText.text = "";
+    }
+
+    protected virtual void OnDestroy()
+    {
+        DisplayHub.AnyClicked.RemoveListener(OnAnyDisplayHubClicked);
+    }
+
 }
