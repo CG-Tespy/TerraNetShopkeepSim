@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using Fungus;
 
 public class CraftingSystem : MonoBehaviour
 {
