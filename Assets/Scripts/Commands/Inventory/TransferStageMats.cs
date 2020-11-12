@@ -23,7 +23,7 @@ public class TransferStageMats : Command
     protected virtual void ExecuteTransferral()
     {
         var items = inventoryData.Value.Items;
-        
+
         foreach (Stage stageEl in stages)
         {
             items.AddRange(stageEl.MatsGatherable);
