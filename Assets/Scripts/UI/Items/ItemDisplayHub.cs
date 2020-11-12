@@ -10,8 +10,9 @@ public class ItemDisplayHub : DisplayHub<Item>
         InScene.Add(this);
     }
 
-    protected virtual void OnDestroy()
+    protected override void OnDestroy()
     {
+        base.OnDestroy();
         InScene.Remove(this);
     }
 

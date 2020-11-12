@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 0}
+  selectedFlowchart: {fileID: 971876500}
 --- !u!4 &14398974
 Transform:
   m_ObjectHideFlags: 1
@@ -956,7 +956,6 @@ MonoBehaviour:
   eventHandler: {fileID: 276974509}
   commandList:
   - {fileID: 276974505}
-  - {fileID: 276974511}
   suppressAllAutoSelections: 0
 --- !u!114 &276974507
 MonoBehaviour:
@@ -983,9 +982,8 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 276974506}
-  selectedCommands:
-  - {fileID: 276974511}
+  - {fileID: 276974512}
+  selectedCommands: []
   variables:
   - {fileID: 276974508}
   - {fileID: 276974510}
@@ -1061,12 +1059,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b45380c785f3bfc4bb4cd8747762ca7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 2
-  indentLevel: 0
-  withName:
-    objectRef: {fileID: 276974508}
-    objectVal: {fileID: 0}
-  stringVar: {fileID: 276974510}
 --- !u!114 &276974512
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1382,9 +1374,6 @@ MonoBehaviour:
       vector4Data:
         vector4Ref: {fileID: 0}
         vector4Val: {x: 0, y: 0, z: 0, w: 0}
-      stageData:
-        stageRef: {fileID: 0}
-        stageVal: {fileID: 0}
   setOperator: 0
   variable: {fileID: 0}
   booleanData:
@@ -1666,6 +1655,9 @@ MonoBehaviour:
   interactableState:
     booleanRef: {fileID: 0}
     booleanVal: 0
+  applyToChildren:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
 --- !u!114 &336281410
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1683,6 +1675,9 @@ MonoBehaviour:
   targetObjects:
   - {fileID: 211385409391746964}
   interactableState:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  applyToChildren:
     booleanRef: {fileID: 0}
     booleanVal: 0
 --- !u!114 &336281411
@@ -1874,6 +1869,9 @@ MonoBehaviour:
   interactableState:
     booleanRef: {fileID: 0}
     booleanVal: 0
+  applyToChildren:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
 --- !u!114 &336281419
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2021,7 +2019,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 971876498}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 971876501}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
@@ -3338,9 +3336,6 @@ MonoBehaviour:
         vector4Data:
           vector4Ref: {fileID: 0}
           vector4Val: {x: 0, y: 0, z: 0, w: 0}
-        stageData:
-          stageRef: {fileID: 0}
-          stageVal: {fileID: 0}
   compareOperator: 0
   anyVar:
     variable: {fileID: 0}
@@ -3430,9 +3425,6 @@ MonoBehaviour:
       vector4Data:
         vector4Ref: {fileID: 0}
         vector4Val: {x: 0, y: 0, z: 0, w: 0}
-      stageData:
-        stageRef: {fileID: 0}
-        stageVal: {fileID: 0}
   variable: {fileID: 0}
   booleanData:
     booleanRef: {fileID: 0}
@@ -3605,9 +3597,6 @@ MonoBehaviour:
       vector4Data:
         vector4Ref: {fileID: 0}
         vector4Val: {x: 0, y: 0, z: 0, w: 0}
-      stageData:
-        stageRef: {fileID: 0}
-        stageVal: {fileID: 0}
   setOperator: 0
   variable: {fileID: 0}
   booleanData:
@@ -3775,9 +3764,6 @@ MonoBehaviour:
       vector4Data:
         vector4Ref: {fileID: 0}
         vector4Val: {x: 0, y: 0, z: 0, w: 0}
-      stageData:
-        stageRef: {fileID: 0}
-        stageVal: {fileID: 0}
   setOperator: 0
   variable: {fileID: 0}
   booleanData:
@@ -3930,9 +3916,6 @@ MonoBehaviour:
       vector4Data:
         vector4Ref: {fileID: 0}
         vector4Val: {x: 0, y: 0, z: 0, w: 0}
-      stageData:
-        stageRef: {fileID: 0}
-        stageVal: {fileID: 0}
   setOperator: 0
   variable: {fileID: 0}
   booleanData:
@@ -4443,9 +4426,6 @@ MonoBehaviour:
         vector4Data:
           vector4Ref: {fileID: 0}
           vector4Val: {x: 0, y: 0, z: 0, w: 0}
-        stageData:
-          stageRef: {fileID: 0}
-          stageVal: {fileID: 0}
   compareOperator: 0
   anyVar:
     variable: {fileID: 0}
@@ -4535,9 +4515,6 @@ MonoBehaviour:
       vector4Data:
         vector4Ref: {fileID: 0}
         vector4Val: {x: 0, y: 0, z: 0, w: 0}
-      stageData:
-        stageRef: {fileID: 0}
-        stageVal: {fileID: 0}
   variable: {fileID: 0}
   booleanData:
     booleanRef: {fileID: 0}
@@ -4689,9 +4666,6 @@ MonoBehaviour:
       vector4Data:
         vector4Ref: {fileID: 0}
         vector4Val: {x: 0, y: 0, z: 0, w: 0}
-      stageData:
-        stageRef: {fileID: 0}
-        stageVal: {fileID: 0}
   setOperator: 0
   variable: {fileID: 0}
   booleanData:
@@ -4876,9 +4850,6 @@ MonoBehaviour:
         vector4Data:
           vector4Ref: {fileID: 0}
           vector4Val: {x: 0, y: 0, z: 0, w: 0}
-        stageData:
-          stageRef: {fileID: 0}
-          stageVal: {fileID: 0}
   - compareOperator: 1
     anyVar:
       variable: {fileID: 669604951}
@@ -4968,9 +4939,6 @@ MonoBehaviour:
         vector4Data:
           vector4Ref: {fileID: 0}
           vector4Val: {x: 0, y: 0, z: 0, w: 0}
-        stageData:
-          stageRef: {fileID: 0}
-          stageVal: {fileID: 0}
   compareOperator: 0
   anyVar:
     variable: {fileID: 0}
@@ -5060,9 +5028,6 @@ MonoBehaviour:
       vector4Data:
         vector4Ref: {fileID: 0}
         vector4Val: {x: 0, y: 0, z: 0, w: 0}
-      stageData:
-        stageRef: {fileID: 0}
-        stageVal: {fileID: 0}
   variable: {fileID: 0}
   booleanData:
     booleanRef: {fileID: 0}
@@ -5229,9 +5194,6 @@ MonoBehaviour:
       vector4Data:
         vector4Ref: {fileID: 0}
         vector4Val: {x: 0, y: 0, z: 0, w: 0}
-      stageData:
-        stageRef: {fileID: 0}
-        stageVal: {fileID: 0}
   setOperator: 0
   variable: {fileID: 0}
   booleanData:
@@ -5464,9 +5426,6 @@ MonoBehaviour:
         vector4Data:
           vector4Ref: {fileID: 0}
           vector4Val: {x: 0, y: 0, z: 0, w: 0}
-        stageData:
-          stageRef: {fileID: 0}
-          stageVal: {fileID: 0}
   - compareOperator: 3
     anyVar:
       variable: {fileID: 1881186807}
@@ -5556,9 +5515,6 @@ MonoBehaviour:
         vector4Data:
           vector4Ref: {fileID: 0}
           vector4Val: {x: 0, y: 0, z: 0, w: 0}
-        stageData:
-          stageRef: {fileID: 0}
-          stageVal: {fileID: 0}
   compareOperator: 0
   anyVar:
     variable: {fileID: 0}
@@ -5648,9 +5604,6 @@ MonoBehaviour:
       vector4Data:
         vector4Ref: {fileID: 0}
         vector4Val: {x: 0, y: 0, z: 0, w: 0}
-      stageData:
-        stageRef: {fileID: 0}
-        stageVal: {fileID: 0}
   variable: {fileID: 0}
   booleanData:
     booleanRef: {fileID: 0}
@@ -6949,9 +6902,6 @@ MonoBehaviour:
         vector4Data:
           vector4Ref: {fileID: 0}
           vector4Val: {x: 0, y: 0, z: 0, w: 0}
-        stageData:
-          stageRef: {fileID: 0}
-          stageVal: {fileID: 0}
   compareOperator: 0
   anyVar:
     variable: {fileID: 0}
@@ -7041,9 +6991,6 @@ MonoBehaviour:
       vector4Data:
         vector4Ref: {fileID: 0}
         vector4Val: {x: 0, y: 0, z: 0, w: 0}
-      stageData:
-        stageRef: {fileID: 0}
-        stageVal: {fileID: 0}
   variable: {fileID: 0}
   booleanData:
     booleanRef: {fileID: 0}
@@ -7520,6 +7467,9 @@ MonoBehaviour:
   targetObjects:
   - {fileID: 889736513}
   interactableState:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  applyToChildren:
     booleanRef: {fileID: 0}
     booleanVal: 0
 --- !u!114 &889736519
@@ -8495,6 +8445,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 649765283339172272, guid: c49f7152be8bfa54bbf806607dbf0cb7,
+        type: 3}
+      propertyPath: commandList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 649765283339172272, guid: c49f7152be8bfa54bbf806607dbf0cb7,
+        type: 3}
+      propertyPath: commandList.Array.data[0]
+      value: 
+      objectReference: {fileID: 971876503}
     - target: {fileID: 662995709732861772, guid: c49f7152be8bfa54bbf806607dbf0cb7,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -8705,7 +8665,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -442063981976864564, guid: c49f7152be8bfa54bbf806607dbf0cb7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c49f7152be8bfa54bbf806607dbf0cb7, type: 3}
 --- !u!224 &971876499 stripped
 RectTransform:
@@ -8719,12 +8680,51 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 971876498}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 971876501}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &971876501 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4430021659096296581, guid: c49f7152be8bfa54bbf806607dbf0cb7,
+    type: 3}
+  m_PrefabInstance: {fileID: 971876498}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &971876502 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7356788542267074813, guid: c49f7152be8bfa54bbf806607dbf0cb7,
+    type: 3}
+  m_PrefabInstance: {fileID: 971876498}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971876501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 829e27f42e16ca84d91bd55402ae30a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &971876503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971876501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d16ca8d5970f9db4483fd0f9cc637312, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 29
+  indentLevel: 0
+  items: []
+  sourceInventories:
+  - ShopInventoryRef: {fileID: 971876502}
+    ShopInventoryVal: {fileID: 0}
+  targetInventory:
+    ShopInventoryRef: {fileID: 0}
+    ShopInventoryVal: {fileID: 11400000, guid: 1f1867c70eabd59408570bad03453a5e, type: 2}
 --- !u!1 &982333329
 GameObject:
   m_ObjectHideFlags: 0
@@ -9391,6 +9391,9 @@ MonoBehaviour:
   interactableState:
     booleanRef: {fileID: 0}
     booleanVal: 1
+  applyToChildren:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
 --- !u!114 &1315561499
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -9437,6 +9440,9 @@ MonoBehaviour:
   interactableState:
     booleanRef: {fileID: 0}
     booleanVal: 1
+  applyToChildren:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
 --- !u!114 &1315561501
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -9483,6 +9489,9 @@ MonoBehaviour:
   interactableState:
     booleanRef: {fileID: 0}
     booleanVal: 0
+  applyToChildren:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
 --- !u!114 &1315561503
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -9527,6 +9536,9 @@ MonoBehaviour:
   targetObjects:
   - {fileID: 723421904}
   interactableState:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  applyToChildren:
     booleanRef: {fileID: 0}
     booleanVal: 0
 --- !u!114 &1315561505
@@ -9689,6 +9701,9 @@ MonoBehaviour:
   interactableState:
     booleanRef: {fileID: 0}
     booleanVal: 1
+  applyToChildren:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
 --- !u!114 &1315561511
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -9769,6 +9784,9 @@ MonoBehaviour:
   targetObjects:
   - {fileID: 889736513}
   interactableState:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  applyToChildren:
     booleanRef: {fileID: 0}
     booleanVal: 0
 --- !u!114 &1315561515
@@ -11608,9 +11626,6 @@ MonoBehaviour:
       vector4Data:
         vector4Ref: {fileID: 0}
         vector4Val: {x: 0, y: 0, z: 0, w: 0}
-      stageData:
-        stageRef: {fileID: 0}
-        stageVal: {fileID: 0}
   setOperator: 3
   variable: {fileID: 0}
   booleanData:

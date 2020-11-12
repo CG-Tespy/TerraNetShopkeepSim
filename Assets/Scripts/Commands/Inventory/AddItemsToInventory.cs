@@ -26,7 +26,7 @@ public class AddItemsToInventory : Command
     {
         IList<Item> itemsToAdd = GetItemsToAdd();
 
-        targetInventory.Value.Items.AddRange(itemsToAdd);
+        targetInventory.Value.AddRange(itemsToAdd);
     }
 
     protected virtual IList<Item> GetItemsToAdd()
@@ -44,11 +44,10 @@ public class AddItemsToInventory : Command
     protected virtual IList<Item> GetSourceInventoryItems()
     {
         List<Item> sourceItems = new List<Item>();
-
+        
         for (int i = 0; i < sourceInventories.Length; i++)
         {
-            var source = sourceInventories[i].Value;
-
+            ShopInventory source = sourceInventories[i];
             sourceItems.AddRange(source.Items);
         }
 
