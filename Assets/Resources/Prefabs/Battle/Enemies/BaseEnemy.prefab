@@ -27,10 +27,7 @@ GameObject:
   - component: {fileID: 2093757350119522874}
   - component: {fileID: 965783035379528962}
   - component: {fileID: 3400627739537884345}
-  - component: {fileID: 4861693280867761967}
   - component: {fileID: 7764482876180549481}
-  - component: {fileID: 4247935236605839151}
-  - component: {fileID: 1205365782195755011}
   - component: {fileID: 6442368234091915012}
   - component: {fileID: 886658827197413168}
   - component: {fileID: 8993350758329429522}
@@ -49,8 +46,17 @@ GameObject:
   - component: {fileID: 5775226654754495082}
   - component: {fileID: 1844853710612352577}
   - component: {fileID: 884541328539297481}
+  - component: {fileID: 8452472147501843716}
+  - component: {fileID: 742971220149785669}
+  - component: {fileID: 9057212472644734285}
+  - component: {fileID: 7535395027333159100}
+  - component: {fileID: 1641409324166169317}
+  - component: {fileID: 6757328860853059128}
+  - component: {fileID: -5406139985079649583}
+  - component: {fileID: -2690283146692001842}
+  - component: {fileID: -5853253171578200425}
   m_Layer: 0
-  m_Name: Mettaur
+  m_Name: BaseEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -162,7 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 40
   maxHP: 40
-  fighter: {fileID: 11400000, guid: 3df7fb92b566531499bb8faa6b81dc70, type: 2}
+  fighter: {fileID: 0}
   flowchart: {fileID: 3307127488803940801}
   enemyTypeVarName: enemyType
   atkVarName: atk
@@ -185,8 +191,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 22
-    y: 21
+    x: -10
+    y: 60
     width: 137
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -216,7 +222,7 @@ MonoBehaviour:
   scrollPos: {x: 74, y: 94}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
-  blockViewHeight: 400
+  blockViewHeight: 283
   zoom: 1
   scrollViewRect:
     serializedVersion: 2
@@ -225,9 +231,8 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 8993350758329429522}
-  selectedCommands:
-  - {fileID: 884541328539297481}
+  - {fileID: 965783035379528962}
+  selectedCommands: []
   variables:
   - {fileID: 8117566132889482157}
   - {fileID: 2646553899026003269}
@@ -235,6 +240,7 @@ MonoBehaviour:
   - {fileID: 2093757350119522874}
   - {fileID: 6442368234091915012}
   - {fileID: 886658827197413168}
+  - {fileID: 8452472147501843716}
   description: 
   stepPause: 0
   colorCommands: 1
@@ -276,7 +282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 0
   key: enemyType
-  value: {fileID: 11400000, guid: 3df7fb92b566531499bb8faa6b81dc70, type: 2}
+  value: {fileID: 0}
 --- !u!114 &793598635874053575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,8 +378,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 314
-    y: -51
+    x: 198
+    y: 55
     width: 115
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -448,8 +454,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 604
-    y: -25
+    x: 480
+    y: -6
     width: 100
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -460,9 +466,8 @@ MonoBehaviour:
   eventHandler: {fileID: 3400627739537884345}
   commandList:
   - {fileID: 7764482876180549481}
-  - {fileID: 4861693280867761967}
-  - {fileID: 1205365782195755011}
-  - {fileID: 4247935236605839151}
+  - {fileID: 6757328860853059128}
+  - {fileID: -5853253171578200425}
   suppressAllAutoSelections: 0
 --- !u!114 &3400627739537884345
 MonoBehaviour:
@@ -482,27 +487,6 @@ MonoBehaviour:
   type: {fileID: 0}
   individual: {fileID: 4580800848774905840}
   respondTo: 2
---- !u!114 &4861693280867761967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4580800848774905847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d16ca8d5970f9db4483fd0f9cc637312, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 7
-  indentLevel: 0
-  items:
-  - itemRef: {fileID: 0}
-    itemVal: {fileID: 11400000, guid: a91b358f65451b7488f2c80fca6f9cd4, type: 2}
-  sourceInventories: []
-  targetInventory:
-    ShopInventoryRef: {fileID: 0}
-    ShopInventoryVal: {fileID: 11400000, guid: 09a09fb1f022aee47a3b1d4a057c0e85, type: 2}
 --- !u!114 &7764482876180549481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,51 +504,6 @@ MonoBehaviour:
   commenterName: 
   commentText: Perhaps later, we can have the spoils added based on the MatsDropped
     field of the EnemyType instance
---- !u!114 &4247935236605839151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4580800848774905847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbd8c931f22994b9d90e2037fffaa770, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 9
-  indentLevel: 0
-  _targetGameObject:
-    gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 4580800848774905847}
-  activeState:
-    booleanRef: {fileID: 0}
-    booleanVal: 0
-  targetGameObjectOLD: {fileID: 0}
---- !u!114 &1205365782195755011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4580800848774905847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: accc065c3e9a6457496f075b1bd49adc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 10
-  indentLevel: 0
-  spriteRenderer: {fileID: 4580800848774905841}
-  _duration:
-    floatRef: {fileID: 0}
-    floatVal: 2
-  _targetColor:
-    colorRef: {fileID: 0}
-    colorVal: {r: 1, g: 1, b: 1, a: 0}
-  waitUntilFinished: 1
-  durationOLD: 0
-  targetColorOLD: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &6442368234091915012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -609,8 +548,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 685
-    y: 97
+    x: 651
+    y: 110
     width: 150
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -661,8 +600,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 452
-    y: 57
+    x: 478
+    y: 100
     width: 67
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -724,8 +663,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 424
-    y: 175
+    x: 478
+    y: 173
     width: 149
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -914,6 +853,213 @@ MonoBehaviour:
   indentLevel: 0
   commenterName: 
   commentText: to private.
+--- !u!114 &8452472147501843716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4580800848774905847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 705fa1ac97df74e3a84ff952ffd923f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scope: 0
+  key: fadeDuration
+  value: 2
+--- !u!114 &742971220149785669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4580800848774905847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 830
+    y: -5
+    width: 98
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 26
+  blockName: FadeOut
+  description: 
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 9057212472644734285}
+  - {fileID: 7535395027333159100}
+  - {fileID: 1641409324166169317}
+  suppressAllAutoSelections: 0
+--- !u!114 &9057212472644734285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4580800848774905847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: accc065c3e9a6457496f075b1bd49adc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 27
+  indentLevel: 0
+  spriteRenderer: {fileID: 4580800848774905841}
+  _duration:
+    floatRef: {fileID: 8452472147501843716}
+    floatVal: 2
+  _targetColor:
+    colorRef: {fileID: 0}
+    colorVal: {r: 1, g: 1, b: 1, a: 0}
+  waitUntilFinished: 0
+  durationOLD: 0
+  targetColorOLD: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &7535395027333159100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4580800848774905847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c6dd8d3a780f4d1ea772e3daf10c372, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 28
+  indentLevel: 0
+  targetObjects:
+  - {fileID: 9158064119916250429}
+  tweenType: 2
+  waitUntilFinished:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  duration:
+    floatRef: {fileID: 8452472147501843716}
+    floatVal: 1
+  fadeMode: 0
+  targetColor:
+    colorRef: {fileID: 0}
+    colorVal: {r: 1, g: 1, b: 1, a: 1}
+  targetAlpha:
+    floatRef: {fileID: 0}
+    floatVal: 0
+--- !u!114 &1641409324166169317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4580800848774905847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbd8c931f22994b9d90e2037fffaa770, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 29
+  indentLevel: 0
+  _targetGameObject:
+    gameObjectRef: {fileID: 0}
+    gameObjectVal: {fileID: 4580800848774905847}
+  activeState:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  targetGameObjectOLD: {fileID: 0}
+--- !u!114 &6757328860853059128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4580800848774905847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 30
+  indentLevel: 0
+  targetFlowchart: {fileID: 0}
+  targetBlock: {fileID: -5406139985079649583}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 2
+--- !u!114 &-5406139985079649583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4580800848774905847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 640
+    y: -6
+    width: 107
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 31
+  blockName: DropItems
+  description: 
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: -2690283146692001842}
+  suppressAllAutoSelections: 0
+--- !u!114 &-2690283146692001842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4580800848774905847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d16ca8d5970f9db4483fd0f9cc637312, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 32
+  indentLevel: 0
+  items: []
+  sourceInventories: []
+  targetInventory:
+    ShopInventoryRef: {fileID: 0}
+    ShopInventoryVal: {fileID: 11400000, guid: 09a09fb1f022aee47a3b1d4a057c0e85, type: 2}
+--- !u!114 &-5853253171578200425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4580800848774905847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 33
+  indentLevel: 0
+  targetFlowchart: {fileID: 0}
+  targetBlock: {fileID: 742971220149785669}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 2
 --- !u!1 &9158064119916250429
 GameObject:
   m_ObjectHideFlags: 0

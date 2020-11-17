@@ -3261,6 +3261,7 @@ GameObject:
   - component: {fileID: 4377245604383564955}
   - component: {fileID: 2916880600538603507}
   - component: {fileID: 6222536893198836392}
+  - component: {fileID: 1662717668817725109}
   m_Layer: 5
   m_Name: BattleSpoilsWindow
   m_TagString: Untagged
@@ -3379,9 +3380,8 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 7657661377908241880}
-  selectedCommands:
-  - {fileID: 6222536893198836392}
+  - {fileID: 649765283339172272}
+  selectedCommands: []
   variables:
   - {fileID: 7356788542267074813}
   - {fileID: 8240303445466704038}
@@ -3478,7 +3478,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 5199866056596754037}
   componentHolder: {fileID: 1159580197871760603}
 --- !u!114 &1564204141814268332
 MonoBehaviour:
@@ -3846,12 +3846,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 391
     y: 192
-    width: 134
+    width: 131
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   itemId: 13
-  blockName: RetrieiveSpoils
+  blockName: RetrieveSpoils
   description: 
   eventHandler: {fileID: 0}
   commandList:
@@ -4004,7 +4004,8 @@ MonoBehaviour:
   blockName: GivePlayerSpoils
   description: 
   eventHandler: {fileID: 0}
-  commandList: []
+  commandList:
+  - {fileID: 1662717668817725109}
   suppressAllAutoSelections: 0
 --- !u!114 &7657661377908241880
 MonoBehaviour:
@@ -4176,6 +4177,27 @@ MonoBehaviour:
   fadeColor: {r: 0, g: 0, b: 0, a: 1}
   fadeTexture: {fileID: 0}
   fadeTweenType: 4
+--- !u!114 &1662717668817725109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4430021659096296581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d16ca8d5970f9db4483fd0f9cc637312, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 30
+  indentLevel: 0
+  items: []
+  sourceInventories:
+  - ShopInventoryRef: {fileID: 0}
+    ShopInventoryVal: {fileID: 0}
+  targetInventory:
+    ShopInventoryRef: {fileID: 0}
+    ShopInventoryVal: {fileID: 11400000, guid: 1f1867c70eabd59408570bad03453a5e, type: 2}
 --- !u!1 &4558857472447742123
 GameObject:
   m_ObjectHideFlags: 0
