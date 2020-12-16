@@ -19,7 +19,7 @@ namespace Fungus
     public class SaveVariable : Command
     {
         [Tooltip("Name of the saved value. Supports variable substition e.g. \"player_{$PlayerNumber}")]
-        [SerializeField] protected string key = "";
+        [SerializeField] protected StringData key;
         
         [Tooltip("Variable to read the value from. Only Boolean, Integer, Float and String are supported.")]
         [VariableProperty(typeof(BooleanVariable),
@@ -85,7 +85,7 @@ namespace Fungus
         
         public override string GetSummary()
         {
-            if (key.Length == 0)
+            if (key.Value.Length == 0)
             {
                 return "Error: No stored value key selected";
             }
