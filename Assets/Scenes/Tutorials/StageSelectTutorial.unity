@@ -1113,6 +1113,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d02d9822eec54c98afe95bb497211b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &560940746 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1434103031920670694, guid: df2821310b3aa3646ac08a860f339f36,
+    type: 3}
+  m_PrefabInstance: {fileID: 560940744}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &560940747 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3239121315574082741, guid: df2821310b3aa3646ac08a860f339f36,
+    type: 3}
+  m_PrefabInstance: {fileID: 560940744}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &560940748 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4307105320251269024, guid: df2821310b3aa3646ac08a860f339f36,
+    type: 3}
+  m_PrefabInstance: {fileID: 560940744}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &560940749 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7267632831739629535, guid: df2821310b3aa3646ac08a860f339f36,
+    type: 3}
+  m_PrefabInstance: {fileID: 560940744}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &656322041
 GameObject:
   m_ObjectHideFlags: 0
@@ -1694,6 +1742,8 @@ GameObject:
   - component: {fileID: 928476249}
   - component: {fileID: 928476251}
   - component: {fileID: 928476250}
+  - component: {fileID: 928476252}
+  - component: {fileID: 928476253}
   m_Layer: 0
   m_Name: Tutorials
   m_TagString: Untagged
@@ -1775,6 +1825,8 @@ MonoBehaviour:
   - {fileID: 928476249}
   - {fileID: 928476248}
   - {fileID: 928476246}
+  - {fileID: 928476253}
+  - {fileID: 928476252}
   - {fileID: 928476250}
   suppressAllAutoSelections: 0
 --- !u!114 &928476243
@@ -1803,7 +1855,8 @@ MonoBehaviour:
     height: 0
   selectedBlocks:
   - {fileID: 928476242}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 928476253}
   variables:
   - {fileID: 928476247}
   description: 
@@ -1946,7 +1999,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &928476250
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -1960,7 +2013,7 @@ MonoBehaviour:
   indentLevel: 0
 --- !u!114 &928476251
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -2201,6 +2254,48 @@ MonoBehaviour:
   vector3Data:
     vector3Ref: {fileID: 0}
     vector3Val: {x: 0, y: 0, z: 0}
+--- !u!114 &928476252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 928476239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 8
+  indentLevel: 1
+  targetFlowchart: {fileID: 560940747}
+  targetBlock: {fileID: 560940746}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 2
+--- !u!114 &928476253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 928476239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 9
+  indentLevel: 1
+  targetFlowchart: {fileID: 560940749}
+  targetBlock: {fileID: 560940748}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 2
 --- !u!1 &938603288
 GameObject:
   m_ObjectHideFlags: 0
@@ -3981,9 +4076,8 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 1455064049}
-  selectedCommands:
-  - {fileID: 1455064048}
+  - {fileID: 1455064052}
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
