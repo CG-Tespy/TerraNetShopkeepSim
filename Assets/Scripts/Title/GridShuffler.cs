@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GridShuffler : MonoBehaviour
 {
-    private const float bottomBound = -3.0f;
-    private const float topBound = 6.0f;
+    private const float bottomBound = -11.0f;
+    private const float topBound = 11.0f;
     private const float speed = 0.33f;
 
     // Start is called before the first frame update
