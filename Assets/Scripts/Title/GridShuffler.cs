@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GridShuffler : MonoBehaviour
 {
-    private const float bottomBound = -11.0f;
+    private const float bottomBound = -4.0f;
     private const float topBound = 11.0f;
     private const float speed = 0.33f;
 
