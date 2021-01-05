@@ -2442,6 +2442,73 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1799586e6b1fab14aaeb2ef23dbd8634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &923230809
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1140360116545260, guid: 1f96a99734356f94991cfe679909ae71, type: 3}
+      propertyPath: m_Name
+      value: SaversAndLoaders
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371329421762722, guid: 1f96a99734356f94991cfe679909ae71, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371329421762722, guid: 1f96a99734356f94991cfe679909ae71, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371329421762722, guid: 1f96a99734356f94991cfe679909ae71, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371329421762722, guid: 1f96a99734356f94991cfe679909ae71, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371329421762722, guid: 1f96a99734356f94991cfe679909ae71, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371329421762722, guid: 1f96a99734356f94991cfe679909ae71, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371329421762722, guid: 1f96a99734356f94991cfe679909ae71, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371329421762722, guid: 1f96a99734356f94991cfe679909ae71, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371329421762722, guid: 1f96a99734356f94991cfe679909ae71, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371329421762722, guid: 1f96a99734356f94991cfe679909ae71, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371329421762722, guid: 1f96a99734356f94991cfe679909ae71, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114986278760630512, guid: 1f96a99734356f94991cfe679909ae71,
+        type: 3}
+      propertyPath: flowcharts.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114986278760630512, guid: 1f96a99734356f94991cfe679909ae71,
+        type: 3}
+      propertyPath: flowcharts.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1f96a99734356f94991cfe679909ae71, type: 3}
 --- !u!1 &945088183
 GameObject:
   m_ObjectHideFlags: 0
@@ -2704,6 +2771,7 @@ GameObject:
   - component: {fileID: 1016070147}
   - component: {fileID: 1016070146}
   - component: {fileID: 1016070151}
+  - component: {fileID: 1016070157}
   m_Layer: 0
   m_Name: MasterInit
   m_TagString: Untagged
@@ -2735,11 +2803,10 @@ MonoBehaviour:
     y: 0
     width: 0
     height: 0
-  selectedBlocks:
-  - {fileID: 1016070150}
-  selectedCommands:
-  - {fileID: 1016070151}
-  variables: []
+  selectedBlocks: []
+  selectedCommands: []
+  variables:
+  - {fileID: 1016070157}
   description: 
   stepPause: 0
   colorCommands: 1
@@ -2879,7 +2946,7 @@ MonoBehaviour:
   suppressAllAutoSelections: 0
 --- !u!114 &1016070151
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -2898,6 +2965,21 @@ MonoBehaviour:
     stringVal: 
   startIndex: 0
   callMode: 2
+--- !u!114 &1016070157
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016070143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d02d9822eec54c98afe95bb497211b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scope: 0
+  key: saveLoaded
+  value: 0
 --- !u!114 &1092309115 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6133703891976203554, guid: 7cba6a08921b7db458e38a1b54976b17,
@@ -6272,6 +6354,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1719193948 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114423074582151018, guid: 1621c3543b3d8fe4cb00dec2c93c8675,
+    type: 3}
+  m_PrefabInstance: {fileID: 1719193935}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719193939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe94516fa0c7b11438610b1d2dfd2e8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1734255166 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 444401849405313556, guid: 6421253a511e67e419ea6608dc06b23c,
@@ -6312,18 +6406,6 @@ MonoBehaviour:
     stringVal: 
   loadingImage: {fileID: 0}
   sceneNameOLD: 
---- !u!114 &1734255173 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6340629581670071715, guid: 6421253a511e67e419ea6608dc06b23c,
-    type: 3}
-  m_PrefabInstance: {fileID: 6340629581670071713}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1734255166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1765786687
 GameObject:
   m_ObjectHideFlags: 0
@@ -6598,7 +6680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1734255173}
+  selectedFlowchart: {fileID: 1990820950}
 --- !u!4 &1845259521
 Transform:
   m_ObjectHideFlags: 1
@@ -6627,12 +6709,12 @@ GameObject:
   - component: {fileID: 1990820952}
   - component: {fileID: 1990820956}
   - component: {fileID: 1990820955}
-  - component: {fileID: 1990820957}
   - component: {fileID: 1990820954}
   - component: {fileID: 1990820960}
   - component: {fileID: 1990820959}
   - component: {fileID: 1990820958}
   - component: {fileID: 1990820961}
+  - component: {fileID: 1990820957}
   m_Layer: 5
   m_Name: SaveMenuLogic
   m_TagString: Untagged
@@ -6665,9 +6747,9 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 1990820960}
+  - {fileID: 1990820953}
   selectedCommands:
-  - {fileID: 1990820961}
+  - {fileID: 1990820957}
   variables: []
   description: 
   stepPause: 0
@@ -6819,25 +6901,53 @@ MonoBehaviour:
   m_GameObject: {fileID: 1990820949}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Script: {fileID: 11500000, guid: 95d9ff288f3904c05ada7ac9c9a075bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 3
+  itemId: 8
   indentLevel: 0
   description: 
-  targetObject: {fileID: 1719193939}
-  targetComponentAssemblyName: CGTUnity.Fungus.SaveSystem.SaveMenu, ShopkeepSimMain,
-    Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  targetComponentFullname: UnityEngine.Component[]
-  targetComponentText: SaveMenu
-  targetMethod: LoadFromSelectedSlot
-  targetMethodText: 'LoadFromSelectedSlot (): Void'
-  methodParameters: []
-  saveReturnValue: 0
-  returnValueVariableKey: 
-  returnValueType: System.Void
-  showInherited: 0
-  callMode: 0
+  delay: 0
+  invokeType: 0
+  staticEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1719193948}
+        m_TargetAssemblyTypeName: CGTUnity.Fungus.SaveSystem.SaveMenu, ShopkeepSimMain
+        m_MethodName: LoadFromSelectedSlot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  booleanParameter:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  booleanEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  integerParameter:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  integerEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  floatParameter:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  floatEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  stringParameter:
+    stringRef: {fileID: 0}
+    stringVal: 
+  stringEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1990820958
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -6911,7 +7021,7 @@ MonoBehaviour:
   suppressAllAutoSelections: 0
 --- !u!114 &1990820961
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
