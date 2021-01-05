@@ -4,6 +4,18 @@ using System.Collections.Generic;
 [CreateAssetMenu(fileName = "NewStage", menuName = "Shopkeep/Stage")]
 public class Stage : ScriptableObject
 {
+    [SerializeField] string displayName;
+    public virtual string DisplayName
+    {
+        get
+        {
+            if (string.IsNullOrEmpty(displayName))
+                return name;
+
+            return displayName;
+        }
+    }
+
     [SerializeField] Item[] matsGatherable = null;
     [Tooltip("The icon for this stage.")]
     [SerializeField] Sprite sprite = null;
