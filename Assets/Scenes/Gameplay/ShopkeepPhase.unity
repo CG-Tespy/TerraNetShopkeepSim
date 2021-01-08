@@ -162,7 +162,24 @@ GameObject:
   - component: {fileID: 228448418}
   - component: {fileID: 228448421}
   - component: {fileID: 228448420}
+  - component: {fileID: 228448422}
+  - component: {fileID: 228448424}
+  - component: {fileID: 228448423}
+  - component: {fileID: 228448417}
+  - component: {fileID: 228448427}
+  - component: {fileID: 228448426}
+  - component: {fileID: 228448425}
+  - component: {fileID: 228448434}
   - component: {fileID: 228448419}
+  - component: {fileID: 228448436}
+  - component: {fileID: 228448435}
+  - component: {fileID: 228448437}
+  - component: {fileID: 228448439}
+  - component: {fileID: 228448438}
+  - component: {fileID: 228448440}
+  - component: {fileID: 228448443}
+  - component: {fileID: 228448442}
+  - component: {fileID: 228448441}
   m_Layer: 0
   m_Name: MasterInit
   m_TagString: Untagged
@@ -258,8 +275,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 372
-    y: 132
+    x: 208
+    y: 93
     width: 67
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -271,8 +288,12 @@ MonoBehaviour:
   commandList:
   - {fileID: 228448431}
   - {fileID: 228448430}
+  - {fileID: 228448440}
+  - {fileID: 228448434}
+  - {fileID: 228448427}
+  - {fileID: 228448425}
+  - {fileID: 228448426}
   - {fileID: 228448432}
-  - {fileID: 228448419}
   - {fileID: 228448421}
   - {fileID: 228448410}
   - {fileID: 228448409}
@@ -306,14 +327,16 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 228448412}
+  - {fileID: 228448437}
   selectedCommands:
-  - {fileID: 228448429}
+  - {fileID: 228448441}
   variables:
   - {fileID: 228448416}
   - {fileID: 228448415}
   - {fileID: 228448414}
   - {fileID: 228448418}
+  - {fileID: 228448422}
+  - {fileID: 228448417}
   description: 
   stepPause: 0
   colorCommands: 1
@@ -369,6 +392,21 @@ MonoBehaviour:
   scope: 2
   key: heroNavName
   value: 
+--- !u!114 &228448417
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228448407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afb91b566ceda411bad1e9d3c3243ecc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scope: 2
+  key: playerMoney
+  value: 0
 --- !u!114 &228448418
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -393,18 +431,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 228448407}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 37
-  indentLevel: 0
-  targetFlowchart: {fileID: 1397254599}
-  targetBlock: {fileID: 1397254598}
-  startLabel:
-    stringRef: {fileID: 0}
-    stringVal: 
-  startIndex: 0
-  callMode: 2
+  nodeRect:
+    serializedVersion: 2
+    x: 464
+    y: 182
+    width: 171
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 44
+  blockName: InitRegardlessOfSave
+  description: 
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 228448436}
+  - {fileID: 228448435}
+  suppressAllAutoSelections: 0
 --- !u!114 &228448420
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -435,6 +480,567 @@ MonoBehaviour:
   indentLevel: 0
   anyOrAllConditions: 0
   conditions:
+  - compareOperator: 0
+    anyVar:
+      variable: {fileID: 228448418}
+      data:
+        animatorData:
+          animatorRef: {fileID: 0}
+          animatorVal: {fileID: 0}
+        audioSourceData:
+          audioSourceRef: {fileID: 0}
+          audioSourceVal: {fileID: 0}
+        booleanData:
+          booleanRef: {fileID: 0}
+          booleanVal: 0
+        collectionData:
+          collectionRef: {fileID: 0}
+          collectionVal: {fileID: 0}
+        collider2DData:
+          collider2DRef: {fileID: 0}
+          collider2DVal: {fileID: 0}
+        colliderData:
+          colliderRef: {fileID: 0}
+          colliderVal: {fileID: 0}
+        colorData:
+          colorRef: {fileID: 0}
+          colorVal: {r: 0, g: 0, b: 0, a: 0}
+        floatData:
+          floatRef: {fileID: 0}
+          floatVal: 0
+        gameObjectData:
+          gameObjectRef: {fileID: 0}
+          gameObjectVal: {fileID: 0}
+        integerData:
+          integerRef: {fileID: 0}
+          integerVal: 0
+        materialData:
+          materialRef: {fileID: 0}
+          materialVal: {fileID: 0}
+        matrix4x4Data:
+          matrix4x4Ref: {fileID: 0}
+          matrix4x4Val:
+            e00: 0
+            e01: 0
+            e02: 0
+            e03: 0
+            e10: 0
+            e11: 0
+            e12: 0
+            e13: 0
+            e20: 0
+            e21: 0
+            e22: 0
+            e23: 0
+            e30: 0
+            e31: 0
+            e32: 0
+            e33: 0
+        objectData:
+          objectRef: {fileID: 0}
+          objectVal: {fileID: 0}
+        quaternionData:
+          quaternionRef: {fileID: 0}
+          quaternionVal: {x: 0, y: 0, z: 0, w: 0}
+        rigidbody2DData:
+          rigidbody2DRef: {fileID: 0}
+          rigidbody2DVal: {fileID: 0}
+        rigidbodyData:
+          rigidbodyRef: {fileID: 0}
+          rigidbodyVal: {fileID: 0}
+        spriteData:
+          spriteRef: {fileID: 0}
+          spriteVal: {fileID: 0}
+        stringData:
+          stringRef: {fileID: 0}
+          stringVal: 
+        textureData:
+          textureRef: {fileID: 0}
+          textureVal: {fileID: 0}
+        transformData:
+          transformRef: {fileID: 0}
+          transformVal: {fileID: 0}
+        vector2Data:
+          vector2Ref: {fileID: 0}
+          vector2Val: {x: 0, y: 0}
+        vector3Data:
+          vector3Ref: {fileID: 0}
+          vector3Val: {x: 0, y: 0, z: 0}
+        vector4Data:
+          vector4Ref: {fileID: 0}
+          vector4Val: {x: 0, y: 0, z: 0, w: 0}
+  compareOperator: 0
+  anyVar:
+    variable: {fileID: 0}
+    data:
+      animatorData:
+        animatorRef: {fileID: 0}
+        animatorVal: {fileID: 0}
+      audioSourceData:
+        audioSourceRef: {fileID: 0}
+        audioSourceVal: {fileID: 0}
+      booleanData:
+        booleanRef: {fileID: 0}
+        booleanVal: 0
+      collectionData:
+        collectionRef: {fileID: 0}
+        collectionVal: {fileID: 0}
+      collider2DData:
+        collider2DRef: {fileID: 0}
+        collider2DVal: {fileID: 0}
+      colliderData:
+        colliderRef: {fileID: 0}
+        colliderVal: {fileID: 0}
+      colorData:
+        colorRef: {fileID: 0}
+        colorVal: {r: 0, g: 0, b: 0, a: 0}
+      floatData:
+        floatRef: {fileID: 0}
+        floatVal: 0
+      gameObjectData:
+        gameObjectRef: {fileID: 0}
+        gameObjectVal: {fileID: 0}
+      integerData:
+        integerRef: {fileID: 0}
+        integerVal: 0
+      materialData:
+        materialRef: {fileID: 0}
+        materialVal: {fileID: 0}
+      matrix4x4Data:
+        matrix4x4Ref: {fileID: 0}
+        matrix4x4Val:
+          e00: 0
+          e01: 0
+          e02: 0
+          e03: 0
+          e10: 0
+          e11: 0
+          e12: 0
+          e13: 0
+          e20: 0
+          e21: 0
+          e22: 0
+          e23: 0
+          e30: 0
+          e31: 0
+          e32: 0
+          e33: 0
+      objectData:
+        objectRef: {fileID: 0}
+        objectVal: {fileID: 0}
+      quaternionData:
+        quaternionRef: {fileID: 0}
+        quaternionVal: {x: 0, y: 0, z: 0, w: 0}
+      rigidbody2DData:
+        rigidbody2DRef: {fileID: 0}
+        rigidbody2DVal: {fileID: 0}
+      rigidbodyData:
+        rigidbodyRef: {fileID: 0}
+        rigidbodyVal: {fileID: 0}
+      spriteData:
+        spriteRef: {fileID: 0}
+        spriteVal: {fileID: 0}
+      stringData:
+        stringRef: {fileID: 0}
+        stringVal: 
+      textureData:
+        textureRef: {fileID: 0}
+        textureVal: {fileID: 0}
+      transformData:
+        transformRef: {fileID: 0}
+        transformVal: {fileID: 0}
+      vector2Data:
+        vector2Ref: {fileID: 0}
+        vector2Val: {x: 0, y: 0}
+      vector3Data:
+        vector3Ref: {fileID: 0}
+        vector3Val: {x: 0, y: 0, z: 0}
+      vector4Data:
+        vector4Ref: {fileID: 0}
+        vector4Val: {x: 0, y: 0, z: 0, w: 0}
+  variable: {fileID: 0}
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  integerData:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+  animatorData:
+    animatorRef: {fileID: 0}
+    animatorVal: {fileID: 0}
+  audioSourceData:
+    audioSourceRef: {fileID: 0}
+    audioSourceVal: {fileID: 0}
+  colorData:
+    colorRef: {fileID: 0}
+    colorVal: {r: 0, g: 0, b: 0, a: 0}
+  gameObjectData:
+    gameObjectRef: {fileID: 0}
+    gameObjectVal: {fileID: 0}
+  materialData:
+    materialRef: {fileID: 0}
+    materialVal: {fileID: 0}
+  objectData:
+    objectRef: {fileID: 0}
+    objectVal: {fileID: 0}
+  rigidbody2DData:
+    rigidbody2DRef: {fileID: 0}
+    rigidbody2DVal: {fileID: 0}
+  spriteData:
+    spriteRef: {fileID: 0}
+    spriteVal: {fileID: 0}
+  textureData:
+    textureRef: {fileID: 0}
+    textureVal: {fileID: 0}
+  transformData:
+    transformRef: {fileID: 0}
+    transformVal: {fileID: 0}
+  vector2Data:
+    vector2Ref: {fileID: 0}
+    vector2Val: {x: 0, y: 0}
+  vector3Data:
+    vector3Ref: {fileID: 0}
+    vector3Val: {x: 0, y: 0, z: 0}
+--- !u!114 &228448422
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228448407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d02d9822eec54c98afe95bb497211b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scope: 0
+  key: testing
+  value: 1
+--- !u!114 &228448423
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228448407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb77d0ce495044f6e9feb91b31798e8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 39
+  indentLevel: 0
+  anyVar:
+    variable: {fileID: 228448417}
+    data:
+      animatorData:
+        animatorRef: {fileID: 0}
+        animatorVal: {fileID: 0}
+      audioSourceData:
+        audioSourceRef: {fileID: 0}
+        audioSourceVal: {fileID: 0}
+      booleanData:
+        booleanRef: {fileID: 0}
+        booleanVal: 0
+      collectionData:
+        collectionRef: {fileID: 0}
+        collectionVal: {fileID: 0}
+      collider2DData:
+        collider2DRef: {fileID: 0}
+        collider2DVal: {fileID: 0}
+      colliderData:
+        colliderRef: {fileID: 0}
+        colliderVal: {fileID: 0}
+      colorData:
+        colorRef: {fileID: 0}
+        colorVal: {r: 0, g: 0, b: 0, a: 0}
+      floatData:
+        floatRef: {fileID: 0}
+        floatVal: 0
+      gameObjectData:
+        gameObjectRef: {fileID: 0}
+        gameObjectVal: {fileID: 0}
+      integerData:
+        integerRef: {fileID: 0}
+        integerVal: 3456
+      materialData:
+        materialRef: {fileID: 0}
+        materialVal: {fileID: 0}
+      matrix4x4Data:
+        matrix4x4Ref: {fileID: 0}
+        matrix4x4Val:
+          e00: 0
+          e01: 0
+          e02: 0
+          e03: 0
+          e10: 0
+          e11: 0
+          e12: 0
+          e13: 0
+          e20: 0
+          e21: 0
+          e22: 0
+          e23: 0
+          e30: 0
+          e31: 0
+          e32: 0
+          e33: 0
+      objectData:
+        objectRef: {fileID: 0}
+        objectVal: {fileID: 0}
+      quaternionData:
+        quaternionRef: {fileID: 0}
+        quaternionVal: {x: 0, y: 0, z: 0, w: 0}
+      rigidbody2DData:
+        rigidbody2DRef: {fileID: 0}
+        rigidbody2DVal: {fileID: 0}
+      rigidbodyData:
+        rigidbodyRef: {fileID: 0}
+        rigidbodyVal: {fileID: 0}
+      spriteData:
+        spriteRef: {fileID: 0}
+        spriteVal: {fileID: 0}
+      stringData:
+        stringRef: {fileID: 0}
+        stringVal: 
+      textureData:
+        textureRef: {fileID: 0}
+        textureVal: {fileID: 0}
+      transformData:
+        transformRef: {fileID: 0}
+        transformVal: {fileID: 0}
+      vector2Data:
+        vector2Ref: {fileID: 0}
+        vector2Val: {x: 0, y: 0}
+      vector3Data:
+        vector3Ref: {fileID: 0}
+        vector3Val: {x: 0, y: 0, z: 0}
+      vector4Data:
+        vector4Ref: {fileID: 0}
+        vector4Val: {x: 0, y: 0, z: 0, w: 0}
+  setOperator: 0
+  variable: {fileID: 0}
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  integerData:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+  animatorData:
+    animatorRef: {fileID: 0}
+    animatorVal: {fileID: 0}
+  audioSourceData:
+    audioSourceRef: {fileID: 0}
+    audioSourceVal: {fileID: 0}
+  colorData:
+    colorRef: {fileID: 0}
+    colorVal: {r: 0, g: 0, b: 0, a: 0}
+  gameObjectData:
+    gameObjectRef: {fileID: 0}
+    gameObjectVal: {fileID: 0}
+  materialData:
+    materialRef: {fileID: 0}
+    materialVal: {fileID: 0}
+  objectData:
+    objectRef: {fileID: 0}
+    objectVal: {fileID: 0}
+  rigidbody2DData:
+    rigidbody2DRef: {fileID: 0}
+    rigidbody2DVal: {fileID: 0}
+  spriteData:
+    spriteRef: {fileID: 0}
+    spriteVal: {fileID: 0}
+  textureData:
+    textureRef: {fileID: 0}
+    textureVal: {fileID: 0}
+  transformData:
+    transformRef: {fileID: 0}
+    transformVal: {fileID: 0}
+  vector2Data:
+    vector2Ref: {fileID: 0}
+    vector2Val: {x: 0, y: 0}
+  vector3Data:
+    vector3Ref: {fileID: 0}
+    vector3Val: {x: 0, y: 0, z: 0}
+--- !u!114 &228448424
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228448407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 466
+    y: 86
+    width: 168
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 38
+  blockName: SetMoneyForTesting
+  description: 
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 228448423}
+  suppressAllAutoSelections: 0
+--- !u!114 &228448425
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228448407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 42
+  indentLevel: 1
+  targetFlowchart: {fileID: 0}
+  targetBlock: {fileID: 228448424}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 2
+--- !u!114 &228448426
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228448407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93cb9773f2ca04e2bbf7a68ccfc23267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 41
+  indentLevel: 0
+--- !u!114 &228448427
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228448407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c5622b8a80845c980954170295f292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 40
+  indentLevel: 0
+  anyOrAllConditions: 1
+  conditions:
+  - compareOperator: 0
+    anyVar:
+      variable: {fileID: 228448422}
+      data:
+        animatorData:
+          animatorRef: {fileID: 0}
+          animatorVal: {fileID: 0}
+        audioSourceData:
+          audioSourceRef: {fileID: 0}
+          audioSourceVal: {fileID: 0}
+        booleanData:
+          booleanRef: {fileID: 0}
+          booleanVal: 1
+        collectionData:
+          collectionRef: {fileID: 0}
+          collectionVal: {fileID: 0}
+        collider2DData:
+          collider2DRef: {fileID: 0}
+          collider2DVal: {fileID: 0}
+        colliderData:
+          colliderRef: {fileID: 0}
+          colliderVal: {fileID: 0}
+        colorData:
+          colorRef: {fileID: 0}
+          colorVal: {r: 0, g: 0, b: 0, a: 0}
+        floatData:
+          floatRef: {fileID: 0}
+          floatVal: 0
+        gameObjectData:
+          gameObjectRef: {fileID: 0}
+          gameObjectVal: {fileID: 0}
+        integerData:
+          integerRef: {fileID: 0}
+          integerVal: 0
+        materialData:
+          materialRef: {fileID: 0}
+          materialVal: {fileID: 0}
+        matrix4x4Data:
+          matrix4x4Ref: {fileID: 0}
+          matrix4x4Val:
+            e00: 0
+            e01: 0
+            e02: 0
+            e03: 0
+            e10: 0
+            e11: 0
+            e12: 0
+            e13: 0
+            e20: 0
+            e21: 0
+            e22: 0
+            e23: 0
+            e30: 0
+            e31: 0
+            e32: 0
+            e33: 0
+        objectData:
+          objectRef: {fileID: 0}
+          objectVal: {fileID: 0}
+        quaternionData:
+          quaternionRef: {fileID: 0}
+          quaternionVal: {x: 0, y: 0, z: 0, w: 0}
+        rigidbody2DData:
+          rigidbody2DRef: {fileID: 0}
+          rigidbody2DVal: {fileID: 0}
+        rigidbodyData:
+          rigidbodyRef: {fileID: 0}
+          rigidbodyVal: {fileID: 0}
+        spriteData:
+          spriteRef: {fileID: 0}
+          spriteVal: {fileID: 0}
+        stringData:
+          stringRef: {fileID: 0}
+          stringVal: 
+        textureData:
+          textureRef: {fileID: 0}
+          textureVal: {fileID: 0}
+        transformData:
+          transformRef: {fileID: 0}
+          transformVal: {fileID: 0}
+        vector2Data:
+          vector2Ref: {fileID: 0}
+          vector2Val: {x: 0, y: 0}
+        vector3Data:
+          vector3Ref: {fileID: 0}
+          vector3Val: {x: 0, y: 0, z: 0}
+        vector4Data:
+          vector4Ref: {fileID: 0}
+          vector4Val: {x: 0, y: 0, z: 0, w: 0}
   - compareOperator: 0
     anyVar:
       variable: {fileID: 228448418}
@@ -750,13 +1356,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 32
   indentLevel: 0
-  targetFlowchart: {fileID: 477491766}
-  targetBlock: {fileID: 477491754}
+  targetFlowchart: {fileID: 0}
+  targetBlock: {fileID: 228448419}
   startLabel:
     stringRef: {fileID: 0}
     stringVal: 
   startIndex: 0
-  callMode: 1
+  callMode: 2
 --- !u!114 &228448433
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -778,6 +1384,195 @@ MonoBehaviour:
     stringVal: 
   startIndex: 0
   callMode: 2
+--- !u!114 &228448434
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228448407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fab8abf0343545abbfebd9a7b7b34bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 43
+  indentLevel: 0
+  logType: 0
+  logMessage:
+    stringRef: {fileID: 0}
+    stringVal: MasterInit Init block!
+--- !u!114 &228448435
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228448407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 46
+  indentLevel: 0
+  targetFlowchart: {fileID: 1397254599}
+  targetBlock: {fileID: 1397254598}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 2
+--- !u!114 &228448436
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228448407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 45
+  indentLevel: 0
+  targetFlowchart: {fileID: 477491766}
+  targetBlock: {fileID: 477491754}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 1
+--- !u!114 &228448437
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228448407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 765
+    y: 93
+    width: 137
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 47
+  blockName: OnSaveLoaded
+  description: 
+  eventHandler: {fileID: 228448439}
+  commandList:
+  - {fileID: 228448443}
+  - {fileID: 228448442}
+  - {fileID: 228448441}
+  - {fileID: 228448438}
+  suppressAllAutoSelections: 0
+--- !u!114 &228448438
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228448407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 48
+  indentLevel: 0
+  targetFlowchart: {fileID: 0}
+  targetBlock: {fileID: 228448419}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 2
+--- !u!114 &228448439
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228448407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54b58770cdc4d01459bb52ced368fbab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 228448437}
+  suppressBlockAutoSelect: 0
+  ProgressMarkerKeys: []
+--- !u!114 &228448440
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228448407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b391f286193f0d34c990faf98b6306dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 49
+  indentLevel: 0
+  key: shopkeepMasterInit
+--- !u!114 &228448441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228448407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea6e8f632db87477eb750446b28d73a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 52
+  indentLevel: 0
+  commenterName: 
+  commentText: to still be iniitalized...
+--- !u!114 &228448442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228448407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea6e8f632db87477eb750446b28d73a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 51
+  indentLevel: 0
+  commenterName: 
+  commentText: when a save is loaded. Since we want some things
+--- !u!114 &228448443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228448407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea6e8f632db87477eb750446b28d73a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 50
+  indentLevel: 0
+  commenterName: 
+  commentText: Game Started blocks just don't execute right as the game starts
 --- !u!1001 &249136224
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2115,10 +2910,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114072405048006304, guid: 1f96a99734356f94991cfe679909ae71,
+        type: 3}
+      propertyPath: loadPriority
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 114986278760630512, guid: 1f96a99734356f94991cfe679909ae71,
         type: 3}
       propertyPath: flowcharts.Array.size
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 114986278760630512, guid: 1f96a99734356f94991cfe679909ae71,
         type: 3}
@@ -2175,6 +2975,11 @@ PrefabInstance:
       propertyPath: flowcharts.Array.data[10]
       value: 
       objectReference: {fileID: 228448413}
+    - target: {fileID: 114986278760630512, guid: 1f96a99734356f94991cfe679909ae71,
+        type: 3}
+      propertyPath: flowcharts.Array.data[11]
+      value: 
+      objectReference: {fileID: 8701842603855049831}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f96a99734356f94991cfe679909ae71, type: 3}
 --- !u!4 &992133061 stripped
@@ -3878,7 +4683,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 2
   key: playerMoney
-  value: 999999
+  value: 5678
 --- !u!114 &1258417033
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -3902,7 +4707,7 @@ MonoBehaviour:
   callMode: 2
 --- !u!114 &1258417034
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -4715,7 +5520,7 @@ MonoBehaviour:
   luaBindingName: flowchart
 --- !u!114 &1397254600
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -4788,6 +5593,16 @@ PrefabInstance:
       propertyPath: commandList.Array.data[4]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 532978922554773498, guid: df2821310b3aa3646ac08a860f339f36,
+        type: 3}
+      propertyPath: conditions.Array.data[0].compareOperator
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 532978922554773498, guid: df2821310b3aa3646ac08a860f339f36,
+        type: 3}
+      propertyPath: conditions.Array.data[0].anyVar.data.integerData.integerRef
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 535630929554032136, guid: df2821310b3aa3646ac08a860f339f36,
         type: 3}
       propertyPath: selectedCommands.Array.size
@@ -4801,6 +5616,31 @@ PrefabInstance:
     - target: {fileID: 870811997337499446, guid: df2821310b3aa3646ac08a860f339f36,
         type: 3}
       propertyPath: selectedCommands.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 870811997337499446, guid: df2821310b3aa3646ac08a860f339f36,
+        type: 3}
+      propertyPath: selectedBlocks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 870811997337499446, guid: df2821310b3aa3646ac08a860f339f36,
+        type: 3}
+      propertyPath: selectedBlocks.Array.data[0]
+      value: 
+      objectReference: {fileID: 1933447486}
+    - target: {fileID: 870811997337499446, guid: df2821310b3aa3646ac08a860f339f36,
+        type: 3}
+      propertyPath: selectedCommands.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 870811997337499446, guid: df2821310b3aa3646ac08a860f339f36,
+        type: 3}
+      propertyPath: variables.Array.data[5]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1218696731640756826, guid: df2821310b3aa3646ac08a860f339f36,
+        type: 3}
+      propertyPath: value
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1466583458451875393, guid: df2821310b3aa3646ac08a860f339f36,
@@ -4812,6 +5652,21 @@ PrefabInstance:
         type: 3}
       propertyPath: itemId
       value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 1737502800701196982, guid: df2821310b3aa3646ac08a860f339f36,
+        type: 3}
+      propertyPath: anyVar.variable
+      value: 
+      objectReference: {fileID: 1426940194}
+    - target: {fileID: 1737502800701196982, guid: df2821310b3aa3646ac08a860f339f36,
+        type: 3}
+      propertyPath: anyVar.data.integerData.integerRef
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1737502800701196982, guid: df2821310b3aa3646ac08a860f339f36,
+        type: 3}
+      propertyPath: anyVar.data.integerData.integerVal
+      value: -2147483648
       objectReference: {fileID: 0}
     - target: {fileID: 2520622662953535271, guid: df2821310b3aa3646ac08a860f339f36,
         type: 3}
@@ -4833,6 +5688,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SystemGlobals
       objectReference: {fileID: 0}
+    - target: {fileID: 3304213910404142286, guid: df2821310b3aa3646ac08a860f339f36,
+        type: 3}
+      propertyPath: commentText
+      value: We set the money to the default
+      objectReference: {fileID: 0}
     - target: {fileID: 3549330946226953402, guid: df2821310b3aa3646ac08a860f339f36,
         type: 3}
       propertyPath: itemId
@@ -4848,6 +5708,11 @@ PrefabInstance:
       propertyPath: targetBlock
       value: 
       objectReference: {fileID: 1426940197}
+    - target: {fileID: 4215010679557158155, guid: df2821310b3aa3646ac08a860f339f36,
+        type: 3}
+      propertyPath: commentText
+      value: If playerMoney is still negative, there was nothing to load from
+      objectReference: {fileID: 0}
     - target: {fileID: 4964663777697250688, guid: df2821310b3aa3646ac08a860f339f36,
         type: 3}
       propertyPath: itemId
@@ -4863,10 +5728,20 @@ PrefabInstance:
       propertyPath: nodeRect.x
       value: 546.7118
       objectReference: {fileID: 0}
+    - target: {fileID: 5312851741190002670, guid: df2821310b3aa3646ac08a860f339f36,
+        type: 3}
+      propertyPath: value
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6486703656664711526, guid: df2821310b3aa3646ac08a860f339f36,
         type: 3}
       propertyPath: itemId
       value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 6684193472268688406, guid: df2821310b3aa3646ac08a860f339f36,
+        type: 3}
+      propertyPath: commentText
+      value: PlayerPrefs into it, meaning the player hasn't spent or
       objectReference: {fileID: 0}
     - target: {fileID: 6793925065351775421, guid: df2821310b3aa3646ac08a860f339f36,
         type: 3}
@@ -4878,6 +5753,11 @@ PrefabInstance:
       propertyPath: selectedBlocks.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6793925065351775421, guid: df2821310b3aa3646ac08a860f339f36,
+        type: 3}
+      propertyPath: variables.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6803680777529121927, guid: df2821310b3aa3646ac08a860f339f36,
         type: 3}
       propertyPath: nodeRect.x
@@ -4887,6 +5767,66 @@ PrefabInstance:
         type: 3}
       propertyPath: nodeRect.y
       value: 108
+      objectReference: {fileID: 0}
+    - target: {fileID: 7088283429512605762, guid: df2821310b3aa3646ac08a860f339f36,
+        type: 3}
+      propertyPath: commandList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7088283429512605762, guid: df2821310b3aa3646ac08a860f339f36,
+        type: 3}
+      propertyPath: commandList.Array.data[0]
+      value: 
+      objectReference: {fileID: 1933447476}
+    - target: {fileID: 7088283429512605762, guid: df2821310b3aa3646ac08a860f339f36,
+        type: 3}
+      propertyPath: commandList.Array.data[1]
+      value: 
+      objectReference: {fileID: 1933447475}
+    - target: {fileID: 7088283429512605762, guid: df2821310b3aa3646ac08a860f339f36,
+        type: 3}
+      propertyPath: commandList.Array.data[2]
+      value: 
+      objectReference: {fileID: 1933447474}
+    - target: {fileID: 7088283429512605762, guid: df2821310b3aa3646ac08a860f339f36,
+        type: 3}
+      propertyPath: commandList.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7088283429512605762, guid: df2821310b3aa3646ac08a860f339f36,
+        type: 3}
+      propertyPath: commandList.Array.data[4]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7088283429512605762, guid: df2821310b3aa3646ac08a860f339f36,
+        type: 3}
+      propertyPath: commandList.Array.data[5]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7088283429512605762, guid: df2821310b3aa3646ac08a860f339f36,
+        type: 3}
+      propertyPath: commandList.Array.data[6]
+      value: 
+      objectReference: {fileID: 1933447474}
+    - target: {fileID: 7088283429512605762, guid: df2821310b3aa3646ac08a860f339f36,
+        type: 3}
+      propertyPath: commandList.Array.data[7]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7088283429512605762, guid: df2821310b3aa3646ac08a860f339f36,
+        type: 3}
+      propertyPath: commandList.Array.data[8]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7088283429512605762, guid: df2821310b3aa3646ac08a860f339f36,
+        type: 3}
+      propertyPath: commandList.Array.data[9]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7088283429512605762, guid: df2821310b3aa3646ac08a860f339f36,
+        type: 3}
+      propertyPath: commandList.Array.data[10]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7106720698072537702, guid: df2821310b3aa3646ac08a860f339f36,
         type: 3}
@@ -4980,6 +5920,8 @@ PrefabInstance:
     - {fileID: 3747602968312525378, guid: df2821310b3aa3646ac08a860f339f36, type: 3}
     - {fileID: 9068862762048685546, guid: df2821310b3aa3646ac08a860f339f36, type: 3}
     - {fileID: 1079454811320036915, guid: df2821310b3aa3646ac08a860f339f36, type: 3}
+    - {fileID: 2892360550513619577, guid: df2821310b3aa3646ac08a860f339f36, type: 3}
+    - {fileID: 1218696731640756826, guid: df2821310b3aa3646ac08a860f339f36, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: df2821310b3aa3646ac08a860f339f36, type: 3}
 --- !u!114 &1426940187 stripped
 MonoBehaviour:
@@ -5071,7 +6013,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1426940186}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1933447473}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: afb91b566ceda411bad1e9d3c3243ecc, type: 3}
@@ -5107,7 +6049,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1426940186}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1933447473}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
@@ -5119,7 +6061,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1426940186}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1933447473}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
@@ -5203,7 +6145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 11
+  itemId: 12
   indentLevel: 0
   targetFlowchart: {fileID: 1426940200}
   targetBlock: {fileID: 1426940201}
@@ -5289,7 +6231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1258417005}
+  selectedFlowchart: {fileID: 228448413}
 --- !u!4 &1508476116
 Transform:
   m_ObjectHideFlags: 1
@@ -6546,6 +7488,72 @@ MonoBehaviour:
   scope: 2
   key: firstPaymentDone
   value: 0
+--- !u!1 &1933447473 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2222791784846214276, guid: df2821310b3aa3646ac08a860f339f36,
+    type: 3}
+  m_PrefabInstance: {fileID: 1426940186}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1933447474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933447473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea6e8f632db87477eb750446b28d73a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 24
+  indentLevel: 0
+  commenterName: 
+  commentText: made any money in the current playthrough. Thus...
+--- !u!114 &1933447475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933447473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea6e8f632db87477eb750446b28d73a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 23
+  indentLevel: 0
+  commenterName: 
+  commentText: from PlayerPrefs to load into it
+--- !u!114 &1933447476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933447473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea6e8f632db87477eb750446b28d73a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 21
+  indentLevel: 0
+  commenterName: 
+  commentText: Set the money to a negative value to help check if there's anything
+--- !u!114 &1933447486 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7088283429512605762, guid: df2821310b3aa3646ac08a860f339f36,
+    type: 3}
+  m_PrefabInstance: {fileID: 1426940186}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933447473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1963175165
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9298,7 +10306,7 @@ PrefabInstance:
     - target: {fileID: 2293075033235146056, guid: 7522c80d47a8cf944b4bf0384075185a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.0000019073486
+      value: -0.0000019091433
       objectReference: {fileID: 0}
     - target: {fileID: 2293075033389223891, guid: 7522c80d47a8cf944b4bf0384075185a,
         type: 3}
@@ -10495,6 +11503,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8554983187715104599, guid: 7522c80d47a8cf944b4bf0384075185a,
+        type: 3}
+      propertyPath: variables.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8701842602181575913, guid: 7522c80d47a8cf944b4bf0384075185a,
         type: 3}
       propertyPath: selectedBlocks.Array.size
@@ -10838,7 +11851,7 @@ PrefabInstance:
     - target: {fileID: 8701842603217935183, guid: 7522c80d47a8cf944b4bf0384075185a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00012207031
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8701842603270531978, guid: 7522c80d47a8cf944b4bf0384075185a,
         type: 3}
@@ -11115,6 +12128,11 @@ PrefabInstance:
       propertyPath: selectedCommands.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8701842603655355542, guid: 7522c80d47a8cf944b4bf0384075185a,
+        type: 3}
+      propertyPath: selectedCommands.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8701842603737794754, guid: 7522c80d47a8cf944b4bf0384075185a,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -11333,11 +12351,23 @@ PrefabInstance:
     - target: {fileID: 9070252788842102298, guid: 7522c80d47a8cf944b4bf0384075185a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000004296637
+      value: -0.000013809651
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7954418490746020827, guid: 7522c80d47a8cf944b4bf0384075185a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7522c80d47a8cf944b4bf0384075185a, type: 3}
+--- !u!114 &8701842603855049831 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8701842602516007642, guid: 7522c80d47a8cf944b4bf0384075185a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8701842603855049830}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8701842603855049832 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7110879017207433138, guid: 7522c80d47a8cf944b4bf0384075185a,
