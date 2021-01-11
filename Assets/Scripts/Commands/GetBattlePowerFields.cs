@@ -8,6 +8,9 @@ public class GetBattlePowerFields : Command
     [Tooltip("The one we will get the fields from.")]
     [SerializeField] ObjectVariable battlePower = null;
 
+    [VariableProperty(typeof(StringVariable))]
+    [SerializeField] protected StringVariable description = null;
+
     [VariableProperty(typeof(SpriteVariable))]
     [SerializeField] protected SpriteVariable fullArt = null;
 
@@ -16,6 +19,8 @@ public class GetBattlePowerFields : Command
 
     [VariableProperty(typeof(IntegerVariable))]
     [SerializeField] protected IntegerVariable healing = null;
+
+    
 
     [SerializeField] protected CollectionData elements;
 
@@ -40,6 +45,7 @@ public class GetBattlePowerFields : Command
             fullArt.Value = battlePower.FullArt;
 
         AssignIntegersFrom(battlePower);
+        AssignStringsFrom(battlePower);
         AssignElementsFrom(battlePower);
     }
 
@@ -50,6 +56,12 @@ public class GetBattlePowerFields : Command
 
         if (healing != null)
             healing.Value = battlePower.Healing;
+    }
+
+    protected virtual void AssignStringsFrom(BattlePower battlePower)
+    {
+        if (description != null)
+            description.Value = battlePower.Description;
     }
 
     protected virtual void AssignElementsFrom(BattlePower battlePower)
