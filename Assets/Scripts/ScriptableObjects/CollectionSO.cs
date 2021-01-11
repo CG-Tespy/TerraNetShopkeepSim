@@ -59,9 +59,28 @@ public abstract class CollectionSO<T> : ScriptableObject
 
     public virtual void RemoveAll()
     {
-        while (Contents.Count > 0)
-            Remove(0);
+        Contents.Clear();
     }
 
+    
 
+
+}
+
+public static class CollectionSOUtil
+{
+    /// <summary>
+    /// Lets you fetch all elements of a type related to that which this CollectionSO
+    /// was made to hold.
+    /// </summary>
+    public static IList<TSub> GetAllOfSubtype<TBase, TSub>(IList<TBase> collItems) where TSub: TBase
+    {
+        IList<TSub> result = new List<TSub>();
+
+        foreach (var elem in collItems)
+            if (elem is TSub)
+                result.Add((TSub) elem);
+
+        return result;
+    }
 }

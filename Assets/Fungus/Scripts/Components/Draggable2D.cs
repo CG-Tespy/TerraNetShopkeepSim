@@ -95,6 +95,11 @@ namespace Fungus
 
         protected virtual void DoBeginDrag()
         {
+            OldDoBeginDrag();
+        }
+
+        protected virtual void OldDoBeginDrag()
+        {
             // Offset the object so that the drag is anchored to the exact point where the user clicked it
             float x = Input.mousePosition.x;
             float y = Input.mousePosition.y;
