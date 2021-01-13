@@ -259,7 +259,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Wood Sword
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4ff25265c1bc95e45a8ded5b50b0c381, type: 2}
   m_sharedMaterial: {fileID: 2275749894997968368, guid: 4ff25265c1bc95e45a8ded5b50b0c381,
@@ -375,6 +375,7 @@ GameObject:
   - component: {fileID: 6724098909593777848}
   - component: {fileID: 5223980789131740108}
   - component: {fileID: 1468599696715123948}
+  - component: {fileID: 189672600421907574}
   m_Layer: 5
   m_Name: BattleCardDisplay_Folder
   m_TagString: Untagged
@@ -493,6 +494,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+--- !u!114 &189672600421907574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6724098909593777798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18a0e492e94664ec0ac44d252c40e3a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dragEnabled: 1
+  returnOnCancelled: 1
+  returnOnCompleted: 1
+  returnDuration: 1
+  hoverCursor: {fileID: 0}
+  useEventSystem: 1
 --- !u!1 &6724098910045473283
 GameObject:
   m_ObjectHideFlags: 0
