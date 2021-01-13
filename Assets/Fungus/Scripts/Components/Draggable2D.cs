@@ -37,10 +37,16 @@ namespace Fungus
         [Tooltip("Use the UI Event System to check for drag events. Clicks that hit an overlapping UI object will be ignored. Camera must have a PhysicsRaycaster component, or a Physics2DRaycaster for 2D colliders.")]
         [SerializeField] protected bool useEventSystem;
 
+        [Tooltip("Whether or not this exists in Screen Space, like UI elements usually are. Make sure this is correct, or you'll " +
+            "get some funky behavior.")]
+        [SerializeField] protected bool inScreenSpace = false;
+
         protected Vector3 startingPosition; // So we know where to move this if returnOnCompleted is true
         protected bool updatePosition = false;
         protected Vector3 newPosition;
         protected Vector3 mouseMovement = Vector3.zero;
+
+
 
         protected virtual void Awake()
         {
@@ -57,7 +63,7 @@ namespace Fungus
 
         protected virtual void SetLocalPositionUpdaters()
         {
-            // The boolean corresponds to useEventSystem
+            // The boolean corresponds to inScreenSpace
             newPositionUpdaters[true] = UpdatePositionForUI;
             newPositionUpdaters[false] = UpdatePositionForSprites;
         }
@@ -163,7 +169,7 @@ namespace Fungus
 
         protected virtual void UpdateNewPosition()
         {
-            var updater = newPositionUpdaters[useEventSystem];
+            var updater = newPositionUpdaters[inScreenSpace];
             updater();
         }
 
