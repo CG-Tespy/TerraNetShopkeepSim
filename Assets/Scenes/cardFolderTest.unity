@@ -310,7 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 229390468}
+  selectedFlowchart: {fileID: 1015690161}
 --- !u!4 &284739160
 Transform:
   m_ObjectHideFlags: 1
@@ -337,6 +337,8 @@ GameObject:
   - component: {fileID: 524510980}
   - component: {fileID: 524510979}
   - component: {fileID: 524510982}
+  - component: {fileID: 524510983}
+  - component: {fileID: 524510984}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -425,6 +427,37 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_MaxRayIntersections: 0
+--- !u!114 &524510983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524510978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3921d075c7ab614f802b5b156f8ea8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseCoords: {x: 0, y: 0, z: 0}
+  worldCoords: {x: 0, y: 0, z: 0}
+--- !u!114 &524510984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524510978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f98057233ad085643bc0830ea24c7f83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  worldPos: {x: 0, y: 0, z: 0}
+  localPos: {x: 0, y: 0, z: 0}
+  worldToLocal: {x: 0, y: 0, z: 0}
+  localToWorld: {x: 0, y: 0, z: 0}
+  mousePos: {x: 0, y: 0, z: 0}
 --- !u!1 &838431560
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,6 +779,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BattleCardFolderScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 3648701046325267333, guid: 87783d8c716d004469d5f169a635cc7d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4798515089249721703, guid: 87783d8c716d004469d5f169a635cc7d,
         type: 3}
       propertyPath: m_Camera
@@ -886,6 +924,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7513922886256126717, guid: 87783d8c716d004469d5f169a635cc7d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.000015258789
+      objectReference: {fileID: 0}
     - target: {fileID: 7539218845670382605, guid: 87783d8c716d004469d5f169a635cc7d,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -935,6 +978,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8503709850646758819, guid: 87783d8c716d004469d5f169a635cc7d,
+        type: 3}
+      propertyPath: selectedBlocks.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9077342013504700828, guid: 87783d8c716d004469d5f169a635cc7d,
         type: 3}
@@ -1049,7 +1097,7 @@ Canvas:
   m_GameObject: {fileID: 1319452695}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 524510980}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -1400,6 +1448,7 @@ GameObject:
   - component: {fileID: 1441032536}
   - component: {fileID: 1441032535}
   - component: {fileID: 1441032534}
+  - component: {fileID: 1441032537}
   m_Layer: 5
   m_Name: DraggableUI
   m_TagString: Untagged
@@ -1482,6 +1531,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1441032532}
   m_CullTransparentMesh: 0
+--- !u!114 &1441032537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441032532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f98057233ad085643bc0830ea24c7f83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  worldPos: {x: 0, y: 0, z: 0}
+  localPos: {x: 0, y: 0, z: 0}
+  worldToLocal: {x: 0, y: 0, z: 0}
+  localToWorld: {x: 0, y: 0, z: 0}
+  mousePos: {x: 0, y: 0, z: 0}
 --- !u!1 &1703514010
 GameObject:
   m_ObjectHideFlags: 0
