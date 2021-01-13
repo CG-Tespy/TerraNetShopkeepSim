@@ -118,6 +118,8 @@ namespace Fungus
         /// </summary>
         public virtual void OnDragStarted(Draggable2D draggableObject)
         {
+            RefreshDraggableObjectList(); // There might've been something added programmatically by this point
+
             if (allDraggables.Contains(draggableObject))
             {
                 if (draggableRef != null)

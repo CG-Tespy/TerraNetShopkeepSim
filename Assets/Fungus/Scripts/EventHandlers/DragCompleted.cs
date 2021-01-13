@@ -151,16 +151,19 @@ namespace Fungus
 
         private void OnDragCompletedEvent(DragCompletedEvent evt)
         {
+            RefreshDraggableObjectList();
             OnDragCompleted(evt.DraggableObject);
         }
 
         private void OnDragEnteredEvent(DragEntered.DragEnteredEvent evt)
         {
+            RefreshDraggableObjectList();
             OnDragEntered(evt.DraggableObject, evt.TargetCollider);
         }
 
         private void OnDragExitedEvent(DragExited.DragExitedEvent evt)
         {
+            RefreshDraggableObjectList();
             OnDragExited(evt.DraggableObject, evt.TargetCollider);
         }
 

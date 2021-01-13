@@ -36,17 +36,20 @@ namespace Fungus
 
         protected EventDispatcher eventDispatcher;
 
+        [Tooltip("These have Draggables parented to them. You'll want to use this for programmatically-generated draggables.")]
+        [SerializeField] protected List<Transform> draggableObjectHolders;
+
+
         protected virtual void OnEnable()
         {
             eventDispatcher = FungusManager.Instance.EventDispatcher;
-
             eventDispatcher.AddListener<DragCancelledEvent>(OnDragCancelledEvent);
+            RefreshDraggableObjectList();
         }
 
         protected virtual void OnDisable()
         {
             eventDispatcher.RemoveListener<DragCancelledEvent>(OnDragCancelledEvent);
-
             eventDispatcher = null;
         }
 
@@ -55,6 +58,42 @@ namespace Fungus
             OnDragCancelled(evt.DraggableObject);
         }
 
+        /// <summary>
+        /// You'll mainly want to use this to keep the draggables list updated with the 
+        /// programmatically-generated stuff
+        /// </summary>
+        protected virtual void RefreshDraggableObjectList()
+        {
+            HashSet<Draggable2D> noDuplicates = new HashSet<Draggable2D>();
+            var draggablesFromHolders = GetDraggablesFromHolders();
+
+            var outdatedDraggables = allDraggables;
+            noDuplicates.UnionWith(outdatedDraggables); // So we keep the ones that were unparented from a valid holder
+            noDuplicates.UnionWith(draggableObjects);
+            noDuplicates.UnionWith(draggablesFromHolders);
+
+            allDraggables.Clear();
+            allDraggables.AddRange(noDuplicates);
+        }
+
+        // Includes everything from both the holders, and what's set from the scene.
+
+        protected List<Draggable2D> allDraggables = new List<Draggable2D>();
+
+        protected virtual List<Draggable2D> GetDraggablesFromHolders()
+        {
+            List<Draggable2D> fromHolders = new List<Draggable2D>();
+
+            foreach (Transform holder in draggableObjectHolders)
+            {
+                IList<Draggable2D> foundInHolder = holder.GetComponentsInChildren<Draggable2D>();
+                fromHolders.AddRange(foundInHolder);
+            }
+
+            return fromHolders;
+        }
+
+
         #region Compatibility
 
         void ISerializationCallbackReceiver.OnAfterDeserialize()
@@ -62,9 +101,9 @@ namespace Fungus
             //add any dragableobject already present to list for backwards compatability
             if (draggableObject != null)
             {
-                if (!draggableObjects.Contains(draggableObject))
+                if (!allDraggables.Contains(draggableObject))
                 {
-                    draggableObjects.Add(draggableObject);
+                    allDraggables.Add(draggableObject);
                 }
                 draggableObject = null;
             }
@@ -80,7 +119,9 @@ namespace Fungus
 
         public virtual void OnDragCancelled(Draggable2D draggableObject)
         {
-            if (draggableObjects.Contains(draggableObject))
+            RefreshDraggableObjectList();
+
+            if (allDraggables.Contains(draggableObject))
             {
                 if (draggableRef != null)
                 {
@@ -93,13 +134,13 @@ namespace Fungus
         public override string GetSummary()
         {
             string summary = "Draggable: ";
-            if (this.draggableObjects != null && this.draggableObjects.Count != 0)
+            if (this.allDraggables != null && this.allDraggables.Count != 0)
             {
-                for (int i = 0; i < this.draggableObjects.Count; i++)
+                for (int i = 0; i < this.allDraggables.Count; i++)
                 {
-                    if (draggableObjects[i] != null)
+                    if (allDraggables[i] != null)
                     {
-                        summary += draggableObjects[i].name + ",";
+                        summary += allDraggables[i].name + ",";
                     }
                 }
                 return summary;
