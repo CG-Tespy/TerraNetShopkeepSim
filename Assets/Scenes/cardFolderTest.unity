@@ -310,7 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1015690161}
+  selectedFlowchart: {fileID: 2063981277}
 --- !u!4 &284739160
 Transform:
   m_ObjectHideFlags: 1
@@ -458,6 +458,12 @@ MonoBehaviour:
   worldToLocal: {x: 0, y: 0, z: 0}
   localToWorld: {x: 0, y: 0, z: 0}
   mousePos: {x: 0, y: 0, z: 0}
+--- !u!224 &671613175 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7513922886256126717, guid: 87783d8c716d004469d5f169a635cc7d,
+    type: 3}
+  m_PrefabInstance: {fileID: 907386159}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &838431560
 GameObject:
   m_ObjectHideFlags: 0
@@ -472,6 +478,8 @@ GameObject:
   - component: {fileID: 838431562}
   - component: {fileID: 838431561}
   - component: {fileID: 838431567}
+  - component: {fileID: 838431568}
+  - component: {fileID: 838431566}
   m_Layer: 0
   m_Name: MasterInit
   m_TagString: Untagged
@@ -499,7 +507,7 @@ MonoBehaviour:
     stringRef: {fileID: 0}
     stringVal: 
   startIndex: 0
-  callMode: 1
+  callMode: 2
 --- !u!114 &838431562
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -541,7 +549,9 @@ MonoBehaviour:
   eventHandler: {fileID: 838431562}
   commandList:
   - {fileID: 838431567}
+  - {fileID: 838431566}
   - {fileID: 838431561}
+  - {fileID: 838431568}
   suppressAllAutoSelections: 0
 --- !u!114 &838431564
 MonoBehaviour:
@@ -570,7 +580,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 838431563}
   selectedCommands:
-  - {fileID: 838431561}
+  - {fileID: 838431566}
   variables: []
   description: 
   stepPause: 0
@@ -596,6 +606,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &838431566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838431560}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 4
+  indentLevel: 0
+  targetFlowchart: {fileID: 1064858479}
+  targetBlock: {fileID: 1064858476}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 2
 --- !u!114 &838431567
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -612,6 +643,27 @@ MonoBehaviour:
   indentLevel: 0
   commenterName: 
   commentText: Get all battle powers from storage to a separate loadout
+--- !u!114 &838431568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838431560}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 3
+  indentLevel: 0
+  targetFlowchart: {fileID: 1064858479}
+  targetBlock: {fileID: 1064858478}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 1
 --- !u!1001 &907386159
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -619,6 +671,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1059131704, guid: 87783d8c716d004469d5f169a635cc7d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1974597039, guid: 87783d8c716d004469d5f169a635cc7d, type: 3}
+      propertyPath: draggableObjectHolders.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1974597039, guid: 87783d8c716d004469d5f169a635cc7d, type: 3}
+      propertyPath: draggableObjectHolders.Array.data[1]
+      value: 
+      objectReference: {fileID: 671613175}
+    - target: {fileID: 1974597042, guid: 87783d8c716d004469d5f169a635cc7d, type: 3}
+      propertyPath: selectedCommands.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 143010806677214165, guid: 87783d8c716d004469d5f169a635cc7d,
         type: 3}
       propertyPath: m_Camera
@@ -779,11 +847,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BattleCardFolderScreen
       objectReference: {fileID: 0}
-    - target: {fileID: 3648701046325267333, guid: 87783d8c716d004469d5f169a635cc7d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4798515089249721703, guid: 87783d8c716d004469d5f169a635cc7d,
         type: 3}
       propertyPath: m_Camera
@@ -924,11 +987,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7513922886256126717, guid: 87783d8c716d004469d5f169a635cc7d,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.000015258789
-      objectReference: {fileID: 0}
     - target: {fileID: 7539218845670382605, guid: 87783d8c716d004469d5f169a635cc7d,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -979,11 +1037,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8503709850646758819, guid: 87783d8c716d004469d5f169a635cc7d,
-        type: 3}
-      propertyPath: selectedBlocks.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9077342013504700828, guid: 87783d8c716d004469d5f169a635cc7d,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -1021,6 +1074,42 @@ MonoBehaviour:
 --- !u!114 &1015690161 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8503709850646758819, guid: 87783d8c716d004469d5f169a635cc7d,
+    type: 3}
+  m_PrefabInstance: {fileID: 907386159}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1064858476 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1064858476, guid: 87783d8c716d004469d5f169a635cc7d,
+    type: 3}
+  m_PrefabInstance: {fileID: 907386159}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1064858478 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1064858478, guid: 87783d8c716d004469d5f169a635cc7d,
+    type: 3}
+  m_PrefabInstance: {fileID: 907386159}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1064858479 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1064858479, guid: 87783d8c716d004469d5f169a635cc7d,
     type: 3}
   m_PrefabInstance: {fileID: 907386159}
   m_PrefabAsset: {fileID: 0}
@@ -1676,3 +1765,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.28, y: 1.28}
   m_EdgeRadius: 0
+--- !u!114 &2063981277 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1974597042, guid: 87783d8c716d004469d5f169a635cc7d,
+    type: 3}
+  m_PrefabInstance: {fileID: 907386159}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
