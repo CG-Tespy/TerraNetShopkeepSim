@@ -44,6 +44,7 @@ public class DisplayBattlePowerLoadout : Command
         {
             var newDisplay = Instantiate(displayPrefab, displayHolder);
             newDisplay.DisplayBase = power;
+            newDisplay.name = power.DisplayName;
         }
     }
 }

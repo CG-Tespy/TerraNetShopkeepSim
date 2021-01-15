@@ -51,28 +51,100 @@ namespace Fungus
 
         protected EventDispatcher eventDispatcher;
 
+        [Tooltip("These have Draggables parented to them. You'll want to use this for programmatically-generated draggables.")]
+        [SerializeField] protected List<Transform> draggableObjectHolders;
+
+        [Tooltip("These have Draggables parented to them. You'll want to use this for programmatically-generated draggables.")]
+        [SerializeField] protected List<Transform> targetObjectHolders;
+
+        [SerializeField] protected Collider2DMultiObjectHandler _targObjHolders;
+
         protected virtual void OnEnable()
         {
             if (Application.isPlaying)
             {
-                eventDispatcher = FungusManager.Instance.EventDispatcher;
-
-                eventDispatcher.AddListener<DragEnteredEvent>(OnDragEnteredEvent);
+                ListenForDragEvents();
+                RefreshDraggableObjectList();
+                RefreshTargetObjectList();
             }
         }
+
+        protected virtual void ListenForDragEvents()
+        {
+            eventDispatcher = FungusManager.Instance.EventDispatcher;
+            eventDispatcher.AddListener<DragEnteredEvent>(OnDragEnteredEvent);
+        }
+
+        /// <summary>
+        /// You'll mainly want to use this to keep the draggables list updated with the 
+        /// programmatically-generated stuff
+        /// </summary>
+        protected virtual void RefreshDraggableObjectList()
+        {
+            HashSet<Draggable2D> noDuplicates = new HashSet<Draggable2D>();
+            var draggablesFromHolders = GetObjectsFrom<Draggable2D>(draggableObjectHolders);
+
+            var outdatedDraggables = allDraggables;
+            noDuplicates.UnionWith(outdatedDraggables); // So we keep the ones that were unparented from a valid holder
+            noDuplicates.UnionWith(draggableObjects);
+            noDuplicates.UnionWith(draggablesFromHolders);
+
+            allDraggables.Clear();
+            allDraggables.AddRange(noDuplicates);
+        }
+
+        // Includes everything from both the holders, and what's set from the scene.
+
+        protected List<Draggable2D> allDraggables = new List<Draggable2D>();
+
+        protected virtual List<TObj> GetObjectsFrom<TObj>(IList<Transform> holders)
+        {
+            List<TObj> fromHolders = new List<TObj>();
+
+            foreach (Transform holder in holders)
+            {
+                IList<TObj> foundInHolder = holder.GetComponentsInChildren<TObj>();
+                fromHolders.AddRange(foundInHolder);
+            }
+
+            return fromHolders;
+        }
+
+        protected virtual void RefreshTargetObjectList()
+        {
+            HashSet<Collider2D> noDuplicates = new HashSet<Collider2D>();
+            var targetsFromHolders = GetObjectsFrom<Collider2D>(targetObjectHolders);
+            var outdatedTargets = allTargets;
+
+            noDuplicates.UnionWith(outdatedTargets);
+            noDuplicates.UnionWith(targetObjects);
+            noDuplicates.UnionWith(targetsFromHolders);
+
+            allTargets.Clear();
+            allTargets.AddRange(noDuplicates);
+        }
+
+
+        protected List<Collider2D> allTargets = new List<Collider2D>();
 
         protected virtual void OnDisable()
         {
             if (Application.isPlaying)
             {
-                eventDispatcher.RemoveListener<DragEnteredEvent>(OnDragEnteredEvent);
-
-                eventDispatcher = null;
+                UnlistenForDragEvents();
             }
+        }
+
+        protected virtual void UnlistenForDragEvents()
+        {
+            eventDispatcher.RemoveListener<DragEnteredEvent>(OnDragEnteredEvent);
+            eventDispatcher = null;
         }
 
         private void OnDragEnteredEvent(DragEnteredEvent evt)
         {
+            RefreshDraggableObjectList();
+            RefreshTargetObjectList();
             OnDragEntered(evt.DraggableObject, evt.TargetCollider);
         }
 
@@ -91,17 +163,17 @@ namespace Fungus
             //add any dragableobject already present to list for backwards compatability
             if (draggableObject != null)
             {
-                if (!draggableObjects.Contains(draggableObject))
+                if (!allDraggables.Contains(draggableObject))
                 {
-                    draggableObjects.Add(draggableObject);
+                    allDraggables.Add(draggableObject);
                 }
             }
 
             if (targetObject != null)
             {
-                if (!targetObjects.Contains(targetObject))
+                if (!allTargets.Contains(targetObject))
                 {
-                    targetObjects.Add(targetObject);
+                    allTargets.Add(targetObject);
                 }
             }
             draggableObject = null;
@@ -117,9 +189,9 @@ namespace Fungus
         /// </summary>
         public virtual void OnDragEntered(Draggable2D draggableObject, Collider2D targetObject)
         {
-            if (this.targetObjects != null && this.draggableObjects != null &&
-                this.draggableObjects.Contains(draggableObject) &&
-                this.targetObjects.Contains(targetObject))
+            if (this.allTargets != null && this.allDraggables != null &&
+                this.allDraggables.Contains(draggableObject) &&
+                this.allTargets.Contains(targetObject) && draggableObject.gameObject != targetObject.gameObject)
             {
                 if (draggableRef != null)
                 {
@@ -169,4 +241,47 @@ namespace Fungus
 
         #endregion Public members
     }
+
+    public abstract class DragMultiObjectHandler
+    {
+        public abstract void Update();
+    }
+
+    [System.Serializable]
+    public abstract class DragMultiObjectHandler<T>: DragMultiObjectHandler
+    {
+        
+        public List<T> IndividualObjects { get; set; }
+        public List<T> AllObjects { get; set; } = new List<T>();
+        public List<Transform> ObjectHolders
+        {
+            get { return objectHolders; }
+        }
+        [SerializeField] List<Transform> objectHolders;
+
+        protected HashSet<T> noDuplicates = new HashSet<T>();
+
+        public override void Update()
+        {
+            noDuplicates.Clear();
+            noDuplicates.UnionWith(IndividualObjects);
+
+            foreach (Transform holder in ObjectHolders)
+            {
+                var inHolder = holder.GetComponentsInChildren<T>();
+                noDuplicates.UnionWith(inHolder);
+            }
+
+            AllObjects.Clear();
+            AllObjects.AddRange(noDuplicates);
+        }
+    }
+
+    [System.Serializable]
+    public class Draggable2DMultiObjectHandler: DragMultiObjectHandler<Draggable2D> { }
+
+    [System.Serializable]
+    public class Collider2DMultiObjectHandler: DragMultiObjectHandler<Collider2D> { }
+
+   
 }

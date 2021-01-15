@@ -58,6 +58,9 @@ namespace Fungus
         [Tooltip("These have Draggables parented to them. You'll want to use this for programmatically-generated draggables.")]
         [SerializeField] protected List<Transform> draggableObjectHolders;
 
+        [Tooltip("These have Draggables parented to them. You'll want to use this for programmatically-generated draggables.")]
+        [SerializeField] protected List<Transform> targetObjectHolders;
+
 
         protected virtual void OnEnable()
         {
@@ -85,7 +88,7 @@ namespace Fungus
         protected virtual void RefreshDraggableObjectList()
         {
             HashSet<Draggable2D> noDuplicates = new HashSet<Draggable2D>();
-            var draggablesFromHolders = GetDraggablesFromHolders();
+            var draggablesFromHolders = GetObjectsFrom<Draggable2D>(draggableObjectHolders);
 
             var outdatedDraggables = allDraggables;
             noDuplicates.UnionWith(outdatedDraggables); // So we keep the ones that were unparented from a valid holder
@@ -100,13 +103,13 @@ namespace Fungus
 
         protected List<Draggable2D> allDraggables = new List<Draggable2D>();
 
-        protected virtual List<Draggable2D> GetDraggablesFromHolders()
+        protected virtual List<TObj> GetObjectsFrom<TObj>(List<Transform> holders)
         {
-            List<Draggable2D> fromHolders = new List<Draggable2D>();
+            List<TObj> fromHolders = new List<TObj>();
 
-            foreach (Transform holder in draggableObjectHolders)
+            foreach (Transform holder in holders)
             {
-                IList<Draggable2D> foundInHolder = holder.GetComponentsInChildren<Draggable2D>();
+                IList<TObj> foundInHolder = holder.GetComponentsInChildren<TObj>();
                 fromHolders.AddRange(foundInHolder);
             }
 
@@ -120,6 +123,23 @@ namespace Fungus
                 dragObj.RegisterHandler(this);
             }
         }
+
+        protected virtual void RefreshTargetObjectList()
+        {
+            HashSet<Collider2D> noDuplicates = new HashSet<Collider2D>();
+            var targetsFromHolders = GetObjectsFrom<Collider2D>(targetObjectHolders);
+            var outdatedTargets = allTargets;
+
+            noDuplicates.UnionWith(outdatedTargets);
+            noDuplicates.UnionWith(targetObjects);
+            noDuplicates.UnionWith(targetsFromHolders);
+
+            allTargets.Clear();
+            allTargets.AddRange(noDuplicates);
+        }
+
+
+        protected List<Collider2D> allTargets = new List<Collider2D>();
 
         protected virtual void OnDisable()
         {
@@ -222,9 +242,9 @@ namespace Fungus
         /// </summary>
         public virtual void OnDragEntered(Draggable2D draggableObject, Collider2D targetObject)
         {
-            if (this.targetObjects != null && this.allDraggables != null &&
+            if (this.allTargets != null && this.allDraggables != null &&
                 this.allDraggables.Contains(draggableObject) &&
-                this.targetObjects.Contains(targetObject))
+                this.allTargets.Contains(targetObject))
             {
                 overTarget = true;
                 targetCollider = targetObject;
@@ -236,9 +256,9 @@ namespace Fungus
         /// </summary>
         public virtual void OnDragExited(Draggable2D draggableObject, Collider2D targetObject)
         {
-            if (this.targetObjects != null && this.allDraggables != null &&
+            if (this.allTargets != null && this.allDraggables != null &&
                 this.allDraggables.Contains(draggableObject) &&
-                this.targetObjects.Contains(targetObject))
+                this.allTargets.Contains(targetObject))
             {
                 overTarget = false;
                 targetCollider = null;

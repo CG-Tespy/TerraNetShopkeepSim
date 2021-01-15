@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 using System.Collections.Generic;
 using Action = System.Action;
+using IEnumerator = System.Collections.IEnumerator;
 
 namespace Fungus
 {
@@ -41,17 +42,30 @@ namespace Fungus
             "get some funky behavior.")]
         [SerializeField] protected bool inScreenSpace = false;
 
+        [Tooltip("For when you want the object to be rendered undraggable while returning to its original position.")]
+        [SerializeField] protected bool disableDragDuringReturn = false;
+
         protected Vector3 startingPosition; // So we know where to move this if returnOnCompleted is true
         protected bool updatePosition = false;
         protected Vector3 newPosition;
         protected Vector3 mouseMovement = Vector3.zero;
 
+        public virtual bool InScreenSpace
+        {
+            get { return inScreenSpace; }
+            set { inScreenSpace = value; }
+        }
 
+        public virtual Vector3 StartingPosition
+        {
+            get { return startingPosition; }
+        }
 
         protected virtual void Awake()
         {
             CacheMainCamera(); // Performance
             SetLocalPositionUpdaters();
+            startingPosition = transform.position;
         }
 
         protected virtual void CacheMainCamera()
@@ -137,11 +151,15 @@ namespace Fungus
 
         protected virtual void DoBeginDrag()
         {
+            if (!dragEnabled) // For when you want drag to be disabled during return
+                return;
+
             ResetCachedPositions();
 
             var eventDispatcher = FungusManager.Instance.EventDispatcher;
             eventDispatcher.Raise(new DragStarted.DragStartedEvent(this));
         }
+
 
         protected virtual void ResetCachedPositions()
         {
@@ -204,12 +222,21 @@ namespace Fungus
                 if (returnOnCancelled)
                 {
                     LeanTween.move(gameObject, startingPosition, returnDuration).setEase(LeanTweenType.easeOutExpo);
+                    StartCoroutine(DisableDraggingFor(returnDuration));
                 }
             }
             else if (returnOnCompleted)
             {
                 LeanTween.move(gameObject, startingPosition, returnDuration).setEase(LeanTweenType.easeOutExpo);
+                StartCoroutine(DisableDraggingFor(returnDuration));
             }
+        }
+
+        protected virtual IEnumerator DisableDraggingFor(float duration)
+        {
+            dragEnabled = false;
+            yield return new WaitForSeconds(duration);
+            dragEnabled = true;
         }
 
         protected virtual void DoPointerEnter()
@@ -290,7 +317,7 @@ namespace Fungus
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            if (useEventSystem)
+            if (useEventSystem && dragEnabled)
             {
                 DoBeginDrag();
             }
