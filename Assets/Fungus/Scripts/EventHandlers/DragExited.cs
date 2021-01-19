@@ -17,7 +17,7 @@ namespace Fungus
                       "The block will execute when the player is dragging an object which stops touching the target object.")]
     [AddComponentMenu("")]
     [ExecuteInEditMode]
-    public class DragExited : EventHandler, ISerializationCallbackReceiver
+    public class DragExited : DragEventHandler2D, ISerializationCallbackReceiver
     {
         public class DragExitedEvent
         {
@@ -31,6 +31,7 @@ namespace Fungus
             }
         }
 
+        /*
         [VariableProperty(typeof(GameObjectVariable))]
         [SerializeField] protected GameObjectVariable draggableRef;
 
@@ -43,72 +44,68 @@ namespace Fungus
 
         [SerializeField] protected List<Draggable2D> draggableObjects;
 
+        */
+
+        protected override void KeepTrackOfSceneObjects()
+        {
+            dynamicDraggables.Update();
+            dynamicTargets.Update();
+        }
+
         [Tooltip("Drag target object to listen for drag events on")]
         [HideInInspector]
         [SerializeField] protected Collider2D targetObject;
 
+        [Header("Individually-set-from-the-scene targets")]
         [SerializeField] protected List<Collider2D> targetObjects;
 
-        protected EventDispatcher eventDispatcher;
+        [Header("For dynamically-generated targets")]
+        [SerializeField] protected Collider2DManager dynamicTargets = new Collider2DManager();
 
-        protected virtual void OnEnable()
+        protected override void ListenForDragEvents()
         {
-            if (Application.isPlaying)
-            {
-                eventDispatcher = FungusManager.Instance.EventDispatcher;
-
-                eventDispatcher.AddListener<DragExitedEvent>(OnDragEnteredEvent);
-            }
+            eventDispatcher.AddListener<DragExitedEvent>(OnDragEnteredEvent);
         }
 
-        protected virtual void OnDisable()
+        protected override void UnlistenForDragEvents()
         {
-            if (Application.isPlaying)
-            {
-                eventDispatcher.RemoveListener<DragExitedEvent>(OnDragEnteredEvent);
+            eventDispatcher.RemoveListener<DragExitedEvent>(OnDragEnteredEvent);
 
-                eventDispatcher = null;
-            }
+            eventDispatcher = null;
         }
 
         private void OnDragEnteredEvent(DragExitedEvent evt)
         {
+            KeepTrackOfSceneObjects();
             OnDragExited(evt.DraggableObject, evt.TargetCollider);
         }
 
         #region Compatibility
 
-        void ISerializationCallbackReceiver.OnAfterDeserialize()
+        protected override void HandleAwakeBackwardsCompat()
         {
+            base.HandleAwakeBackwardsCompat();
+            RegisterAlreadyPresentTarget();
         }
 
-        void ISerializationCallbackReceiver.OnBeforeSerialize()
+        protected virtual void RegisterAlreadyPresentTarget()
         {
-        }
-
-        private void Awake()
-        {
-            //add any dragableobject already present to list for backwards compatability
-            if (draggableObject != null)
+            if (targetObject != null && !targetObjects.Contains(targetObject))
             {
-                if (!draggableObjects.Contains(draggableObject))
-                {
-                    draggableObjects.Add(draggableObject);
-                }
+                targetObjects.Add(targetObject);
+                dynamicTargets.Update();
             }
 
-            if (targetObject != null)
-            {
-                if (!targetObjects.Contains(targetObject))
-                {
-                    targetObjects.Add(targetObject);
-                }
-            }
-            draggableObject = null;
             targetObject = null;
         }
 
         #endregion Compatibility
+
+        protected override void SetUpDynamicObjectHandlers()
+        {
+            base.SetUpDynamicObjectHandlers();
+            dynamicTargets.IndividualObjects = targetObjects;
+        }
 
         #region Public members
 
@@ -117,18 +114,11 @@ namespace Fungus
         /// </summary>
         public virtual void OnDragExited(Draggable2D draggableObject, Collider2D targetObject)
         {
-            if (this.targetObjects != null && this.draggableObjects != null &&
-                this.draggableObjects.Contains(draggableObject) &&
-                this.targetObjects.Contains(targetObject))
+
+            if (AllDraggables.Contains(draggableObject) &&
+                AllTargets.Contains(targetObject))
             {
-                if (draggableRef != null)
-                {
-                    draggableRef.Value = draggableObject.gameObject;
-                }
-                if (targetRef != null)
-                {
-                    targetRef.Value = targetObject.gameObject;
-                }
+                UpdateVarRefs(draggableObject.gameObject, targetObject.gameObject);
                 ExecuteBlock();
             }
         }
@@ -136,25 +126,29 @@ namespace Fungus
         public override string GetSummary()
         {
             string summary = "Draggable: ";
-            if (this.draggableObjects != null && this.draggableObjects.Count != 0)
+
+            if (this.AllDraggables.Count > 0)
             {
-                for (int i = 0; i < this.draggableObjects.Count; i++)
+                for (int i = 0; i < this.AllDraggables.Count; i++)
                 {
-                    if (draggableObjects[i] != null)
+                    var currentDraggable = AllDraggables[i];
+                    if (currentDraggable != null)
                     {
-                        summary += draggableObjects[i].name + ",";
+                        summary += currentDraggable.name + ",";
                     }
                 }
             }
 
             summary += "\nTarget: ";
-            if (this.targetObjects != null && this.targetObjects.Count != 0)
+
+            if (AllTargets.Count > 0)
             {
-                for (int i = 0; i < this.targetObjects.Count; i++)
+                for (int i = 0; i < AllTargets.Count; i++)
                 {
-                    if (targetObjects[i] != null)
+                    var currentTarget = AllTargets[i];
+                    if (currentTarget != null)
                     {
-                        summary += targetObjects[i].name + ",";
+                        summary += currentTarget.name + ",";
                     }
                 }
             }
@@ -165,6 +159,11 @@ namespace Fungus
             }
 
             return summary;
+        }
+
+        public virtual List<Collider2D> AllTargets
+        {
+            get { return dynamicTargets.AllObjects; }
         }
 
         #endregion Public members

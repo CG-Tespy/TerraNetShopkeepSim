@@ -57,7 +57,7 @@ namespace Fungus
         [Tooltip("These have Draggables parented to them. You'll want to use this for programmatically-generated draggables.")]
         [SerializeField] protected List<Transform> targetObjectHolders;
 
-        [SerializeField] protected Collider2DMultiObjectHandler _targObjHolders;
+        
 
         protected virtual void OnEnable()
         {
@@ -241,47 +241,6 @@ namespace Fungus
 
         #endregion Public members
     }
-
-    public abstract class DragMultiObjectHandler
-    {
-        public abstract void Update();
-    }
-
-    [System.Serializable]
-    public abstract class DragMultiObjectHandler<T>: DragMultiObjectHandler
-    {
-        
-        public List<T> IndividualObjects { get; set; }
-        public List<T> AllObjects { get; set; } = new List<T>();
-        public List<Transform> ObjectHolders
-        {
-            get { return objectHolders; }
-        }
-        [SerializeField] List<Transform> objectHolders;
-
-        protected HashSet<T> noDuplicates = new HashSet<T>();
-
-        public override void Update()
-        {
-            noDuplicates.Clear();
-            noDuplicates.UnionWith(IndividualObjects);
-
-            foreach (Transform holder in ObjectHolders)
-            {
-                var inHolder = holder.GetComponentsInChildren<T>();
-                noDuplicates.UnionWith(inHolder);
-            }
-
-            AllObjects.Clear();
-            AllObjects.AddRange(noDuplicates);
-        }
-    }
-
-    [System.Serializable]
-    public class Draggable2DMultiObjectHandler: DragMultiObjectHandler<Draggable2D> { }
-
-    [System.Serializable]
-    public class Collider2DMultiObjectHandler: DragMultiObjectHandler<Collider2D> { }
 
    
 }

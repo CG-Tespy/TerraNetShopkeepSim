@@ -310,7 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1097425678}
+  selectedFlowchart: {fileID: 698263304}
 --- !u!4 &284739160
 Transform:
   m_ObjectHideFlags: 1
@@ -574,6 +574,36 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 907386159}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &698263303
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698263302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fab8abf0343545abbfebd9a7b7b34bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 5
+  indentLevel: 0
+  logType: 0
+  logMessage:
+    stringRef: {fileID: 0}
+    stringVal: drag exit!
+--- !u!114 &698263304 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 698263304, guid: 87783d8c716d004469d5f169a635cc7d,
+    type: 3}
+  m_PrefabInstance: {fileID: 907386159}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698263302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &698263305
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -621,8 +651,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 696
-    y: 101
+    x: 680
+    y: 109
     width: 194
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -648,12 +678,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentBlock: {fileID: 698263308}
   suppressBlockAutoSelect: 0
+  draggableObjects: []
   draggableRef: {fileID: 0}
   targetRef: {fileID: 907386161}
+  dynamicDraggables:
+    objectHolders:
+    - {fileID: 1368598107}
+    - {fileID: 886741115}
   draggableObject: {fileID: 0}
-  draggableObjects: []
   targetObject: {fileID: 0}
   targetObjects: []
+  dynamicTargets:
+    objectHolders:
+    - {fileID: 1368598107}
+    - {fileID: 886741115}
 --- !u!114 &698263308
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -679,6 +717,7 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 698263307}
   commandList:
+  - {fileID: 698263303}
   - {fileID: 698263309}
   suppressAllAutoSelections: 0
 --- !u!114 &698263309
@@ -1058,6 +1097,12 @@ MonoBehaviour:
     stringVal: 
   startIndex: 0
   callMode: 1
+--- !u!224 &886741115 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 852052866, guid: 87783d8c716d004469d5f169a635cc7d,
+    type: 3}
+  m_PrefabInstance: {fileID: 907386159}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &907386159
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1443,6 +1488,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7513922886256126717, guid: 87783d8c716d004469d5f169a635cc7d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.000015258789
+      objectReference: {fileID: 0}
     - target: {fileID: 7539218845670382605, guid: 87783d8c716d004469d5f169a635cc7d,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -1610,18 +1660,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 907386159}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1097425678 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4182521300383007144, guid: 87783d8c716d004469d5f169a635cc7d,
-    type: 3}
-  m_PrefabInstance: {fileID: 907386159}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1097425669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1097425679
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1980,6 +2018,12 @@ MonoBehaviour:
   hideCommands: []
   luaEnvironment: {fileID: 0}
   luaBindingName: flowchart
+--- !u!224 &1368598107 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3062780938456766349, guid: 87783d8c716d004469d5f169a635cc7d,
+    type: 3}
+  m_PrefabInstance: {fileID: 907386159}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1370947339
 GameObject:
   m_ObjectHideFlags: 0
@@ -2403,8 +2447,6 @@ MonoBehaviour:
   - {fileID: 782557915}
   draggableObjectHolders: []
   targetObjectHolders: []
-  _targObjHolders:
-    objectHolders: []
 --- !u!114 &1570918923
 MonoBehaviour:
   m_ObjectHideFlags: 2
