@@ -43,8 +43,10 @@ public class DisplayBattlePowerLoadout : Command
         foreach (var power in loadout.Contents)
         {
             var newDisplay = Instantiate(displayPrefab, displayHolder);
+            newDisplay.gameObject.SetActive(true);
             newDisplay.DisplayBase = power;
             newDisplay.name = power.DisplayName;
+            
         }
     }
 }

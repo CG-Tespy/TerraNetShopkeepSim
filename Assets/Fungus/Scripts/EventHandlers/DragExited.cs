@@ -31,21 +31,6 @@ namespace Fungus
             }
         }
 
-        /*
-        [VariableProperty(typeof(GameObjectVariable))]
-        [SerializeField] protected GameObjectVariable draggableRef;
-
-        [VariableProperty(typeof(GameObjectVariable))]
-        [SerializeField] protected GameObjectVariable targetRef;
-
-        [Tooltip("Draggable object to listen for drag events on")]
-        [HideInInspector]
-        [SerializeField] protected Draggable2D draggableObject;
-
-        [SerializeField] protected List<Draggable2D> draggableObjects;
-
-        */
-
         protected override void KeepTrackOfSceneObjects()
         {
             dynamicDraggables.Update();
@@ -114,9 +99,15 @@ namespace Fungus
         /// </summary>
         public virtual void OnDragExited(Draggable2D draggableObject, Collider2D targetObject)
         {
+            bool acceptDraggable = draggableOptional || AllDraggables.Contains(draggableObject);
+            bool acceptTarget = targetOptional || AllTargets.Contains(targetObject);
 
-            if (AllDraggables.Contains(draggableObject) &&
-                AllTargets.Contains(targetObject))
+            bool shouldExecute = acceptDraggable && acceptTarget;
+            Debug.Log("OnDragExited for " + this.name);
+            Debug.Log("acceptDraggable for " + this.name + ": " + acceptDraggable);
+            Debug.Log("acceptTarget for " + this.name + ": " + acceptTarget);
+
+            if (shouldExecute)
             {
                 UpdateVarRefs(draggableObject.gameObject, targetObject.gameObject);
                 ExecuteBlock();

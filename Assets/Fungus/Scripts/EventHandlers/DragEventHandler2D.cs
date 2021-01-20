@@ -15,6 +15,9 @@ namespace Fungus
         [VariableProperty(typeof(GameObjectVariable))]
         [SerializeField] protected GameObjectVariable targetRef;
 
+        [SerializeField] protected bool draggableOptional = false;
+        [SerializeField] protected bool targetOptional = false;
+
 
         protected virtual List<Draggable2D> AllDraggables
         {
@@ -32,6 +35,7 @@ namespace Fungus
             SetUpDynamicObjectHandlers();
             dynamicDraggables.Update();
             HandleAwakeBackwardsCompat();
+            Debug.Log("Awake for " + this.name);
         }
 
         protected virtual void SetUpDynamicObjectHandlers()
@@ -61,8 +65,10 @@ namespace Fungus
 
         protected virtual void OnEnable()
         {
+            Debug.Log("OnEnable for " + this.name);
             if (Application.isPlaying)
             {
+                
                 UpdateEventDispatcher();
                 ListenForDragEvents();
                 KeepTrackOfSceneObjects();
