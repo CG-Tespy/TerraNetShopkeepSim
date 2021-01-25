@@ -81,7 +81,7 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 2021476942}
+  - {fileID: 2021476931}
   selectedCommands: []
   variables:
   - {fileID: 2021476951}
@@ -684,81 +684,11 @@ Transform:
   - {fileID: 1974597038}
   - {fileID: 879271993}
   - {fileID: 137971249}
-  - {fileID: 1705404514527723329}
   - {fileID: 8948006216986616087}
   - {fileID: 1064858474}
-  - {fileID: 698263303}
   m_Father: {fileID: 4847990148930757291}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &698263302
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 698263303}
-  - component: {fileID: 698263304}
-  m_Layer: 0
-  m_Name: DragExit
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &698263303
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 698263302}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 444433451}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &698263304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 698263302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
-  scrollPos: {x: 0, y: 0}
-  variablesScrollPos: {x: 0, y: 0}
-  variablesExpanded: 1
-  blockViewHeight: 400
-  zoom: 1
-  scrollViewRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 0
-    height: 0
-  selectedBlocks: []
-  selectedCommands: []
-  variables: []
-  description: 
-  stepPause: 0
-  colorCommands: 1
-  hideComponents: 1
-  saveSelection: 1
-  localizationId: 
-  showLineNumbers: 0
-  hideCommands: []
-  luaEnvironment: {fileID: 0}
-  luaBindingName: flowchart
 --- !u!1 &852052865
 GameObject:
   m_ObjectHideFlags: 0
@@ -1170,7 +1100,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 444433451}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1064858479
 MonoBehaviour:
@@ -1435,7 +1365,6 @@ GameObject:
   - component: {fileID: 1974597049}
   - component: {fileID: 1974597048}
   - component: {fileID: 2063981265}
-  - component: {fileID: 1801874432346731242}
   m_Layer: 0
   m_Name: StartDrag
   m_TagString: Untagged
@@ -1995,32 +1924,6 @@ MonoBehaviour:
     stringVal: 
   startIndex: 0
   callMode: 2
---- !u!114 &1801874432346731242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1974597037}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nodeRect:
-    serializedVersion: 2
-    x: 766
-    y: 144
-    width: 111
-    height: 40
-  tint: {r: 1, g: 1, b: 1, a: 1}
-  useCustomTint: 0
-  itemId: 31
-  blockName: New Block
-  description: 
-  eventHandler: {fileID: 0}
-  commandList: []
-  suppressAllAutoSelections: 0
 --- !u!1 &49288358622747318
 GameObject:
   m_ObjectHideFlags: 0
@@ -2559,267 +2462,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &972540848821526599
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1705404514527723329}
-  - component: {fileID: 4182521300383007144}
-  - component: {fileID: 907386170}
-  - component: {fileID: 1097425671}
-  - component: {fileID: 1097425672}
-  - component: {fileID: 1097425673}
-  - component: {fileID: 1097425674}
-  - component: {fileID: 1097425675}
-  - component: {fileID: 1097425676}
-  - component: {fileID: 1097425677}
-  m_Layer: 0
-  m_Name: DragEnter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1705404514527723329
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 972540848821526599}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 444433451}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4182521300383007144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 972540848821526599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
-  scrollPos: {x: 0, y: 0}
-  variablesScrollPos: {x: 0, y: 0}
-  variablesExpanded: 1
-  blockViewHeight: 400
-  zoom: 1
-  scrollViewRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 0
-    height: 0
-  selectedBlocks:
-  - {fileID: 1097425675}
-  selectedCommands:
-  - {fileID: 1097425674}
-  variables:
-  - {fileID: 1097425673}
-  - {fileID: 1097425672}
-  description: 
-  stepPause: 0
-  colorCommands: 1
-  hideComponents: 1
-  saveSelection: 1
-  localizationId: 
-  showLineNumbers: 0
-  hideCommands: []
-  luaEnvironment: {fileID: 0}
-  luaBindingName: flowchart
---- !u!114 &907386170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 972540848821526599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fab8abf0343545abbfebd9a7b7b34bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 4
-  indentLevel: 0
-  logType: 0
-  logMessage:
-    stringRef: {fileID: 0}
-    stringVal: Drag entered!
---- !u!114 &1097425671
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 972540848821526599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 3
-  indentLevel: 0
-  targetFlowchart: {fileID: 0}
-  targetBlock: {fileID: 1097425675}
-  startLabel:
-    stringRef: {fileID: 0}
-    stringVal: 
-  startIndex: 0
-  callMode: 2
---- !u!114 &1097425672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 972540848821526599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d769ea3513ad47aabf805db5252341d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scope: 0
-  key: scaledUp
-  value: {x: 1.2, y: 1.2, z: 1.2}
---- !u!114 &1097425673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 972540848821526599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 705fa1ac97df74e3a84ff952ffd923f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scope: 0
-  key: scaleDuration
-  value: 0.3
---- !u!114 &1097425674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 972540848821526599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30cbb61ab588b1a4093d2ef0254045b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 2
-  indentLevel: 0
-  _targetObject:
-    gameObjectRef: {fileID: 1070663549142710221}
-    gameObjectVal: {fileID: 0}
-  _duration:
-    floatRef: {fileID: 1097425673}
-    floatVal: 1
-  _toFrom: 0
-  _absAdd: 0
-  easeType: 4
-  loopType: 35
-  repeats: 0
-  stopPreviousTweens: 0
-  waitUntilFinished: 1
-  _toTransform:
-    transformRef: {fileID: 0}
-    transformVal: {fileID: 0}
-  _toScale:
-    vector3Ref: {fileID: 1097425672}
-    vector3Val: {x: 1, y: 1, z: 1}
---- !u!114 &1097425675
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 972540848821526599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nodeRect:
-    serializedVersion: 2
-    x: 518
-    y: 50
-    width: 200
-    height: 40
-  tint: {r: 1, g: 1, b: 1, a: 1}
-  useCustomTint: 0
-  itemId: 1
-  blockName: HaveTargetCardGetBigger
-  description: 
-  eventHandler: {fileID: 0}
-  commandList:
-  - {fileID: 1097425674}
-  suppressAllAutoSelections: 0
---- !u!114 &1097425676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 972540848821526599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eed081ad4ebea41c580e1cdd6fe65ba0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parentBlock: {fileID: 1097425677}
-  suppressBlockAutoSelect: 0
-  draggableRef: {fileID: 0}
-  targetRef: {fileID: 1070663549142710221}
-  draggableObject: {fileID: 0}
-  draggableObjects: []
-  targetObject: {fileID: 0}
-  targetObjects: []
-  draggableObjectHolders:
-  - {fileID: 3062780938456766349}
-  targetObjectHolders:
-  - {fileID: 3062780938456766349}
---- !u!114 &1097425677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 972540848821526599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nodeRect:
-    serializedVersion: 2
-    x: 285
-    y: 119
-    width: 122
-    height: 40
-  tint: {r: 1, g: 1, b: 1, a: 1}
-  useCustomTint: 0
-  itemId: 0
-  blockName: OnDragEnter
-  description: 
-  eventHandler: {fileID: 1097425676}
-  commandList:
-  - {fileID: 907386170}
-  - {fileID: 1097425671}
-  suppressAllAutoSelections: 0
 --- !u!1 &1367013914813809390
 GameObject:
   m_ObjectHideFlags: 0
@@ -6032,7 +5674,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2387454362797613115}
   m_HandleRect: {fileID: 5268347662564008883}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -8826,7 +8468,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 444433451}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1403257848969897318
 MonoBehaviour:

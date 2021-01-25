@@ -37,7 +37,6 @@ namespace Fungus
             SetUpDynamicObjectHandlers();
             dynamicDraggables.Update();
             HandleAwakeBackwardsCompat();
-            Debug.Log("Awake for " + this.name);
             if (isOnPrefab)
                 OnEnable();
         }
@@ -69,10 +68,8 @@ namespace Fungus
 
         protected virtual void OnEnable()
         {
-            Debug.Log("OnEnable for " + this.name);
             if (Application.isPlaying)
             {
-                
                 UpdateEventDispatcher();
                 ListenForDragEvents();
                 KeepTrackOfSceneObjects();

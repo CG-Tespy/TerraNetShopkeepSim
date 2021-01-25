@@ -154,6 +154,7 @@ namespace Fungus
 
         protected virtual void UnlistenForDragEvents()
         {
+            return;
             eventDispatcher = FungusManager.Instance.EventDispatcher;
 
             eventDispatcher.RemoveListener<DragCompletedEvent>(OnDragCompletedEvent);

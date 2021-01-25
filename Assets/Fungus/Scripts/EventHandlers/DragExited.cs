@@ -104,9 +104,6 @@ namespace Fungus
             bool acceptTarget = targetOptional || AllTargets.Contains(targetObject);
 
             bool shouldExecute = acceptDraggable && acceptTarget;
-            Debug.Log("OnDragExited for " + this.name);
-            Debug.Log("acceptDraggable for " + this.name + ": " + acceptDraggable);
-            Debug.Log("acceptTarget for " + this.name + ": " + acceptTarget);
 
             if (shouldExecute)
             {
