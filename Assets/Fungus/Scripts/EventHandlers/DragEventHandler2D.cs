@@ -5,6 +5,8 @@ namespace Fungus
 {
     public abstract class DragEventHandler2D : EventHandler, ISerializationCallbackReceiver
     {
+        [SerializeField] protected bool isOnPrefab;
+
         [Header("Individually-set-from-the-scene draggables")]
         [SerializeField] protected List<Draggable2D> draggableObjects;
 
@@ -36,6 +38,8 @@ namespace Fungus
             dynamicDraggables.Update();
             HandleAwakeBackwardsCompat();
             Debug.Log("Awake for " + this.name);
+            if (isOnPrefab)
+                OnEnable();
         }
 
         protected virtual void SetUpDynamicObjectHandlers()

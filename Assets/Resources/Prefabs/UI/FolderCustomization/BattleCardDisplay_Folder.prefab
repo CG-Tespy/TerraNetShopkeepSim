@@ -386,6 +386,12 @@ GameObject:
   - component: {fileID: 4749272801006636066}
   - component: {fileID: 4941673326810942700}
   - component: {fileID: 2313796729103677700}
+  - component: {fileID: 4906429229290819974}
+  - component: {fileID: 5921777032849123814}
+  - component: {fileID: 4597812654945758920}
+  - component: {fileID: 2448503713485602034}
+  - component: {fileID: 3026381821900004727}
+  - component: {fileID: 5072543285775472290}
   m_Layer: 5
   m_Name: BattleCardDisplay_Folder
   m_TagString: Untagged
@@ -596,12 +602,13 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 7752615206365108589}
+  - {fileID: 4906429229290819974}
   selectedCommands: []
   variables:
   - {fileID: 1414691301138772059}
   - {fileID: 2876457660988692419}
   - {fileID: 4941673326810942700}
+  - {fileID: 2448503713485602034}
   description: 
   stepPause: 0
   colorCommands: 1
@@ -626,8 +633,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 340
-    y: 111
+    x: 274
+    y: 110
     width: 113
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -654,6 +661,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentBlock: {fileID: 7752615206365108589}
   suppressBlockAutoSelect: 0
+  isOnPrefab: 1
   draggableObjects: []
   draggableRef: {fileID: 0}
   targetRef: {fileID: 0}
@@ -763,6 +771,151 @@ MonoBehaviour:
   logMessage:
     stringRef: {fileID: 0}
     stringVal: Drag exit from card flowchart!
+--- !u!114 &4906429229290819974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6724098909593777798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 526
+    y: 111
+    width: 122
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 3
+  blockName: OnDragEnter
+  description: 
+  eventHandler: {fileID: 5072543285775472290}
+  commandList:
+  - {fileID: 3026381821900004727}
+  suppressAllAutoSelections: 0
+--- !u!114 &5921777032849123814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6724098909593777798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 752
+    y: 139
+    width: 169
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 4
+  blockName: MakeThisCardBigger
+  description: 
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 4597812654945758920}
+  suppressAllAutoSelections: 0
+--- !u!114 &4597812654945758920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6724098909593777798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30cbb61ab588b1a4093d2ef0254045b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 5
+  indentLevel: 0
+  _targetObject:
+    gameObjectRef: {fileID: 1414691301138772059}
+    gameObjectVal: {fileID: 0}
+  _duration:
+    floatRef: {fileID: 4941673326810942700}
+    floatVal: 1
+  _toFrom: 0
+  _absAdd: 0
+  easeType: 4
+  loopType: 35
+  repeats: 0
+  stopPreviousTweens: 0
+  waitUntilFinished: 0
+  _toTransform:
+    transformRef: {fileID: 0}
+    transformVal: {fileID: 0}
+  _toScale:
+    vector3Ref: {fileID: 2448503713485602034}
+    vector3Val: {x: 1, y: 1, z: 1}
+--- !u!114 &2448503713485602034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6724098909593777798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d769ea3513ad47aabf805db5252341d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scope: 0
+  key: bigScale
+  value: {x: 1.2, y: 1.2, z: 1.2}
+--- !u!114 &3026381821900004727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6724098909593777798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 6
+  indentLevel: 0
+  targetFlowchart: {fileID: 0}
+  targetBlock: {fileID: 5921777032849123814}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 2
+--- !u!114 &5072543285775472290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6724098909593777798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eed081ad4ebea41c580e1cdd6fe65ba0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 4906429229290819974}
+  suppressBlockAutoSelect: 0
+  draggableRef: {fileID: 0}
+  targetRef: {fileID: 0}
+  draggableObject: {fileID: 0}
+  draggableObjects: []
+  targetObject: {fileID: 0}
+  targetObjects: []
+  draggableObjectHolders: []
+  targetObjectHolders: []
 --- !u!1 &6724098910045473283
 GameObject:
   m_ObjectHideFlags: 0

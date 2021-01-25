@@ -19,6 +19,7 @@ namespace Fungus
     [ExecuteInEditMode]
     public class DragExited : DragEventHandler2D, ISerializationCallbackReceiver
     {
+        
         public class DragExitedEvent
         {
             public Draggable2D DraggableObject;
