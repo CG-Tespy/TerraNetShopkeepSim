@@ -7,64 +7,21 @@ namespace Fungus
     {
         [SerializeField] protected bool isOnPrefab;
 
-        [Header("Individually-set-from-the-scene draggables")]
-        [SerializeField] protected List<Draggable2D> draggableObjects;
-
-        [Header("Lets you pass the draggable and target into Fungus vars")]
         [VariableProperty(typeof(GameObjectVariable))]
         [SerializeField] protected GameObjectVariable draggableRef;
 
-        [VariableProperty(typeof(GameObjectVariable))]
-        [SerializeField] protected GameObjectVariable targetRef;
-
+        [Tooltip("Whether or not this has to respond only to the draggables specified.")]
         [SerializeField] protected bool draggableOptional = false;
-        [SerializeField] protected bool targetOptional = false;
-
-
-        protected virtual List<Draggable2D> AllDraggables
-        {
-            get { return dynamicDraggables.AllObjects; }
-        }
-
-        [Header("For dynamically-generated Draggables")]
-        [SerializeField] protected Draggable2DManager dynamicDraggables = new Draggable2DManager();
-
 
         protected EventDispatcher eventDispatcher = null;
 
         protected virtual void Awake()
         {
-            SetUpDynamicObjectHandlers();
-            dynamicDraggables.Update();
-            HandleAwakeBackwardsCompat();
-            if (isOnPrefab)
+            if (isOnPrefab) 
+                // ^OnEnable doesn't trigger for prefabs right when they're instantiated, even if
+                // they're set to be enabled by default
                 OnEnable();
         }
-
-        protected virtual void SetUpDynamicObjectHandlers()
-        {
-            dynamicDraggables.IndividualObjects = draggableObjects;
-        }
-
-        protected virtual void HandleAwakeBackwardsCompat()
-        {
-            RegisterAlreadyPresentDraggable();
-        }
-
-        protected virtual void RegisterAlreadyPresentDraggable()
-        {
-            if (draggableObject != null && draggableObjects.Contains(draggableObject))
-            {
-                draggableObjects.Add(draggableObject);
-                dynamicDraggables.Update();
-            }
-
-            draggableObject = null;
-        }
-
-        [Tooltip("Draggable object to listen for drag events on")]
-        [HideInInspector]
-        [SerializeField] protected Draggable2D draggableObject;
 
         protected virtual void OnEnable()
         {
@@ -72,7 +29,6 @@ namespace Fungus
             {
                 UpdateEventDispatcher();
                 ListenForDragEvents();
-                KeepTrackOfSceneObjects();
             }
         }
 
@@ -82,8 +38,6 @@ namespace Fungus
         }
 
         protected abstract void ListenForDragEvents();
-
-        protected abstract void KeepTrackOfSceneObjects();
 
         protected virtual void OnDisable()
         {
@@ -111,57 +65,85 @@ namespace Fungus
         {
             if (draggableRef != null)
                 draggableRef.Value = draggable;
+        }
+
+    }
+
+    public abstract class DragEventHandler2DWithTarget: DragEventHandler2D
+    {
+        [VariableProperty(typeof(GameObjectVariable))]
+        [SerializeField] protected GameObjectVariable targetRef;
+        [SerializeField] protected bool targetOptional = false;
+
+        protected override void UpdateVarRefs(GameObject draggable, GameObject target)
+        {
+            base.UpdateVarRefs(draggable, target);
 
             if (targetRef != null)
                 targetRef.Value = target;
         }
-
     }
 
-
-    public abstract class DragRelatedManager
+    /// <summary>
+    /// For drag event handlers that require you to set objects from the scene, as opposed to
+    /// letting you work with runtime-generated objects
+    /// </summary>
+    public abstract class StaticDragEventHandler2D : DragEventHandler2D
     {
-        public abstract void Update();
-    }
+        [SerializeField] protected List<Draggable2D> draggableObjects;
 
-    [System.Serializable]
-    public abstract class DragRelatedManager<T> : DragRelatedManager
-    {
-        public List<T> IndividualObjects { get; set; }
-        public List<T> AllObjects { get; set; } = new List<T>();
-        public List<Transform> ObjectHolders
+        protected override void Awake()
         {
-            get { return objectHolders; }
+            HandleAwakeBackwardsCompat();
+            base.Awake(); // We want OnEnable triggered AFTER all the other setup
         }
-        [SerializeField] List<Transform> objectHolders;
 
-        protected HashSet<T> noDuplicates = new HashSet<T>();
-
-        public override void Update()
+        protected virtual void HandleAwakeBackwardsCompat()
         {
-            noDuplicates.Clear();
+            RegisterAlreadyPresentDraggable();
+        }
 
-            noDuplicates.UnionWith(IndividualObjects);
-
-            foreach (Transform holder in ObjectHolders)
+        protected virtual void RegisterAlreadyPresentDraggable()
+        {
+            if (draggableObject != null && draggableObjects.Contains(draggableObject))
             {
-                var inHolder = holder.GetComponentsInChildren<T>();
-                noDuplicates.UnionWith(inHolder);
+                draggableObjects.Add(draggableObject);
             }
 
-            AllObjects.Clear();
-            AllObjects.AddRange(noDuplicates);
+            draggableObject = null;
+        }
+
+        [Tooltip("Draggable object to listen for drag events on")]
+        [HideInInspector]
+        [SerializeField] protected Draggable2D draggableObject;
+    }
+
+    /// <summary>
+    /// For static drag event handlers that consider both draggables and targets.
+    /// </summary>
+    public abstract class StaticDragEventHandler2DWithTarget: DragEventHandler2DWithTarget
+    {
+        [Tooltip("Drag target object to listen for drag events on")]
+        [HideInInspector]
+        [SerializeField] protected Collider2D targetObject;
+
+        [SerializeField] protected List<Collider2D> targetObjects;
+    }
+
+    public abstract class DynamicDragEventHandler2D : DragEventHandler2D
+    {
+        [Header("For dynamically-generated Draggables")]
+        [SerializeField] protected Draggable2DManager dynamicDraggables = new Draggable2DManager();
+
+        protected abstract void KeepTrackOfSceneObjects();
+
+        protected override void Awake()
+        {
+            dynamicDraggables.Update();
+            base.Awake();
         }
     }
 
-    [System.Serializable]
-    public class Draggable2DManager : DragRelatedManager<Draggable2D> { }
 
-    [System.Serializable]
-    public class Collider2DManager : DragRelatedManager<Collider2D> { }
-
-    public abstract class DragWithTargetEventHandler2D: DragEventHandler2D
-    {
-
-    }
+  
 }
