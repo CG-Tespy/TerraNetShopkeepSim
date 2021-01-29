@@ -1,7 +1,6 @@
 // This code is part of the Fungus library (https://github.com/snozbot/fungus)
 // It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
 
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -18,58 +17,26 @@ namespace Fungus
                       "The block will execute when the player is dragging an object which stops touching the target object.")]
     [AddComponentMenu("")]
     [ExecuteInEditMode]
-    public class DragExited : EventHandler, ISerializationCallbackReceiver
+    public class DragExited : StaticDragEventHandler2DWithTarget, ISerializationCallbackReceiver
     {
-        public class DragExitedEvent
+        public class DragExitedEvent : DragEvent2D
         {
-            public Draggable2D DraggableObject;
-            public Collider2D TargetCollider;
-
-            public DragExitedEvent(Draggable2D draggableObject, Collider2D targetCollider)
+            public DragExitedEvent(Draggable2D draggableObject, 
+                Collider2D targetCollider) : 
+                base(draggableObject, targetCollider)
             {
-                DraggableObject = draggableObject;
-                TargetCollider = targetCollider;
             }
         }
 
-        [VariableProperty(typeof(GameObjectVariable))]
-        [SerializeField] protected GameObjectVariable draggableRef;
-
-        [VariableProperty(typeof(GameObjectVariable))]
-        [SerializeField] protected GameObjectVariable targetRef;
-
-        [Tooltip("Draggable object to listen for drag events on")]
-        [HideInInspector]
-        [SerializeField] protected Draggable2D draggableObject;
-
-        [SerializeField] protected List<Draggable2D> draggableObjects;
-
-        [Tooltip("Drag target object to listen for drag events on")]
-        [HideInInspector]
-        [SerializeField] protected Collider2D targetObject;
-
-        [SerializeField] protected List<Collider2D> targetObjects;
-
-        protected EventDispatcher eventDispatcher;
-
-        protected virtual void OnEnable()
+        protected override void ListenForDragEvents()
         {
-            if (Application.isPlaying)
-            {
-                eventDispatcher = FungusManager.Instance.EventDispatcher;
-
-                eventDispatcher.AddListener<DragExitedEvent>(OnDragEnteredEvent);
-            }
+            eventDispatcher.AddListener<DragExitedEvent>(OnDragEnteredEvent);
         }
 
-        protected virtual void OnDisable()
+        protected override void UnlistenForDragEvents()
         {
-            if (Application.isPlaying)
-            {
-                eventDispatcher.RemoveListener<DragExitedEvent>(OnDragEnteredEvent);
-
-                eventDispatcher = null;
-            }
+            eventDispatcher.RemoveListener<DragExitedEvent>(OnDragEnteredEvent);
+            eventDispatcher = null;
         }
 
         private void OnDragEnteredEvent(DragExitedEvent evt)
@@ -87,27 +54,6 @@ namespace Fungus
         {
         }
 
-        private void Awake()
-        {
-            //add any dragableobject already present to list for backwards compatability
-            if (draggableObject != null)
-            {
-                if (!draggableObjects.Contains(draggableObject))
-                {
-                    draggableObjects.Add(draggableObject);
-                }
-            }
-
-            if (targetObject != null)
-            {
-                if (!targetObjects.Contains(targetObject))
-                {
-                    targetObjects.Add(targetObject);
-                }
-            }
-            draggableObject = null;
-            targetObject = null;
-        }
 
         #endregion Compatibility
 
@@ -122,14 +68,7 @@ namespace Fungus
                 this.draggableObjects.Contains(draggableObject) &&
                 this.targetObjects.Contains(targetObject))
             {
-                if (draggableRef != null)
-                {
-                    draggableRef.Value = draggableObject.gameObject;
-                }
-                if (targetRef != null)
-                {
-                    targetRef.Value = targetObject.gameObject;
-                }
+                UpdateVarRefs(draggableObject.gameObject, targetObject.gameObject);
                 ExecuteBlock();
             }
         }

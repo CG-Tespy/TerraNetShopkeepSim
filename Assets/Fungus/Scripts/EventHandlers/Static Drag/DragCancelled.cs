@@ -14,40 +14,21 @@ namespace Fungus
                       "Drag Cancelled",
                       "The block will execute when the player drags an object and releases it without dropping it on a target object.")]
     [AddComponentMenu("")]
-    public class DragCancelled : EventHandler, ISerializationCallbackReceiver
+    public class DragCancelled : StaticDragEventHandler2D, ISerializationCallbackReceiver
     {
-        public class DragCancelledEvent
+        public class DragCancelledEvent : DragEvent2D
         {
-            public Draggable2D DraggableObject;
-
-            public DragCancelledEvent(Draggable2D draggableObject)
-            {
-                DraggableObject = draggableObject;
-            }
+            public DragCancelledEvent(Draggable2D draggableObject) : base(draggableObject) { }
         }
 
-        [VariableProperty(typeof(GameObjectVariable))]
-        [SerializeField] protected GameObjectVariable draggableRef;
-
-        [Tooltip("Draggable object to listen for drag events on")]
-        [SerializeField] protected List<Draggable2D> draggableObjects;
-
-        [HideInInspector]
-        [SerializeField] protected Draggable2D draggableObject;
-
-        protected EventDispatcher eventDispatcher;
-
-        protected virtual void OnEnable()
+        protected override void ListenForDragEvents()
         {
-            eventDispatcher = FungusManager.Instance.EventDispatcher;
-
             eventDispatcher.AddListener<DragCancelledEvent>(OnDragCancelledEvent);
         }
 
-        protected virtual void OnDisable()
+        protected override void UnlistenForDragEvents()
         {
             eventDispatcher.RemoveListener<DragCancelledEvent>(OnDragCancelledEvent);
-
             eventDispatcher = null;
         }
 
@@ -83,10 +64,7 @@ namespace Fungus
         {
             if (draggableObjects.Contains(draggableObject))
             {
-                if (draggableRef != null)
-                {
-                    draggableRef.Value = draggableObject.gameObject;
-                }
+                UpdateVarRefs(draggableObject.gameObject, null);
                 ExecuteBlock();
             }
         }

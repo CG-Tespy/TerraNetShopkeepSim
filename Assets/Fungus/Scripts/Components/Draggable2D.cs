@@ -124,7 +124,6 @@ namespace Fungus
             }
         }
 
-
         protected virtual void OnTriggerEnter2D(Collider2D other)
         {
             if (!dragEnabled)

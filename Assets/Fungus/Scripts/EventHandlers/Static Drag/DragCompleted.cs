@@ -18,35 +18,14 @@ namespace Fungus
                       "The block will execute when the player drags an object and successfully drops it on a target object.")]
     [AddComponentMenu("")]
     [ExecuteInEditMode]
-    public class DragCompleted : EventHandler, ISerializationCallbackReceiver
+    public class DragCompleted : StaticDragEventHandler2DWithTarget, ISerializationCallbackReceiver
     {
-        public class DragCompletedEvent
+        public class DragCompletedEvent : DragEvent2D
         {
-            public Draggable2D DraggableObject;
-
-            public DragCompletedEvent(Draggable2D draggableObject)
+            public DragCompletedEvent(Draggable2D draggableObject) : base(draggableObject)
             {
-                DraggableObject = draggableObject;
             }
         }
-
-        [VariableProperty(typeof(GameObjectVariable))]
-        [SerializeField] protected GameObjectVariable draggableRef;
-
-        [VariableProperty(typeof(GameObjectVariable))]
-        [SerializeField] protected GameObjectVariable targetRef;
-
-        [Tooltip("Draggable object to listen for drag events on")]
-        [HideInInspector]
-        [SerializeField] protected Draggable2D draggableObject;
-
-        [SerializeField] protected List<Draggable2D> draggableObjects;
-
-        [Tooltip("Drag target object to listen for drag events on")]
-        [HideInInspector]
-        [SerializeField] protected Collider2D targetObject;
-
-        [SerializeField] protected List<Collider2D> targetObjects;
 
         // There's no way to poll if an object is touching another object, so
         // we have to listen to the callbacks and track the touching state ourselves.
@@ -54,40 +33,30 @@ namespace Fungus
 
         protected Collider2D targetCollider = null;
 
-        protected EventDispatcher eventDispatcher;
-
-        protected virtual void OnEnable()
+        protected override void ListenForDragEvents()
         {
-            if (Application.isPlaying)
+            eventDispatcher.AddListener<DragCompletedEvent>(OnDragCompletedEvent);
+            eventDispatcher.AddListener<DragEntered.DragEnteredEvent>(OnDragEnteredEvent);
+            eventDispatcher.AddListener<DragExited.DragExitedEvent>(OnDragExitedEvent);
+
+            foreach (Draggable2D dragObj in draggableObjects)
             {
-                eventDispatcher = FungusManager.Instance.EventDispatcher;
-
-                eventDispatcher.AddListener<DragCompletedEvent>(OnDragCompletedEvent);
-                eventDispatcher.AddListener<DragEntered.DragEnteredEvent>(OnDragEnteredEvent);
-                eventDispatcher.AddListener<DragExited.DragExitedEvent>(OnDragExitedEvent);
-
-                foreach (Draggable2D dragObj in draggableObjects)
-                {
-                    dragObj.RegisterHandler(this);
-                }
+                dragObj.RegisterHandler(this);
             }
         }
 
-        protected virtual void OnDisable()
+        protected override void UnlistenForDragEvents()
         {
-            if (Application.isPlaying)
+            eventDispatcher.RemoveListener<DragCompletedEvent>(OnDragCompletedEvent);
+            eventDispatcher.RemoveListener<DragEntered.DragEnteredEvent>(OnDragEnteredEvent);
+            eventDispatcher.RemoveListener<DragExited.DragExitedEvent>(OnDragExitedEvent);
+
+            foreach (Draggable2D dragObj in draggableObjects)
             {
-                eventDispatcher.RemoveListener<DragCompletedEvent>(OnDragCompletedEvent);
-                eventDispatcher.RemoveListener<DragEntered.DragEnteredEvent>(OnDragEnteredEvent);
-                eventDispatcher.RemoveListener<DragExited.DragExitedEvent>(OnDragExitedEvent);
-
-                foreach (Draggable2D dragObj in draggableObjects)
-                {
-                    dragObj.UnregisterHandler(this);
-                }
-
-                eventDispatcher = null;
+                dragObj.UnregisterHandler(this);
             }
+
+            eventDispatcher = null;
         }
 
         private void OnDragCompletedEvent(DragCompletedEvent evt)
@@ -114,28 +83,6 @@ namespace Fungus
 
         void ISerializationCallbackReceiver.OnBeforeSerialize()
         {
-        }
-
-        private void Awake()
-        {
-            //add any dragableobject already present to list for backwards compatability
-            if (draggableObject != null)
-            {
-                if (!draggableObjects.Contains(draggableObject))
-                {
-                    draggableObjects.Add(draggableObject);
-                }
-            }
-
-            if (targetObject != null)
-            {
-                if (!targetObjects.Contains(targetObject))
-                {
-                    targetObjects.Add(targetObject);
-                }
-            }
-            draggableObject = null;
-            targetObject = null;
         }
 
         #endregion Compatibility
@@ -194,14 +141,7 @@ namespace Fungus
                 // Assume that the player will have to do perform another drag and drop operation
                 // to complete the drag again. This is necessary because we don't get an OnDragExited if the
                 // draggable object is set to be inactive.
-                if (draggableRef != null)
-                {
-                    draggableRef.Value = draggableObject.gameObject;
-                }
-                if (targetRef != null)
-                {
-                    targetRef.Value = targetCollider.gameObject;
-                }
+                UpdateVarRefs(draggableObject.gameObject, targetCollider.gameObject);
 
                 overTarget = false;
                 targetCollider = null;
