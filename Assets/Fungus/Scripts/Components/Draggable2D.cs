@@ -97,14 +97,14 @@ namespace Fungus
         }
 
         #region DragCompleted handlers
-        protected List<DragCompleted> dragCompletedHandlers = new List<DragCompleted>();
+        protected IList<IDragCompleted> dragCompletedHandlers = new List<IDragCompleted>();
 
-        public void RegisterHandler(DragCompleted handler)
+        public void RegisterHandler(IDragCompleted handler)
         {
             dragCompletedHandlers.Add(handler);
         }
 
-        public void UnregisterHandler(DragCompleted handler)
+        public void UnregisterHandler(IDragCompleted handler)
         {
             if (dragCompletedHandlers.Contains(handler))
             {
@@ -133,7 +133,7 @@ namespace Fungus
 
             var eventDispatcher = FungusManager.Instance.EventDispatcher;
 
-            eventDispatcher.Raise(new DragEntered.DragEnteredEvent(this, other));
+            eventDispatcher.Raise(new DragEnteredEvent(this, other));
         }
 
         protected virtual void OnTriggerExit2D(Collider2D other)
@@ -145,7 +145,7 @@ namespace Fungus
 
             var eventDispatcher = FungusManager.Instance.EventDispatcher;
 
-            eventDispatcher.Raise(new DragExited.DragExitedEvent(this, other));
+            eventDispatcher.Raise(new DragExitedEvent(this, other));
         }
 
         protected virtual void DoBeginDrag()
@@ -156,7 +156,7 @@ namespace Fungus
             ResetCachedPositions();
 
             var eventDispatcher = FungusManager.Instance.EventDispatcher;
-            eventDispatcher.Raise(new DragStarted.DragStartedEvent(this));
+            eventDispatcher.Raise(new DragStartedEvent(this));
         }
 
 
@@ -203,20 +203,20 @@ namespace Fungus
             for (int i = 0; i < dragCompletedHandlers.Count; i++)
             {
                 var handler = dragCompletedHandlers[i];
-                if (handler != null && handler.DraggableObjects.Contains(this))
+                if (handler != null && handler.AllDraggables.Contains(this))
                 {
                     if (handler.IsOverTarget())
                     {
                         dragCompleted = true;
 
-                        eventDispatcher.Raise(new DragCompleted.DragCompletedEvent(this));
+                        eventDispatcher.Raise(new DragCompletedEvent(this));
                     }
                 }
             }
 
             if (!dragCompleted)
             {
-                eventDispatcher.Raise(new DragCancelled.DragCancelledEvent(this));
+                eventDispatcher.Raise(new DragCancelledEvent(this));
 
                 if (returnOnCancelled)
                 {

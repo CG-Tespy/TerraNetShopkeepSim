@@ -1,7 +1,6 @@
 // This code is part of the Fungus library (https://github.com/snozbot/fungus)
 // It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
 
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -14,25 +13,10 @@ namespace Fungus
                       "Drag Cancelled",
                       "The block will execute when the player drags an object and releases it without dropping it on a target object.")]
     [AddComponentMenu("")]
-    public class DragCancelled : StaticDragEventHandler2D, ISerializationCallbackReceiver
+    public class DragCancelled : StaticDragEventHandler2D<DragCancelledEvent>, ISerializationCallbackReceiver
     {
-        public class DragCancelledEvent : DragEvent2D
-        {
-            public DragCancelledEvent(Draggable2D draggableObject) : base(draggableObject) { }
-        }
-
-        protected override void ListenForDragEvents()
-        {
-            eventDispatcher.AddListener<DragCancelledEvent>(OnDragCancelledEvent);
-        }
-
-        protected override void UnlistenForDragEvents()
-        {
-            eventDispatcher.RemoveListener<DragCancelledEvent>(OnDragCancelledEvent);
-            eventDispatcher = null;
-        }
-
-        protected virtual void OnDragCancelledEvent(DragCancelledEvent evt)
+       
+        protected override void OnMainDragEvent(DragCancelledEvent evt)
         {
             OnDragCancelled(evt.DraggableObject);
         }

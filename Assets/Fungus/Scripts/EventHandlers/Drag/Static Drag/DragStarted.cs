@@ -1,7 +1,6 @@
 // This code is part of the Fungus library (https://github.com/snozbot/fungus)
 // It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
 
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -14,25 +13,10 @@ namespace Fungus
                       "Drag Started",
                       "The block will execute when the player starts dragging an object.")]
     [AddComponentMenu("")]
-    public class DragStarted : StaticDragEventHandler2D, ISerializationCallbackReceiver
+    public class DragStarted : StaticDragEventHandler2D<DragStartedEvent>, ISerializationCallbackReceiver
     {
-        public class DragStartedEvent : DragEvent2D 
-        {
-            public DragStartedEvent(Draggable2D draggableObject) : base(draggableObject) { }
-        }
 
-        protected override void ListenForDragEvents()
-        {
-            eventDispatcher.AddListener<DragStartedEvent>(OnDragStartedEvent);
-        }
-
-        protected override void UnlistenForDragEvents()
-        {
-            eventDispatcher.RemoveListener<DragStartedEvent>(OnDragStartedEvent);
-            eventDispatcher = null;
-        }
-
-        private void OnDragStartedEvent(DragStartedEvent evt)
+        protected override void OnMainDragEvent(DragStartedEvent evt)
         {
             OnDragStarted(evt.DraggableObject);
         }
@@ -65,7 +49,7 @@ namespace Fungus
         /// </summary>
         public virtual void OnDragStarted(Draggable2D draggableObject)
         {
-            if (draggableOptional || draggableObjects.Contains(draggableObject))
+            if (draggableOptional || AllDraggables.Contains(draggableObject))
             {
                 UpdateVarRefs(draggableObject.gameObject, null);
                 ExecuteBlock();

@@ -8,9 +8,15 @@ namespace Fungus
     /// For drag event handlers that require you to set objects from the scene, as opposed to
     /// letting you work with runtime-generated objects
     /// </summary>
-    public abstract class StaticDragEventHandler2D : DragEventHandler2D
+    public abstract class StaticDragEventHandler2D<TDragEvent> : DragEventHandler2D<TDragEvent>
+        where TDragEvent : DragEvent2D
     {
         [SerializeField] protected List<Draggable2D> draggableObjects;
+
+        public override IList<Draggable2D> AllDraggables
+        {
+            get { return draggableObjects; }
+        }
 
         protected override void Awake()
         {
@@ -25,9 +31,9 @@ namespace Fungus
 
         protected virtual void RegisterAlreadyPresentDraggable()
         {
-            if (draggableObject != null && draggableObjects.Contains(draggableObject))
+            if (draggableObject != null && AllDraggables.Contains(draggableObject))
             {
-                draggableObjects.Add(draggableObject);
+                AllDraggables.Add(draggableObject);
             }
 
             draggableObject = null;
@@ -41,8 +47,10 @@ namespace Fungus
     /// <summary>
     /// For static drag event handlers that consider both draggables and targets.
     /// </summary>
-    public abstract class StaticDragEventHandler2DWithTarget : StaticDragEventHandler2D
+    public abstract class StaticDragEventHandler2DWithTarget<TDragEvent> : StaticDragEventHandler2D<TDragEvent>
+        where TDragEvent : DragEvent2D
     {
+        
         [VariableProperty(typeof(GameObjectVariable))]
         [SerializeField] protected GameObjectVariable targetRef;
         [SerializeField] protected bool targetOptional = false;

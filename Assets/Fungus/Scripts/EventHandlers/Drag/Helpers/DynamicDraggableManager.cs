@@ -21,21 +21,21 @@ namespace Fungus
         [Tooltip("Draggables parented to any of these will be responded to.")]
         [SerializeField] List<Transform> objectHolders;
 
-        public ICollection<T> AllObjects
+        public IList<T> AllObjects
         {
             get { return allObjects; }
-            set
-            {
-                // Set the contents, rather than the list itself
-                allObjects.Clear();
-                allObjects.AddRange(value);
-            }
         }
 
         [Tooltip("All draggables parented to the object holders. Updated on Awake and when the appropriate drag events occur.")]
         [SerializeField] List<T> allObjects = new List<T>();
 
         public override void Update()
+        {
+            RetrieveAllValidHolders();
+            RegisterAllValidHolders();
+        }
+
+        protected virtual void RetrieveAllValidHolders()
         {
             noDuplicates.Clear();
 
@@ -44,11 +44,15 @@ namespace Fungus
                 var inHolder = holder.GetComponentsInChildren<T>();
                 noDuplicates.UnionWith(inHolder);
             }
-
-            AllObjects = noDuplicates;
         }
 
         protected HashSet<T> noDuplicates = new HashSet<T>();
+
+        protected virtual void RegisterAllValidHolders()
+        {
+            allObjects.Clear();
+            allObjects.AddRange(noDuplicates);
+        }
     }
 
     [System.Serializable]

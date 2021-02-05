@@ -18,15 +18,10 @@ namespace Fungus
                       "The block will execute when the player drags an object and successfully drops it on a target object.")]
     [AddComponentMenu("")]
     [ExecuteInEditMode]
-    public class DragCompleted : StaticDragEventHandler2DWithTarget, ISerializationCallbackReceiver
+    public class DragCompleted: StaticDragEventHandler2DWithTarget<DragCompletedEvent>, 
+        ISerializationCallbackReceiver,
+        IDragCompleted
     {
-        public class DragCompletedEvent : DragEvent2D
-        {
-            public DragCompletedEvent(Draggable2D draggableObject) : base(draggableObject)
-            {
-            }
-        }
-
         // There's no way to poll if an object is touching another object, so
         // we have to listen to the callbacks and track the touching state ourselves.
         protected bool overTarget = false;
@@ -35,11 +30,11 @@ namespace Fungus
 
         protected override void ListenForDragEvents()
         {
-            eventDispatcher.AddListener<DragCompletedEvent>(OnDragCompletedEvent);
-            eventDispatcher.AddListener<DragEntered.DragEnteredEvent>(OnDragEnteredEvent);
-            eventDispatcher.AddListener<DragExited.DragExitedEvent>(OnDragExitedEvent);
+            eventDispatcher.AddListener<DragCompletedEvent>(OnMainDragEvent);
+            eventDispatcher.AddListener<DragEnteredEvent>(OnDragEnteredEvent);
+            eventDispatcher.AddListener<DragExitedEvent>(OnDragExitedEvent);
 
-            foreach (Draggable2D dragObj in draggableObjects)
+            foreach (Draggable2D dragObj in AllDraggables)
             {
                 dragObj.RegisterHandler(this);
             }
@@ -47,11 +42,11 @@ namespace Fungus
 
         protected override void UnlistenForDragEvents()
         {
-            eventDispatcher.RemoveListener<DragCompletedEvent>(OnDragCompletedEvent);
-            eventDispatcher.RemoveListener<DragEntered.DragEnteredEvent>(OnDragEnteredEvent);
-            eventDispatcher.RemoveListener<DragExited.DragExitedEvent>(OnDragExitedEvent);
+            eventDispatcher.RemoveListener<DragCompletedEvent>(OnMainDragEvent);
+            eventDispatcher.RemoveListener<DragEnteredEvent>(OnDragEnteredEvent);
+            eventDispatcher.RemoveListener<DragExitedEvent>(OnDragExitedEvent);
 
-            foreach (Draggable2D dragObj in draggableObjects)
+            foreach (Draggable2D dragObj in AllDraggables)
             {
                 dragObj.UnregisterHandler(this);
             }
@@ -59,17 +54,17 @@ namespace Fungus
             eventDispatcher = null;
         }
 
-        private void OnDragCompletedEvent(DragCompletedEvent evt)
+        protected override void OnMainDragEvent(DragCompletedEvent evt)
         {
             OnDragCompleted(evt.DraggableObject);
         }
 
-        private void OnDragEnteredEvent(DragEntered.DragEnteredEvent evt)
+        private void OnDragEnteredEvent(DragEnteredEvent evt)
         {
             OnDragEntered(evt.DraggableObject, evt.TargetCollider);
         }
 
-        private void OnDragExitedEvent(DragExited.DragExitedEvent evt)
+        private void OnDragExitedEvent(DragExitedEvent evt)
         {
             OnDragExited(evt.DraggableObject, evt.TargetCollider);
         }
@@ -89,10 +84,7 @@ namespace Fungus
 
         #region Public members
 
-        /// <summary>
-        /// Gets the draggable object.
-        /// </summary>
-        public virtual List<Draggable2D> DraggableObjects { get { return draggableObjects; } }
+        public virtual IList<Draggable2D> DraggableObjects { get { return draggableObjects; } }
 
         /// <summary>
         /// Returns true if the draggable object is over the drag target object.
@@ -108,7 +100,7 @@ namespace Fungus
         public virtual void OnDragEntered(Draggable2D draggableObject, Collider2D targetObject)
         {
             if (this.targetObjects != null && this.draggableObjects != null &&
-                this.draggableObjects.Contains(draggableObject) &&
+                AllDraggables.Contains(draggableObject) &&
                 this.targetObjects.Contains(targetObject))
             {
                 overTarget = true;
@@ -135,8 +127,9 @@ namespace Fungus
         /// </summary>
         public virtual void OnDragCompleted(Draggable2D draggableObject)
         {
-            if (this.draggableObjects.Contains(draggableObject) &&
-                overTarget)
+            bool validDraggable = draggableOptional || draggableObjects.Contains(draggableObject);
+
+            if (validDraggable && overTarget)
             {
                 // Assume that the player will have to do perform another drag and drop operation
                 // to complete the drag again. This is necessary because we don't get an OnDragExited if the
@@ -189,5 +182,11 @@ namespace Fungus
         }
 
         #endregion Public members
+    }
+
+    public interface IDragCompleted
+    {
+        IList<Draggable2D> AllDraggables { get; }
+        bool IsOverTarget();
     }
 }
