@@ -12,6 +12,11 @@ namespace Fungus
         [VariableProperty(typeof(GameObjectVariable))]
         [SerializeField] protected GameObjectVariable draggableRef;
 
+        public virtual bool DraggableOptional
+        {
+            get { return draggableOptional; }
+        }
+
         [Tooltip("Whether or not this has to respond only to the draggables specified.")]
         [SerializeField] protected bool draggableOptional = false;
 
@@ -23,7 +28,7 @@ namespace Fungus
 
         protected virtual void OnEnable()
         {
-            Debug.Log("Drag event handler on enable!");
+            Debug.Log("Drag event handler " + this.name + " on enable!");
             if (Application.isPlaying)
             {
                 UpdateEventDispatcher();
@@ -130,8 +135,15 @@ namespace Fungus
     {
         [VariableProperty(typeof(GameObjectVariable))]
         [SerializeField] protected GameObjectVariable targetRef;
+
+        public virtual bool TargetOptional
+        {
+            get { return targetOptional; }
+        }
+
         [SerializeField] protected bool targetOptional = false;
 
+        
         public abstract IList<Collider2D> AllTargets { get; }
 
         public override string GetSummary()

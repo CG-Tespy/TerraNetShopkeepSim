@@ -43,12 +43,11 @@ namespace Fungus
 
         public override void OnEnter()
         {
-            var iot = inOutVar as TransformVariable;
-            var ioi = inOutVar as IntegerVariable;
-            var iob = inOutVar as BooleanVariable;
-            var ios = inOutVar as StringVariable;
-            var iogo = inOutVar as GameObjectVariable;
-
+            var inOutTransform = inOutVar as TransformVariable;
+            var inOutInteger = inOutVar as IntegerVariable;
+            var inOutBoolean = inOutVar as BooleanVariable;
+            var inOutString = inOutVar as StringVariable;
+            var inOutGameObject = inOutVar as GameObjectVariable;
 
             var target = gameObjectVar.Value;
 
@@ -58,25 +57,25 @@ namespace Fungus
                     switch (property)
                     {
                         case Property.Transform:
-                            iot.Value = target.transform;
+                            inOutTransform.Value = target.transform;
                             break;
                         case Property.Layer:
-                            ioi.Value = target.layer;
+                            inOutInteger.Value = target.layer;
                             break;
                         case Property.ActiveSelf:
-                            iob.Value = target.activeSelf;
+                            inOutBoolean.Value = target.activeSelf;
                             break;
                         case Property.ActiveInHierarchy:
-                            iob.Value = target.activeInHierarchy;
+                            inOutBoolean.Value = target.activeInHierarchy;
                             break;
                         case Property.IsStatic:
-                            iob.Value = target.isStatic;
+                            inOutBoolean.Value = target.isStatic;
                             break;
                         case Property.Tag:
-                            ios.Value = target.tag;
+                            inOutString.Value = target.tag;
                             break;
                         case Property.GameObject:
-                            iogo.Value = target.gameObject;
+                            inOutGameObject.Value = target.gameObject;
                             break;
                         default:
                             Debug.Log("Unsupported get or set attempted");
@@ -88,13 +87,13 @@ namespace Fungus
                     switch (property)
                     {
                         case Property.Layer:
-                            target.layer = ioi.Value;
+                            target.layer = inOutInteger.Value;
                             break;
                         case Property.IsStatic:
-                            target.isStatic = iob.Value;
+                            target.isStatic = inOutBoolean.Value;
                             break;
                         case Property.Tag:
-                            target.tag = ios.Value;
+                            target.tag = inOutString.Value;
                             break;
                         default:
                             Debug.Log("Unsupported get or set attempted");

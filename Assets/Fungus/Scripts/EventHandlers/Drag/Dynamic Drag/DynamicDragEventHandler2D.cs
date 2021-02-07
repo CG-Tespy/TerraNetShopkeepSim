@@ -54,5 +54,12 @@ namespace Fungus
             get { return dynamicTargets.AllObjects; }
         }
 
+        protected override void UpdateVarRefs(GameObject draggable, GameObject target)
+        {
+            base.UpdateVarRefs(draggable, target);
+            if (targetRef != null)
+                targetRef.Value = target;
+        }
+
     }
 }

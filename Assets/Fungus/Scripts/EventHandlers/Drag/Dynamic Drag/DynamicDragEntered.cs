@@ -19,7 +19,7 @@ namespace Fungus
         /// </summary>
         public virtual void OnDragEntered(Draggable2D draggableObject, Collider2D targetObject)
         {
-            bool validDraggable = draggableOptional || AllDraggables.Contains(draggableObject);
+            bool validDraggable = draggableObject.BeingDragged && (draggableOptional || AllDraggables.Contains(draggableObject));
             bool validTarget = targetOptional || AllTargets.Contains(targetObject);
 
             if (validDraggable & validTarget)
@@ -27,6 +27,13 @@ namespace Fungus
                 UpdateVarRefs(draggableObject.gameObject, targetObject.gameObject);
                 ExecuteBlock();
             }
+        }
+
+        protected override void UpdateVarRefs(GameObject draggable, GameObject target)
+        {
+            base.UpdateVarRefs(draggable, target);
+            if (targetRef != null)
+                targetRef.Value = target;
         }
     }
 }

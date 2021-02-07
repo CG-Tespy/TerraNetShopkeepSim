@@ -15,13 +15,20 @@ public class DisplayBattlePowerLoadout : Command
     [SerializeField] BattlePowerDisplayHub displayPrefab = null;
     [Tooltip("The part of the UI that will hold instances of the display prefab.")]
     [SerializeField] RectTransform displayHolder = null;
+    [Tooltip("The delay between each battle power getting added.")]
+    [SerializeField] float powerAddDelay = 0.1f;
+
+    protected virtual void Awake()
+    {
+        powerAddDelay += float.Epsilon; // So the WaitForSeconds call works right
+    }
 
     public override void OnEnter()
     {
         base.OnEnter();
 
         ClearContents();
-        PopulateContents();
+        StartCoroutine(PopulateContents());
 
         Continue();
     }
@@ -36,7 +43,7 @@ public class DisplayBattlePowerLoadout : Command
             Destroy(child.gameObject);
     }
 
-    protected virtual void PopulateContents()
+    protected virtual IEnumerator PopulateContents()
     {
         BattlePowerLoadout loadout = this.loadout.Value as BattlePowerLoadout;
 
@@ -47,7 +54,9 @@ public class DisplayBattlePowerLoadout : Command
             newDisplay.DisplayBase = power;
             newDisplay.name = power.DisplayName;
             Canvas.ForceUpdateCanvases();
-            
+            yield return new WaitForSeconds(powerAddDelay);
+
         }
     }
+
 }

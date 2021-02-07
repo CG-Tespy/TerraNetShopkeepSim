@@ -17,11 +17,51 @@ namespace Fungus
             eventDispatcher.AddListener<DragEnteredEvent>(OnDragEnteredEvent);
             eventDispatcher.AddListener<DragExitedEvent>(OnDragExitedEvent);
 
-            foreach (Draggable2D dragObj in AllDraggables)
+            UpdateAllDraggablesInScene();
+            RegisterDraggableHandlers();
+        }
+
+        protected virtual void RegisterDraggableHandlers()
+        {
+            bool beHandlerForAllDraggablesInScene = draggableOptional;
+
+            if (beHandlerForAllDraggablesInScene)
             {
-                dragObj.RegisterHandler(this);
+                var allInScene = GameObject.FindObjectsOfType<Draggable2D>();
+                foreach (Draggable2D dragObj in allInScene)
+                {
+                    dragObj.RegisterHandler(this);
+                }
+            }
+            else
+            {
+                foreach (Draggable2D dragObj in AllDraggables)
+                {
+                    dragObj.RegisterHandler(this);
+                }
             }
         }
+
+        public override IList<Draggable2D> AllDraggables
+        {
+            get
+            {
+                if (draggableOptional)
+                    return allDraggablesInScene;
+                else
+                    return dynamicDraggables.AllObjects;
+            }
+        }
+
+        protected virtual void UpdateAllDraggablesInScene()
+        {
+            if (!draggableOptional)
+                return;
+            allDraggablesInScene.Clear();
+            allDraggablesInScene.AddRange(GameObject.FindObjectsOfType<Draggable2D>());
+        }
+
+        protected List<Draggable2D> allDraggablesInScene = new List<Draggable2D>();
 
         protected override void UnlistenForDragEvents()
         {
@@ -29,17 +69,38 @@ namespace Fungus
             eventDispatcher.RemoveListener<DragEnteredEvent>(OnDragEnteredEvent);
             eventDispatcher.RemoveListener<DragExitedEvent>(OnDragExitedEvent);
 
-            foreach (Draggable2D dragObj in AllDraggables)
-            {
-                dragObj.UnregisterHandler(this);
-            }
-
+            UpdateAllDraggablesInScene();
+            UnregisterDraggableHandlers();
             eventDispatcher = null;
         }
+
+        protected virtual void UnregisterDraggableHandlers()
+        {
+            bool unregisterForAllDraggablesInScene = draggableOptional;
+
+            if (unregisterForAllDraggablesInScene)
+            {
+                var allInScene = GameObject.FindObjectsOfType<Draggable2D>();
+                foreach (Draggable2D dragObj in allInScene)
+                {
+                    dragObj.UnregisterHandler(this);
+                }
+            }
+            else
+            {
+                foreach (Draggable2D dragObj in AllDraggables)
+                {
+                    dragObj.UnregisterHandler(this);
+                }
+            }
+        }
+
 
         protected override void OnMainDragEvent(DragCompletedEvent evt)
         {
             base.OnMainDragEvent(evt);
+            UpdateAllDraggablesInScene();
+            RegisterDraggableHandlers();
             OnDragCompleted(evt.DraggableObject);
         }
 
@@ -47,11 +108,17 @@ namespace Fungus
 
         private void OnDragEnteredEvent(DragEnteredEvent evt)
         {
+            KeepTrackOfDynamicObjects();
+            UpdateAllDraggablesInScene();
+            RegisterDraggableHandlers();
             OnDragEntered(evt.DraggableObject, evt.TargetCollider);
         }
 
         private void OnDragExitedEvent(DragExitedEvent evt)
         {
+            KeepTrackOfDynamicObjects();
+            UpdateAllDraggablesInScene();
+            RegisterDraggableHandlers();
             OnDragExited(evt.DraggableObject, evt.TargetCollider);
         }
 
@@ -82,6 +149,7 @@ namespace Fungus
             {
                 overTarget = true;
                 targetCollider = targetObject;
+                Debug.Log("Target collider for " + draggableObject.name + ": " + targetObject.name);
             }
         }
 
@@ -91,7 +159,7 @@ namespace Fungus
         public virtual void OnDragExited(Draggable2D draggableObject, Collider2D targetObject)
         {
             bool validDraggable = draggableOptional || AllDraggables.Contains(draggableObject);
-            bool validTarget = targetOptional || AllTargets.Contains(targetObject);
+            bool validTarget = (targetOptional || AllTargets.Contains(targetObject));
 
             if (validDraggable && validTarget)
             {

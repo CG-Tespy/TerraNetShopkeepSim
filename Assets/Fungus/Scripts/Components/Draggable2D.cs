@@ -45,7 +45,7 @@ namespace Fungus
         [Tooltip("For when you want the object to be rendered undraggable while returning to its original position.")]
         [SerializeField] protected bool disableDragDuringReturn = false;
 
-        protected Vector3 startingPosition; // So we know where to move this if returnOnCompleted is true
+        protected Vector3 returnPosition; // So we know where to move this if returnOnCompleted is true
         protected bool updatePosition = false;
         protected Vector3 newPosition;
         protected Vector3 mouseMovement = Vector3.zero;
@@ -56,16 +56,22 @@ namespace Fungus
             set { inScreenSpace = value; }
         }
 
-        public virtual Vector3 StartingPosition
+        public virtual Vector3 ReturnPosition
         {
-            get { return startingPosition; }
+            get { return returnPosition; }
+            set { returnPosition = value; }
+        }
+
+        public virtual void SetReturnPositionToCurrent()
+        {
+            returnPosition = transform.position;
         }
 
         protected virtual void Awake()
         {
             CacheMainCamera(); // Performance
             SetLocalPositionUpdaters();
-            startingPosition = transform.position;
+            returnPosition = transform.position;
         }
 
         protected virtual void CacheMainCamera()
@@ -101,7 +107,8 @@ namespace Fungus
 
         public void RegisterHandler(IDragCompleted handler)
         {
-            dragCompletedHandlers.Add(handler);
+            if (!dragCompletedHandlers.Contains(handler))
+                dragCompletedHandlers.Add(handler);
         }
 
         public void UnregisterHandler(IDragCompleted handler)
@@ -153,16 +160,19 @@ namespace Fungus
             if (!dragEnabled) // For when you want drag to be disabled during return
                 return;
 
+            BeingDragged = true;
             ResetCachedPositions();
 
             var eventDispatcher = FungusManager.Instance.EventDispatcher;
             eventDispatcher.Raise(new DragStartedEvent(this));
         }
 
+        public virtual bool BeingDragged { get; protected set; }
+
 
         protected virtual void ResetCachedPositions()
         {
-            startingPosition = transform.position;
+            returnPosition = transform.position;
             prevPosition = transform.position;
             newPosition = transform.position;
             prevMousePosition = Input.mousePosition;
@@ -220,15 +230,22 @@ namespace Fungus
 
                 if (returnOnCancelled)
                 {
-                    LeanTween.move(gameObject, startingPosition, returnDuration).setEase(LeanTweenType.easeOutExpo);
+                    LeanTween.move(gameObject, returnPosition, returnDuration).setEase(LeanTweenType.easeOutExpo);
                     StartCoroutine(DisableDraggingFor(returnDuration));
                 }
             }
             else if (returnOnCompleted)
             {
-                LeanTween.move(gameObject, startingPosition, returnDuration).setEase(LeanTweenType.easeOutExpo);
+                LeanTween.move(gameObject, returnPosition, returnDuration).setEase(LeanTweenType.easeOutExpo);
                 StartCoroutine(DisableDraggingFor(returnDuration));
             }
+            else if (dragCompleted && !returnOnCancelled)
+            {
+                SetReturnPositionToCurrent(); // for the next drag
+            }
+
+            BeingDragged = false;
+            
         }
 
         protected virtual IEnumerator DisableDraggingFor(float duration)

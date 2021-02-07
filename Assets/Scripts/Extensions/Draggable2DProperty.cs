@@ -15,7 +15,7 @@ public class Draggable2DProperty : BaseVariableProperty
     public enum Property
     {
         InScreenSpace,
-        StartingPosition
+        ReturnPosition
     }
 
     [SerializeField]
@@ -52,7 +52,7 @@ public class Draggable2DProperty : BaseVariableProperty
         protected virtual void LinkOperationsToProperties()
         {
             operations[Property.InScreenSpace] = GetInScreenSpace;
-            operations[Property.StartingPosition] = GetStartingPosition;
+            operations[Property.ReturnPosition] = GetReturnPosition;
         }
 
         protected Dictionary<Property, Action> operations = new Dictionary<Property, Action>();
@@ -65,9 +65,9 @@ public class Draggable2DProperty : BaseVariableProperty
         protected BooleanVariable inOutBool;
         public Draggable2D Target { get; set; }
 
-        protected virtual void GetStartingPosition()
+        protected virtual void GetReturnPosition()
         {
-            inOutVec3.Value = Target.StartingPosition;
+            inOutVec3.Value = Target.ReturnPosition;
         }
 
         protected Vector3Variable inOutVec3;
@@ -100,7 +100,7 @@ public class Draggable2DProperty : BaseVariableProperty
         protected virtual void LinkOperationsToProperties()
         {
             operations[Property.InScreenSpace] = SetInScreenSpace;
-            operations[Property.StartingPosition] = SetStartingPosition;
+            operations[Property.ReturnPosition] = SetReturnPosition;
         }
 
         protected Dictionary<Property, Action> operations = new Dictionary<Property, Action>();
@@ -113,9 +113,9 @@ public class Draggable2DProperty : BaseVariableProperty
         protected BooleanVariable inOutBool;
         public Draggable2D Target { get; set; }
 
-        protected virtual void SetStartingPosition()
+        protected virtual void SetReturnPosition()
         {
-            // Empty on purpose; you're not supposed to be able to set the starting position
+            Target.ReturnPosition = inOutVec3.Value;
         }
 
         protected Vector3Variable inOutVec3;
@@ -173,13 +173,6 @@ public class Draggable2DProperty : BaseVariableProperty
         if (inOutVar == null)
         {
             return "Error: no variable set to push or pull data to or from";
-        }
-
-        var triedToSetStartingPos = getOrSet == GetSet.Set && property == Property.StartingPosition;
-
-        if (triedToSetStartingPos)
-        {
-            return "Cannot set starting position!";
         }
 
         return getOrSet.ToString() + " " + property.ToString();
