@@ -23,7 +23,6 @@ namespace Fungus
             OnDragEntered(evt.DraggableObject, evt.TargetCollider);
         }
 
-
         #region Compatibility
 
         void ISerializationCallbackReceiver.OnAfterDeserialize()
@@ -59,15 +58,15 @@ namespace Fungus
         public virtual void OnDragEntered(Draggable2D draggableObject, Collider2D targetObject)
         {
             bool validDraggable = draggableOptional || AllDraggables.Contains(draggableObject);
-            bool validTarget = targetOptional || this.targetObjects.Contains(targetObject);
+            bool validTarget = targetOptional || AllTargets.Contains(targetObject);
 
             if (validDraggable & validTarget)
             {
+                //Debug.Log("Regular OnDragEntered, right before executing block! Draggable: " + draggableObject.name + " Target: " + targetObject.name);
                 UpdateVarRefs(draggableObject.gameObject, targetObject.gameObject);
                 ExecuteBlock();
             }
         }
-
 
         #endregion Public members
     }

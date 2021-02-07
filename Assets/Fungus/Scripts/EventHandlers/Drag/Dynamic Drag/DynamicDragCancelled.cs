@@ -10,6 +10,7 @@ namespace Fungus
     {
         protected override void OnMainDragEvent(DragCancelledEvent evt)
         {
+            base.OnMainDragEvent(evt);
             OnDragCancelled(evt.DraggableObject);
         }
 

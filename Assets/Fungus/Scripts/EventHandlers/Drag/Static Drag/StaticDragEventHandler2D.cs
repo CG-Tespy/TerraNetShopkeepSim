@@ -61,6 +61,8 @@ namespace Fungus
 
         [SerializeField] protected List<Collider2D> targetObjects;
 
+        public IList<Collider2D> AllTargets { get { return targetObjects; } }
+
         protected override void UpdateVarRefs(GameObject draggable, GameObject target)
         {
             base.UpdateVarRefs(draggable, target);

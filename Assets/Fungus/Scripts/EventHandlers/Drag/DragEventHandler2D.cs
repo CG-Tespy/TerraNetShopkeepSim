@@ -9,8 +9,6 @@ namespace Fungus
         ISerializationCallbackReceiver, IDragEventHandler2D
         where TDragEvent: DragEvent2D
     {
-        [SerializeField] protected bool isOnPrefab;
-
         [VariableProperty(typeof(GameObjectVariable))]
         [SerializeField] protected GameObjectVariable draggableRef;
 
@@ -21,15 +19,7 @@ namespace Fungus
 
         public abstract IList<Draggable2D> AllDraggables { get; }
 
-        protected virtual void Awake()
-        {
-            /* Maybe OnEnable DOES trigger for prefab instantiations... Something in my earlier code could've screwed things.
-            if (isOnPrefab) 
-                // ^OnEnable doesn't trigger for prefabs right when they're instantiated, even if
-                // they're set to be enabled by default
-                OnEnable();
-            */
-        }
+        protected virtual void Awake() { }
 
         protected virtual void OnEnable()
         {

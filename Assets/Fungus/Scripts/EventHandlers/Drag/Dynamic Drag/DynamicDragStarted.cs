@@ -12,6 +12,7 @@ namespace Fungus
     {
         protected override void OnMainDragEvent(DragStartedEvent evt)
         {
+            base.OnMainDragEvent(evt);
             OnDragStarted(evt.DraggableObject);
         }
 

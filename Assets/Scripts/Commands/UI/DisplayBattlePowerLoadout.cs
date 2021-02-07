@@ -46,6 +46,7 @@ public class DisplayBattlePowerLoadout : Command
             newDisplay.gameObject.SetActive(true);
             newDisplay.DisplayBase = power;
             newDisplay.name = power.DisplayName;
+            Canvas.ForceUpdateCanvases();
             
         }
     }
