@@ -178,7 +178,7 @@ namespace Fungus
         public virtual void OnDragExited(Draggable2D draggableObject, Collider2D targetObject)
         {
             bool validDraggable = draggableOptional || AllDraggables.Contains(draggableObject);
-            bool validTarget = targetOptional || targetObject == targetCollider;
+            bool validTarget = targetObject == targetCollider;
 
             if (validDraggable && validTarget)
             {

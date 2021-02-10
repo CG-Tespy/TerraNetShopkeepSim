@@ -11,29 +11,26 @@ GameObject:
   - component: {fileID: 137971249}
   - component: {fileID: 137971250}
   - component: {fileID: 2021476935}
-  - component: {fileID: 2021476936}
   - component: {fileID: 2021476937}
   - component: {fileID: 2021476938}
-  - component: {fileID: 2021476939}
   - component: {fileID: 2021476940}
   - component: {fileID: 2021476942}
-  - component: {fileID: 2021476943}
-  - component: {fileID: 2021476944}
-  - component: {fileID: 2021476945}
-  - component: {fileID: 2021476946}
   - component: {fileID: 2021476947}
   - component: {fileID: 2021476949}
   - component: {fileID: 2021476950}
   - component: {fileID: 2021476951}
   - component: {fileID: 2021476952}
-  - component: {fileID: 2021476953}
-  - component: {fileID: 1337705867}
   - component: {fileID: 1337705868}
   - component: {fileID: 1337705869}
   - component: {fileID: 1337705870}
   - component: {fileID: 1337705871}
   - component: {fileID: 1337705872}
   - component: {fileID: 1337705887}
+  - component: {fileID: 1337705878}
+  - component: {fileID: 1337705881}
+  - component: {fileID: 8661483575455070779}
+  - component: {fileID: 8524466047630652418}
+  - component: {fileID: 5375508397321777122}
   m_Layer: 0
   m_Name: DragCompleteGeneral
   m_TagString: Untagged
@@ -80,7 +77,7 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 1337705871}
+  - {fileID: 8661483575455070779}
   selectedCommands: []
   variables:
   - {fileID: 2021476951}
@@ -124,36 +121,6 @@ MonoBehaviour:
   - {fileID: 2021476938}
   - {fileID: 2021476937}
   suppressAllAutoSelections: 0
---- !u!114 &2021476936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 137971248}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nodeRect:
-    serializedVersion: 2
-    x: 397
-    y: 108
-    width: 192
-    height: 40
-  tint: {r: 1, g: 1, b: 1, a: 1}
-  useCustomTint: 0
-  itemId: 2
-  blockName: MakeCardsSwitchPlaces
-  description: 
-  eventHandler: {fileID: 0}
-  commandList:
-  - {fileID: 2021476946}
-  - {fileID: 2021476943}
-  - {fileID: 2021476953}
-  - {fileID: 2021476939}
-  suppressAllAutoSelections: 0
 --- !u!114 &2021476937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,22 +153,6 @@ MonoBehaviour:
   indentLevel: 0
   commenterName: 
   commentText: Check if they're from different loadouts (may need custom command)
---- !u!114 &2021476939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 137971248}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea6e8f632db87477eb750446b28d73a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 8
-  indentLevel: 0
-  commenterName: 
-  commentText: Use tweens for the swap motions
 --- !u!114 &2021476940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,98 +212,10 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 0}
   commandList:
+  - {fileID: 1337705881}
   - {fileID: 2021476952}
   - {fileID: 2021476940}
   suppressAllAutoSelections: 0
---- !u!114 &2021476943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 137971248}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 23
-  indentLevel: 0
-  targetFlowchart: {fileID: 0}
-  targetBlock: {fileID: 2021476945}
-  startLabel:
-    stringRef: {fileID: 0}
-    stringVal: 
-  startIndex: 0
-  callMode: 2
---- !u!114 &2021476944
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 137971248}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fb064de1b711a449845627f19b7f7b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 22
-  indentLevel: 0
-  getOrSet: 1
-  property: 19
-  transformData:
-    transformRef: {fileID: 0}
-    transformVal: {fileID: 0}
-  inOutVar: {fileID: 0}
---- !u!114 &2021476945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 137971248}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nodeRect:
-    serializedVersion: 2
-    x: 679
-    y: 125
-    width: 216
-    height: 40
-  tint: {r: 1, g: 1, b: 1, a: 1}
-  useCustomTint: 0
-  itemId: 21
-  blockName: RaiseTargetCardRenderOrder
-  description: 
-  eventHandler: {fileID: 0}
-  commandList:
-  - {fileID: 2021476944}
-  suppressAllAutoSelections: 0
---- !u!114 &2021476946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 137971248}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 20
-  indentLevel: 0
-  targetFlowchart: {fileID: 0}
-  targetBlock: {fileID: 2021476949}
-  startLabel:
-    stringRef: {fileID: 0}
-    stringVal: 
-  startIndex: 0
-  callMode: 2
 --- !u!114 &2021476947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,6 +256,7 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 0}
   commandList:
+  - {fileID: 1337705878}
   - {fileID: 1337705872}
   suppressAllAutoSelections: 0
 --- !u!114 &2021476950
@@ -459,48 +323,6 @@ MonoBehaviour:
     vector3Ref: {fileID: 2021476950}
     vector3Val: {x: 0, y: 0, z: 0}
   isLocal: 0
---- !u!114 &2021476953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 137971248}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 27
-  indentLevel: 0
-  targetFlowchart: {fileID: 0}
-  targetBlock: {fileID: 2021476942}
-  startLabel:
-    stringRef: {fileID: 0}
-    stringVal: 
-  startIndex: 0
-  callMode: 2
---- !u!114 &1337705867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 137971248}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 46
-  indentLevel: 0
-  targetFlowchart: {fileID: 0}
-  targetBlock: {fileID: 2021476935}
-  startLabel:
-    stringRef: {fileID: 0}
-    stringVal: 
-  startIndex: 0
-  callMode: 2
 --- !u!114 &1337705868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -516,7 +338,7 @@ MonoBehaviour:
   itemId: 45
   indentLevel: 0
   targetFlowchart: {fileID: 0}
-  targetBlock: {fileID: 2021476936}
+  targetBlock: {fileID: 8661483575455070779}
   startLabel:
     stringRef: {fileID: 0}
     stringVal: 
@@ -529,7 +351,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 137971248}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 121c2a4d38c149443adb81911f0fdd61, type: 3}
   m_Name: 
@@ -538,8 +360,8 @@ MonoBehaviour:
   indentLevel: 0
   getOrSet: 0
   property: 0
-  gameObjectVar: {fileID: 0}
-  inOutVar: {fileID: 0}
+  gameObjectVar: {fileID: 1070663549142710221}
+  inOutVar: {fileID: 1965972211756712798}
 --- !u!114 &1337705870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -586,7 +408,6 @@ MonoBehaviour:
   - {fileID: 1337705870}
   - {fileID: 1337705869}
   - {fileID: 1337705868}
-  - {fileID: 1337705867}
   suppressAllAutoSelections: 0
 --- !u!114 &1337705872
 MonoBehaviour:
@@ -634,6 +455,111 @@ MonoBehaviour:
     objectHolders:
     - {fileID: 3062780938456766349}
     allObjects: []
+--- !u!114 &1337705878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137971248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a14b04da97ec217478d0809feef89ec8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 48
+  indentLevel: 0
+  enabled:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+--- !u!114 &1337705881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137971248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fab8abf0343545abbfebd9a7b7b34bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 49
+  indentLevel: 0
+  logType: 0
+  logMessage:
+    stringRef: {fileID: 0}
+    stringVal: Executing swap motions!
+--- !u!114 &8661483575455070779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137971248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 365
+    y: 74
+    width: 192
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 52
+  blockName: MakeCardsSwitchPlaces
+  description: 
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 8524466047630652418}
+  - {fileID: 5375508397321777122}
+  suppressAllAutoSelections: 0
+--- !u!114 &8524466047630652418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137971248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 51
+  indentLevel: 0
+  targetFlowchart: {fileID: 0}
+  targetBlock: {fileID: 2021476949}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 2
+--- !u!114 &5375508397321777122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137971248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 53
+  indentLevel: 0
+  targetFlowchart: {fileID: 0}
+  targetBlock: {fileID: 2021476942}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 2
 --- !u!1 &444433450
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,6 +611,7 @@ GameObject:
   - component: {fileID: 560558010}
   - component: {fileID: 560558009}
   - component: {fileID: 560558008}
+  - component: {fileID: 560558014}
   m_Layer: 0
   m_Name: DragEnterGeneral
   m_TagString: Untagged
@@ -769,6 +696,7 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 560558011}
   commandList:
+  - {fileID: 560558014}
   - {fileID: 560558008}
   suppressAllAutoSelections: 0
 --- !u!114 &560558011
@@ -863,6 +791,24 @@ MonoBehaviour:
     stringVal: 
   startIndex: 0
   callMode: 2
+--- !u!114 &560558014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560558006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fab8abf0343545abbfebd9a7b7b34bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 4
+  indentLevel: 0
+  logType: 0
+  logMessage:
+    stringRef: {fileID: 0}
+    stringVal: Drag enter from general flowchart!
 --- !u!1 &852052865
 GameObject:
   m_ObjectHideFlags: 0
@@ -5904,8 +5850,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2387454362797613115}
   m_HandleRect: {fileID: 5268347662564008883}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 1
+  m_Value: 0
+  m_Size: 0.742548
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -9019,7 +8965,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000030517578}
+  m_AnchoredPosition: {x: 0, y: 0.000015258789}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &348869128958291062

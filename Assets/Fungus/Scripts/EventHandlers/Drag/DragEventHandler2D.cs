@@ -28,7 +28,7 @@ namespace Fungus
 
         protected virtual void OnEnable()
         {
-            Debug.Log("Drag event handler " + this.name + " on enable!");
+            //Debug.Log("Drag event handler " + this.name + " on enable!");
             if (Application.isPlaying)
             {
                 UpdateEventDispatcher();
