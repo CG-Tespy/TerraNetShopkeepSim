@@ -218,8 +218,8 @@ namespace Fungus
                     if (handler.IsOverTarget())
                     {
                         dragCompleted = true;
-
                         eventDispatcher.Raise(new DragCompletedEvent(this));
+                        break; // No need to raise it more than once per drag-ending
                     }
                 }
             }

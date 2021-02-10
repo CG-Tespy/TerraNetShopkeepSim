@@ -150,11 +150,11 @@ namespace Fungus
             {
                 overTarget = true;
                 targetCollider = targetObject;
-                Debug.Log("Dynamic Drag Completed Target collider for " + draggableObject.name + ": " + targetObject.name);
+                Debug.Log("Dynamic Drag Completed (Drag Entered) Target collider for " + draggableObject.name + ": " + targetObject.name);
             }
             else if (!differentObjects)
             {
-                Debug.Log("OnDragEntered executed for the same object...?");
+                Debug.Log("OnDragEntered for Dynamic Drag Completed executed for the same object...?");
             }
         }
 
@@ -168,6 +168,7 @@ namespace Fungus
 
             if (validDraggable && validTarget)
             {
+                Debug.Log("Dynamic Drag Completed (Drag Exited) Target collider for " + draggableObject.name + ": " + targetObject.name);
                 overTarget = false;
                 targetCollider = null;
             }
@@ -179,6 +180,8 @@ namespace Fungus
         public virtual void OnDragCompleted(Draggable2D draggableObject)
         {
             bool validDraggable = draggableOptional || AllDraggables.Contains(draggableObject);
+            // For some reason, sometimes this executes with the draggableObject being the same as the one
+            // attached to the targetCollider...
 
             if (validDraggable && overTarget)
             {

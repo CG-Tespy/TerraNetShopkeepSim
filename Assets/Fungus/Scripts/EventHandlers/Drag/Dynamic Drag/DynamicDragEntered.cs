@@ -29,11 +29,5 @@ namespace Fungus
             }
         }
 
-        protected override void UpdateVarRefs(GameObject draggable, GameObject target)
-        {
-            base.UpdateVarRefs(draggable, target);
-            if (targetRef != null)
-                targetRef.Value = target;
-        }
     }
 }
