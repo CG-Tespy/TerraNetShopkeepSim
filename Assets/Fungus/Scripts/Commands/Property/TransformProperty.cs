@@ -14,7 +14,7 @@ namespace Fungus
     /// </summary>
     [CommandInfo("Property",
                  "Transform",
-                 "Get or Set a property of a Transform component")]
+                 "Get (from Transform to In Out Var) or Set (from In Out Var to Transform) a property of a Transform component.")]
     [AddComponentMenu("")]
     public class TransformProperty : BaseVariableProperty
     {
