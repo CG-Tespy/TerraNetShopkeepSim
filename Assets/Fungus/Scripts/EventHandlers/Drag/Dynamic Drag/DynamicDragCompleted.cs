@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace Fungus
@@ -122,7 +121,6 @@ namespace Fungus
             OnDragExited(evt.DraggableObject, evt.TargetCollider);
         }
 
-
         // There's no way to poll if an object is touching another object, so
         // we have to listen to the callbacks and track the touching state ourselves.
         protected bool overTarget = false;
@@ -142,7 +140,8 @@ namespace Fungus
         /// </summary>
         public virtual void OnDragEntered(Draggable2D draggableObject, Collider2D targetObject)
         {
-            bool validDraggable = draggableOptional || AllDraggables.Contains(draggableObject);
+            bool validDraggable = draggableObject.BeingDragged && (draggableOptional || AllDraggables.Contains(draggableObject));
+            // ^We need to make sure the object is being dragged, since draggables can be moved by non-drag-related means.
             bool validTarget = targetOptional || AllTargets.Contains(targetObject);
             bool differentObjects = targetObject.gameObject != draggableObject.gameObject;
 
@@ -152,10 +151,6 @@ namespace Fungus
                 targetCollider = targetObject;
                 Debug.Log("Dynamic Drag Completed (Drag Entered) Target collider for " + draggableObject.name + ": " + targetObject.name);
             }
-            else if (!differentObjects)
-            {
-                Debug.Log("OnDragEntered for Dynamic Drag Completed executed for the same object...?");
-            }
         }
 
         /// <summary>
@@ -163,7 +158,8 @@ namespace Fungus
         /// </summary>
         public virtual void OnDragExited(Draggable2D draggableObject, Collider2D targetObject)
         {
-            bool validDraggable = draggableOptional || AllDraggables.Contains(draggableObject);
+            bool validDraggable = draggableObject.BeingDragged && (draggableOptional || AllDraggables.Contains(draggableObject));
+            // ^Same as with OnDragEntered
             bool validTarget = targetObject == targetCollider;
 
             if (validDraggable && validTarget)
@@ -179,7 +175,7 @@ namespace Fungus
         /// </summary>
         public virtual void OnDragCompleted(Draggable2D draggableObject)
         {
-            bool validDraggable = draggableOptional || AllDraggables.Contains(draggableObject);
+            bool validDraggable = draggableObject.BeingDragged && (draggableOptional || AllDraggables.Contains(draggableObject));
             // For some reason, sometimes this executes with the draggableObject being the same as the one
             // attached to the targetCollider...
 
