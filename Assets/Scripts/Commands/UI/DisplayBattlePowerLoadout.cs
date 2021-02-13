@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Fungus;
 
@@ -16,12 +15,8 @@ public class DisplayBattlePowerLoadout : Command
     [Tooltip("The part of the UI that will hold instances of the display prefab.")]
     [SerializeField] RectTransform displayHolder = null;
     [Tooltip("The delay between each battle power getting added.")]
-    [SerializeField] float powerAddDelay = 0.1f;
+    [SerializeField] float powerAddDelay = 0.01f;
 
-    protected virtual void Awake()
-    {
-        powerAddDelay += float.Epsilon; // So the WaitForSeconds call works right
-    }
 
     public override void OnEnter()
     {
@@ -49,13 +44,14 @@ public class DisplayBattlePowerLoadout : Command
 
         foreach (var power in loadout.Contents)
         {
-            var newDisplay = Instantiate(displayPrefab, displayHolder);
+            BattlePowerDisplayHub newDisplay = Instantiate(displayPrefab, displayHolder);
             newDisplay.gameObject.SetActive(true);
             newDisplay.DisplayBase = power;
             newDisplay.name = power.DisplayName;
+            newDisplay.Loadout = loadout;
             Canvas.ForceUpdateCanvases();
-            yield return new WaitForSeconds(powerAddDelay);
-
+            if (powerAddDelay > 0)
+                yield return new WaitForSeconds(powerAddDelay);
         }
     }
 
