@@ -20,8 +20,12 @@ public abstract class CollectionSO<T> : ScriptableObject
 
     protected virtual void OnEnable()
     {
-        Contents.Clear();
-        AddNonNullStartingContents();
+        bool inEditorOnly = !Application.isPlaying;
+        if (inEditorOnly)
+        {
+            Contents.Clear();
+            AddNonNullStartingContents();
+        }
     }
 
     protected virtual void AddNonNullStartingContents()
@@ -57,13 +61,18 @@ public abstract class CollectionSO<T> : ScriptableObject
         Remove(toRemove);
     }
 
+    /// <summary>
+    /// Does the same thing as Clear()
+    /// </summary>
     public virtual void RemoveAll()
     {
         Contents.Clear();
     }
 
-    
-
+    public virtual void Clear()
+    {
+        Contents.Clear();
+    }
 
 }
 
