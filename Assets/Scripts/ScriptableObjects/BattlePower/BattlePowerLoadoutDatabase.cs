@@ -5,16 +5,14 @@ using UnityEngine;
 /// Helps keep track of the loadouts meant to be saved
 /// </summary>
 [CreateAssetMenu(fileName = "NewBattlePowerLoadoutDatabase", menuName = "Shopkeep/Battle/BattlePowerLoadoutDatabase")]
-public class BattlePowerLoadoutDatabase : ScriptableObject
+public class BattlePowerLoadoutDatabase : CollectionSO<BattlePowerLoadout>
 {
-    [SerializeField] protected List<BattlePowerLoadout> loadouts;
+    /// <summary>
+    /// Alias for the contents
+    /// </summary>
     public IList<BattlePowerLoadout> Loadouts
     {
-        get { return loadouts; }
+        get { return Contents; }
     }
 
-    public virtual int IndexOf(BattlePowerLoadout loadoutArg)
-    {
-        return Loadouts.IndexOf(loadoutArg);
-    }
 }

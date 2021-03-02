@@ -10,6 +10,8 @@ public abstract class CollectionSO<T> : ScriptableObject
 
     [SerializeField] private T[] startingContents = { };
     [SerializeField] private List<T> contents = new List<T>();
+    [Tooltip("Whether this should reset itself to its Starting Contents when this object's OnEnable is called in the Editor")]
+    [SerializeField] private bool resetOnEditorEnable = true;
 
     public virtual IList<T> Contents
     {
@@ -21,7 +23,8 @@ public abstract class CollectionSO<T> : ScriptableObject
     protected virtual void OnEnable()
     {
         bool inEditorOnly = !Application.isPlaying;
-        if (inEditorOnly)
+        bool shouldReset = inEditorOnly && resetOnEditorEnable;
+        if (shouldReset)
         {
             Contents.Clear();
             AddNonNullStartingContents();
@@ -72,6 +75,16 @@ public abstract class CollectionSO<T> : ScriptableObject
     public virtual void Clear()
     {
         Contents.Clear();
+    }
+
+    public virtual int IndexOf(T item)
+    {
+        return Contents.IndexOf(item);
+    }
+
+    public virtual bool Contains(T item)
+    {
+        return Contents.Contains(item);
     }
 
 }
