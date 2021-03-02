@@ -2,7 +2,9 @@
 using UnityEngine;
 using CGTUnity.Fungus.SaveSystem;
 
-public class InventorySaver : DataSaver<InventoryData>, ISaveCreator<InventoryData, ShopInventory>, IGroupSaver<InventoryData>
+public class InventorySaver : DataSaver<ShopInventorySaveData>, 
+    ISaveCreator<ShopInventorySaveData, ShopInventory>, 
+    IGroupSaver<ShopInventorySaveData>
 {
     [SerializeField] List<ShopInventory> toSave = null;
 
@@ -13,17 +15,17 @@ public class InventorySaver : DataSaver<InventoryData>, ISaveCreator<InventoryDa
         return temp;
     }
 
-    public InventoryData CreateSave(ShopInventory from)
+    public ShopInventorySaveData CreateSave(ShopInventory from)
     {
         Debug.LogWarning("CreateSave for InventorySaver not implemented! Returning base InventoryData.");
-        var temp = new InventoryData();
+        var temp = new ShopInventorySaveData();
         return temp;
     }
 
-    public IList<InventoryData> CreateSaves()
+    public IList<ShopInventorySaveData> CreateSaves()
     {
         Debug.LogWarning("CreateSaves (multiple!) for InventorySaver not implemented! Returning empty list.");
-        var temp = new List<InventoryData>();
+        var temp = new List<ShopInventorySaveData>();
         return temp;
     }
 
