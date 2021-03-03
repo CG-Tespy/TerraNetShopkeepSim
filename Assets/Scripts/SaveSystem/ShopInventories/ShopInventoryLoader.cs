@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using CGTUnity.Fungus.SaveSystem;
 
-public class InventoryLoader : SaveLoader<ShopInventoryData>
+public class ShopInventoryLoader : SaveLoader<ShopInventoryData>
 {
     public override bool Load(ShopInventoryData saveData)
     {

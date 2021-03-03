@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShopInventorySaveDataFactory 
+public class ShopInventorySaveDataFactory : CollectionSODataFactory<ShopInventorySaveData,
+    Item,
+    ItemDatabase,
+    ShopInventory,
+    ShopInventoryDatabase>
 {
 }
