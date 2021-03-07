@@ -87,6 +87,11 @@ public abstract class CollectionSO<T> : ScriptableObject
         return Contents.Contains(item);
     }
 
+    public virtual int Count()
+    {
+        return Contents.Count;
+    }
+
 }
 
 public static class CollectionSOUtil

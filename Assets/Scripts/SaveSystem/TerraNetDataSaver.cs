@@ -56,7 +56,7 @@ public abstract class TerraNetDataSaver<TSaveData, TToMakeSaveOf> : DataSaver<TS
 
     public virtual SaveDataItem CreateSaveItem(TSaveData toMakeFrom)
     {
-        string jsonString = JsonUtility.ToJson(toMakeFrom);
+        string jsonString = JsonUtility.ToJson(toMakeFrom, true);
         SaveDataItem newItem = new SaveDataItem(saveType.Name, jsonString);
         return newItem;
     }

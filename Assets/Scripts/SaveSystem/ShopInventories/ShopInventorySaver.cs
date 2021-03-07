@@ -2,35 +2,21 @@
 using UnityEngine;
 using CGTUnity.Fungus.SaveSystem;
 
-public class ShopInventorySaver : DataSaver<ShopInventorySaveData>, 
+public class ShopInventorySaver : TerraNetDataSaver<ShopInventorySaveData, ShopInventory>, 
     ISaveCreator<ShopInventorySaveData, ShopInventory>, 
     IGroupSaver<ShopInventorySaveData>
 {
-    [SerializeField] List<ShopInventory> toSave = null;
+    [SerializeField] protected ShopInventoryDatabase savableInventories;
+    [SerializeField] protected ItemDatabase savableItems;
 
-    public override IList<SaveDataItem> CreateItems()
+    public override IList<ShopInventory> ToSave
     {
-        IList<SaveDataItem> items = new List<SaveDataItem>();
-
-        Debug.LogWarning("CreateItems for InventorySaver not implemented! Returning empty list.");
-        var temp = new List<SaveDataItem>();
-        return temp;
+        get { return savableInventories.Contents; }
     }
 
-    public IList<ShopInventorySaveData> CreateSaves()
+
+    public override ShopInventorySaveData CreateSave(ShopInventory inventory)
     {
-        Debug.LogWarning("CreateSaves (multiple!) for InventorySaver not implemented! Returning empty list.");
-        var temp = new List<ShopInventorySaveData>();
-        return temp;
+        return ShopInventorySaveDataFactory.CreateFrom(inventory, savableItems, savableInventories);
     }
-
-    public ShopInventorySaveData CreateSave(ShopInventory from)
-    {
-        Debug.LogWarning("CreateSave for InventorySaver not implemented! Returning base InventoryData.");
-        var temp = new ShopInventorySaveData();
-        return temp;
-    }
-
-    
-
 }
