@@ -87,6 +87,18 @@ public abstract class CollectionSO<T> : ScriptableObject
         return Contents.Contains(item);
     }
 
+    public virtual bool ContainsRange(IList<T> items)
+    {
+        foreach (var itemEl in items)
+        {
+            if (!this.Contains(itemEl))
+                return false;
+        }
+
+        return true;
+    }
+
+
     public virtual int Count()
     {
         return Contents.Count;
