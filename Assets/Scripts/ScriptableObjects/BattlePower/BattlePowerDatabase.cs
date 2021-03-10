@@ -13,5 +13,4 @@ public class BattlePowerDatabase : CollectionSO<BattlePower>
     /// </summary>
     public IList<BattlePower> Powers { get { return Contents; } }
 
-
 }

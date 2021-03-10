@@ -5,7 +5,6 @@ using CGTUnity.Fungus.SaveSystem;
 
 public abstract class CollectionSODataFactory<TSaveData, TItem, TItemDatabase, TItemHolder, THolderDatabase>
     where TSaveData : ICollectionSOData, new()
-    where TItem: Item
     where TItemDatabase: CollectionSO<TItem>
     where TItemHolder : CollectionSO<TItem>
     where THolderDatabase: CollectionSO<TItemHolder>
@@ -41,7 +40,7 @@ public abstract class CollectionSODataFactory<TSaveData, TItem, TItemDatabase, T
     protected static void AlertDatabaseNotHaving(TItem item, TItemDatabase database)
     {
         string messageFormat =  "{0} {1} does not have the {2} {3}";
-        string message = string.Format(messageFormat, itemDatabaseTypeName, database.Name, itemTypeName, item.name);
+        string message = string.Format(messageFormat, itemDatabaseTypeName, database.Name, itemTypeName, item);
         throw new System.ArgumentException(message);
     }
 

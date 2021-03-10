@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 114986278760630512}
   - component: {fileID: 7871647759652255092}
   - component: {fileID: 2968930104150639934}
+  - component: {fileID: 6159985244249377755}
   m_Layer: 0
   m_Name: GameSaver
   m_TagString: Untagged
@@ -103,10 +104,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6105afe88d2050e4ea5cb230c069fba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toSave:
-  - {fileID: 11400000, guid: 7af838c7715adf04f8f46199180be40d, type: 2}
-  - {fileID: 11400000, guid: 1f1867c70eabd59408570bad03453a5e, type: 2}
-  - {fileID: 11400000, guid: 17bf0b312cf8e7447a41dac2c71853d0, type: 2}
+  savableInventories: {fileID: 11400000, guid: 13f449db213695147bcbba2c887508c8, type: 2}
+  savableItems: {fileID: 11400000, guid: 97b012b256afa40429c80ac4e0127b6a, type: 2}
 --- !u!114 &2968930104150639934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,6 +120,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadoutDatabase: {fileID: 11400000, guid: dba92c9a27d098146bd6aad5aac82fb3, type: 2}
   powerDatabase: {fileID: 11400000, guid: e6736bf37dd6f854b8cc17ce034560f4, type: 2}
+--- !u!114 &6159985244249377755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168971470927336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e6fd245a04c8a64996dfd131f83e0a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  savableStageGroups: {fileID: 11400000, guid: bd9a3c5ad83f3fa4890c7c0d08846b5f, type: 2}
+  savableStages: {fileID: 11400000, guid: ce290cbd864213e4788f62891947916e, type: 2}
 --- !u!1 &1725119838238810
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,6 +147,7 @@ GameObject:
   - component: {fileID: 114072405048006304}
   - component: {fileID: 548988479248733542}
   - component: {fileID: 3621274924423801897}
+  - component: {fileID: 1892606306185731806}
   m_Layer: 0
   m_Name: GameLoader
   m_TagString: Untagged
@@ -194,6 +208,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadPriority: 0
+  loadableInventories: {fileID: 11400000, guid: 13f449db213695147bcbba2c887508c8,
+    type: 2}
+  loadableItems: {fileID: 11400000, guid: 97b012b256afa40429c80ac4e0127b6a, type: 2}
 --- !u!114 &3621274924423801897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,3 +226,19 @@ MonoBehaviour:
   loadPriority: 0
   loadoutDatabase: {fileID: 11400000, guid: dba92c9a27d098146bd6aad5aac82fb3, type: 2}
   powerDatabase: {fileID: 11400000, guid: e6736bf37dd6f854b8cc17ce034560f4, type: 2}
+--- !u!114 &1892606306185731806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725119838238810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01da6ab9e155c294db2b13224ecd88e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadPriority: 0
+  loadableStageGroups: {fileID: 11400000, guid: bd9a3c5ad83f3fa4890c7c0d08846b5f,
+    type: 2}
+  loadableStages: {fileID: 11400000, guid: ce290cbd864213e4788f62891947916e, type: 2}

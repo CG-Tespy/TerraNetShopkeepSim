@@ -32,4 +32,9 @@ public class Item : ScriptableObject
     public virtual IList<EnumScriptableObject> Classes { get { return classes; } }
     public virtual string Description { get { return description; } }
 
+    public override string ToString()
+    {
+        return DisplayName;
+    }
+
 }
