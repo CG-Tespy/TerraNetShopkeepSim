@@ -26,15 +26,8 @@ public abstract class CollectionSO<T> : ScriptableObject
         bool shouldReset = inEditorOnly && resetOnEditorEnable;
         if (shouldReset)
         {
-            Contents.Clear();
-            AddNonNullStartingContents();
+            ResetToStartingContents();
         }
-    }
-
-    protected virtual void AddNonNullStartingContents()
-    {
-        Contents.AddRange(startingContents);
-        contents.RemoveAll((item) => item == null);
     }
 
     public virtual void Add(T item)
@@ -103,6 +96,15 @@ public abstract class CollectionSO<T> : ScriptableObject
     {
         return Contents.Count;
     }
+
+    public virtual void ResetToStartingContents()
+    {
+        Contents.Clear();
+        Contents.AddRange(startingContents);
+        contents.RemoveAll(nullItems);
+    }
+
+    protected static Predicate<T> nullItems = (item) => item == null;
 
 }
 
