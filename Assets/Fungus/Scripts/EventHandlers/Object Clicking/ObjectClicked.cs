@@ -15,15 +15,6 @@ namespace Fungus
     [AddComponentMenu("")]
     public class ObjectClicked : EventHandler
     {   
-        public class ObjectClickedEvent
-        {
-            public Clickable2D ClickableObject;
-            public ObjectClickedEvent(Clickable2D clickableObject)
-            {
-                ClickableObject = clickableObject;
-            }
-        }
-
         [Tooltip("Object that the user can click or tap on")]
         [SerializeField] protected Clickable2D clickableObject;
 

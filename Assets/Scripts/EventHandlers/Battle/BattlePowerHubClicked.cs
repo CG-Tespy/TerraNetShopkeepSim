@@ -6,8 +6,12 @@ using Fungus;
 The objVar property will be holding the power that the clicked hub was displaying for.")]
 public class BattlePowerHubClicked : DisplayHubClicked<BattlePowerDisplayHub, BattlePower>
 {
+    [Header("Output vars")]
     [VariableProperty("<Value>", typeof(ObjectVariable))]
     [SerializeField] ObjectVariable controllerVar = null;
+
+    [VariableProperty("<Value>", typeof(GameObjectVariable))]
+    [SerializeField] GameObjectVariable gameObjectVar;
 
     protected override void AssignValuesToVarsFrom(BattlePowerDisplayHub hub)
     {
@@ -16,5 +20,8 @@ public class BattlePowerHubClicked : DisplayHubClicked<BattlePowerDisplayHub, Ba
         // Each displayer should be alongside a controller, so...
         if (controllerVar != null)
             controllerVar.Value = hub.GetComponent<BattlePowerController>();
+
+        if (gameObjectVar != null)
+            gameObjectVar.Value = hub.gameObject;
     }
 }

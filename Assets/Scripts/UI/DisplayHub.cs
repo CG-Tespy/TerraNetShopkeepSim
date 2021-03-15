@@ -29,6 +29,9 @@ public abstract class DisplayHub : Selectable, IDisplayHub, IPointerClickHandler
     }
 
     public abstract void UpdateDisplayComponents();
+
+    public abstract UnityEngine.Object GetDisplayBase();
+
 }
 
 public abstract class DisplayHub<TToDisplay> : DisplayHub, IDisplayHub, IPointerClickHandler
@@ -84,6 +87,14 @@ public abstract class DisplayHub<TToDisplay> : DisplayHub, IDisplayHub, IPointer
     {
         var componentArr = componentHolder.GetComponentsInChildren<DisplayComponent<TToDisplay>>();
         displayComponents.AddRange(componentArr);
+    }
+
+    /// <summary>
+    /// For when the client needs access to the base using a non-generic ref
+    /// </summary>
+    public override UnityEngine.Object GetDisplayBase()
+    {
+        return DisplayBase as UnityEngine.Object;
     }
 
 }

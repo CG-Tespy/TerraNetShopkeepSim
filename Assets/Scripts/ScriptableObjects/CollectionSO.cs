@@ -51,10 +51,21 @@ public abstract class CollectionSO<T> : ScriptableObject
         ItemRemoved.Invoke(item);
     }
 
-    public virtual void Remove(int index)
+    public virtual void RemoveAt(int index)
     {
         var toRemove = Contents[index];
         Remove(toRemove);
+    }
+
+    /// <summary>
+    /// Removes everything in the passed list from this collection
+    /// </summary>
+    public virtual void RemoveRange(IList<T> toRemove)
+    {
+        foreach (var item in toRemove)
+        {
+            Remove(item);
+        }
     }
 
     /// <summary>

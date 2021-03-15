@@ -50,7 +50,7 @@ namespace Fungus
             var inOutGameObject = inOutVar as GameObjectVariable;
 
             var target = gameObjectVar.Value;
-
+            
             switch (getOrSet)
             {
                 case GetSet.Get:
