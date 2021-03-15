@@ -29,6 +29,7 @@ public class CustomerManager : MonoBehaviour
     }
 
     IList<Customer> customersInShop = null;
+    public IList<Customer> CustomersInShop { get { return customersInShop; } }
     public Action<IList<Customer>> CustomersEnteredShop = delegate { };
 
     public virtual void MakeCustomersLeave()

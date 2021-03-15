@@ -6,14 +6,14 @@ using Fungus;
     "Adds the Customers under the target holder to the target ObjectCollection.")]
 public class AddCustomersToCollection : Command
 {
-    [SerializeField] Transform customerHolder = null;
+    [SerializeField] CustomerManager customerManager = null;
     [SerializeField] CollectionData collection;
 
     public override void OnEnter()
     {
         base.OnEnter();
 
-        IList<Customer> customers = customerHolder.GetComponentsInChildren<Customer>();
+        IList<Customer> customers = customerManager.CustomersInShop;
 
         for (int i = 0; i < customers.Count; i++)
         {

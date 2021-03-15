@@ -40,8 +40,6 @@ public class Customer : MonoBehaviour
         ApplyValuesToVars();
     }
 
-    
-
     protected virtual void FetchVariables()
     {
         nameVar = flowchart.GetVariable<StringVariable>(nameVarName);
