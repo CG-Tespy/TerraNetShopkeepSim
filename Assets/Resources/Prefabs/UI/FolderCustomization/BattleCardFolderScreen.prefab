@@ -3443,11 +3443,9 @@ GameObject:
   - component: {fileID: 1370395558595659347}
   - component: {fileID: 7488804172788109512}
   - component: {fileID: 6206060584271638214}
-  - component: {fileID: 3614399922095676510}
   - component: {fileID: 5282473325394379006}
   - component: {fileID: 4523301501232065330}
   - component: {fileID: 9095311008062209530}
-  - component: {fileID: 9200066882590028122}
   - component: {fileID: 498371581285689701}
   - component: {fileID: 21398015276123185}
   - component: {fileID: 1387912954684312666}
@@ -3460,12 +3458,17 @@ GameObject:
   - component: {fileID: 6970896216668997630}
   - component: {fileID: 3160743266276779043}
   - component: {fileID: 6908428098971484829}
-  - component: {fileID: 2918515349027720475}
   - component: {fileID: 4562319716296935734}
-  - component: {fileID: 8745972730840516430}
   - component: {fileID: 1463087761099524509}
   - component: {fileID: 2053323027649374637}
   - component: {fileID: 8757272991614859354}
+  - component: {fileID: 1142450799085898764}
+  - component: {fileID: 745910875639321732}
+  - component: {fileID: 7999423559276056905}
+  - component: {fileID: 3684894199512518271}
+  - component: {fileID: 3056101550740828468}
+  - component: {fileID: 619798582777865308}
+  - component: {fileID: 7105923711045943958}
   m_Layer: 0
   m_Name: PuttingCardOnSale
   m_TagString: Untagged
@@ -3512,8 +3515,9 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 8087224936873402659}
-  selectedCommands: []
+  - {fileID: 4875346124533710185}
+  selectedCommands:
+  - {fileID: 7105923711045943958}
   variables:
   - {fileID: 498371581285689701}
   - {fileID: 7296832003260594931}
@@ -3558,6 +3562,7 @@ MonoBehaviour:
   - {fileID: 6970896216668997630}
   - {fileID: 9095311008062209530}
   - {fileID: 1463087761099524509}
+  - {fileID: 7105923711045943958}
   - {fileID: 4523301501232065330}
   suppressAllAutoSelections: 0
 --- !u!114 &538249640923367450
@@ -3603,6 +3608,7 @@ MonoBehaviour:
   - {fileID: 3160743266276779043}
   - {fileID: 2770175934795890163}
   - {fileID: 2851961037108986159}
+  - {fileID: 7999423559276056905}
   - {fileID: 3058162431622256649}
   suppressAllAutoSelections: 0
 --- !u!114 &215097495775289491
@@ -3648,8 +3654,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 449.5387
-    y: 271.80536
+    x: 480.3896
+    y: 243.08179
     width: 156.38297
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -3974,35 +3980,6 @@ MonoBehaviour:
     stringVal: 
   startIndex: 0
   callMode: 2
---- !u!114 &3614399922095676510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809245142612334663}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nodeRect:
-    serializedVersion: 2
-    x: 372.6402
-    y: 44.865746
-    width: 140.42554
-    height: 40
-  tint: {r: 1, g: 1, b: 1, a: 1}
-  useCustomTint: 0
-  itemId: 12
-  blockName: PutCardOnSale
-  description: 
-  eventHandler: {fileID: 0}
-  commandList:
-  - {fileID: 9200066882590028122}
-  - {fileID: 8745972730840516430}
-  - {fileID: 2918515349027720475}
-  suppressAllAutoSelections: 0
 --- !u!114 &5282473325394379006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4275,33 +4252,12 @@ MonoBehaviour:
   itemId: 15
   indentLevel: 1
   targetFlowchart: {fileID: 0}
-  targetBlock: {fileID: 3614399922095676510}
+  targetBlock: {fileID: 3684894199512518271}
   startLabel:
     stringRef: {fileID: 0}
     stringVal: 
   startIndex: 0
   callMode: 2
---- !u!114 &9200066882590028122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809245142612334663}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 676c9e8f92b974a4db0daca489e20b41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 16
-  indentLevel: 0
-  removalMethod: 1
-  toRemoveFrom:
-  - {fileID: 11400000, guid: ae6816b47751adb4383a085b6128909d, type: 2}
-  powersToRemove: []
-  index:
-    integerRef: {fileID: 498371581285689701}
-    integerVal: 0
 --- !u!114 &498371581285689701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4535,27 +4491,6 @@ MonoBehaviour:
   logMessage:
     stringRef: {fileID: 0}
     stringVal: Non-storage card clicked!
---- !u!114 &2918515349027720475
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809245142612334663}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d16ca8d5970f9db4483fd0f9cc637312, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 30
-  indentLevel: 0
-  items:
-  - itemRef: {fileID: 4562319716296935734}
-    itemVal: {fileID: 0}
-  sourceInventories: []
-  targetInventory:
-    ShopInventoryRef: {fileID: 0}
-    ShopInventoryVal: {fileID: 11400000, guid: 7af838c7715adf04f8f46199180be40d, type: 2}
 --- !u!114 &4562319716296935734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4571,24 +4506,6 @@ MonoBehaviour:
   scope: 0
   key: cardAsItem
   value: {fileID: 0}
---- !u!114 &8745972730840516430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809245142612334663}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2ed601f7e91d524eacf1407b20c6e47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 31
-  indentLevel: 0
-  hasHub: {fileID: 7296832003260594931}
-  gameObjectVar: {fileID: 0}
-  objectVar: {fileID: 0}
-  itemVar: {fileID: 4562319716296935734}
 --- !u!114 &1463087761099524509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4652,6 +4569,163 @@ MonoBehaviour:
   individuals: []
   controllerVar: {fileID: 0}
   gameObjectVar: {fileID: 7296832003260594931}
+--- !u!114 &1142450799085898764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809245142612334663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 501.54852
+    y: 306.86392
+    width: 156.38297
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 33
+  blockName: GetCardItemValue
+  description: 
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 745910875639321732}
+  suppressAllAutoSelections: 0
+--- !u!114 &745910875639321732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809245142612334663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2ed601f7e91d524eacf1407b20c6e47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 34
+  indentLevel: 0
+  hasHub: {fileID: 7296832003260594931}
+  gameObjectVar: {fileID: 0}
+  objectVar: {fileID: 0}
+  itemVar: {fileID: 4562319716296935734}
+--- !u!114 &7999423559276056905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809245142612334663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 35
+  indentLevel: 0
+  targetFlowchart: {fileID: 0}
+  targetBlock: {fileID: 1142450799085898764}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 2
+--- !u!114 &3684894199512518271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809245142612334663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 482.00232
+    y: 65.07852
+    width: 140.42554
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 12
+  blockName: PutCardOnSale
+  description: 
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 3056101550740828468}
+  - {fileID: 619798582777865308}
+  suppressAllAutoSelections: 0
+--- !u!114 &3056101550740828468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809245142612334663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 676c9e8f92b974a4db0daca489e20b41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 37
+  indentLevel: 0
+  removalMethod: 1
+  toRemoveFrom:
+  - {fileID: 11400000, guid: ae6816b47751adb4383a085b6128909d, type: 2}
+  powersToRemove: []
+  index:
+    integerRef: {fileID: 498371581285689701}
+    integerVal: 0
+--- !u!114 &619798582777865308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809245142612334663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d16ca8d5970f9db4483fd0f9cc637312, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 38
+  indentLevel: 0
+  items:
+  - itemRef: {fileID: 4562319716296935734}
+    itemVal: {fileID: 0}
+  sourceInventories: []
+  targetInventory:
+    ShopInventoryRef: {fileID: 0}
+    ShopInventoryVal: {fileID: 11400000, guid: 7af838c7715adf04f8f46199180be40d, type: 2}
+--- !u!114 &7105923711045943958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809245142612334663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 39
+  indentLevel: 1
+  targetFlowchart: {fileID: 8503709850646758819}
+  targetBlock: {fileID: 7373036886870242101}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 2
 --- !u!1 &1367013914813809390
 GameObject:
   m_ObjectHideFlags: 0

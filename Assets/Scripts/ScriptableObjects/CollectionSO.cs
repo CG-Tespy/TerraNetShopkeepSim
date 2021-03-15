@@ -22,12 +22,14 @@ public abstract class CollectionSO<T> : ScriptableObject
 
     protected virtual void OnEnable()
     {
+#if UNITY_EDITOR
         bool inEditorOnly = !Application.isPlaying;
         bool shouldReset = inEditorOnly && resetOnEditorEnable;
         if (shouldReset)
         {
             ResetToStartingContents();
         }
+#endif
     }
 
     public virtual void Add(T item)

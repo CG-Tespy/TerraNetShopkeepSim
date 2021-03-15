@@ -22,7 +22,7 @@ public class GetBattlePowerFromHub : Command
     {
         base.OnEnter();
 
-        DisplayHub hub = hasHub.GetComponent<DisplayHub>();
+        DisplayHub hub = hasHub.Value.GetComponent<DisplayHub>();
 
         bool isBattlePowerHub = hub is BattlePowerDisplayHub;
         bool isItemHub = hub is ItemDisplayHub;

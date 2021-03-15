@@ -14,6 +14,11 @@ public class BattlePower : Item
     [SerializeField] int damage = 10;
     [SerializeField] int healing = 0;
 
+    public override Sprite Sprite
+    {
+        get { return FullArt; }
+    }
+
     public Sprite FullArt
     {
         get { return fullArt; }
