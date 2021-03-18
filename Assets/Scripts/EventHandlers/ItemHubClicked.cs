@@ -13,6 +13,9 @@ public class ItemHubClicked : EventHandler
     [VariableProperty("<Value>", typeof(ObjectVariable))]
     [SerializeField] protected ObjectVariable battlePower = null;
 
+    [VariableProperty("<Value>", typeof(BooleanVariable))]
+    [SerializeField] protected BooleanVariable battlePowerClicked;
+
     [Tooltip("This event only fires if the hub clicked is directly parented to any of these holders. If this array is empty, this responds to any and all hubs.")]
     [SerializeField] protected Transform[] hubHolders = null;
 
@@ -37,6 +40,9 @@ public class ItemHubClicked : EventHandler
             itemVar.Value = itemHub.DisplayBase;
         if (battlePower != null)
             battlePower.Value = itemHub.DisplayBase as BattlePower;
+
+        if (battlePowerClicked != null)
+            battlePowerClicked.Value = itemHub.DisplayBase as BattlePower != null;
 
         ExecuteBlock();
     }
