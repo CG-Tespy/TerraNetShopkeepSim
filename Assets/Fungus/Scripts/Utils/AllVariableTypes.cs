@@ -316,6 +316,7 @@ namespace Fungus
         public bool Compare(CompareOperator compareOperator, ref bool compareResult)
         {
             TypeActions ta = null;
+
             if (typeActionLookup.TryGetValue(variable.GetType(), out ta))
             {
                 compareResult = ta.CompareFunc(this, compareOperator);
