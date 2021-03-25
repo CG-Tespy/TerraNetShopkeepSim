@@ -10,20 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ec423ac3ac324749acb694d6da67022, type: 3}
-  m_Name: Holey
+  m_Name: Candela
   m_EditorClassIdentifier: 
   battleSprite: {fileID: 21300000, guid: 338d6b4e48398fb4d8da171b2f03ca80, type: 3}
   mugshot: {fileID: 21300000, guid: 338d6b4e48398fb4d8da171b2f03ca80, type: 3}
   characterPrefab: {fileID: 0}
   elements:
-  - {fileID: 11400000, guid: b4fefd97e1999ec40839a11fe61a0070, type: 2}
-  weaknesses: []
-  resistances: []
+  - {fileID: 11400000, guid: a25514f0c0621d7479dc24bb253070d8, type: 2}
+  weaknesses:
+  - {fileID: 11400000, guid: 261fccadb266de5449deb2bdf03399c7, type: 2}
+  resistances:
+  - {fileID: 11400000, guid: a25514f0c0621d7479dc24bb253070d8, type: 2}
+  - {fileID: 11400000, guid: c26781f56ab4cde4f94a309ce07c1d10, type: 2}
   hp: 40
   atk: 10
   spd: 5
-  description: Basic enemy
+  description: Fire enemy
   matsDropped:
-  - {fileID: 11400000, guid: a91b358f65451b7488f2c80fca6f9cd4, type: 2}
+  - {fileID: 11400000, guid: 9de280f96f4f34c4485a14086ba92f3b, type: 2}
+  - {fileID: 11400000, guid: 9de280f96f4f34c4485a14086ba92f3b, type: 2}
+  - {fileID: 11400000, guid: 174e0556970183a4ea089d9563ade91a, type: 2}
   dropChances:
+  - 100
+  - 100
   - 100
