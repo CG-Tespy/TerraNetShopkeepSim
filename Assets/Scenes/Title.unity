@@ -2796,6 +2796,9 @@ GameObject:
   - component: {fileID: 1016070151}
   - component: {fileID: 1016070157}
   - component: {fileID: 1016070152}
+  - component: {fileID: 1016070155}
+  - component: {fileID: 1016070154}
+  - component: {fileID: 1016070153}
   m_Layer: 0
   m_Name: MasterInit
   m_TagString: Untagged
@@ -2830,7 +2833,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 1016070150}
   selectedCommands:
-  - {fileID: 1016070152}
+  - {fileID: 1016070153}
   variables:
   - {fileID: 1016070157}
   description: 
@@ -2969,6 +2972,7 @@ MonoBehaviour:
   commandList:
   - {fileID: 1016070146}
   - {fileID: 1016070152}
+  - {fileID: 1016070153}
   - {fileID: 1016070151}
   suppressAllAutoSelections: 0
 --- !u!114 &1016070151
@@ -3013,6 +3017,73 @@ MonoBehaviour:
     stringVal: 
   startIndex: 0
   callMode: 2
+--- !u!114 &1016070153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016070143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 9
+  indentLevel: 0
+  targetFlowchart: {fileID: 0}
+  targetBlock: {fileID: 1016070155}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 2
+--- !u!114 &1016070154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016070143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0fa9c0bb33f9b14faf1fad97e24231b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 8
+  indentLevel: 0
+  setMethod: 0
+  navi: {fileID: 11400000, guid: fc4726c0c1e7dcd4c9ab51001a4f38b5, type: 2}
+  hp: 100
+  atk: 10
+  spd: 10
+--- !u!114 &1016070155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016070143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 554
+    y: 235
+    width: 137
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 7
+  blockName: ResetNaviStats
+  description: 
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 1016070154}
+  suppressAllAutoSelections: 0
 --- !u!114 &1016070157
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -6821,7 +6892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 0}
+  selectedFlowchart: {fileID: 1016070144}
 --- !u!4 &1845259521
 Transform:
   m_ObjectHideFlags: 1
