@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using CGTUnity.Fungus.SaveSystem;
 
-/// <summary>
-/// Save data for the parts of a Navi's state
-/// </summary>
-public class NaviData : SaveData
+public class NaviSaveData : SaveData
 {
     public int NaviIndex
     {
@@ -15,6 +12,22 @@ public class NaviData : SaveData
     }
 
     [SerializeField] int naviIndex = -1;
+
+    public string NaviName
+    {
+        get { return naviName; }
+        set { naviName = value; }
+    }
+
+    [SerializeField] string naviName = "";
+
+    public int HP
+    {
+        get { return hp; }
+        set { hp = value; }
+    }
+
+    [SerializeField] int hp;
 
     public int Atk
     {

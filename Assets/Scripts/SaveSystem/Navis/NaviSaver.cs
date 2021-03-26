@@ -1,18 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using CGTUnity.Fungus.SaveSystem;
 
-public class NaviSaver : MonoBehaviour
+public class NaviSaver : TerraNetDataSaver<NaviSaveData, Navi>,
+    ISaveCreator<NaviSaveData, Navi>,
+    IGroupSaver<NaviSaveData>
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] NaviDatabase naviDatabase;
+    public override IList<Navi> ToSave
     {
-        
+        get { return naviDatabase.Contents; }
     }
 
-    // Update is called once per frame
-    void Update()
+    public override NaviSaveData CreateSave(Navi navi)
     {
-        
+        return NaviSaveDataFactory.CreateFrom(navi, naviDatabase);
     }
 }

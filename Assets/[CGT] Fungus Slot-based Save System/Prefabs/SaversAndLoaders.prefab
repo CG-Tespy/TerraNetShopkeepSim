@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 7871647759652255092}
   - component: {fileID: 2968930104150639934}
   - component: {fileID: 6159985244249377755}
+  - component: {fileID: 1099586143792731494}
   m_Layer: 0
   m_Name: GameSaver
   m_TagString: Untagged
@@ -134,6 +135,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   savableStageGroups: {fileID: 11400000, guid: bd9a3c5ad83f3fa4890c7c0d08846b5f, type: 2}
   savableStages: {fileID: 11400000, guid: ce290cbd864213e4788f62891947916e, type: 2}
+--- !u!114 &1099586143792731494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168971470927336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32c694d408688a54a829ffe684ee0570, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  naviDatabase: {fileID: 11400000, guid: ee4914374a0cda94f954aeccf7b3de0b, type: 2}
 --- !u!1 &1725119838238810
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,6 +162,7 @@ GameObject:
   - component: {fileID: 548988479248733542}
   - component: {fileID: 3621274924423801897}
   - component: {fileID: 1892606306185731806}
+  - component: {fileID: 7097465835353229559}
   m_Layer: 0
   m_Name: GameLoader
   m_TagString: Untagged
@@ -242,3 +257,17 @@ MonoBehaviour:
   loadableStageGroups: {fileID: 11400000, guid: bd9a3c5ad83f3fa4890c7c0d08846b5f,
     type: 2}
   loadableStages: {fileID: 11400000, guid: ce290cbd864213e4788f62891947916e, type: 2}
+--- !u!114 &7097465835353229559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725119838238810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1edcf7a57e6d06945984fad3c0a448d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadPriority: 0
+  naviDatabase: {fileID: 11400000, guid: ee4914374a0cda94f954aeccf7b3de0b, type: 2}
