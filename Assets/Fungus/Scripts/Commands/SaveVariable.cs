@@ -108,6 +108,12 @@ namespace Fungus
             return this.variable == in_variable || base.HasReference(in_variable);
         }
 
+        public static void SaveInt(int value, string key)
+        {
+            string prefsKey = SetSaveProfile.SaveProfile + "_" + key;
+            PlayerPrefs.SetInt(prefsKey, value);
+        }
+
         #endregion
         #region Editor caches
 #if UNITY_EDITOR
