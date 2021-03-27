@@ -12,7 +12,7 @@ public class SetNaviStats : Command
 
     [SerializeField] SetMethod setMethod = SetMethod.increaseBy;
     [SerializeField] protected Navi navi;
-    [SerializeField] protected int hp, atk, spd;
+    [SerializeField] protected IntegerData hp, atk, spd;
 
     public override void OnEnter()
     {
