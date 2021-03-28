@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class CraftingSystem : MonoBehaviour
 {
-    [SerializeField] protected ShopInventory hasUsableMats = null;
+    [SerializeField] protected ShopInventory[] haveUsableMats = null;
+    [SerializeField] protected BattlePowerLoadout[] battlePowerMats = null;
     
     public Item Craft(Recipe recipe)
     {
@@ -38,6 +39,11 @@ public class CraftingSystem : MonoBehaviour
         return true;
     }
 
+    protected virtual void UpdatePlayerMats()
+    {
+
+    }
+
     /// <summary>
     /// So you can pass in a recipe from an Object variable in a Flowchart.
     /// </summary>
@@ -62,8 +68,10 @@ public class CraftingSystem : MonoBehaviour
 
     protected IList<Item> PlayerMats
     {
-        get { return hasUsableMats.Items; }
+        get { return playerMats; }
     }
+
+    protected IList<Item> playerMats = new List<Item>();
 
     protected virtual void UseUpMatsRequiredBy(Recipe recipe)
     {

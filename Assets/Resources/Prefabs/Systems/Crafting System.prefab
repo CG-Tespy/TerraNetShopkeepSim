@@ -1557,6 +1557,7 @@ GameObject:
   - component: {fileID: 6865081771583945477}
   - component: {fileID: 6865081771583945472}
   - component: {fileID: 6865081771583945473}
+  - component: {fileID: 4110176597680277406}
   m_Layer: 5
   m_Name: CraftingMenu
   m_TagString: Untagged
@@ -1617,6 +1618,7 @@ MonoBehaviour:
   - {fileID: 6865081771583945484}
   - {fileID: 6865081771583945487}
   - {fileID: 6865081771583945584}
+  - {fileID: 4110176597680277406}
   description: 
   stepPause: 0
   colorCommands: 1
@@ -2257,6 +2259,21 @@ MonoBehaviour:
   vector3Data:
     vector3Ref: {fileID: 0}
     vector3Val: {x: 0, y: 0, z: 0}
+--- !u!114 &4110176597680277406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6865081771583945586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d02d9822eec54c98afe95bb497211b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scope: 0
+  key: yaySomeVar
+  value: 0
 --- !u!1 &6865081771585712380
 GameObject:
   m_ObjectHideFlags: 0
@@ -2955,6 +2972,8 @@ MonoBehaviour:
     itemRef: {fileID: 0}
     itemVal: {fileID: 0}
   itemVar: {fileID: 6865081771220243052}
+  battlePowerVar: {fileID: 0}
+  isBattlePower: {fileID: 0}
   craftingSystem: {fileID: 0}
 --- !u!114 &6865081771705425593
 MonoBehaviour:
