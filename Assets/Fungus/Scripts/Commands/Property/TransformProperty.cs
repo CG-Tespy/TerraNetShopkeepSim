@@ -14,7 +14,7 @@ namespace Fungus
     /// </summary>
     [CommandInfo("Property",
                  "Transform",
-                 "Get or Set a property of a Transform component")]
+                 "Get (from Transform to In Out Var) or Set (from In Out Var to Transform) a property of a Transform component.")]
     [AddComponentMenu("")]
     public class TransformProperty : BaseVariableProperty
     {
@@ -40,6 +40,8 @@ namespace Fungus
             LocalRotation, 
             WorldToLocalMatrix, 
             LocalToWorldMatrix, 
+
+            SiblingIndex,
         }
 
 		
@@ -60,12 +62,12 @@ namespace Fungus
 
         public override void OnEnter()
         {
-            var iov = inOutVar as Vector3Variable;
-            var ioq = inOutVar as QuaternionVariable;
-            var iot = inOutVar as TransformVariable;
-            var iom4 = inOutVar as Matrix4x4Variable;
-            var ioi = inOutVar as IntegerVariable;
-            var iob = inOutVar as BooleanVariable;
+            var inOutVec3 = inOutVar as Vector3Variable;
+            var inOutQuaternion = inOutVar as QuaternionVariable;
+            var inOutTransform = inOutVar as TransformVariable;
+            var inOutMatrix4 = inOutVar as Matrix4x4Variable;
+            var inOutInteger = inOutVar as IntegerVariable;
+            var inOutBoolean = inOutVar as BooleanVariable;
 
             var target = transformData.Value;
 
@@ -75,62 +77,67 @@ namespace Fungus
                     switch (property)
                     {
                         case Property.Position:
-                            iov.Value = target.position;
+                            inOutVec3.Value = target.position;
                             break;
                         case Property.LocalPosition:
-                            iov.Value = target.localPosition;
+                            inOutVec3.Value = target.localPosition;
                             break;
                         case Property.EulerAngles:
-                            iov.Value = target.eulerAngles;
+                            inOutVec3.Value = target.eulerAngles;
                             break;
                         case Property.LocalEulerAngles:
-                            iov.Value = target.localEulerAngles;
+                            inOutVec3.Value = target.localEulerAngles;
                             break;
                         case Property.Right:
-                            iov.Value = target.right;
+                            inOutVec3.Value = target.right;
                             break;
                         case Property.Up:
-                            iov.Value = target.up;
+                            inOutVec3.Value = target.up;
                             break;
                         case Property.Forward:
-                            iov.Value = target.forward;
+                            inOutVec3.Value = target.forward;
                             break;
                         case Property.Rotation:
-                            ioq.Value = target.rotation;
+                            inOutQuaternion.Value = target.rotation;
                             break;
                         case Property.LocalRotation:
-                            ioq.Value = target.localRotation;
+                            inOutQuaternion.Value = target.localRotation;
                             break;
                         case Property.LocalScale:
-                            iov.Value = target.localScale;
+                            inOutVec3.Value = target.localScale;
                             break;
                         case Property.Parent:
-                            iot.Value = target.parent;
+                            inOutTransform.Value = target.parent;
                             break;
                         case Property.WorldToLocalMatrix:
-                            iom4.Value = target.worldToLocalMatrix;
+                            inOutMatrix4.Value = target.worldToLocalMatrix;
                             break;
                         case Property.LocalToWorldMatrix:
-                            iom4.Value = target.localToWorldMatrix;
+                            inOutMatrix4.Value = target.localToWorldMatrix;
                             break;
                         case Property.Root:
-                            iot.Value = target.root;
+                            inOutTransform.Value = target.root;
                             break;
                         case Property.ChildCount:
-                            ioi.Value = target.childCount;
+                            inOutInteger.Value = target.childCount;
                             break;
                         case Property.LossyScale:
-                            iov.Value = target.lossyScale;
+                            inOutVec3.Value = target.lossyScale;
                             break;
                         case Property.HasChanged:
-                            iob.Value = target.hasChanged;
+                            inOutBoolean.Value = target.hasChanged;
                             break;
                         case Property.HierarchyCapacity:
-                            ioi.Value = target.hierarchyCapacity;
+                            inOutInteger.Value = target.hierarchyCapacity;
                             break;
                         case Property.HierarchyCount:
-                            ioi.Value = target.hierarchyCount;
+                            inOutInteger.Value = target.hierarchyCount;
                             break;
+
+                        case Property.SiblingIndex:
+                            inOutInteger.Value = target.GetSiblingIndex();
+                            break;
+
                         default:
                             Debug.Log("Unsupported get or set attempted");
                             break;
@@ -140,44 +147,49 @@ namespace Fungus
                     switch (property)
                     {
                         case Property.Position:
-                            target.position = iov.Value;
+                            target.position = inOutVec3.Value;
                             break;
                         case Property.LocalPosition:
-                            target.localPosition = iov.Value;
+                            target.localPosition = inOutVec3.Value;
                             break;
                         case Property.EulerAngles:
-                            target.eulerAngles = iov.Value;
+                            target.eulerAngles = inOutVec3.Value;
                             break;
                         case Property.LocalEulerAngles:
-                            target.localEulerAngles = iov.Value;
+                            target.localEulerAngles = inOutVec3.Value;
                             break;
                         case Property.Right:
-                            target.right = iov.Value;
+                            target.right = inOutVec3.Value;
                             break;
                         case Property.Up:
-                            target.up = iov.Value;
+                            target.up = inOutVec3.Value;
                             break;
                         case Property.Forward:
-                            target.forward = iov.Value;
+                            target.forward = inOutVec3.Value;
                             break;
                         case Property.Rotation:
-                            target.rotation = ioq.Value;
+                            target.rotation = inOutQuaternion.Value;
                             break;
                         case Property.LocalRotation:
-                            target.localRotation = ioq.Value;
+                            target.localRotation = inOutQuaternion.Value;
                             break;
                         case Property.LocalScale:
-                            target.localScale = iov.Value;
+                            target.localScale = inOutVec3.Value;
                             break;
                         case Property.Parent:
-                            target.parent = iot.Value;
+                            target.SetParent(inOutTransform.Value, true);
                             break;
                         case Property.HasChanged:
-                            target.hasChanged = iob.Value;
+                            target.hasChanged = inOutBoolean.Value;
                             break;
                         case Property.HierarchyCapacity:
-                            target.hierarchyCapacity = ioi.Value;
+                            target.hierarchyCapacity = inOutInteger.Value;
                             break;
+
+                        case Property.SiblingIndex:
+                            target.SetSiblingIndex(inOutInteger.Value);
+                            break;
+
                         default:
                             Debug.Log("Unsupported get or set attempted");
                             break;

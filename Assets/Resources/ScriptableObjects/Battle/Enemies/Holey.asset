@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ec423ac3ac324749acb694d6da67022, type: 3}
+  m_Name: Holey
+  m_EditorClassIdentifier: 
+  battleSprite: {fileID: 21300000, guid: 338d6b4e48398fb4d8da171b2f03ca80, type: 3}
+  mugshot: {fileID: 21300000, guid: 338d6b4e48398fb4d8da171b2f03ca80, type: 3}
+  characterPrefab: {fileID: 0}
+  elements:
+  - {fileID: 11400000, guid: b4fefd97e1999ec40839a11fe61a0070, type: 2}
+  weaknesses: []
+  resistances: []
+  hp: 40
+  atk: 10
+  spd: 5
+  description: Basic enemy
+  matsDropped:
+  - {fileID: 11400000, guid: a91b358f65451b7488f2c80fca6f9cd4, type: 2}
+  - {fileID: 11400000, guid: a91b358f65451b7488f2c80fca6f9cd4, type: 2}
+  - {fileID: 11400000, guid: 58da59d4e522b564294ec94cf3c82a43, type: 2}
+  - {fileID: 11400000, guid: 58da59d4e522b564294ec94cf3c82a43, type: 2}
+  - {fileID: 11400000, guid: 5e5bbe3b2998a2842a14f3968a3deec8, type: 2}
+  dropChances:
+  - 100
+  - 100
+  - 40
+  - 40
+  - 10

@@ -7,10 +7,17 @@ The itemVar property will be holding the item that the clicked hub was displayin
 public class ItemHubClicked : EventHandler
 {
     [VariableProperty("<Value>", typeof(ItemVariable))]
-    [SerializeField] ItemVariable itemVar = null;
+    [SerializeField] protected ItemVariable itemVar = null;
+
+    [Tooltip("If the item is a Battle Power, it will be assigned to this variable.")]
+    [VariableProperty("<Value>", typeof(ObjectVariable))]
+    [SerializeField] protected ObjectVariable battlePower = null;
+
+    [VariableProperty("<Value>", typeof(BooleanVariable))]
+    [SerializeField] protected BooleanVariable battlePowerClicked;
 
     [Tooltip("This event only fires if the hub clicked is directly parented to any of these holders. If this array is empty, this responds to any and all hubs.")]
-    [SerializeField] Transform[] hubHolders = null;
+    [SerializeField] protected Transform[] hubHolders = null;
 
     protected virtual void Awake()
     {
@@ -31,11 +38,16 @@ public class ItemHubClicked : EventHandler
 
         if (itemVar != null)
             itemVar.Value = itemHub.DisplayBase;
+        if (battlePower != null)
+            battlePower.Value = itemHub.DisplayBase as BattlePower;
+
+        if (battlePowerClicked != null)
+            battlePowerClicked.Value = itemHub.DisplayBase as BattlePower != null;
 
         ExecuteBlock();
     }
 
-    bool ShouldRespondToHub(ItemDisplayHub hub)
+    protected virtual bool ShouldRespondToHub(ItemDisplayHub hub)
     {
         if (RespondToAllHubs)
             return true;
@@ -51,5 +63,5 @@ public class ItemHubClicked : EventHandler
         return false;
     }
 
-    bool RespondToAllHubs {  get { return this.hubHolders.Length == 0; } }
+    protected virtual bool RespondToAllHubs {  get { return this.hubHolders.Length == 0; } }
 }

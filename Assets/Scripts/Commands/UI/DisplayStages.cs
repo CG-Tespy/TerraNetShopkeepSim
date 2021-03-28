@@ -9,11 +9,7 @@ this refreshes the display.")]
 [AddComponentMenu("")]
 public class DisplayStages : Fungus.Command
 {
-    StageCollection Stages
-    {
-        get { return stages.Value as StageCollection; }
-    }
-    [SerializeField] CollectionData stages;
+    [SerializeField] StageGroup stages;
     [SerializeField] StageDisplayHub displayPrefab = null;
     [Tooltip("The part of the UI that will hold instances of the display prefab.")]
     [SerializeField] RectTransform displayHolder = null;
@@ -40,10 +36,11 @@ public class DisplayStages : Fungus.Command
 
     protected virtual void PopulateContents()
     {
-        foreach (var stage in Stages.GetAll())
+        foreach (Stage stage in stages.Contents)
         {
-            var newDisplay = Instantiate(displayPrefab, displayHolder);
+            StageDisplayHub newDisplay = Instantiate(displayPrefab, displayHolder);
             newDisplay.Stage = stage;
+            Canvas.ForceUpdateCanvases();
         }
     }
 }

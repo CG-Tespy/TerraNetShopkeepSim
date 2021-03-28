@@ -36,9 +36,9 @@ public class DisplayInventory : Command
 
     protected virtual void PopulateContents()
     {
-        foreach (var item in inventory.Value.Items)
+        foreach (Item item in inventory.Value.Items)
         {
-            var newDisplay = Instantiate(displayPrefab, displayHolder);
+            ItemDisplayHub newDisplay = Instantiate(displayPrefab, displayHolder);
             newDisplay.DisplayBase = item;
         }
     }

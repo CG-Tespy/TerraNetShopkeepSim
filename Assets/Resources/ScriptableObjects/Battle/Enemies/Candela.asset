@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ec423ac3ac324749acb694d6da67022, type: 3}
+  m_Name: Candela
+  m_EditorClassIdentifier: 
+  battleSprite: {fileID: 21300000, guid: 338d6b4e48398fb4d8da171b2f03ca80, type: 3}
+  mugshot: {fileID: 21300000, guid: 338d6b4e48398fb4d8da171b2f03ca80, type: 3}
+  characterPrefab: {fileID: 0}
+  elements:
+  - {fileID: 11400000, guid: a25514f0c0621d7479dc24bb253070d8, type: 2}
+  weaknesses:
+  - {fileID: 11400000, guid: 261fccadb266de5449deb2bdf03399c7, type: 2}
+  resistances:
+  - {fileID: 11400000, guid: a25514f0c0621d7479dc24bb253070d8, type: 2}
+  - {fileID: 11400000, guid: c26781f56ab4cde4f94a309ce07c1d10, type: 2}
+  hp: 40
+  atk: 10
+  spd: 5
+  description: Fire enemy
+  matsDropped:
+  - {fileID: 11400000, guid: 9de280f96f4f34c4485a14086ba92f3b, type: 2}
+  - {fileID: 11400000, guid: 9de280f96f4f34c4485a14086ba92f3b, type: 2}
+  - {fileID: 11400000, guid: 174e0556970183a4ea089d9563ade91a, type: 2}
+  - {fileID: 11400000, guid: 39d611ed2b2300a49934519cebc74294, type: 2}
+  - {fileID: 11400000, guid: 94e2b05d10871da4a97181d2791d126d, type: 2}
+  dropChances:
+  - 100
+  - 100
+  - 60
+  - 60
+  - 10

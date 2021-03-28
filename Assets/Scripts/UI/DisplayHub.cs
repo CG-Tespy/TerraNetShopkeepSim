@@ -14,10 +14,12 @@ public interface IDisplayHub
 /// Provides functionality all display hubs have, regardless of what they're
 /// set to display things for.
 /// </summary>
-public abstract class DisplayHub : Selectable, IDisplayHub, IPointerClickHandler
+public abstract class DisplayHub : Selectable, IDisplayHub, IPointerClickHandler, IPointerUpHandler
 {
     public UnityEvent Clicked { get; } = new UnityEvent();
     public static DisplayHubEvent AnyClicked { get; } = new DisplayHubEvent();
+
+    public static DisplayHubEvent AnyClickRelease { get; } = new DisplayHubEvent();
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -28,7 +30,20 @@ public abstract class DisplayHub : Selectable, IDisplayHub, IPointerClickHandler
         this.Clicked.Invoke();
     }
 
+    public override void OnPointerUp(PointerEventData eventData)
+    {
+        if (!this.interactable)
+            return;
+
+        base.OnPointerUp(eventData);
+
+        AnyClickRelease.Invoke(this);
+    }
+
     public abstract void UpdateDisplayComponents();
+
+    public abstract UnityEngine.Object GetDisplayBase();
+
 }
 
 public abstract class DisplayHub<TToDisplay> : DisplayHub, IDisplayHub, IPointerClickHandler
@@ -84,6 +99,14 @@ public abstract class DisplayHub<TToDisplay> : DisplayHub, IDisplayHub, IPointer
     {
         var componentArr = componentHolder.GetComponentsInChildren<DisplayComponent<TToDisplay>>();
         displayComponents.AddRange(componentArr);
+    }
+
+    /// <summary>
+    /// For when the client needs access to the base using a non-generic ref
+    /// </summary>
+    public override UnityEngine.Object GetDisplayBase()
+    {
+        return DisplayBase as UnityEngine.Object;
     }
 
 }

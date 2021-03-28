@@ -18,15 +18,37 @@ public abstract class FighterType : ScriptableObject
     [TextArea(5, 10)]
     [SerializeField] string description = "";
 
-    public string Name { get { return name; } }
+    public string Name 
+    { 
+        get { return name; } 
+        set { name = value; }
+    }
     public Sprite BattleSprite { get { return battleSprite; } }
     public Sprite Mugshot { get { return mugshot; } }
     public Character Character { get { return characterPrefab; } }
     public IList<Element> Elements {  get { return elements; } }
     public IList<Element> Weaknesses { get { return weaknesses; } }
     public IList<Element> Resistances { get { return resistances; } }
-    public int HP { get { return hp; } }
-    public int Atk { get { return atk; } }
-    public int Spd { get { return spd; } }
-    public string Description { get { return description; } }
+    public int HP 
+    { 
+        get { return hp; } 
+        set { hp = value; }
+    }
+
+    public int Atk 
+    { 
+        get { return atk; } 
+        set { atk = value; }
+    }
+
+    public int Spd 
+    { 
+        get { return spd; } 
+        set { spd = value; }
+    }
+    public string Description 
+    { 
+        get { return description; } 
+        set { description = value; }
+    }
 }

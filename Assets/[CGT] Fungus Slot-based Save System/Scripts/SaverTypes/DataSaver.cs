@@ -17,6 +17,7 @@ namespace CGTUnity.Fungus.SaveSystem
                                                 where TSaveData: SaveData
     {
         protected System.Type saveType = typeof(TSaveData);
+
     }
 
 }

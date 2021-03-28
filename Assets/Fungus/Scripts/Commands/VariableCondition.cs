@@ -70,6 +70,7 @@ namespace Fungus
             }
 
             bool resultAny = false, resultAll = true;
+
             foreach (ConditionExpression condition in conditions)
             {
                 bool curResult = false;
