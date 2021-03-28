@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 using Action = System.Action;
 
 public abstract class FighterController : MonoBehaviour, IFighterController
@@ -45,6 +46,9 @@ public abstract class FighterController : MonoBehaviour, IFighterController
     public static event FighterHandler AnyDeath = delegate { };
     public event DamageHandler TookDamage = delegate { };
     public static event FighterDamageHandler AnyTookDamage = delegate { };
+
+    public abstract IList<Element> Weaknesses { get; }
+    public abstract IList<Element> Resistances { get; }
 
     public virtual bool IsDead
     {
@@ -106,7 +110,9 @@ public abstract class FighterController<TFighterType> : FighterController, IFigh
     where TFighterType : FighterType
 {
     [SerializeField] protected TFighterType fighter = null;
-    
+    [Tooltip("The transform that has the battle powers this fighter can use.")]
+    [SerializeField] protected Transform hasBattlePowers;
+
 
     public TFighterType Fighter => fighter;
 
@@ -123,6 +129,16 @@ public abstract class FighterController<TFighterType> : FighterController, IFigh
     public override Sprite Mugshot
     {
         get { return fighter.Mugshot; }
+    }
+
+    public override IList<Element> Weaknesses
+    {
+        get { return fighter.Weaknesses; }
+    }
+
+    public override IList<Element> Resistances
+    {
+        get { return fighter.Resistances; }
     }
 
     protected override void Awake()
@@ -144,6 +160,24 @@ public abstract class FighterController<TFighterType> : FighterController, IFigh
         Spd = fighter.Spd;
         Mugshot = fighter.Mugshot;
     }
+
+    protected virtual void Start()
+    {
+        ClaimBattlePowers();
+    }
+
+    protected virtual void ClaimBattlePowers()
+    {
+        if (hasBattlePowers == null)
+            return;
+
+        IList<BattlePowerController> battlePowers = hasBattlePowers.GetComponentsInChildren<BattlePowerController>();
+        foreach (var power in battlePowers)
+        {
+            power.User = this;
+        }
+    }
+
 }
 
 public interface IFighterController

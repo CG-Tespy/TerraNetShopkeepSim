@@ -53,8 +53,9 @@ GameObject:
   - component: {fileID: 1641409324166169317}
   - component: {fileID: 6757328860853059128}
   - component: {fileID: -5406139985079649583}
-  - component: {fileID: -2690283146692001842}
   - component: {fileID: -5853253171578200425}
+  - component: {fileID: 122399511379908112}
+  - component: {fileID: 7564656694334414028}
   m_Layer: 0
   m_Name: BaseEnemy
   m_TagString: Untagged
@@ -169,6 +170,7 @@ MonoBehaviour:
   hp: 40
   maxHP: 40
   fighter: {fileID: 0}
+  hasBattlePowers: {fileID: 0}
   flowchart: {fileID: 3307127488803940801}
   enemyTypeVarName: enemyType
   atkVarName: atk
@@ -231,8 +233,9 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 965783035379528962}
-  selectedCommands: []
+  - {fileID: -5406139985079649583}
+  selectedCommands:
+  - {fileID: 122399511379908112}
   variables:
   - {fileID: 8117566132889482157}
   - {fileID: 2646553899026003269}
@@ -241,6 +244,7 @@ MonoBehaviour:
   - {fileID: 6442368234091915012}
   - {fileID: 886658827197413168}
   - {fileID: 8452472147501843716}
+  - {fileID: 7564656694334414028}
   description: 
   stepPause: 0
   colorCommands: 1
@@ -424,7 +428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 0
   key: atk
-  value: 10
+  value: 0
 --- !u!114 &2093757350119522874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -750,6 +754,10 @@ MonoBehaviour:
   _duration:
     floatRef: {fileID: 0}
     floatVal: 0.25
+  allowWaitCancelling:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  inputAxes: []
   durationOLD: 0
 --- !u!114 &7496247100807818774
 MonoBehaviour:
@@ -804,6 +812,10 @@ MonoBehaviour:
   _duration:
     floatRef: {fileID: 0}
     floatVal: 0.5
+  allowWaitCancelling:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  inputAxes: []
   durationOLD: 0
 --- !u!114 &5775226654754495082
 MonoBehaviour:
@@ -1018,27 +1030,8 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 0}
   commandList:
-  - {fileID: -2690283146692001842}
+  - {fileID: 122399511379908112}
   suppressAllAutoSelections: 0
---- !u!114 &-2690283146692001842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4580800848774905847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d16ca8d5970f9db4483fd0f9cc637312, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 32
-  indentLevel: 0
-  items: []
-  sourceInventories: []
-  targetInventory:
-    ShopInventoryRef: {fileID: 0}
-    ShopInventoryVal: {fileID: 11400000, guid: 09a09fb1f022aee47a3b1d4a057c0e85, type: 2}
 --- !u!114 &-5853253171578200425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1060,6 +1053,41 @@ MonoBehaviour:
     stringVal: 
   startIndex: 0
   callMode: 2
+--- !u!114 &122399511379908112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4580800848774905847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8e3ac161cc7a6645939a4100681d79e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 34
+  indentLevel: 0
+  enemyType:
+    objectRef: {fileID: 8117566132889482157}
+    objectVal: {fileID: 0}
+  toAddDropsTo:
+  - ShopInventoryRef: {fileID: 7564656694334414028}
+    ShopInventoryVal: {fileID: 0}
+--- !u!114 &7564656694334414028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4580800848774905847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 829e27f42e16ca84d91bd55402ae30a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scope: 0
+  key: spoilsOfBattle
+  value: {fileID: 11400000, guid: 09a09fb1f022aee47a3b1d4a057c0e85, type: 2}
 --- !u!1 &9158064119916250429
 GameObject:
   m_ObjectHideFlags: 0

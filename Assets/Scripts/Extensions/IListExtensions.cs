@@ -47,4 +47,15 @@ public static class IListExtensions
 
         return highest;
     }
+
+    public static bool ContainsAny<T>(this IList<T> list, IList<T> toCheckFor)
+    {
+        foreach (var element in toCheckFor)
+        {
+            if (list.Contains(element))
+                return true;
+        }
+
+        return false;
+    }
 }

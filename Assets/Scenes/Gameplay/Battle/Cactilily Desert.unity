@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 538320936}
+  selectedFlowchart: {fileID: 1181836709}
 --- !u!4 &14398974
 Transform:
   m_ObjectHideFlags: 1
@@ -714,20 +714,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8973909769112901580, guid: 968c3902a8a4d294086c2ea8334cc8f7,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 82c5fd51d8fdba8498168b6b291175d0,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 968c3902a8a4d294086c2ea8334cc8f7, type: 3}
---- !u!114 &538320936 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7998036234423124476, guid: 968c3902a8a4d294086c2ea8334cc8f7,
-    type: 3}
-  m_PrefabInstance: {fileID: 538320935}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &607381294
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -955,6 +949,16 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7895251144136375261, guid: ebd71f132998d2447b27fa24833046ba,
+        type: 3}
+      propertyPath: selectedCommands.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895251144450350451, guid: ebd71f132998d2447b27fa24833046ba,
+        type: 3}
+      propertyPath: selectedCommands.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7895251144502835131, guid: ebd71f132998d2447b27fa24833046ba,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -1117,6 +1121,11 @@ PrefabInstance:
       propertyPath: value
       value: 
       objectReference: {fileID: 607381295}
+    - target: {fileID: 7998036234423124476, guid: 968c3902a8a4d294086c2ea8334cc8f7,
+        type: 3}
+      propertyPath: selectedBlocks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8973909769112901578, guid: 968c3902a8a4d294086c2ea8334cc8f7,
         type: 3}
       propertyPath: m_Name
@@ -1177,6 +1186,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8973909769112901580, guid: 968c3902a8a4d294086c2ea8334cc8f7,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 82c5fd51d8fdba8498168b6b291175d0,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 968c3902a8a4d294086c2ea8334cc8f7, type: 3}
 --- !u!1 &769440408
@@ -1594,6 +1609,18 @@ RectTransform:
   m_AnchoredPosition: {x: -750.0001, y: 0}
   m_SizeDelta: {x: 1500, y: 335}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1181836709 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7998036234423124476, guid: 968c3902a8a4d294086c2ea8334cc8f7,
+    type: 3}
+  m_PrefabInstance: {fileID: 766757788}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1391319528
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1666,6 +1693,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8973909769112901580, guid: 968c3902a8a4d294086c2ea8334cc8f7,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 82c5fd51d8fdba8498168b6b291175d0,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 968c3902a8a4d294086c2ea8334cc8f7, type: 3}
 --- !u!1 &1644253239
