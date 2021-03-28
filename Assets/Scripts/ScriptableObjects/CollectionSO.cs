@@ -47,16 +47,19 @@ public abstract class CollectionSO<T> : ScriptableObject
         }
     }
 
-    public virtual void Remove(T item)
+    public virtual bool Remove(T item)
     {
-        Contents.Remove(item);
-        ItemRemoved.Invoke(item);
+        bool removedSucessfully = Contents.Remove(item);
+        if (removedSucessfully)
+            ItemRemoved.Invoke(item);
+        return removedSucessfully;
     }
 
-    public virtual void RemoveAt(int index)
+    public virtual bool RemoveAt(int index)
     {
         var toRemove = Contents[index];
-        Remove(toRemove);
+        bool removedSuccessfully = Remove(toRemove);
+        return removedSuccessfully;
     }
 
     /// <summary>

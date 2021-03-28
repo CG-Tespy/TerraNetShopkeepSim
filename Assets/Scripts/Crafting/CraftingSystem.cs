@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class CraftingSystem : MonoBehaviour
 {
-    [SerializeField] protected ShopInventory[] haveUsableMats = null;
+    [SerializeField] protected ShopInventory[] regularMats = null;
     [SerializeField] protected BattlePowerLoadout[] battlePowerMats = null;
     
     public Item Craft(Recipe recipe)
@@ -15,6 +15,18 @@ public class CraftingSystem : MonoBehaviour
         return recipe.ItemCreated;
     }
 
+
+    /// <summary>
+    /// So you can pass in a recipe from an Object variable in a Flowchart.
+    /// </summary>
+    public virtual bool CanCraft(Object hasRecipe)
+    {
+        if (hasRecipe is Recipe)
+            return CanCraft(hasRecipe as Recipe);
+
+        return false;
+    }
+
     /// <summary>
     /// Returns true if the usable mat pool has the right stuff for the recipe.
     /// False otherwise.
@@ -23,6 +35,8 @@ public class CraftingSystem : MonoBehaviour
     {
         if (recipe == null)
             return false;
+
+        UpdatePlayerMats();
 
         // As the recipe can demand more than one of the same material, we need a separate
         // list so we can see if the mat pool has enough of said material.
@@ -41,18 +55,20 @@ public class CraftingSystem : MonoBehaviour
 
     protected virtual void UpdatePlayerMats()
     {
+        playerMats.Clear();
 
-    }
+        foreach (ShopInventory shopInventory in regularMats)
+        {
+            playerMats.AddRange(shopInventory.Items);
+        }
 
-    /// <summary>
-    /// So you can pass in a recipe from an Object variable in a Flowchart.
-    /// </summary>
-    public virtual bool CanCraft(Object hasRecipe)
-    {
-        if (hasRecipe is Recipe)
-            return CanCraft(hasRecipe as Recipe);
-
-        return false;
+        foreach (BattlePowerLoadout bpLoadout in battlePowerMats)
+        {
+            foreach (BattlePower power in bpLoadout.Contents)
+            {
+                playerMats.Add(power);
+            }
+        }
     }
 
     /// <summary>
@@ -75,16 +91,39 @@ public class CraftingSystem : MonoBehaviour
 
     protected virtual void UseUpMatsRequiredBy(Recipe recipe)
     {
-        PlayerMats.RemoveRange(recipe.Materials);
+        IList<Item> materialsRemaining = new List<Item>(recipe.Materials);
+
+        // Remove them from the individual inventories and loadouts
+        foreach (ShopInventory shopInv in regularMats)
+        {
+            for (int i = 0; i < materialsRemaining.Count; i++)
+            {
+                Item materialToUse = materialsRemaining[i];
+                bool successfulRemove = shopInv.Items.Remove(materialToUse);
+
+                if (successfulRemove)
+                {
+                    materialsRemaining.Remove(materialToUse);
+                    i--; // So we properly check the next ingredient
+                }
+            }
+        }
+
+        foreach (BattlePowerLoadout bpLoadout in battlePowerMats)
+        {
+            for (int i = 0; i < materialsRemaining.Count; i++)
+            {
+                Item materialToUse = materialsRemaining[i];
+                bool successfulRemove = bpLoadout.Remove(materialToUse as BattlePower);
+
+                if (successfulRemove)
+                {
+                    materialsRemaining.Remove(materialToUse);
+                    i--;
+                }
+            }
+        }
+
     }
 
-    public int DoThing(int thing)
-    {
-        return 0;
-    }
-
-    public Recipe OtherThing()
-    {
-        return null;
-    }
 }
