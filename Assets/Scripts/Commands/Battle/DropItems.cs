@@ -40,11 +40,13 @@ public class DropItems : Command
             Item currentDrop = potentialDrops[i];
             float currentChance = dropChances[i];
 
-            float randNum = Random.Range(0, 100);
+            float randNum = Random.Range(noChance, guaranteed);
             if (currentChance >= randNum)
                 drops.Add(currentDrop);
         }
     }
+
+    protected static int noChance = 0, guaranteed = 100;
 
     protected virtual void AddDropsToInventories()
     {
