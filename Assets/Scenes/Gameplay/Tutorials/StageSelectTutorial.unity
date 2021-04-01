@@ -520,7 +520,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1609897957}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.87261903
+  m_Size: 0.87460315
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -724,9 +724,9 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 480227871}
+  - {fileID: 480227875}
   selectedCommands:
-  - {fileID: 480227868}
+  - {fileID: 480227877}
   variables:
   - {fileID: 480227872}
   - {fileID: 480227869}
@@ -816,9 +816,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 6
   indentLevel: 0
-  stages:
-    collectionRef: {fileID: 0}
-    collectionVal: {fileID: 1549316188}
+  stages: {fileID: 11400000, guid: 4ceb3bd88a427654c8575d8840b1da59, type: 2}
   displayPrefab: {fileID: 5084778877970454350, guid: b112a19bb04196e4a9ea2a24da668204,
     type: 3}
   displayHolder: {fileID: 2104085101}
@@ -2010,7 +2008,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1253825474}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.87261903
+  m_Size: 0.87460315
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2525,8 +2523,10 @@ MonoBehaviour:
     y: 0
     width: 0
     height: 0
-  selectedBlocks: []
-  selectedCommands: []
+  selectedBlocks:
+  - {fileID: 1140428300}
+  selectedCommands:
+  - {fileID: 1140428302}
   variables:
   - {fileID: 1140428297}
   description: 
@@ -2553,9 +2553,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 1
   indentLevel: 0
-  stages:
-    collectionRef: {fileID: 0}
-    collectionVal: {fileID: 1549316188}
+  stages: {fileID: 11400000, guid: 4ceb3bd88a427654c8575d8840b1da59, type: 2}
   displayPrefab: {fileID: 5084778877970454350, guid: b112a19bb04196e4a9ea2a24da668204,
     type: 3}
   displayHolder: {fileID: 2104085101}
@@ -3537,7 +3535,7 @@ MonoBehaviour:
         m_MethodName: set_clip
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 51025630b4a7d3d4a84aa1b120e1a685,
+          m_ObjectArgument: {fileID: 8300000, guid: 981e4a147d985c94abf3e36548311800,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
@@ -3708,8 +3706,9 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 1455064052}
-  selectedCommands: []
+  - {fileID: 1455064049}
+  selectedCommands:
+  - {fileID: 1455064047}
   variables: []
   description: 
   stepPause: 0
@@ -4872,6 +4871,10 @@ MonoBehaviour:
   _duration:
     floatRef: {fileID: 0}
     floatVal: 0.3
+  allowWaitCancelling:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  inputAxes: []
   durationOLD: 0
 --- !u!114 &1958578463
 MonoBehaviour:

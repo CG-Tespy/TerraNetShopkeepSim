@@ -7,6 +7,7 @@ using UnityEngine;
 [RequireComponent(typeof(BattlePowerDisplayHub))]
 public class BattlePowerController : MonoBehaviour
 {
+    [SerializeField] FighterController user = null;
     [Header("For visualization")]
     [SerializeField] FighterController target = null;
     [Tooltip("Loadout this belongs to")]
@@ -27,6 +28,12 @@ public class BattlePowerController : MonoBehaviour
     public virtual BattlePower Power
     {
         get { return displayer.BattlePower; }
+    }
+
+    public virtual FighterController User
+    {
+        get { return user; }
+        set { user = value; }
     }
 
     /// <summary>
@@ -50,7 +57,20 @@ public class BattlePowerController : MonoBehaviour
         if (target == null)
             return;
 
-        target.TakeDamage(Power.Damage);
+        int totalDamage = CalculateDamage();
+        target.TakeDamage(totalDamage);
+
         target.TakeHealing(Power.Healing);
     }
+
+    protected virtual int CalculateDamage()
+    {
+        damageCalculator.Target = target;
+        damageCalculator.Attacker = this.User;
+        damageCalculator.PowerUsed = Power;
+        int totalDamage = damageCalculator.Calculate();
+        return totalDamage;
+    }
+
+    protected DamageCalculator damageCalculator = new DamageCalculator();
 }

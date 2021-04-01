@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ec423ac3ac324749acb694d6da67022, type: 3}
   m_Name: Candela
   m_EditorClassIdentifier: 
-  battleSprite: {fileID: -3561401559819353992, guid: 30d2c6642caf44144b2a8cf72c59ccea,
-    type: 3}
-  mugshot: {fileID: 21300000, guid: 338d6b4e48398fb4d8da171b2f03ca80, type: 3}
+  battleSprite: {fileID: 21300000, guid: a39e9f21f1267f7408db86593a0d6314, type: 3}
+  mugshot: {fileID: 21300000, guid: a39e9f21f1267f7408db86593a0d6314, type: 3}
   characterPrefab: {fileID: 0}
   elements:
   - {fileID: 11400000, guid: a25514f0c0621d7479dc24bb253070d8, type: 2}
@@ -23,15 +22,19 @@ MonoBehaviour:
   resistances:
   - {fileID: 11400000, guid: a25514f0c0621d7479dc24bb253070d8, type: 2}
   - {fileID: 11400000, guid: c26781f56ab4cde4f94a309ce07c1d10, type: 2}
-  hp: 40
-  atk: 10
+  hp: 300
+  atk: 60
   spd: 5
   description: Fire enemy
   matsDropped:
   - {fileID: 11400000, guid: 9de280f96f4f34c4485a14086ba92f3b, type: 2}
   - {fileID: 11400000, guid: 9de280f96f4f34c4485a14086ba92f3b, type: 2}
   - {fileID: 11400000, guid: 174e0556970183a4ea089d9563ade91a, type: 2}
+  - {fileID: 11400000, guid: 39d611ed2b2300a49934519cebc74294, type: 2}
+  - {fileID: 11400000, guid: 94e2b05d10871da4a97181d2791d126d, type: 2}
   dropChances:
   - 100
   - 100
-  - 100
+  - 60
+  - 60
+  - 10

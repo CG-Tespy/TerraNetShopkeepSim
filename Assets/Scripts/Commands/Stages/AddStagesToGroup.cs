@@ -19,9 +19,4 @@ public class AddStagesToGroup : Command
         Continue();
     }
 
-    protected virtual void AlertFalseStage()
-    {
-        string message = "There is a non-stage in the Stages array in AddStagesToGroup!";
-        throw new System.InvalidOperationException(message);
-    }
 }

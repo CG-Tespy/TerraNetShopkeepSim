@@ -16,7 +16,7 @@ public class CustomerGenerator : MonoBehaviour
         {
             Customer toGenerate = GetRandomCustomerType();
             Customer broughtIntoWorld = BringCustomerIntoWorld(toGenerate);
-            RemoveCloneFromName(broughtIntoWorld);
+            FixNameProblemOf(broughtIntoWorld);
             generated.Add(broughtIntoWorld);
         }
 
@@ -35,10 +35,11 @@ public class CustomerGenerator : MonoBehaviour
         return broughtIntoWorld;
     }
 
-    protected virtual void RemoveCloneFromName(Customer customer)
+    protected virtual void FixNameProblemOf(Customer customer)
     {
-        customer.name = customer.name.Replace(clone, "").Trim();
+        customer.name = customer.name.Replace(cloneTag, emptyString).Trim();
     }
 
-    protected static string clone = "(Clone)";
+    protected static string cloneTag = "(Clone)";
+    protected static string emptyString = "";
 }
