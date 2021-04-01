@@ -8,7 +8,9 @@ public class LoadStage : LoadScene
 
     public override void OnEnter()
     {
-        _sceneName.Value = stage.Value.name;
+        Object firstBattleInStage = stage.Value.Battles[0];
+        _sceneName.Value = firstBattleInStage.name;
+
         base.OnEnter();
     }
 }
