@@ -5401,9 +5401,8 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 1258417041}
-  selectedCommands:
-  - {fileID: 1258417042}
+  - {fileID: 1258417037}
+  selectedCommands: []
   variables:
   - {fileID: 1258417004}
   - {fileID: 1258417003}
@@ -7184,7 +7183,7 @@ MonoBehaviour:
   itemId: 58
   indentLevel: 0
   stages:
-  - {fileID: 11400000, guid: f7335abfe401d314f84c19ce1f2e6228, type: 2}
+  - {fileID: 0}
   group: {fileID: 11400000, guid: 4ceb3bd88a427654c8575d8840b1da59, type: 2}
 --- !u!114 &1308297610
 MonoBehaviour:
@@ -7228,7 +7227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 56
   indentLevel: 0
-  storyText: Congrats! Now you can go gather mats at the Aquarium Comp!
+  storyText: Congrats! Now you can go gather mats at the Power Plant!
   description: 
   character: {fileID: 8701842603855049844}
   portrait: {fileID: 0}
@@ -7256,7 +7255,8 @@ MonoBehaviour:
   itemId: 55
   indentLevel: 0
   stages:
-  - {fileID: 11400000, guid: 9e76c24f3895b074aadb92650bd403e7, type: 2}
+  - {fileID: 11400000, guid: c76904810e6b9e447ac5fb6d08ef61c9, type: 2}
+  - {fileID: 11400000, guid: c70c14d1cb023fc4b922a81f00045620, type: 2}
   group: {fileID: 11400000, guid: 4ceb3bd88a427654c8575d8840b1da59, type: 2}
 --- !u!114 &1308297613
 MonoBehaviour:
@@ -7356,20 +7356,9 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 1308297626}
+  - {fileID: 1308297632}
   selectedCommands:
-  - {fileID: 1308297622}
-  - {fileID: 1308297636}
-  - {fileID: 1308297628}
-  - {fileID: 1308297621}
-  - {fileID: 1308297620}
-  - {fileID: 1308297625}
-  - {fileID: 1308297627}
-  - {fileID: 1308297623}
-  - {fileID: 1308297624}
-  - {fileID: 1308297637}
-  - {fileID: 1308297634}
-  - {fileID: 1308297635}
+  - {fileID: 1308297631}
   variables:
   - {fileID: 1308297616}
   - {fileID: 1308297615}
@@ -8562,6 +8551,7 @@ MonoBehaviour:
   itemId: 70
   indentLevel: 0
   stages:
+  - {fileID: 11400000, guid: 8e288602cb8b3e94a9babae202e0152a, type: 2}
   - {fileID: 11400000, guid: 057bb4ba4d0818f4f8f54eb1a7475039, type: 2}
   group: {fileID: 11400000, guid: 4ceb3bd88a427654c8575d8840b1da59, type: 2}
 --- !u!114 &1308297632
@@ -11161,7 +11151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1313204956}
+  selectedFlowchart: {fileID: 1308297617}
 --- !u!4 &1508476116
 Transform:
   m_ObjectHideFlags: 1
@@ -15498,7 +15488,7 @@ PrefabInstance:
     - target: {fileID: 2745607785636575779, guid: 7522c80d47a8cf944b4bf0384075185a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 311.34607
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2809161149076884691, guid: 7522c80d47a8cf944b4bf0384075185a,
         type: 3}

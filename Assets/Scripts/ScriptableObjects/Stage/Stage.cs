@@ -20,9 +20,10 @@ public class Stage : ScriptableObject
     [Tooltip("The icon for this stage.")]
     [SerializeField] Sprite sprite = null;
     [Tooltip("The names of the battle scenes you're taken to when going through the stage.")]
-    [SerializeField] string[] battles = null;
+    [SerializeField] Object[] battles = null;
 
     public IList<Item> MatsGatherable { get { return matsGatherable; } }
     public Sprite Sprite { get { return sprite; } }
     public string Name { get { return name; } }
+    public Object[] Battles { get { return battles; } }
 }

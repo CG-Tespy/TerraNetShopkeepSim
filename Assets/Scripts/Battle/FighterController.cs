@@ -6,6 +6,7 @@ public abstract class FighterController : MonoBehaviour, IFighterController
 {
     [SerializeField] protected float hp = 10;
     [SerializeField] protected float maxHP = 10;
+    [SerializeField] protected SpriteRenderer spriteRenderer;
 
     public abstract string Name { get; }
     public abstract string Description { get; }
@@ -65,10 +66,13 @@ public abstract class FighterController : MonoBehaviour, IFighterController
 
     protected virtual void SetUpComponents()
     {
-        SpriteRenderer = GetComponent<SpriteRenderer>();
+        
     }
 
-    public SpriteRenderer SpriteRenderer { get; protected set; } = null;
+    public SpriteRenderer SpriteRenderer
+    {
+        get { return spriteRenderer; }
+    }
 
     void SetUpDeathListeners()
     {
@@ -141,18 +145,31 @@ public abstract class FighterController<TFighterType> : FighterController, IFigh
         get { return fighter.Resistances; }
     }
 
+    [ExecuteInEditMode]
     protected override void Awake()
     {
         base.Awake();
         TurnIntoFighter();
     }
 
+#if UNITY_EDITOR
+    [ExecuteInEditMode]
+    protected virtual void Update()
+    {
+        if (!Application.isPlaying)
+            TurnIntoFighter();
+    }
+#endif
+
     protected virtual void TurnIntoFighter()
     {
         if (fighter == null)
             return;
 
-        SpriteRenderer.sprite = fighter.BattleSprite;
+        if (spriteRenderer == null)
+            spriteRenderer = GetComponent<SpriteRenderer>();
+
+        spriteRenderer.sprite = fighter.BattleSprite;
         // For debug
         MaxHP = fighter.HP;
         HP = fighter.HP;
@@ -176,6 +193,12 @@ public abstract class FighterController<TFighterType> : FighterController, IFigh
         {
             power.User = this;
         }
+    }
+
+    protected override void SetUpComponents()
+    {
+        base.SetUpComponents();
+        SpriteRenderer.sprite = fighter.BattleSprite;
     }
 
 }

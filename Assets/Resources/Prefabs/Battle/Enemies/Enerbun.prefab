@@ -34,6 +34,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: f99ded38361c0f343b7cd738a0c74bea,
         type: 3}
+    - target: {fileID: 2338801292441791336, guid: 3cbd4671cffa2f1458532af19487efea,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8e545a55f29304c46825739066e0eb3f,
+        type: 3}
     - target: {fileID: 2646553899026003269, guid: 3cbd4671cffa2f1458532af19487efea,
         type: 3}
       propertyPath: value
@@ -42,7 +48,7 @@ PrefabInstance:
     - target: {fileID: 3307127488803940801, guid: 3cbd4671cffa2f1458532af19487efea,
         type: 3}
       propertyPath: selectedCommands.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3307127488803940801, guid: 3cbd4671cffa2f1458532af19487efea,
         type: 3}
@@ -53,7 +59,7 @@ PrefabInstance:
         type: 3}
       propertyPath: selectedCommands.Array.data[0]
       value: 
-      objectReference: {fileID: 8026902085262332651}
+      objectReference: {fileID: 0}
     - target: {fileID: 4580800848774905840, guid: 3cbd4671cffa2f1458532af19487efea,
         type: 3}
       propertyPath: fighter
@@ -69,6 +75,11 @@ PrefabInstance:
         type: 3}
       propertyPath: maxHP
       value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 4580800848774905840, guid: 3cbd4671cffa2f1458532af19487efea,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4580800848774905841, guid: 3cbd4671cffa2f1458532af19487efea,
         type: 3}
@@ -89,7 +100,7 @@ PrefabInstance:
     - target: {fileID: 4580800848774905846, guid: 3cbd4671cffa2f1458532af19487efea,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 4580800848774905846, guid: 3cbd4671cffa2f1458532af19487efea,
         type: 3}
@@ -134,7 +145,7 @@ PrefabInstance:
     - target: {fileID: 4580800848774905847, guid: 3cbd4671cffa2f1458532af19487efea,
         type: 3}
       propertyPath: m_Name
-      value: Elec Bunny
+      value: Enerbun
       objectReference: {fileID: 0}
     - target: {fileID: 4873199091974601607, guid: 3cbd4671cffa2f1458532af19487efea,
         type: 3}
@@ -169,17 +180,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8026902085262332651 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: -2690283146692001842, guid: 3cbd4671cffa2f1458532af19487efea,
-    type: 3}
-  m_PrefabInstance: {fileID: 3877451190150409509}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d16ca8d5970f9db4483fd0f9cc637312, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
