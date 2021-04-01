@@ -3,12 +3,17 @@ using TMPro;
 
 public class ItemPriceDisplay : DisplayComponent<Item>
 {
-    [SerializeField] TextMeshProUGUI priceText = null;
+    [SerializeField] protected TextMeshProUGUI priceText = null;
+    [Tooltip("Applied to the price shown")]
+    [SerializeField] protected float priceMultiplier = 1;
 
     protected override void UpdateDisplay()
     {
         if (DisplayBase != null)
-            priceText.text = DisplayBase.Price.ToString();
+        {
+            int priceToDisplay = (int)(DisplayBase.Price * priceMultiplier);
+            priceText.text = priceToDisplay.ToString();
+        }
         else
             priceText.text = "N/A";
     }
