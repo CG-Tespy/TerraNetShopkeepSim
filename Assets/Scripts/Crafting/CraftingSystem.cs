@@ -94,6 +94,7 @@ public class CraftingSystem : MonoBehaviour
         IList<Item> materialsRemaining = new List<Item>(recipe.Materials);
 
         // Remove them from the individual inventories and loadouts
+
         foreach (ShopInventory shopInv in regularMats)
         {
             for (int i = 0; i < materialsRemaining.Count; i++)
@@ -108,6 +109,9 @@ public class CraftingSystem : MonoBehaviour
                 }
             }
         }
+
+        if (materialsRemaining.Count == 0)
+            return;
 
         foreach (BattlePowerLoadout bpLoadout in battlePowerMats)
         {

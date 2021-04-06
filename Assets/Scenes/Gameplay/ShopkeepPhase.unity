@@ -1806,6 +1806,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_MaxRayIntersections: 0
+--- !u!114 &552440318 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1527940155448084419, guid: 7522c80d47a8cf944b4bf0384075185a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8701842603855049830}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &756184024 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8701842603470456750, guid: 7522c80d47a8cf944b4bf0384075185a,
@@ -3262,6 +3274,7 @@ GameObject:
   - component: {fileID: 1313204944}
   - component: {fileID: 1313204945}
   - component: {fileID: 1313204946}
+  - component: {fileID: 1313204947}
   m_Layer: 0
   m_Name: FirstPayment
   m_TagString: Untagged
@@ -3732,6 +3745,34 @@ MonoBehaviour:
     stringVal: 
   startIndex: 0
   callMode: 2
+--- !u!114 &1313204947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313204937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 10
+  indentLevel: 1
+  storyText: Mats from virus-busting alone can only make us so much, after all.
+  description: 
+  character: {fileID: 1974327464}
+  portrait: {fileID: 5639546553090718800, guid: 47d8470067c04894b8bd8037c70d630d,
+    type: 3}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
 --- !u!114 &1313204951
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -3746,7 +3787,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 4
   indentLevel: 1
-  storyText: Should be easy.
+  storyText: Should be easy. Especially if I sell mainly crafted stuff.
   description: 
   character: {fileID: 8701842603855049832}
   portrait: {fileID: -1390264785956830372, guid: 47d8470067c04894b8bd8037c70d630d,
@@ -3877,6 +3918,7 @@ MonoBehaviour:
   - {fileID: 1313204953}
   - {fileID: 1313204952}
   - {fileID: 1313204951}
+  - {fileID: 1313204947}
   - {fileID: 1313204946}
   - {fileID: 1313204940}
   suppressAllAutoSelections: 0
@@ -3907,7 +3949,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 1313204955}
   selectedCommands:
-  - {fileID: 1313204946}
+  - {fileID: 1313204947}
   variables:
   - {fileID: 1313204939}
   - {fileID: 1313204958}
@@ -4776,6 +4818,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1427546567 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4087403278613011430, guid: 9e3a6d4a2166633479b8d3a5814a1b94,
+    type: 3}
+  m_PrefabInstance: {fileID: 5572181314712627196}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25fb867d2049d41f597aefdd6b19f598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1508476114
 GameObject:
   m_ObjectHideFlags: 1
@@ -4805,7 +4859,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1313204956}
+  selectedFlowchart: {fileID: 552440318}
 --- !u!4 &1508476116
 Transform:
   m_ObjectHideFlags: 1
@@ -9082,8 +9136,29 @@ PrefabInstance:
     - target: {fileID: 1527940154378636446, guid: 7522c80d47a8cf944b4bf0384075185a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.00079345703
+      value: 3654.6064
       objectReference: {fileID: 0}
+    - target: {fileID: 1527940154466148495, guid: 7522c80d47a8cf944b4bf0384075185a,
+        type: 3}
+      propertyPath: selectedCommands.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527940154552203248, guid: 7522c80d47a8cf944b4bf0384075185a,
+        type: 3}
+      propertyPath: selectedCommands.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527940154552203252, guid: 7522c80d47a8cf944b4bf0384075185a,
+        type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 1427546567}
+    - target: {fileID: 1527940154552203252, guid: 7522c80d47a8cf944b4bf0384075185a,
+        type: 3}
+      propertyPath: portrait
+      value: 
+      objectReference: {fileID: -1390264785956830372, guid: 47d8470067c04894b8bd8037c70d630d,
+        type: 3}
     - target: {fileID: 1527940154672610236, guid: 7522c80d47a8cf944b4bf0384075185a,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -9162,7 +9237,7 @@ PrefabInstance:
     - target: {fileID: 1527940155180632696, guid: 7522c80d47a8cf944b4bf0384075185a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00012207031
+      value: 4150.5713
       objectReference: {fileID: 0}
     - target: {fileID: 1527940155482159243, guid: 7522c80d47a8cf944b4bf0384075185a,
         type: 3}
@@ -9482,7 +9557,7 @@ PrefabInstance:
     - target: {fileID: 2293075033235146056, guid: 7522c80d47a8cf944b4bf0384075185a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 244.44681
       objectReference: {fileID: 0}
     - target: {fileID: 2293075033389223891, guid: 7522c80d47a8cf944b4bf0384075185a,
         type: 3}
@@ -9562,7 +9637,7 @@ PrefabInstance:
     - target: {fileID: 2745607785636575779, guid: 7522c80d47a8cf944b4bf0384075185a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000091552734
+      value: 177.91217
       objectReference: {fileID: 0}
     - target: {fileID: 2809161149076884691, guid: 7522c80d47a8cf944b4bf0384075185a,
         type: 3}
@@ -11917,7 +11992,7 @@ PrefabInstance:
     - target: {fileID: 9070252788842102298, guid: 7522c80d47a8cf944b4bf0384075185a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.00024414062
+      value: 290.9347
       objectReference: {fileID: 0}
     - target: {fileID: 9082142393877087939, guid: 7522c80d47a8cf944b4bf0384075185a,
         type: 3}

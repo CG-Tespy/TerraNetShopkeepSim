@@ -3903,6 +3903,12 @@ GameObject:
   - component: {fileID: 7631165766612171804}
   - component: {fileID: 8806093261178670403}
   - component: {fileID: 954952420811432343}
+  - component: {fileID: 2867910518100354193}
+  - component: {fileID: 2408637217038077722}
+  - component: {fileID: 1787666068430752062}
+  - component: {fileID: 7753233550645400033}
+  - component: {fileID: 7625205489294813872}
+  - component: {fileID: 5084640112988000}
   m_Layer: 0
   m_Name: StageUnlocker
   m_TagString: Untagged
@@ -3949,9 +3955,9 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 3752285427194896774}
+  - {fileID: 3752285427194896785}
   selectedCommands:
-  - {fileID: 7631165766612171804}
+  - {fileID: 7753233550645400033}
   variables:
   - {fileID: 3752285427194896780}
   - {fileID: 3752285427194896787}
@@ -4042,6 +4048,8 @@ MonoBehaviour:
   commandList:
   - {fileID: 3752285427194896784}
   - {fileID: 3752285427194896791}
+  - {fileID: 1787666068430752062}
+  - {fileID: 7753233550645400033}
   suppressAllAutoSelections: 0
 --- !u!114 &3752285427194896784
 MonoBehaviour:
@@ -4115,6 +4123,8 @@ MonoBehaviour:
   commandList:
   - {fileID: 3752285427194896789}
   - {fileID: 3752285427194896788}
+  - {fileID: 2867910518100354193}
+  - {fileID: 2408637217038077722}
   suppressAllAutoSelections: 0
 --- !u!114 &3752285427194896789
 MonoBehaviour:
@@ -4131,7 +4141,8 @@ MonoBehaviour:
   itemId: 58
   indentLevel: 0
   stages:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 5755b2d7e41db7547bbc0fa3671d6e42, type: 2}
+  - {fileID: 11400000, guid: 016f84f74996b884ea9e474e3ccfa16f, type: 2}
   group: {fileID: 11400000, guid: 4ceb3bd88a427654c8575d8840b1da59, type: 2}
 --- !u!114 &3752285427194896788
 MonoBehaviour:
@@ -4147,7 +4158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 59
   indentLevel: 0
-  storyText: Congrats! Now you can go gathering mats at the Power Plant!
+  storyText: Congrats! Now you can go gathering mats at the Desert and Aquarium!
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -5298,6 +5309,8 @@ MonoBehaviour:
   - {fileID: 3752285427194896771}
   - {fileID: 3752285427194896770}
   - {fileID: 3752285427194896769}
+  - {fileID: 7625205489294813872}
+  - {fileID: 5084640112988000}
   suppressAllAutoSelections: 0
 --- !u!114 &3752285427194896771
 MonoBehaviour:
@@ -5315,7 +5328,7 @@ MonoBehaviour:
   indentLevel: 0
   stages:
   - {fileID: 11400000, guid: 8e288602cb8b3e94a9babae202e0152a, type: 2}
-  - {fileID: 11400000, guid: 057bb4ba4d0818f4f8f54eb1a7475039, type: 2}
+  - {fileID: 11400000, guid: d5bc9127678ed034bbfbded479b4ffa2, type: 2}
   group: {fileID: 11400000, guid: 4ceb3bd88a427654c8575d8840b1da59, type: 2}
 --- !u!114 &3752285427194896770
 MonoBehaviour:
@@ -5331,7 +5344,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 71
   indentLevel: 0
-  storyText: Congrats! Now you can go gathering mats Downtown!
+  storyText: Congrats! Now you can go gathering mats in a real dangerous kitchen!
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -6483,3 +6496,172 @@ MonoBehaviour:
   vector3Data:
     vector3Ref: {fileID: 0}
     vector3Val: {x: 0, y: 0, z: 0}
+--- !u!114 &2867910518100354193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3752285427194896794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 83
+  indentLevel: 0
+  storyText: Hmm, the aquarium's got the stronger enemies... we'll need good Elec
+    chips for that.
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 5639546553090718800, guid: 47d8470067c04894b8bd8037c70d630d,
+    type: 3}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &2408637217038077722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3752285427194896794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 84
+  indentLevel: 0
+  storyText: And fire chips for the desert.
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: -1390264785956830372, guid: 47d8470067c04894b8bd8037c70d630d,
+    type: 3}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &1787666068430752062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3752285427194896794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 85
+  indentLevel: 0
+  storyText: That place has a lot of Elec viruses, last I remember...
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 5639546553090718800, guid: 47d8470067c04894b8bd8037c70d630d,
+    type: 3}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &7753233550645400033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3752285427194896794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 86
+  indentLevel: 0
+  storyText: Probably stronger now than they used to be. Best get some Wood cards.
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: -1390264785956830372, guid: 47d8470067c04894b8bd8037c70d630d,
+    type: 3}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &7625205489294813872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3752285427194896794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 87
+  indentLevel: 0
+  storyText: Water cards.
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 5639546553090718800, guid: 47d8470067c04894b8bd8037c70d630d,
+    type: 3}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &5084640112988000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3752285427194896794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 88
+  indentLevel: 0
+  storyText: Needless tutorial at the end of the game!
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: -1390264785956830372, guid: 47d8470067c04894b8bd8037c70d630d,
+    type: 3}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
