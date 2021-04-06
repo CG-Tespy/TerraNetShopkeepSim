@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -75,12 +76,16 @@ public class CustomerManager : MonoBehaviour
     /// </summary>
     public virtual void ClearCustomersWhoWantNothing()
     {
-        for (int i = 0; i < customersInShop.Count; i++)
+        IList<Customer> wantingNothing = (from customer in customersInShop
+                                           where !customer.WantsAnything
+                                           select customer).ToList();
+
+        while (wantingNothing.Count > 0)
         {
-            Customer customer = customersInShop[i];
-            if (!customer.WantsAnything)
-                MakeCustomerLeave(customer);
+            MakeCustomerLeave(wantingNothing[0]);
+            wantingNothing.RemoveAt(0);
         }
+
     }
 
     protected virtual void MakeCustomerLeave(Customer customer)

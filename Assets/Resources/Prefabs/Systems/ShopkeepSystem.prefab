@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1114349576295185231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 923336703261559942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea6e8f632db87477eb750446b28d73a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 12
+  indentLevel: 0
+  commenterName: 
+  commentText: for the stuff on sale
 --- !u!114 &2566811853249892777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37,22 +53,6 @@ MonoBehaviour:
   indentLevel: 0
   commenterName: 
   commentText: for regular storage
---- !u!114 &1114349576295185231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 923336703261559942}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea6e8f632db87477eb750446b28d73a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 12
-  indentLevel: 0
-  commenterName: 
-  commentText: for the stuff on sale
 --- !u!114 &3829016839131239106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6703,7 +6703,7 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 8701842603651713789}
+  - {fileID: 8701842603651713790}
   selectedCommands: []
   variables:
   - {fileID: 8701842603651713731}
@@ -10999,7 +10999,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customerPool:
-  - {fileID: 1220776494805218248, guid: e9565ca6fdc2a15488406bd477ba9011, type: 3}
+  - {fileID: 8690700482187584606, guid: e5ffdfd28df3fc3419510f3117b426f5, type: 3}
+  - {fileID: 1220776494805218248, guid: fafb5d809d171b94cbe75b64fb538392, type: 3}
+  - {fileID: 8877234126745220559, guid: 004cd1d27274b4e4fadc99a7f89cc170, type: 3}
+  - {fileID: 8877234126745220559, guid: e5e120068a2b58641b77ea01fdbdcc24, type: 3}
+  - {fileID: 7566588837765998900, guid: 25a1b891f6fc63648a17a5961287a859, type: 3}
 --- !u!114 &8701842604039151894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11025,8 +11029,9 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 8701842604039151892}
-  selectedCommands: []
+  - {fileID: 8701842604039151890}
+  selectedCommands:
+  - {fileID: 8701842604039151893}
   variables:
   - {fileID: 8701842604039151895}
   description: 
@@ -11080,7 +11085,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 1
   key: customersToBringIn
-  value: 3
+  value: 10
 --- !u!114 &8701842604039151881
 MonoBehaviour:
   m_ObjectHideFlags: 0
