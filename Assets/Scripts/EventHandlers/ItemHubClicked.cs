@@ -6,6 +6,9 @@ using Fungus;
 The itemVar property will be holding the item that the clicked hub was displaying for.")]
 public class ItemHubClicked : EventHandler
 {
+    [VariableProperty("<Value>", typeof(GameObjectVariable))]
+    [SerializeField] protected GameObjectVariable hubGameObject;
+
     [VariableProperty("<Value>", typeof(ItemVariable))]
     [SerializeField] protected ItemVariable itemVar = null;
 
@@ -15,6 +18,9 @@ public class ItemHubClicked : EventHandler
 
     [VariableProperty("<Value>", typeof(BooleanVariable))]
     [SerializeField] protected BooleanVariable battlePowerClicked;
+
+    [VariableProperty("<Value>", typeof(IntegerVariable))]
+    [SerializeField] protected IntegerVariable itemPrice;
 
     [Tooltip("This event only fires if the hub clicked is directly parented to any of these holders. If this array is empty, this responds to any and all hubs.")]
     [SerializeField] protected Transform[] hubHolders = null;
@@ -36,13 +42,7 @@ public class ItemHubClicked : EventHandler
         if (itemHub == null || !ShouldRespondToHub(itemHub))
             return;
 
-        if (itemVar != null)
-            itemVar.Value = itemHub.DisplayBase;
-        if (battlePower != null)
-            battlePower.Value = itemHub.DisplayBase as BattlePower;
-
-        if (battlePowerClicked != null)
-            battlePowerClicked.Value = itemHub.DisplayBase as BattlePower != null;
+        AssignToVarsBasedOn(itemHub);
 
         ExecuteBlock();
     }
@@ -64,4 +64,22 @@ public class ItemHubClicked : EventHandler
     }
 
     protected virtual bool RespondToAllHubs {  get { return this.hubHolders.Length == 0; } }
+
+    protected virtual void AssignToVarsBasedOn(ItemDisplayHub itemHub)
+    {
+        if (hubGameObject != null)
+            hubGameObject.Value = itemHub.gameObject;
+
+        if (itemVar != null)
+            itemVar.Value = itemHub.DisplayBase;
+
+        if (battlePower != null)
+            battlePower.Value = itemHub.DisplayBase as BattlePower;
+
+        if (battlePowerClicked != null)
+            battlePowerClicked.Value = itemHub.DisplayBase as BattlePower != null;
+
+        if (itemPrice != null)
+            itemPrice.Value = itemHub.Price;
+    }
 }

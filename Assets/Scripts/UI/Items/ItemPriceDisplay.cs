@@ -11,10 +11,22 @@ public class ItemPriceDisplay : DisplayComponent<Item>
     {
         if (DisplayBase != null)
         {
-            int priceToDisplay = (int)(DisplayBase.Price * priceMultiplier);
+            UpdatePriceToDisplay();
             priceText.text = priceToDisplay.ToString();
         }
         else
             priceText.text = "N/A";
     }
+
+    protected virtual void UpdatePriceToDisplay()
+    {
+        priceToDisplay = (int)(DisplayBase.Price * priceMultiplier);
+    }
+
+    public virtual int PriceDisplayed
+    {
+        get { return priceToDisplay; }
+    }
+
+    int priceToDisplay;
 }

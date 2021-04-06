@@ -468,9 +468,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentBlock: {fileID: 6865081771220243057}
   suppressBlockAutoSelect: 0
+  hubGameObject: {fileID: 0}
   itemVar: {fileID: 6865081771220243051}
   battlePower: {fileID: 0}
   battlePowerClicked: {fileID: 4519322701889552990}
+  itemPrice: {fileID: 0}
   hubHolders:
   - {fileID: 6865081771974972160}
 --- !u!114 &6865081771220243063
@@ -2431,7 +2433,7 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 6865081772670564849}
+  - {fileID: 6865081772670564856}
   selectedCommands: []
   variables:
   - {fileID: 6865081772670564851}
@@ -3424,7 +3426,7 @@ PrefabInstance:
         type: 3}
       propertyPath: selectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 6865081771583945478}
+      objectReference: {fileID: 6865081771583945483}
     - target: {fileID: 6231064180168853188, guid: 97933eecfd779974a8987cd06afe4c3f,
         type: 3}
       propertyPath: m_Name
@@ -3593,7 +3595,7 @@ PrefabInstance:
     - target: {fileID: 6510353859254728253, guid: 97933eecfd779974a8987cd06afe4c3f,
         type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
-      value: 1
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 7801763595178902371, guid: 97933eecfd779974a8987cd06afe4c3f,
         type: 3}
@@ -3708,16 +3710,16 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 665552685573160374}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6865081771583945486 stripped
+--- !u!114 &6865081771583945483 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6231064180168853176, guid: 97933eecfd779974a8987cd06afe4c3f,
+  m_CorrespondingSourceObject: {fileID: 6231064180168853181, guid: 97933eecfd779974a8987cd06afe4c3f,
     type: 3}
   m_PrefabInstance: {fileID: 665552685573160374}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6865081771583945586}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ca31fffe1be42a49b96bbb8b7ff5a50, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &6865081772783195622 stripped
@@ -3774,16 +3776,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb77d0ce495044f6e9feb91b31798e8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6865081771583945478 stripped
+--- !u!114 &6865081771583945486 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6231064180168853168, guid: 97933eecfd779974a8987cd06afe4c3f,
+  m_CorrespondingSourceObject: {fileID: 6231064180168853176, guid: 97933eecfd779974a8987cd06afe4c3f,
     type: 3}
   m_PrefabInstance: {fileID: 665552685573160374}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6865081771583945586}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ca31fffe1be42a49b96bbb8b7ff5a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6865081771583945586 stripped
@@ -4316,6 +4318,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443110355313306422, guid: 8dc8ba984ef17d646b37dbbd3bb9d386,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5700575041480810587, guid: 8dc8ba984ef17d646b37dbbd3bb9d386,
         type: 3}

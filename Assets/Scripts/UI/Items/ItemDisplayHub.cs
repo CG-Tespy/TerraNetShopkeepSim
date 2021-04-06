@@ -1,7 +1,11 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
 
 public class ItemDisplayHub : DisplayHub<Item>
 {
+    [SerializeField] ItemPriceDisplay showsPrice;
+
     public static List<ItemDisplayHub> InScene { get; } = new List<ItemDisplayHub>();
 
     protected override void Awake()
@@ -26,5 +30,13 @@ public class ItemDisplayHub : DisplayHub<Item>
         {
             this.DisplayBase = value;
         }
+    }
+
+    /// <summary>
+    /// The price as shown by the price display.
+    /// </summary>
+    public virtual int Price
+    {
+        get { return showsPrice.PriceDisplayed; }
     }
 }
