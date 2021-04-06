@@ -2,7 +2,6 @@
 using UnityEngine;
 using Fungus;
 
-
 [CommandInfo("Shopkeep/Inventory",
     "Add to BPLs From Inventories",
     @"Adds all Battle Powers from the specified inventories to the specified Battle Power Loadouts.")]
@@ -11,6 +10,8 @@ public class AddToBPLsFromInventories : Command
 {
     [SerializeField] protected ShopInventoryData[] inventories = { };
     [SerializeField] protected ObjectData[] loadouts = { };
+    [Tooltip("Whether or not the battle powers added should be removed from the inventories")]
+    [SerializeField] protected BooleanData removeFromInventories;
 
     public override void OnEnter()
     {
@@ -21,7 +22,7 @@ public class AddToBPLsFromInventories : Command
             foreach (Object loadoutObj in loadouts)
             {
                 BattlePowerLoadout actualLoadout = loadoutObj as BattlePowerLoadout;
-                CopyPowersToInventory(sourceInv, actualLoadout);
+                AddPowersToInventory(sourceInv, actualLoadout);
             }
         }
 
@@ -31,14 +32,18 @@ public class AddToBPLsFromInventories : Command
     /// <summary>
     /// Well, more like add references to the originals to the target inv.
     /// </summary>
-    protected virtual void CopyPowersToInventory(ShopInventory sourceInv, BattlePowerLoadout targetLoadout)
+    protected virtual void AddPowersToInventory(ShopInventory sourceInv, BattlePowerLoadout targetLoadout)
     {
         IList<BattlePower> powersInSource = CollectionSOUtil.GetAllOfSubtype<Item, BattlePower>(sourceInv.Items);
 
         foreach (var power in powersInSource)
         {
             targetLoadout.Add(power);
+            if (removeFromInventories)
+                sourceInv.Remove(power);
         }
     }
+
+
 
 }
