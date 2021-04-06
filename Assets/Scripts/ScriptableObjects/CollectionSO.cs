@@ -18,6 +18,12 @@ public abstract class CollectionSO<T> : ScriptableObject
         get { return contents; }
     }
 
+    public virtual bool ResetOnEditorEnable
+    {
+        get { return resetOnEditorEnable; }
+        set { resetOnEditorEnable = value; }
+    }
+
     public virtual string Name { get { return name; } }
 
     protected virtual void OnEnable()

@@ -2140,8 +2140,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 22
   indentLevel: 0
-  targetFlowchart: {fileID: 1791951781}
-  targetBlock: {fileID: 1791951777}
+  targetFlowchart: {fileID: 0}
+  targetBlock: {fileID: 0}
   startLabel:
     stringRef: {fileID: 0}
     stringVal: 
@@ -10777,6 +10777,22 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8701842604039151880, guid: 7522c80d47a8cf944b4bf0384075185a,
+        type: 3}
+      propertyPath: customerPool.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8701842604039151880, guid: 7522c80d47a8cf944b4bf0384075185a,
+        type: 3}
+      propertyPath: customerPool.Array.data[0]
+      value: 
+      objectReference: {fileID: 8877234126745220559, guid: e5e120068a2b58641b77ea01fdbdcc24,
+        type: 3}
+    - target: {fileID: 8701842604039151895, guid: 7522c80d47a8cf944b4bf0384075185a,
+        type: 3}
+      propertyPath: value
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8701842604050549301, guid: 7522c80d47a8cf944b4bf0384075185a,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -11635,18 +11651,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1791951777 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2393287906702109360, guid: df2821310b3aa3646ac08a860f339f36,
-    type: 3}
-  m_PrefabInstance: {fileID: 1791951772}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1791951778
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -11710,18 +11714,6 @@ MonoBehaviour:
   parentBlock: {fileID: 1791951779}
   suppressBlockAutoSelect: 0
   waitForFrames: 1
---- !u!114 &1791951781 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3239121315574082741, guid: df2821310b3aa3646ac08a860f339f36,
-    type: 3}
-  m_PrefabInstance: {fileID: 1791951772}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1843379417 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8701842602800010337, guid: 7522c80d47a8cf944b4bf0384075185a,
