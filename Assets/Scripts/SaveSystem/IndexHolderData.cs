@@ -11,7 +11,7 @@ public class IndexHolderData : SaveData
     
 }
 
-public interface ICollectionSOData: ISaveData
+public interface ICollectionSOData
 {
     IList<int> ContentIndexes { get; set; }
     string CollectionName { get; set; }

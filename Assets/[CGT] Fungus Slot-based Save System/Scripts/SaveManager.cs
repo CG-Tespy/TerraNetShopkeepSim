@@ -310,6 +310,7 @@ namespace CGTUnity.Fungus.SaveSystem
                 {
                     var filePath = SaveDirectory + fileName;
                     File.Delete(filePath);
+                    File.Delete(filePath + ".meta");
                     eraseSuccessful = true;
                     Signals.GameSaveErased.Invoke(saveData, filePath, fileName);
                     break;

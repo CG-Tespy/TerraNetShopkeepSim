@@ -4,7 +4,7 @@ using UnityEngine;
 namespace CGTUnity.Fungus.SaveSystem
 {
     [System.Serializable]
-    public class SaveData : ISaveData
+    public class SaveData 
     {
         [SerializeField] string sceneName;
 
@@ -58,11 +58,5 @@ namespace CGTUnity.Fungus.SaveSystem
             return newItem;
         }
 
-    }
-
-    public interface ISaveData
-    {
-        string SceneName { get; }
-        void Clear();
     }
 }
