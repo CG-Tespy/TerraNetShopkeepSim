@@ -2182,7 +2182,7 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 3752285427083068261}
+  - {fileID: 3752285427083068266}
   selectedCommands: []
   variables:
   - {fileID: 3752285427083068272}
@@ -3947,6 +3947,9 @@ GameObject:
   - component: {fileID: 7753233550645400033}
   - component: {fileID: 7625205489294813872}
   - component: {fileID: 5084640112988000}
+  - component: {fileID: 8961617957580932241}
+  - component: {fileID: 5449607253084573884}
+  - component: {fileID: 4423145064297247811}
   m_Layer: 0
   m_Name: StageUnlocker
   m_TagString: Untagged
@@ -3993,9 +3996,9 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 3752285427194896774}
+  - {fileID: 3752285427194896785}
   selectedCommands:
-  - {fileID: 3752285427194896778}
+  - {fileID: 5449607253084573884}
   variables:
   - {fileID: 3752285427194896780}
   - {fileID: 3752285427194896787}
@@ -4088,6 +4091,8 @@ MonoBehaviour:
   - {fileID: 3752285427194896791}
   - {fileID: 1787666068430752062}
   - {fileID: 7753233550645400033}
+  - {fileID: 5449607253084573884}
+  - {fileID: 4423145064297247811}
   suppressAllAutoSelections: 0
 --- !u!114 &3752285427194896784
 MonoBehaviour:
@@ -4162,6 +4167,7 @@ MonoBehaviour:
   - {fileID: 3752285427194896789}
   - {fileID: 3752285427194896788}
   - {fileID: 2867910518100354193}
+  - {fileID: 8961617957580932241}
   - {fileID: 2408637217038077722}
   suppressAllAutoSelections: 0
 --- !u!114 &3752285427194896789
@@ -4908,7 +4914,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d02d9822eec54c98afe95bb497211b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scope: 0
+  scope: 2
   key: firstUnlockHandled
   value: 0
 --- !u!114 &3752285427194896782
@@ -4923,7 +4929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d02d9822eec54c98afe95bb497211b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scope: 0
+  scope: 2
   key: secondUnlockHandled
   value: 0
 --- !u!114 &3752285427194896768
@@ -5864,7 +5870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d02d9822eec54c98afe95bb497211b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scope: 0
+  scope: 2
   key: thirdUnlockHandled
   value: 0
 --- !u!114 &5569999354186970263
@@ -6290,7 +6296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d02d9822eec54c98afe95bb497211b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scope: 0
+  scope: 2
   key: starterStagesUnlocked
   value: 0
 --- !u!114 &954952420811432343
@@ -6459,8 +6465,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 83
   indentLevel: 0
-  storyText: Hmm, the aquarium's got the stronger enemies... we'll need good Elec
-    chips for that.
+  storyText: Hmm, the aquarium's got the stronger enemies...
   description: 
   character: {fileID: 0}
   portrait: {fileID: 5639546553090718800, guid: 47d8470067c04894b8bd8037c70d630d,
@@ -6547,8 +6552,7 @@ MonoBehaviour:
   storyText: Probably stronger now than they used to be. Best get some Wood cards.
   description: 
   character: {fileID: 0}
-  portrait: {fileID: -1390264785956830372, guid: 47d8470067c04894b8bd8037c70d630d,
-    type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -6604,6 +6608,91 @@ MonoBehaviour:
   description: 
   character: {fileID: 0}
   portrait: {fileID: -1390264785956830372, guid: 47d8470067c04894b8bd8037c70d630d,
+    type: 3}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &8961617957580932241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3752285427194896794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 89
+  indentLevel: 0
+  storyText: We'll need good Elec chips for that.
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 5639546553090718800, guid: 47d8470067c04894b8bd8037c70d630d,
+    type: 3}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &5449607253084573884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3752285427194896794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 90
+  indentLevel: 0
+  storyText: And maybe avoid using Elec ones... You know the thing about elemental
+    viruses?
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: -1390264785956830372, guid: 47d8470067c04894b8bd8037c70d630d,
+    type: 3}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &4423145064297247811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3752285427194896794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 91
+  indentLevel: 0
+  storyText: '{color=orange}They resist their own elements.{/color}'
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 5639546553090718800, guid: 47d8470067c04894b8bd8037c70d630d,
     type: 3}
   voiceOverClip: {fileID: 0}
   showAlways: 1

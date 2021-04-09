@@ -919,30 +919,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &233710704 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7784812402618637630, guid: df2821310b3aa3646ac08a860f339f36,
-    type: 3}
-  m_PrefabInstance: {fileID: 233710702}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &233710705 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 535630929554032136, guid: df2821310b3aa3646ac08a860f339f36,
-    type: 3}
-  m_PrefabInstance: {fileID: 233710702}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &283205733
 GameObject:
   m_ObjectHideFlags: 0
@@ -1052,7 +1028,6 @@ GameObject:
   - component: {fileID: 321768681}
   - component: {fileID: 321768688}
   - component: {fileID: 321768691}
-  - component: {fileID: 321768693}
   m_Layer: 0
   m_Name: Story
   m_TagString: Untagged
@@ -1086,7 +1061,6 @@ MonoBehaviour:
   eventHandler: {fileID: 0}
   commandList:
   - {fileID: 321768692}
-  - {fileID: 321768693}
   - {fileID: 321768678}
   - {fileID: 321768687}
   - {fileID: 321768682}
@@ -1117,9 +1091,8 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 321768675}
-  selectedCommands:
-  - {fileID: 321768693}
+  - {fileID: 321768683}
+  selectedCommands: []
   variables:
   - {fileID: 321768679}
   description: 
@@ -1496,27 +1469,6 @@ MonoBehaviour:
   itemId: 18
   indentLevel: 0
   key: OpeningSequence
---- !u!114 &321768693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 321768674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 27
-  indentLevel: 0
-  targetFlowchart: {fileID: 233710705}
-  targetBlock: {fileID: 233710704}
-  startLabel:
-    stringRef: {fileID: 0}
-    stringVal: 
-  startIndex: 0
-  callMode: 1
 --- !u!1 &385996766
 GameObject:
   m_ObjectHideFlags: 1
@@ -1546,7 +1498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 321768676}
+  selectedFlowchart: {fileID: 0}
 --- !u!4 &385996768
 Transform:
   m_ObjectHideFlags: 1
