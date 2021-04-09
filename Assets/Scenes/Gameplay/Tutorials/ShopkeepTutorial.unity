@@ -2777,7 +2777,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 515880556}
   selectedCommands:
-  - {fileID: 515880580}
+  - {fileID: 515880566}
   variables:
   - {fileID: 515880563}
   - {fileID: 515880570}
@@ -3795,9 +3795,9 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 575072885}
+  - {fileID: 575072902}
   selectedCommands:
-  - {fileID: 575072883}
+  - {fileID: 575072903}
   variables:
   - {fileID: 575072882}
   - {fileID: 575072890}
@@ -5084,7 +5084,6 @@ GameObject:
   - component: {fileID: 1084331419}
   - component: {fileID: 1084331425}
   - component: {fileID: 1084331432}
-  - component: {fileID: 1084331431}
   - component: {fileID: 1084331445}
   - component: {fileID: 1084331414}
   - component: {fileID: 1084331413}
@@ -5126,6 +5125,7 @@ GameObject:
   - component: {fileID: 1084331464}
   - component: {fileID: 1084331465}
   - component: {fileID: 1084331426}
+  - component: {fileID: 1084331427}
   m_Layer: 0
   m_Name: ShopkeepTutorials
   m_TagString: Untagged
@@ -5160,7 +5160,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 1084331418}
   selectedCommands:
-  - {fileID: 1084331426}
+  - {fileID: 1084331435}
   variables:
   - {fileID: 1084331422}
   - {fileID: 1084331421}
@@ -5819,11 +5819,11 @@ MonoBehaviour:
   - {fileID: 1084331451}
   - {fileID: 1084331455}
   - {fileID: 1084331457}
+  - {fileID: 1084331427}
   - {fileID: 1084331462}
   - {fileID: 1084331417}
   - {fileID: 1084331426}
   - {fileID: 1084331465}
-  - {fileID: 1084331431}
   suppressAllAutoSelections: 0
 --- !u!114 &1084331419
 MonoBehaviour:
@@ -6317,22 +6317,27 @@ MonoBehaviour:
   vector3Data:
     vector3Ref: {fileID: 0}
     vector3Val: {x: 0, y: 0, z: 0}
---- !u!114 &1084331431
+--- !u!114 &1084331427
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1084331400}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea6e8f632db87477eb750446b28d73a3, type: 3}
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 20
+  itemId: 87
   indentLevel: 0
-  commenterName: 
-  commentText: The tut continues when the Show Storage button is clicked
+  targetFlowchart: {fileID: 1489434679}
+  targetBlock: {fileID: 1752101596}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 1
 --- !u!114 &1084331432
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -7716,6 +7721,7 @@ GameObject:
   - component: {fileID: 1422237090}
   - component: {fileID: 1422237089}
   - component: {fileID: 1422237087}
+  - component: {fileID: 1422237088}
   m_Layer: 0
   m_Name: MasterInit
   m_TagString: Untagged
@@ -7744,6 +7750,27 @@ MonoBehaviour:
     stringVal: 
   startIndex: 0
   callMode: 2
+--- !u!114 &1422237088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422237086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 29
+  indentLevel: 0
+  targetFlowchart: {fileID: 2086525616378428464}
+  targetBlock: {fileID: 2086525616378428463}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 1
 --- !u!114 &1422237089
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -7871,6 +7898,7 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 1422237107}
   commandList:
+  - {fileID: 1422237088}
   - {fileID: 1422237090}
   - {fileID: 1422237087}
   - {fileID: 1422237089}
@@ -7899,8 +7927,10 @@ MonoBehaviour:
     y: 0
     width: 0
     height: 0
-  selectedBlocks: []
-  selectedCommands: []
+  selectedBlocks:
+  - {fileID: 1422237108}
+  selectedCommands:
+  - {fileID: 1422237088}
   variables:
   - {fileID: 1422237093}
   - {fileID: 1422237092}
@@ -9135,6 +9165,36 @@ PrefabInstance:
     - target: {fileID: 5517425435613919461, guid: 7522c80d47a8cf944b4bf0384075185a,
         type: 3}
       propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737217986296309698, guid: 7522c80d47a8cf944b4bf0384075185a,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737217986296309698, guid: 7522c80d47a8cf944b4bf0384075185a,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737217986296309698, guid: 7522c80d47a8cf944b4bf0384075185a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737217986296309698, guid: 7522c80d47a8cf944b4bf0384075185a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737217986296309698, guid: 7522c80d47a8cf944b4bf0384075185a,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737217986296309698, guid: 7522c80d47a8cf944b4bf0384075185a,
+        type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5739930447431943153, guid: 7522c80d47a8cf944b4bf0384075185a,
@@ -11152,18 +11212,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1489434680 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8701842604039151894, guid: 7522c80d47a8cf944b4bf0384075185a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1489434669}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1489434690 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8701842603154732637, guid: 7522c80d47a8cf944b4bf0384075185a,
@@ -11205,7 +11253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1489434680}
+  selectedFlowchart: {fileID: 515880564}
 --- !u!4 &1508476116
 Transform:
   m_ObjectHideFlags: 1
@@ -11448,6 +11496,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1489434669}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1752101596 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3080268850756661706, guid: 7522c80d47a8cf944b4bf0384075185a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1489434669}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1786858663 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8701842603112682358, guid: 7522c80d47a8cf944b4bf0384075185a,
@@ -11991,6 +12051,30 @@ MonoBehaviour:
 --- !u!114 &2086525616378428462 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2989865549163412479, guid: 093f7f080ae4da2418c2e5047864a8aa,
+    type: 3}
+  m_PrefabInstance: {fileID: 2086525616378428458}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2086525616378428463 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3790803551383920112, guid: 093f7f080ae4da2418c2e5047864a8aa,
+    type: 3}
+  m_PrefabInstance: {fileID: 2086525616378428458}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2086525616378428464 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5904359204266589942, guid: 093f7f080ae4da2418c2e5047864a8aa,
     type: 3}
   m_PrefabInstance: {fileID: 2086525616378428458}
   m_PrefabAsset: {fileID: 0}
