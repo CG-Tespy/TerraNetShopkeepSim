@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1966934628}
+  selectedFlowchart: {fileID: 480227873}
 --- !u!4 &14398974
 Transform:
   m_ObjectHideFlags: 1
@@ -579,9 +579,11 @@ GameObject:
   - component: {fileID: 480227867}
   - component: {fileID: 480227875}
   - component: {fileID: 480227870}
-  - component: {fileID: 480227876}
   - component: {fileID: 480227877}
   - component: {fileID: 480227868}
+  - component: {fileID: 480227879}
+  - component: {fileID: 480227878}
+  - component: {fileID: 480227876}
   m_Layer: 0
   m_Name: StageLoader
   m_TagString: Untagged
@@ -681,6 +683,8 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 0}
   commandList:
+  - {fileID: 480227879}
+  - {fileID: 480227878}
   - {fileID: 480227876}
   - {fileID: 480227868}
   suppressAllAutoSelections: 0
@@ -724,9 +728,9 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 480227875}
+  - {fileID: 480227871}
   selectedCommands:
-  - {fileID: 480227877}
+  - {fileID: 480227878}
   variables:
   - {fileID: 480227872}
   - {fileID: 480227869}
@@ -784,24 +788,25 @@ MonoBehaviour:
   suppressAllAutoSelections: 0
 --- !u!114 &480227876
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 480227866}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 207aecf668a0345388087ccf522f9957, type: 3}
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 5
+  itemId: 12
   indentLevel: 0
-  duration: 1
-  targetAlpha: 1
-  waitUntilFinished: 1
-  fadeColor: {r: 0, g: 0, b: 0, a: 1}
-  fadeTexture: {fileID: 0}
-  fadeTweenType: 4
+  targetFlowchart: {fileID: 1736881687}
+  targetBlock: {fileID: 1736881688}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 1
 --- !u!114 &480227877
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -820,6 +825,48 @@ MonoBehaviour:
   displayPrefab: {fileID: 5084778877970454350, guid: b112a19bb04196e4a9ea2a24da668204,
     type: 3}
   displayHolder: {fileID: 2104085101}
+--- !u!114 &480227878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480227866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 11
+  indentLevel: 0
+  targetFlowchart: {fileID: 1736881691}
+  targetBlock: {fileID: 1736881690}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 2
+--- !u!114 &480227879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480227866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 10
+  indentLevel: 0
+  targetFlowchart: {fileID: 1736881687}
+  targetBlock: {fileID: 1736881689}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 1
 --- !u!1 &488047134
 GameObject:
   m_ObjectHideFlags: 0
@@ -4215,6 +4262,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1736881688 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4897890532968372559, guid: 093f7f080ae4da2418c2e5047864a8aa,
+    type: 3}
+  m_PrefabInstance: {fileID: 1736881685}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1736881689 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1531484156842573547, guid: 093f7f080ae4da2418c2e5047864a8aa,
+    type: 3}
+  m_PrefabInstance: {fileID: 1736881685}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1736881690 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5545496888528735259, guid: 093f7f080ae4da2418c2e5047864a8aa,
+    type: 3}
+  m_PrefabInstance: {fileID: 1736881685}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1736881691 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2989865549163412479, guid: 093f7f080ae4da2418c2e5047864a8aa,
+    type: 3}
+  m_PrefabInstance: {fileID: 1736881685}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1791507384
 GameObject:
   m_ObjectHideFlags: 0
@@ -5130,7 +5225,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 1966934627}
   selectedCommands:
-  - {fileID: 1966934629}
+  - {fileID: 1966934634}
   variables: []
   description: 
   stepPause: 0

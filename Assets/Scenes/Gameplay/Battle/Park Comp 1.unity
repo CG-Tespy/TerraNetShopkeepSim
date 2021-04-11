@@ -1176,18 +1176,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &669422368 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6400261714440113067, guid: ebd71f132998d2447b27fa24833046ba,
-    type: 3}
-  m_PrefabInstance: {fileID: 1159822877}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d02d9822eec54c98afe95bb497211b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &677760884
 GameObject:
   m_ObjectHideFlags: 0
@@ -2335,6 +2323,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -105
+      objectReference: {fileID: 0}
+    - target: {fileID: 8708800235067336512, guid: ebd71f132998d2447b27fa24833046ba,
+        type: 3}
+      propertyPath: commandList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8708800235067336512, guid: ebd71f132998d2447b27fa24833046ba,
+        type: 3}
+      propertyPath: commandList.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8708800235067336512, guid: ebd71f132998d2447b27fa24833046ba,
+        type: 3}
+      propertyPath: commandList.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8708800235067336512, guid: ebd71f132998d2447b27fa24833046ba,
+        type: 3}
+      propertyPath: commandList.Array.data[4]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 9044979703674977793, guid: ebd71f132998d2447b27fa24833046ba,
         type: 3}
@@ -3554,6 +3562,7 @@ GameObject:
   - component: {fileID: 1898379412}
   - component: {fileID: 1898379413}
   - component: {fileID: 1898379414}
+  - component: {fileID: 1898379394}
   m_Layer: 0
   m_Name: Tutorial
   m_TagString: Untagged
@@ -3606,7 +3615,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 218
     y: 125
-    width: 133
+    width: 135.56702
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3629,6 +3638,21 @@ MonoBehaviour:
   - {fileID: 1898379414}
   - {fileID: 1898379391}
   suppressAllAutoSelections: 0
+--- !u!114 &1898379394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898379390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d02d9822eec54c98afe95bb497211b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scope: 2
+  key: battleTut
+  value: 0
 --- !u!114 &1898379395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3642,20 +3666,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 0, y: 0}
+  scrollPos: {x: 5.7216463, y: 11.44329}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
-  zoom: 1
+  zoom: 0.97
   scrollViewRect:
     serializedVersion: 2
     x: 0
     y: 0
     width: 0
     height: 0
-  selectedBlocks: []
-  selectedCommands: []
-  variables: []
+  selectedBlocks:
+  - {fileID: 1898379393}
+  selectedCommands:
+  - {fileID: 1898379397}
+  variables:
+  - {fileID: 1898379394}
   description: 
   stepPause: 0
   colorCommands: 1
@@ -3701,7 +3728,7 @@ MonoBehaviour:
   conditions:
   - compareOperator: 0
     anyVar:
-      variable: {fileID: 669422368}
+      variable: {fileID: 1898379394}
       data:
         animatorData:
           animatorRef: {fileID: 0}
@@ -3985,7 +4012,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 531
     y: 126
-    width: 193
+    width: 197.42267
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -4531,7 +4558,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 533
     y: 230
-    width: 155
+    width: 158.24742
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
