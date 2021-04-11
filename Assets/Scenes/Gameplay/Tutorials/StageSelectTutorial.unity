@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1958578461}
+  selectedFlowchart: {fileID: 1966934628}
 --- !u!4 &14398974
 Transform:
   m_ObjectHideFlags: 1
@@ -4951,6 +4951,7 @@ GameObject:
   - component: {fileID: 1966934637}
   - component: {fileID: 1966934636}
   - component: {fileID: 1966934634}
+  - component: {fileID: 1966934629}
   m_Layer: 5
   m_Name: ToBattleButton
   m_TagString: Untagged
@@ -5099,6 +5100,7 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 1966934626}
   commandList:
+  - {fileID: 1966934629}
   - {fileID: 1966934634}
   suppressAllAutoSelections: 0
 --- !u!114 &1966934628
@@ -5127,7 +5129,8 @@ MonoBehaviour:
     height: 0
   selectedBlocks:
   - {fileID: 1966934627}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 1966934629}
   variables: []
   description: 
   stepPause: 0
@@ -5139,6 +5142,28 @@ MonoBehaviour:
   hideCommands: []
   luaEnvironment: {fileID: 0}
   luaBindingName: flowchart
+--- !u!114 &1966934629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966934621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab0d0ed4a2ca94c81a230a0ecce6e6e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 24
+  indentLevel: 0
+  targetObjects:
+  - {fileID: 656322041}
+  interactableState:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  applyToChildren:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
 --- !u!114 &1966934634
 MonoBehaviour:
   m_ObjectHideFlags: 2
