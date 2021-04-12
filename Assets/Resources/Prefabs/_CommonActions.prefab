@@ -2256,6 +2256,7 @@ GameObject:
   - component: {fileID: 6546103636631235273}
   - component: {fileID: 56860202}
   - component: {fileID: 5098909015030923879}
+  - component: {fileID: 2627241109720292416}
   m_Layer: 0
   m_Name: _CommonSoundActions
   m_TagString: Untagged
@@ -2302,9 +2303,9 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 1535401400}
+  - {fileID: 2632302390428571284}
   selectedCommands:
-  - {fileID: 56860202}
+  - {fileID: 2627241109720292416}
   variables:
   - {fileID: 1535401401}
   description: 
@@ -2433,7 +2434,7 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 0}
   commandList:
-  - {fileID: 0}
+  - {fileID: 2627241109720292416}
   suppressAllAutoSelections: 0
 --- !u!114 &1535401400
 MonoBehaviour:
@@ -2807,6 +2808,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 33
   indentLevel: 0
+--- !u!114 &2627241109720292416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4369050189643219563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1902400ccc99b45d69ad01cb86b57d0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 34
+  indentLevel: 0
+  musicClip: {fileID: 8300000, guid: 0e9ad59c86474db41b6b8a42285e3587, type: 3}
+  atTime: 0
+  loop: 1
+  fadeDuration: 0.2
 --- !u!1001 &1867546032442057017
 PrefabInstance:
   m_ObjectHideFlags: 0
