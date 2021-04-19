@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+
 [CreateAssetMenu(fileName = "NewRecipe", menuName = "Shopkeep/Crafting/Recipe")]
 public class Recipe : Item
 {
@@ -27,5 +28,6 @@ public class Recipe : Item
                 return base.Sprite;
         }
     }
+
 
 }

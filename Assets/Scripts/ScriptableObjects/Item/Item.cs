@@ -5,7 +5,7 @@ using System.Collections.Generic;
 /// Basically for making blueprints of items in the editor.
 /// </summary>
 [CreateAssetMenu(fileName = "NewItem", menuName = "Shopkeep/Item")]
-public class Item : ScriptableObject
+public class Item : ScriptableObject, System.IComparable<Item>
 {
     [SerializeField] Sprite sprite = null;
     [SerializeField] string displayName = "";
@@ -37,4 +37,8 @@ public class Item : ScriptableObject
         return DisplayName;
     }
 
+    public int CompareTo(Item other)
+    {
+        return this.Name.CompareTo(other.Name);
+    }
 }

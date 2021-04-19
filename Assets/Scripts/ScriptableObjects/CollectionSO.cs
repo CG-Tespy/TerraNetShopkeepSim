@@ -128,6 +128,11 @@ public abstract class CollectionSO<T> : ScriptableObject
 
     protected static Predicate<T> nullItems = (item) => item == null;
 
+    public virtual void OrganizeAlphabetically()
+    {
+        contents.Sort();
+    }
+
 }
 
 public static class CollectionSOUtil
